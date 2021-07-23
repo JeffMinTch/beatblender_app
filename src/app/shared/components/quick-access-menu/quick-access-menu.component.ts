@@ -36,29 +36,29 @@ export class QuickAccessMenuComponent implements OnInit {
 
   }
 
-  setBackgroundColor(index: number) {
-    switch (index) {
-      case 0:
-        return 'var(--body-color)'
+  // setBackgroundColor(index: number) {
+  //   switch (index) {
+  //     case 0:
+  //       return 'var(--body-color)'
+  //     case 1:
+  //       return 'var(--primary-color)'
+  //     case 2:
+  //       return 'var(--accent-color)'
+  //     case 3:
+  //       return 'var(--)'
+  //   }
+  // }
 
-      case 1:
-        return 'var(--primary-color)'
-      case 2:
-        return 'var(--accent-color)'
 
-    }
-  }
-
-
-  setIconColor(index: number) {
-    switch (index) {
-      case 0:
-        return 'var(--light-theme)'
-      case 1:
-        return 'var(--light-theme)'
-      case 2: {
-        return 'var(--light-theme)'
-      }
-    }
-  }
+  // setIconColor(index: number) {
+  //   switch (index) {
+  //     case 0:
+  //       return 'var(--light-theme)'
+  //     case 1:
+  //       return 'var(--light-theme)'
+  //     case 2: {
+  //       return 'var(--light-theme)'
+  //     }
+  //   }
+  // }
 }

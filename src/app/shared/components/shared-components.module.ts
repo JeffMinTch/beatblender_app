@@ -1,3 +1,4 @@
+import { EditAudioUnitComponent } from './dialogs/edit-audio-unit/edit-audio-unit.component';
 import { IconButtonDirective } from './icon-button/icon-button.directive';
 import { IconButtonComponent } from './icon-button/icon-button.component';
 import { SimpleDialogComponent } from './dialogs/simple-dialog/simple-dialog.component';
@@ -101,7 +102,8 @@ const components = [
   SimpleInputDialogComponent,
   SimpleDialogComponent,
   IconButtonComponent,
-  IconButtonDirective
+  IconButtonDirective,
+  EditAudioUnitComponent
 ]
 
 @NgModule({

@@ -8,6 +8,11 @@ import { environment } from 'environments/environment'
 import { Observable, Subject } from 'rxjs';
 import { map, share } from 'rxjs/operators';
 import { SamplePage } from 'app/shared/models/sample-page.model';
+import { MyUploads } from 'app/shared/models/my-uploads.model';
+import { AudioUnit } from 'app/shared/models/audio-unit.model';
+import { Sample } from 'app/shared/models/sample.model';
+import { Track } from 'app/shared/models/track.model';
+
 
 
 
@@ -29,11 +34,20 @@ export class AudioWebService {
 
   private ROOT = environment.apiURL.baseUrl;
   private PUBLIC_AUDIO = this.ROOT + environment.apiURL.audioPath.public.root;
+  private PROTECTED_AUDIO = this.ROOT + environment.apiURL.audioPath.protected.root;
+
   private samplesHomeApi: string = this.PUBLIC_AUDIO + environment.apiURL.audioPath.public.samplesHome;
   private TRACKS_HOME: string = this.PUBLIC_AUDIO + environment.apiURL.audioPath.public.tracksHome;
   private findByStringApi: string = this.PUBLIC_AUDIO + environment.apiURL.audioPath.public.findByString;
   private applySampleSearchFilterApi: string = this.PUBLIC_AUDIO + environment.apiURL.audioPath.public.filterSamples;
   private FILTER_TRACKS: string = this.PUBLIC_AUDIO + environment.apiURL.audioPath.public.filterTracks;
+  private GET_UPLOADS: string = this.PROTECTED_AUDIO + environment.apiURL.audioPath.protected.getUploads;
+  private UPDATE_TITLE: string = this.PROTECTED_AUDIO + environment.apiURL.audioPath.protected.updateTitle;
+  private UPDATE_GENRE: string = this.PROTECTED_AUDIO + environment.apiURL.audioPath.protected.updateGenre;
+  private UPDATE_TEMPO: string = this.PROTECTED_AUDIO + environment.apiURL.audioPath.protected.updateTempo;
+  private UPDATE_MOODS: string = this.PROTECTED_AUDIO + environment.apiURL.audioPath.protected.updateMoods;
+  private UPDATE_TAGS: string = this.PROTECTED_AUDIO + environment.apiURL.audioPath.protected.updateTags;
+
 
   public getSamplePage(params: any): Observable<SamplePage> {
     return this.httpClient.get(this.samplesHomeApi, { params }).pipe(map((res: SamplePage) => { return res }), share());
@@ -62,7 +76,11 @@ export class AudioWebService {
 
   public applySearchFilter(searchString: string, searchFilterFormMap: SearchFilterFormMap, audioUnitType: AudioUnitType, paginationRequestParams: PaginationRequestParams): void {
     const formData: FormData = new FormData();
-    formData.append('searchString', searchString);
+    if(searchString) {
+      formData.append('searchString', searchString);
+    } else {
+      formData.append('searchString', '');
+    }
     formData.append('sortBy', paginationRequestParams.sortBy);
     formData.append('pageNo', JSON.stringify(paginationRequestParams.pageNo));
     formData.append('pageSize', JSON.stringify(paginationRequestParams.pageSize));
@@ -116,6 +134,44 @@ export class AudioWebService {
   filterTracks(params: HttpParams): Observable<TrackPage> {
     return this.httpClient.get(this.FILTER_TRACKS, { params: params}).pipe(map((trackPage: TrackPage) => trackPage));
   }
+
+  getUploads(): Observable<MyUploads> {
+    return this.httpClient.get(this.GET_UPLOADS).pipe(map((myUploads: MyUploads) => myUploads));
+  }
+
+  updateTitle(title: string, audioUnit: AudioUnit): Observable<Sample | Track> {
+    const formData: FormData = new FormData();
+    formData.append('title', title);
+    formData.append('audioUnitID', audioUnit.audioUnitID);
+    console.log(title);
+    return this.httpClient.patch(this.UPDATE_TITLE, formData).pipe(map((audioUnit: Sample | Track) => audioUnit));
+  }
+
+  updateTempo(tempo: number, audioUnit: AudioUnit): Observable<Sample | Track> {
+    const formData: FormData = new FormData();
+    formData.append('tempo', JSON.stringify(tempo));
+    formData.append('audioUnitID', audioUnit.audioUnitID);
+    return this.httpClient.patch(this.UPDATE_TEMPO, formData).pipe(map((audioUnit: Sample | Track) => audioUnit));
+  }
+
+  updateGenre(genre: string, audioUnit: AudioUnit): Observable<Sample | Track> {
+    const formData: FormData = new FormData();
+    formData.append('genre', genre);
+    formData.append('audioUnitID', audioUnit.audioUnitID);
+    return this.httpClient.patch(this.UPDATE_GENRE, formData).pipe(map((audioUnit: Sample | Track) => audioUnit));
+  }
+
+
+  // updateTitle(title: string): Observable<any> {
+  //   const formData: FormData = new FormData();
+  //   formData.append('title', title);
+  //   return this.httpClient.put(this.UPDATE_TITLE, formData);
+  // }
+  // updateTitle(title: string): Observable<any> {
+  //   const formData: FormData = new FormData();
+  //   formData.append('title', title);
+  //   return this.httpClient.put(this.UPDATE_TITLE, formData);
+  // }
 
   
 

@@ -10,12 +10,18 @@ export const config = {
         searchSingleAudio: '/search-single-audio',
         searchMusicByInput: '/searchMusicByInput',
         filterSamples: '/filter-samples',
-        filterTracks: '/filter-tracks',
-        
+        filterTracks: '/filter-tracks'
+         
       },
       protected: {
         root: '/protected/audio',
         uploadSamples: '/upload-samples',
+        getUploads: '/get-uploads',
+        updateTitle: '/update-title',
+        updateGenre: '/update-genre',
+        updateTempo: '/update-tempo',
+        updateMoods: '/update-moods',
+        updateTags: '/update-tags'
       }
     },
     userPath: {

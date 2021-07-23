@@ -1,0 +1,314 @@
+<h1 mat-dialog-title fxLayout fxLayoutAlign="start center">
+  <mat-icon class="mr-8">edit</mat-icon>
+  Edit {{getTitle(data.audioUnitDataType)}}
+</h1>
+<div mat-dialog-content>
+  <p>
+    {{getFirstParagraph(data.audioUnitDataType)}}
+  </p>
+
+</div>
+<form [formGroup]="formGroup">
+  <ng-template matStepLabel>Form Group</ng-template>
+  <div fxLayout="column wrap">
+    <!-- <div fxLayout="row wrap" class="pr-16 py-8"> -->
+    <ng-container *ngIf="isFormControl('title')">
+      <div fxFlex="100" fxFlex.gt-xs="70" class="px-8">
+
+        <mat-form-field appearance="outline" class="full-width" (keyup.enter)="$event.preventDefault()">
+          <mat-label>Whats the name of your sample?</mat-label>
+          <input matInput name="title" formControlName="title" spellcheck="false" autocomplete="off">
+          <!-- <mat-hint>Enter more than 2 letters</mat-hint> -->
+          <mat-hint *ngIf="formGroup.controls['title'].valid || !formGroup.controls['title'].touched">
+            Give your sample a name.</mat-hint>
+          <mat-hint *ngIf="formGroup.controls['title'].hasError('required') && formGroup.controls['title'].touched"
+            color="accent">Title for your sample is required.</mat-hint>
+        </mat-form-field>
+        <!-- <small
+                *ngIf="(formsSubject | async)?.get(item).controls['descriptionForm'].controls['sampleTitle'].hasError('minlength') && (formsSubject | async)?.get(item).controls['descriptionForm'].controls['sampleTitle'].touched"
+                class="form-error-msg"> Sampletitle require at least
+                {{(formsSubject | async)?.get(item).controls['descriptionForm'].controls['sampleTitle'].errors.minlength.requiredLength}}
+                characters </small>
+              <small
+                *ngIf="(formsSubject | async)?.get(item).controls['descriptionForm'].controls['sampleTitle'].hasError('maxlength') && (formsSubject | async)?.get(item).controls['descriptionForm'].controls['sampleTitle'].touched"
+                class="form-error-msg"> Sampletitle can not contain more than
+                {{(formsSubject | async)?.get(item).controls['descriptionForm'].controls['sampleTitle'].errors.maxlength.requiredLength}}
+                characters </small> -->
+      </div>
+    </ng-container>
+    <ng-container *ngIf="isFormControl('tempo')">
+      <div fxFlex="100" fxFlex.gt-xs="30" class="px-8">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Tempo (BPM)</mat-label>
+          <!-- <span matPrefix>Tempo (BPM) &nbsp;</span> -->
+          <input formControlName="tempo" type="number" matInput placeholder="80" min="0" max="300">
+          <!-- <mat-icon matSuffix>mode_edit</mat-icon> -->
+          <span matSuffix>BPM</span>
+          <mat-hint *ngIf="formGroup.controls['tempo'].valid || !formGroup.controls['tempo'].touched">
+            Tempo in BPM.</mat-hint>
+          <mat-hint *ngIf="
+            formGroup.controls['tempo'].hasError('min')
+                || formGroup.controls['tempo'].hasError('max')
+                && formGroup.controls['tempo'].touched">
+            Please enter a value between {{minimumBPM}} and {{maximumBPM}}.
+          </mat-hint>
+          <mat-hint *ngIf="formGroup.controls['tempo'].hasError('required') && formGroup.controls['tempo'].touched">
+            Tempo for your sample is required.</mat-hint>
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="isFormControl('genre')">
+      <div fxFlex="100" fxFlex.gt-xs="50" class="px-8">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Select a genre.</mat-label>
+          <mat-select formControlName="genre">
+            <mat-option *ngFor="let genre of genreList" [value]="genre">
+              {{genre}}
+            </mat-option>
+          </mat-select>
+          <mat-hint *ngIf="formGroup.controls['genre'].valid || !formGroup.controls['genre'].touched">
+            Select a genre that fits best.</mat-hint>
+          <mat-hint *ngIf="formGroup.controls['genre'].hasError('required') && formGroup.controls['genre'].touched">
+            Genre is required.</mat-hint>
+        </mat-form-field>
+        <!-- <small
+                *ngIf="(formsSubject | async)?.get(item).controls['descriptionForm'].controls['genre'].hasError('required') && (formsSubject | async)?.get(item).controls['descriptionForm'].controls['genre'].touched"
+                class="form-error-msg">2 Genres are required</small> -->
+      </div>
+    </ng-container>
+    <ng-container *ngIf="isFormControl('moods')">
+      <div fxFlex="100" fxFlex.gt-xs="50" class="px-8">
+        <!-- https://stackblitz.com/edit/angular-material-v9-mat-select-with-mat-chip-list?file=src%2Fapp%2Fselect-multiple-example.html -->
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Moods</mat-label>
+          <mat-select [formControl]="formGroup.controls['moods']" multiple>
+            <mat-select-trigger>
+              <mat-chip-list>
+                <mat-chip *ngFor="let mood of formGroup.controls['moods'].value" [removable]="true"
+                  (removed)="onMoodRemoved(mood)">
+                  {{ mood }}
+                  <mat-icon matChipRemove>cancel</mat-icon>
+                </mat-chip>
+              </mat-chip-list>
+            </mat-select-trigger>
+
+            <mat-option *ngFor="let mood of moodsList" [value]="mood">{{mood}}</mat-option>
+
+          </mat-select>
+          <mat-hint *ngIf="formGroup.controls['moods'].valid || !formGroup.controls['moods'].touched">
+            Add up to {{maximumMoods}} moods.</mat-hint>
+          <mat-hint *ngIf="
+                        (formGroup.controls['moods'].hasError('minlength')
+                        || formGroup.controls['moods'].hasError('maxlength')
+                        || formGroup.controls['moods'].hasError('required')
+                        )
+                        && formGroup.controls['moods'].touched">
+            Please enter between {{minimumMoods}} and {{maximumMoods}} moods.
+          </mat-hint>
+          <!-- <mat-hint *ngIf="
+            formGroup.controls['moods'].hasError('minlength')
+                || formGroup.controls['moods'].hasError('maxlength')
+                || formGroup.controls['moods'].hasError('required')
+                )
+                && formGroup.controls['moods'].touched">
+              Please enter between {{minimumMoods}} and {{maximumMoods}} moods.
+            </mat-hint> -->
+        </mat-form-field>
+        <!-- <mat-hint></mat-hint> -->
+      </div>
+    </ng-container>
+    <ng-container *ngIf="isFormControl('tags')">
+      <div fxFlex="100" class="px-8">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Enter Tags</mat-label>
+
+          <mat-chip-list [formControl]="formGroup.controls['tags']" #tagsList aria-label="tags selection">
+            <mat-chip *ngFor="let tag of formGroup.controls['tags'].value" selectable="true" removable="true"
+              (removed)="onTagRemoved(tag)">
+              #{{tag}}
+              <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+            <!-- formControlName="tags" -->
+            <!-- [formControl]="(formsSubject | async)?.get(item).controls['descriptionForm'].controls['tags']" -->
+            <input [matChipInputFor]="tagsList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              matChipInputAddOnBlur="true" (matChipInputTokenEnd)="add($event)" autocomplete="off">
+          </mat-chip-list>
+          <mat-hint *ngIf="formGroup.controls['tags'].valid || !formGroup.controls['tags'].touched">
+            Add up to {{maximumTags}} tags.</mat-hint>
+          <mat-hint *ngIf="
+                (formGroup.controls['tags'].hasError('minlength')
+                || formGroup.controls['tags'].hasError('maxlength')
+                || formGroup.controls['tags'].hasError('required')
+                ) && formGroup.controls['tags'].touched">
+            Please enter between {{minimumTags}} and {{maximumTags}} tags.
+          </mat-hint>
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <!-- </div> -->
+
+
+
+
+
+
+    <!-- <div fxFlex="100" fxFlex.gt-xs="50" class="pr-16"> -->
+
+
+    <!-- <div class="pb-16">
+            <mat-form-field class="full-width">
+              <mat-label>Select a Song Key.</mat-label>
+              <mat-select formControlName="songKey">
+                <mat-option *ngFor="let songKey of songKeyList" [value]="songKey">
+                  {{songKey}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div> -->
+
+    <!-- <mat-form-field class="full-width">
+            <input matInput name="genre" formControlName="genre" placeholder="genre" value="">
+          </mat-form-field> -->
+    <!-- <div class="pb-16">
+              <mat-form-field class="full-width">
+                <input matInput type="email" name="email" formControlName="email" placeholder="Your Email" value="">
+              </mat-form-field>
+              <small *ngIf="basicForm.controls['email'].hasError('required') && basicForm.controls['email'].touched"
+                class="form-error-msg"> Email is required </small>
+              <small *ngIf="basicForm.controls['email'].hasError('email') && basicForm.controls['email'].touched"
+                class="form-error-msg"> Invaild email address </small>
+            </div>
+            <div class="pb-16">
+              <mat-form-field class="full-width">
+                <input matInput name="website" formControlName="website"
+                  placeholder="Your Website (http://mhrafi.com)" value="">
+              </mat-form-field>
+              <small *ngIf="basicForm.controls['website'].hasError('url') && basicForm.controls['website'].touched"
+                class="form-error-msg"> Invaild web address </small>
+            </div>
+
+            <div class="pb-16">
+              <mat-form-field class="full-width">
+                <input matInput name="date" formControlName="date" placeholder="Date"
+                  [matDatepicker]="appDatepicker">
+
+                <mat-datepicker-toggle matSuffix [for]="appDatepicker"></mat-datepicker-toggle>
+              </mat-form-field>
+              <mat-datepicker #appDatepicker></mat-datepicker>
+            </div> -->
+    <!-- <div fxFlex="100" fxFlex.gt-xs="50"> -->
+
+
+
+    <!-- <div class="pb-16">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Select three moods that describe your sound.</mat-label>
+              <mat-select formControlName="moods">
+                <mat-option *ngFor="let mood of moodsList" [value]="mood">
+                  {{mood}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <small
+              *ngIf="(formsSubject | async)?.get(item).controls['descriptionForm'].controls['moods'].hasError('required') && (formsSubject | async)?.get(item).controls['descriptionForm'].controls['moods'].touched"
+              class="form-error-msg">Three moods are required</small>
+          </div> -->
+
+
+
+    <!-- </div> -->
+
+
+
+    <!-- <div name="trackType" fxFlex="100" fxFlex.gt-xs="50">
+          <div class="pb-16">
+            <mat-form-field class="full-width">
+              <mat-label>Select a Track Type.</mat-label>
+              <mat-select formControlName="trackType">
+                <mat-option *ngFor="let trackType of trackTypeList" [value]="trackType">
+                  {{trackType}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="column" fxFlex="100%" class="blended-samples">
+          <label for="">Select the electronic samples that you have mixed in.</label>
+          <input type="text"
+                 placeholder="Mixed in Samples"
+                 formControlName="mixedSamples"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let songKey of songKeys | async" [value]="songKey">
+              {{songKey}}
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+        <div fxFlex="">
+          <div class="pb-16">
+            <mat-form-field class="samples-form" fxLayout="column">
+              <mat-chip-list #chipList aria-label="Fruit selection">
+                <mat-chip class="pt-0 pb-0 pr-8 pl-0 d-flex" *ngFor="let fruit of fruits" [selectable]="selectable"
+                  [removable]="removable" (removed)="remove(fruit)">
+                  <img src="assets/images/faces/2.jpg" alt="">
+                  <span fxLayout="column" fxFlex="100" class="p-8">
+                    <span fxFlex="50" class="">{{fruit}}</span>
+                    <span fxFlex="50">by Jens</span>
+                  </span>
+                  <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+                <input placeholder="New fruit..." #fruitInput [formControl]="fruitCtrl" [matAutocomplete]="auto"
+                  [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  (matChipInputTokenEnd)="add($event)">
+              </mat-chip-list>
+              <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                  <span>{{fruit}}</span>
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+        </div> -->
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</form>
+<div mat-dialog-actions>
+  <button class="ml-auto" mat-stroked-button (click)="onNoClick()">
+    <mat-icon class="mr-8">close</mat-icon>Cancel
+  </button>
+  <!-- <button color="primary" mat-flat-button [mat-dialog-close]="data" cdkFocusInitial>
+    <mat-icon class="mr-8">save</mat-icon> Save
+  </button> -->
+  <button (click)="updateAttribute(data.audioUnitDataType)" color="primary" mat-flat-button cdkFocusInitial>
+    <div fxLayout fxLayoutAlign="space-around center" fxLayoutGap="15px">
+      <mat-icon class="mr-8" *ngIf="!isLoading">save</mat-icon>
+      <mat-spinner *ngIf="isLoading" diameter="20"></mat-spinner>
+      <span>{{isLoading ? 'Saving...' : 'Save'}}</span>
+
+    </div>
+  </button>
+</div>

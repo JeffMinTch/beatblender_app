@@ -1,5 +1,6 @@
 .quick-access-menu-container {
-    height: 80px;
+    height: fit-content;
+    padding: 8px 0;
     
     // background: #658566;
 }
@@ -7,33 +8,47 @@
 .button-container {
     &:hover {
         // color: #502222;
-        .quick-access-button-text {
-            // font-size: 18px !important;
-            // font-weight: 700;
-            color: #658566;
-        }
+        
 
-        .quick-access-button {
+        .quick-access-button:not(.active) {
             width: 90px;
             // background: #658566;
-            color: #502222;
-            
-        
-            
+            // color: var(--light-theme);
+            background: var(--light-theme-accent);
+            border: 2px solid var(--body-color);
+            mat-icon {
+                color: var(--body-color);    
+            }
         }
+
+        
     }
 }
 .quick-access-button-text {
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 500;
     color: #6a6c74;
 }
 
 .quick-access-button {
     width: 90px;
-    background: #dce6dd;
+    background: var(--light-theme);
     color: #6a6c74;
+    border: 2px solid var(--body-color);
     
 
     
+}
+
+.active {
+    background: var(--primary-color);
+    color: var(--light-theme);
+    border: 2px solid var(--primary-color);
+}
+
+.active + .quick-access-button-text {
+    // font-size: 18px !important;
+    // font-weight: 700;
+    color: #658566;
+    font-weight: 900;
 }

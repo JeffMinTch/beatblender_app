@@ -1,9 +1,10 @@
 
 <!-- <ng-template > -->
   <section fxLayout="column" *ngIf="type !== 'iconButton'">
-    <mat-toolbar mat-ripple
+    <!-- playState ? pause(audioUnit?.audioUnitID === currentSampleID, audioUnit?.audioUnitID) : play(audioUnit?.audioUnitID === currentSampleID, audioUnit?.audioUnitID) -->
+    <mat-toolbar 
       [ngStyle]="{background: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? '#ededed' : '#fafafa'}"
-      (click)="playState ? pause(audioUnit?.audioUnitID === currentSampleID, audioUnit?.audioUnitID) : play(audioUnit?.audioUnitID === currentSampleID, audioUnit?.audioUnitID)"
+      (click)="triggerToolbar()"
       style="border-left: none; border-right: none;" class="player-widget px-8 py-0" fxLayout="row"
       fxLayoutAlign="center center">
       <!-- [routerLink]="['/shop/products/', product._id]" -->
@@ -49,7 +50,7 @@
       <button mat-icon-button color="" class="mr-8" *ngIf="type === 'primary'">
         <mat-icon>more_vert</mat-icon>
       </button>
-      <button mat-icon-button [ngStyle]="{background: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? 'var(--primary-color)' : '#fafafa',
+      <button (click)="triggerPlayButton($event)" mat-icon-button [ngStyle]="{background: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? 'var(--primary-color)' : '#fafafa',
         border: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? '1px solid var(--primary-color)' : '1px solid var(--body-color)'
         
       }" [ngClass]="audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? 'mat-elevation-z1' : ''"
@@ -147,13 +148,17 @@
 <!-- </ng-template> -->
 
 <ng-container #iconButtonTemplate *ngIf="type === 'iconButton'"> 
-  <button mat-icon-button [ngStyle]="{background: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? 'var(--primary-color)' : '#fafafa',
+  
+  
+  <button (click)="triggerPlayButton($event)" mat-icon-button [ngStyle]="{background: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? 'var(--primary-color)' : '#fafafa',
         border: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? '1px solid var(--primary-color)' : '1px solid var(--body-color)'
         
       }" [ngClass]="audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? 'mat-elevation-z1' : ''"
         fxLayout="row" fxLayoutAlign="center center"
-        (click)="playState ? pause(audioUnit?.audioUnitID === currentSampleID, audioUnit?.audioUnitID) : play(audioUnit?.audioUnitID === currentSampleID, audioUnit?.audioUnitID)"
+        
         >
+        <!-- (click)="playState ? pause(audioUnit?.audioUnitID === currentSampleID, audioUnit?.audioUnitID) : play(audioUnit?.audioUnitID === currentSampleID, audioUnit?.audioUnitID)" -->
+
         <!-- [ngStyle]="{color: audioUnit?.sampleID === (playStateControlService.currentSampleID$ | async) ? 'var(--body-color)': 'grey'}"> -->
         <mat-icon
           [ngStyle]="{color: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? 'var(--light-theme)': 'var(--body-color)'}">
@@ -161,4 +166,5 @@
           (playStateControlService.playState$ | async) ? 'pause' : 'play_arrow'}}
         </mat-icon>
       </button>
+      
 </ng-container>

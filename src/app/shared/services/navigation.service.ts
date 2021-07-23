@@ -59,14 +59,14 @@ export class NavigationService {
       ]
     },
     {
-      name: 'Upload Audio',
+      name: 'Manage Audio',
       type: 'dropDown',
       tooltip: 'Upload Audio',
       icon: 'upload',
       state: 'profile',
       sub: [
         { name: 'Upload Sample', state: 'upload-audio' },
-        {name: 'Manage Audio', state: 'manage-audio'},
+        {name: 'My Uploads', state: 'manage-audio'},
         // { name: 'How To Get A License', state: 'analytics' },
         // { name: 'Sampling Rules', state: 'crypto' },
         // { name: 'Video Tutorials', state: 'dark' },
@@ -186,16 +186,23 @@ export class NavigationService {
     {
       name: 'HOME',
       type: 'icon',
-      tooltip: 'Manage Account',
+      tooltip: 'Account',
       icon: 'person',
       state: 'profile'
     },
     {
-      name: 'MUSIC',
+      name: 'About',
       type: 'icon',
-      tooltip: 'Listen Music',
-      icon: 'headset',
-      state: 'listen'
+      tooltip: 'About',
+      icon: 'info',
+      state: 'home'
+    },
+    {
+      name: 'Licensing',
+      type: 'icon',
+      tooltip: 'Licensing',
+      icon: 'app_registration',
+      state: 'home'
     },
     {
       name: 'SAMPLE MARKET',
@@ -204,6 +211,28 @@ export class NavigationService {
       icon: 'storefront',
       state: 'licensing/sample-market'
     },
+    
+    {
+      name: 'MUSIC',
+      type: 'icon',
+      tooltip: 'Listen Music',
+      icon: 'headset',
+      state: 'listen'
+    },
+    {
+      name: 'Collaboration',
+      type: 'icon',
+      tooltip: 'Collaboration',
+      icon: 'group_work',
+      state: 'home'
+    },
+    // {
+    //   name: 'Sample of the Day',
+    //   type: 'icon',
+    //   tooltip: 'Sample',
+    //   icon: 'storefront',
+    //   state: 'licensing/sample-market'
+    // },
     {
       type: 'separator',
       name: 'App - Navigation'

@@ -166,8 +166,8 @@
               <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Sample Price (Karma Points)</mat-label>
                 <!-- <span matPrefix>Tempo (BPM) &nbsp;</span> -->
-                <input formControlName="samplePrice" type="number" matInput autocomplete="off" placeholder="1" [min]="minimumSamplePrice"
-                  [max]="maximumSamplePrice">
+                <input formControlName="samplePrice" type="number" matInput autocomplete="off" placeholder="1"
+                  [min]="minimumSamplePrice" [max]="maximumSamplePrice">
                 <!-- <mat-icon matSuffix>mode_edit</mat-icon> -->
                 <span matSuffix [ngClass]="!sampleMarketCheckbox.checked ? 'disabled-color' : ''">Karma Points</span>
                 <!-- <mat-hint
@@ -193,11 +193,56 @@
               <mat-checkbox #beatblenderMusicCheckbox class="mb-8" color="primary" checked="true"
                 (change)="uploadAsTrack(item, $event)"> <span
                   style="color: var(--primary-color); font-weight: 700;">BeatBlender Music</span></mat-checkbox>
-              <mat-label class="pl-16" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
+              <mat-label class="pl-16 mb-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
                 dolorem
                 corrupti sapiente molestias ducimus incidunt assumenda cupiditate dolor eaque suscipit aspernatur
                 nostrum
                 voluptas nihil delectus sequi! Esse, earum.</mat-label>
+              <div id="soundcloudCheckbox" fxLayout="column" fxLayoutGap="10px" class="mb-16">
+                <mat-checkbox #soundCloudCheckbox class="mb-8" checked="true" (change)="uploadAsTrack(item, $event)">
+                  <span style="color: var(--soundcloud); font-weight: 700;">Soundcloud</span></mat-checkbox>
+                <mat-label class="pl-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
+                  dolorem
+                  corrupti sapiente molestias ducimus incidunt assumenda cupiditate dolor eaque suscipit aspernatur
+                  nostrum
+                  voluptas nihil delectus sequi! Esse, earum.</mat-label>
+              </div>
+              <div id="spotifyCheckbox" fxLayout="column" fxLayoutGap="10px" class="mb-16">
+                <mat-checkbox #soundCloudCheckbox class="mb-8" checked="true" (change)="uploadAsTrack(item, $event)">
+                  <span style="color: var(--spotify); font-weight: 700;">Spotify</span></mat-checkbox>
+                <mat-label class="pl-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
+                  dolorem
+                  corrupti sapiente molestias ducimus incidunt assumenda cupiditate dolor eaque suscipit aspernatur
+                  nostrum
+                  voluptas nihil delectus sequi! Esse, earum.</mat-label>
+              </div>
+              <div id="youtubeCheckbox" fxLayout="column" fxLayoutGap="10px" class="mb-16">
+                <mat-checkbox #soundCloudCheckbox class="mb-8" checked="true" (change)="uploadAsTrack(item, $event)">
+                  <span style="color: var(--youtube); font-weight: 700;">Youtube</span></mat-checkbox>
+                <mat-label class="pl-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
+                  dolorem
+                  corrupti sapiente molestias ducimus incidunt assumenda cupiditate dolor eaque suscipit aspernatur
+                  nostrum
+                  voluptas nihil delectus sequi! Esse, earum.</mat-label>
+              </div>
+              <div id="iTunesCheckbox" fxLayout="column" fxLayoutGap="10px" class="mb-16">
+                <mat-checkbox #soundCloudCheckbox class="mb-8" checked="true" (change)="uploadAsTrack(item, $event)">
+                  <span style="color: var(--iTunes); font-weight: 700;">iTunes</span></mat-checkbox>
+                <mat-label class="pl-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
+                  dolorem
+                  corrupti sapiente molestias ducimus incidunt assumenda cupiditate dolor eaque suscipit aspernatur
+                  nostrum
+                  voluptas nihil delectus sequi! Esse, earum.</mat-label>
+              </div>
+              <div id="amazonMusicCheckbox" fxLayout="column" fxLayoutGap="10px" class="mb-16">
+                <mat-checkbox #soundCloudCheckbox class="mb-8" checked="true" (change)="uploadAsTrack(item, $event)">
+                  <span style="color: var(--amazonMusic); font-weight: 700;">Amazon Music</span></mat-checkbox>
+                <mat-label class="pl-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
+                  dolorem
+                  corrupti sapiente molestias ducimus incidunt assumenda cupiditate dolor eaque suscipit aspernatur
+                  nostrum
+                  voluptas nihil delectus sequi! Esse, earum.</mat-label>
+              </div>
             </section>
           </form>
 

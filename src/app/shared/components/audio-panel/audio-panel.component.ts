@@ -5,6 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { AudioService } from 'app/shared/services/audio.service';
 import { AudioState } from 'app/shared/models/audio-state.model';
 import { AudioUnit } from 'app/shared/models/audio-unit.model';
+import { ClickEvent } from 'angular-star-rating';
 
 export type AudioPanelType = 'primary' | 'sample' | 'playlist' | 'iconButton';
 
@@ -17,7 +18,7 @@ export class AudioPanelComponent implements OnInit {
 
   @Input() audioUnit: AudioUnit;
   @Input() type: AudioPanelType;
-
+  @Input() triggerAudioBy: 'panel' | 'button' = 'panel';
   @Output() downloadEvent = new EventEmitter();
 
   public playState: boolean;
@@ -102,6 +103,36 @@ export class AudioPanelComponent implements OnInit {
     this.downloadEvent.emit();
   }
 
+  triggerToolbar() {
+    if(this.triggerAudioBy === 'panel') {
+      if(this.playState) {
+        // return true;
+        this.pause(this.audioUnit.audioUnitID === this.currentSampleID, this.audioUnit.audioUnitID)
+      } else {
+        this.play(this.audioUnit.audioUnitID === this.currentSampleID, this.audioUnit.audioUnitID)
+        // return false;
+      }
+       
+    } else {
+      // event.preventDefault();
+    }
+  }
+
+  triggerPlayButton(event: Event) {
+    // alert("playbutton pressed");
+    if(this.triggerAudioBy === 'button') {
+      event.stopPropagation();
+      if(this.playState) {
+        // return true;
+        this.pause(this.audioUnit.audioUnitID === this.currentSampleID, this.audioUnit.audioUnitID)
+      } else {
+        this.play(this.audioUnit.audioUnitID === this.currentSampleID, this.audioUnit.audioUnitID)
+        // return false;
+      }
+       
+    }
+  } 
+  
   // disableDownloadButton() {
   //   const userID = this.jwt.getUserInfo().sub;
   //   this.sample.

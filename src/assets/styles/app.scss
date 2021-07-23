@@ -83,6 +83,12 @@ $accent-color: map-get($default-accent-palette, main);
     --transition-duration: #{$transitionDuration};
     --transition-timing: #{$transitionTiming};
     --sidebar-width: #{$sidebar-width};
+    --soundcloud: #{$soundcloud};
+    --spotify: #{$spotify};
+    --youtube: #{$youtube};
+    --iTunes: #{$iTunes};
+    --amazonMusic: #{$amazonMusic};
+
     --base-primary-color: #{$dark-primary-text};
     --base-accent-color: #{$dark-accent-text};
     --base-disabled-color: #{$dark-disabled-text};
@@ -92,7 +98,8 @@ $accent-color: map-get($default-accent-palette, main);
 }
 
 body {
-  font-family: 'Poppins' !important;
+  // font-family: 'Poppins' !important;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
 }
 
 // @font-face {

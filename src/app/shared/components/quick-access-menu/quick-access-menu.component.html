@@ -1,10 +1,13 @@
-<div fxLayout="row" fxFlex fxLayoutAlign="space-around center" class="quick-access-menu-container" style="border-bottom: 1px solid #ededed;">
+<div fxLayout="row wrap" fxFlex fxLayoutAlign="start center" class="quick-access-menu-container" style="border-bottom: 1px solid #ededed;">
     <ng-container class="icon-menu-item" *ngFor="let item of menuItems; let i = index;">
         <div *ngIf="!item.disabled && item.type === 'icon'" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5px" class="button-container">
-            <button [ngStyle]="{'background': setBackgroundColor(i)}" class="quick-access-button"  mat-flat-button [matTooltip]="item.tooltip" [matTooltipPosition]="'above'"
-                routerLink="/{{item.state}}" routerLinkActive="mat-bg-primary">
-                <mat-icon [ngStyle]="{'color': setIconColor(i)}" *ngIf="item.icon" class="sidenav-mat-icon">{{item.icon}}</mat-icon>
-                <mat-icon [ngStyle]="{'color': setIconColor(i)}" *ngIf="item.svgIcon" [svgIcon]="item.svgIcon" class="svgIcon"></mat-icon>
+            <!-- [ngStyle]="{'background': setBackgroundColor(i)}" -->
+            <button class="quick-access-button ml-8 mr-4 my-8"  mat-flat-button [matTooltip]="item.tooltip" [matTooltipPosition]="'above'"
+                routerLink="/{{item.state}}" routerLinkActive="active">
+                <!-- [ngStyle]="{'color': setIconColor(i)}" -->
+                <mat-icon *ngIf="item.icon" class="sidenav-mat-icon">{{item.icon}}</mat-icon>
+                <!-- [ngStyle]="{'color': setIconColor(i)}" -->
+                <mat-icon  *ngIf="item.svgIcon" [svgIcon]="item.svgIcon" class="svgIcon"></mat-icon>
             </button>
             <span class="quick-access-button-text">{{item.tooltip}}</span>
         </div>

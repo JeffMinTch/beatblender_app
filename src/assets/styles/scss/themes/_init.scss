@@ -196,6 +196,13 @@ $default-warn-palette: (
     ),
 );
 
+$soundcloud : #ff8800;
+$spotify : #1DB954;
+$youtube : #ff0000;
+$iTunes : rgb(28,28,30);
+$amazonMusic : #0077C1;
+
+
 $default-theme-warn: mat-palette($default-warn-palette, main, lighter, darker);
 
 $default-theme: mat-light-theme($default-theme-primary, $default-theme-accent, $default-theme-warn);

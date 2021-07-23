@@ -33,6 +33,7 @@ import { PaginationRequestParams } from 'app/shared/models/pagination-request-pa
 import { HttpService } from 'app/shared/services/web-services/http.service';
 import { AudioUnitType } from 'app/shared/enums/audio-unit-type.enums';
 import { Theme } from 'app/shared/enums/theme.enum';
+import { S } from '@angular/cdk/keycodes';
 
 
 @Component({
@@ -70,7 +71,7 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
   duration: number;
 
   pageNo: number = 0;
-  pageSize: number = 1;
+  pageSize: number = 3;
   sortBy: string = 'title';
   count: number = 0;
 

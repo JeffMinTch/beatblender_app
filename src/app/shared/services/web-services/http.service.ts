@@ -1,3 +1,4 @@
+import { AudioUnitDataType } from 'app/shared/models/audio-unit-data-type.model';
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RequestOptions } from 'https';
@@ -15,6 +16,11 @@ export class HttpService {
       .set('pageNo', JSON.stringify(page))
       .set('pageSize', JSON.stringify(pageSize));
   }
+
+  // public createEditAudioUnitDataRequestParams(audioUnitDatType: AudioUnitDataType) {
+  //   return new HttpParams()
+  //     .set(audioUnitDatType, )
+  // }
   //   {};
   //   if (sortBy) {
   //     params['sortBy'] = sortBy;
