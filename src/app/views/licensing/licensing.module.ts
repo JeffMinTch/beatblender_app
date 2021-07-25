@@ -11,6 +11,8 @@ import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { FullLicensesComponent } from './full-licenses/full-licenses.component';
 import { BasicLicenseSidenavComponent } from './sample-market/basic-license-sidenav/basic-license-sidenav.component';
 import { LicensingComponent } from './licensing/licensing.component';
+import { DownloadSampleComponent } from './sample-market/download-sample/download-sample.component';
+
 
 
 @NgModule({
@@ -29,7 +31,7 @@ import { LicensingComponent } from './licensing/licensing.component';
   // exports: [
   //   NgxPaginationModule
   // ],
-  declarations: [HowItWorksComponent, FullLicensesComponent, BasicLicenseSidenavComponent, LicensingComponent],
+  declarations: [HowItWorksComponent, FullLicensesComponent, BasicLicenseSidenavComponent, LicensingComponent, DownloadSampleComponent],
   providers: [
   ]
 })

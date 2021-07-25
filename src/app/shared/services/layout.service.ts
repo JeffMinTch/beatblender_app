@@ -45,7 +45,7 @@ export class LayoutService {
     this.router.events.subscribe((routerEvent: RouterEvent) => {
       if (routerEvent instanceof NavigationEnd) {
         switch (routerEvent.urlAfterRedirects) {
-          case '/licensing/sample-market':
+          case '/sample-market':
             this.layoutConf.footerFixed = true;
             break;
           case '/docs/introduction':
@@ -60,22 +60,35 @@ export class LayoutService {
           case '/listen/playlists':
             this.layoutConf.footerFixed = true;
             break;
-            case '/profile/upload-audio':
-              this.layoutConf.footerFixed = true;
-              break;
-              case '/profile/manage-audio':
-              this.layoutConf.footerFixed = true;
-              break;
-              case '/profile/overview':
-              this.layoutConf.footerFixed = true;
-              break;
-              case '/profile/my-licenses/extended-licenses':
-              this.layoutConf.footerFixed = true;
-              break;
+          case '/profile/upload-audio':
+            this.layoutConf.footerFixed = true;
+            break;
+          case '/profile/manage-audio':
+            this.layoutConf.footerFixed = true;
+            break;
+          case '/profile/overview':
+            this.layoutConf.footerFixed = true;
+            break;
+          case '/profile/my-licenses/extended-licenses':
+            this.layoutConf.footerFixed = true;
+            break;
+          case '/profile/my-licenses/basic-licenses':
+            this.layoutConf.footerFixed = true;
+            break;
+            // case '/profile/my-licenses/basic-licenses':
+            //   this.layoutConf.footerFixed = true;
+            //   break;
+            // case '/sample-market/download':
+            // this.layoutConf.footerFixed = true;
+            // break;
           default:
             this.layoutConf.footerFixed = false;
         }
+        if(routerEvent.urlAfterRedirects.startsWith('/audio/details')) {
+          this.layoutConf.footerFixed = true;
+        }
       }
+
     });
 
     this.setAppLayout(
@@ -153,12 +166,12 @@ export class LayoutService {
     return window.matchMedia(`(max-width: 959px)`).matches;
   }
 
-  toggleSidenav():void {
+  toggleSidenav(): void {
     console.log('Toggle');
     console.log(this.layoutConf);
-    if(this.layoutConf.sidebarStyle === 'full') {
+    if (this.layoutConf.sidebarStyle === 'full') {
       this.layoutConf.sidebarStyle = 'closed';
-    } else if(this.layoutConf.sidebarStyle === 'closed') {
+    } else if (this.layoutConf.sidebarStyle === 'closed') {
       this.layoutConf.sidebarStyle = 'full';
     } else {
       throw new Error("Sidenav has wrong state");

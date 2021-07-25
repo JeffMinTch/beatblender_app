@@ -7,7 +7,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 export const rootRouterConfig: Routes = [
   {
     path: '',
-    redirectTo: 'licensing/sample-market',
+    redirectTo: 'sample-market',
     pathMatch: 'full'
   },
   // {
@@ -32,7 +32,7 @@ export const rootRouterConfig: Routes = [
     // canActivate: [AuthGuard],
     children: [
       {
-        path: 'licensing',
+        path: 'sample-market',
         loadChildren: () => import('./views/licensing/licensing.module').then(m => m.LicensingModule),
         data: { title: 'Licensing', breadcrumb: 'Get Sample Licenses'}
       },
@@ -55,6 +55,11 @@ export const rootRouterConfig: Routes = [
         path: 'home',
         loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule),
         data: { title: 'Choose A Demo' }
+      },
+      {
+        path: 'audio',
+        loadChildren: () => import('./views/audio/audio.module').then(m => m.AudioModule),
+        data: { title: 'Audio' }
       },
     ]
   },

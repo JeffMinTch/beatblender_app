@@ -10,7 +10,8 @@ export const config = {
         searchSingleAudio: '/search-single-audio',
         searchMusicByInput: '/searchMusicByInput',
         filterSamples: '/filter-samples',
-        filterTracks: '/filter-tracks'
+        filterTracks: '/filter-tracks',
+        getSample: '/get-sample'
          
       },
       protected: {

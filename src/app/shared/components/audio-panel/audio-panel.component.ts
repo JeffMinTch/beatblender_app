@@ -19,7 +19,10 @@ export class AudioPanelComponent implements OnInit {
   @Input() audioUnit: AudioUnit;
   @Input() type: AudioPanelType;
   @Input() triggerAudioBy: 'panel' | 'button' = 'panel';
-  @Output() downloadEvent = new EventEmitter();
+  @Input() button: boolean = true;
+  @Input() buttonText: string = 'Get a License';
+  @Input() light: boolean = false;
+  @Output() clickEvent = new EventEmitter();
 
   public playState: boolean;
   public currentSampleID: string;
@@ -99,8 +102,8 @@ export class AudioPanelComponent implements OnInit {
 
   }
 
-  downloadBasicLicense(): void {
-    this.downloadEvent.emit();
+  throwClickEvent(): void {
+    this.clickEvent.emit();
   }
 
   triggerToolbar() {

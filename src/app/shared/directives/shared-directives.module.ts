@@ -11,7 +11,7 @@ import { DropdownLinkDirective } from './dropdown-link.directive';
 import { EgretSideNavToggleDirective } from './egret-side-nav-toggle.directive';
 import { EgretSidenavHelperDirective, EgretSidenavTogglerDirective } from './egret-sidenav-helper/egret-sidenav-helper.directive';
 import { EgretHighlightDirective } from './egret-highlight.directive';
-
+import { DropdownStyleDirective} from './dropdown-style.directive';
 
 const directives = [
   FontSizeDirective,
@@ -19,6 +19,7 @@ const directives = [
   AppDropdownDirective,
   DropdownAnchorDirective,
   DropdownLinkDirective,
+  DropdownStyleDirective,
   SidenavToggleDirective,
   EgretSideNavToggleDirective,
   EgretSidenavHelperDirective,

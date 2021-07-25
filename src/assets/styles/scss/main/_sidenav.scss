@@ -133,10 +133,14 @@
 
     &.open,
     &.open li.open {
-      background: rgba(0, 0, 0, 0.02);
+      background: rgba(3, 2, 2, 0.02);
+      // background: var(--primary-color);
+      // color: var(--light-theme);
     }
     &.open > div > ul,
     &.open > ul {
+      // background: var(--primary-color);
+      // color: var(--light-theme);
       max-height: 1000px;
       background: rgba(0, 0, 0, 0.005);
     }

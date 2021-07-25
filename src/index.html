@@ -18,13 +18,36 @@
       
       .app-loader {
         height: 100vh !important;
-        width: 100%;
+        width: 100vw;
         position: absolute;
         top: 0;
         left: 0;
         display: flex;
         align-items: center;
       }
+
+      .container {
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+
+      }
+
+      .headline {
+        font-family: monospace;
+        color: #6a6c74;
+      }
+
+      .span1 {
+        color: #658566;
+      }
+
+      .span2 {
+        color: #d69090;
+      }
+
       .spinner {
         width: 40px;
         height: 40px;
@@ -72,6 +95,13 @@
   <body class="egret-navy">
     <app-root>
       <div class="app-loader">
+        <div class="container">
+          <img style="width: 300px; height: 300px; margin: auto;" src="../../../../assets/images/svg-icons/spinner.svg" alt="">
+          <h1 class="headline">Join the world of <span class="span1">Beat</span><span class="span2">Blender</span></h1>
+        </div>
+      </div>
+
+      <!-- <div class="app-loader">
         <div class="spinner">
           <div
             class="double-bounce1 mat-bg-primary"
@@ -82,7 +112,7 @@
             style="background: #dce6dd;"
           ></div>
         </div>
-      </div>
+      </div> -->
     </app-root>
 
     <!-- <script>

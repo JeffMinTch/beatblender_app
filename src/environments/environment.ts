@@ -14,7 +14,7 @@ export const environment = {
     issuer: 'http://localhost:8080/auth/realms/beatblender',
 
     // URL of the SPA to redirect the user to after login
-    redirectUri: window.location.origin + '/licensing/sample-market',
+    redirectUri: window.location.origin + '/sample-market',
 
     // The SPA's id. 
     // The SPA is registerd with this id at the auth-serverß

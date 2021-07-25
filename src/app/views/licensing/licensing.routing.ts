@@ -3,6 +3,7 @@ import { FullLicensesComponent } from './full-licenses/full-licenses.component';
 import { Routes } from '@angular/router';
 import { AuthGuard } from 'app/shared/guards/auth.guard';
 import { LicensingComponent } from './licensing/licensing.component';
+import { DownloadSampleComponent } from './sample-market/download-sample/download-sample.component';
 // import { ProductsComponent } from './products/products.component';
 // import { ProductDetailsComponent } from './product-details/product-details.component';
 // import { CartComponent } from './cart/cart.component';
@@ -14,10 +15,17 @@ export const LicensingRoutes: Routes = [
   component: LicensingComponent,
   children: [
     {
-      path: 'sample-market',
+      path: '',
       loadChildren: () => import('./sample-market/sample-market.module').then(m => m.SampleMarketModule),
       data: { title: 'Sample Market', breadcrumb: 'Sample Market'}
     },
+    {
+      path: 'download/:id',
+      component: DownloadSampleComponent,
+      data: { title: 'Download', breadcrumb: 'Download'}
+    },
+
+
 
   //     {
   //   path: 'basic-licenses',

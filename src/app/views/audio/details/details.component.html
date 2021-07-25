@@ -1,0 +1,82 @@
+<!-- <p>details works!</p> -->
+<div fxLayout style="min-height: 1200px; width: 100%;">
+    <div fxFlex="65"fxLayout="column">
+        <!-- <h2 class="pl-8">Sample Detail</h2> -->
+        <app-audio-panel [audioUnit]="sample?.audioUnit" type="sample" (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
+    </div>
+    <!-- <h2>MixedIn Samples</h2> -->
+    <div fxFlex="35" fxLayout="column" class="pl-8" style="">
+        <h5 style="font-size: 18px;" class="my-8">MixedIns</h5>
+        <p>Audio() that have been sampled:</p>
+        <!-- <mat-divider class="mb-8"></mat-divider> -->
+        <div fxFlex class="product-container" fxLayout="column" fxLayoutAlign="start center"
+          [ngClass]="{'list-view': viewMode === 'list-view'}">
+          <!-- Product Box -->
+          <ng-container *ngIf="samples?.length <= 0 && samples != null"; else product>
+            <div fxFlex fxLayoutAlign="center">
+              <span class="fs-24">No samples match your request.</span>
+            </div>
+          </ng-container>
+          <ng-container #product>
+            <!-- | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count } -->
+            <div fxLayout="row wrap" class="product-wrap full-width"
+              *ngFor="let sample of samples; let i = index;"
+              [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}"
+              >
+              <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
+              <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
+              <div fxLayout="column" class="product-inner default-bg full-width">
+                <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
+                    <span>{{product?.badge?.text}}</span>
+                  </div> -->
+                <app-audio-panel [audioUnit]="sample?.audioUnit" type="primary" light="true" buttonText="Download" (clickEvent)="downloadAudioFile(sample)"></app-audio-panel>
+                
+                <!-- Visible when viewMode === list-view -->
+                <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
+                  <div class="more-info">
+                    <div class="more-actions mb-16">
+                      <div class="product-rating">
+                        <star-rating [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'"
+                          [rating]="4.63"></star-rating>
+                        <small class="text-muted">(140)</small>
+                      </div>
+                      <span fxFlex></span>
+                      <button mat-icon-button>
+                        <mat-icon>playlist_add</mat-icon>
+                      </button>
+                      <button mat-icon-button>
+                        <mat-icon>favorite</mat-icon>
+                      </button>
+                    </div>
+    
+                    <div>
+                      <ul>
+                        <li>
+                          <mat-icon>check</mat-icon> Heavy duty
+                        </li>
+                        <li>
+                          <mat-icon>check</mat-icon> Water resistance
+                        </li>
+                        <li>
+                          <mat-icon>check</mat-icon> Clean design
+                        </li>
+                        <li>
+                          <mat-icon>check</mat-icon> High quality raw materials
+                        </li>
+                      </ul>
+                    </div>
+    
+                  </div>
+                </div>
+    
+              </div>
+            </div>
+          </ng-container>
+    
+          <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
+          <!-- <div class="products-pagination" *ngIf="count > pageSize">
+            <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+          </div> -->
+        </div>
+    </div>
+</div>

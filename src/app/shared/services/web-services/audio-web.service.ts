@@ -47,7 +47,7 @@ export class AudioWebService {
   private UPDATE_TEMPO: string = this.PROTECTED_AUDIO + environment.apiURL.audioPath.protected.updateTempo;
   private UPDATE_MOODS: string = this.PROTECTED_AUDIO + environment.apiURL.audioPath.protected.updateMoods;
   private UPDATE_TAGS: string = this.PROTECTED_AUDIO + environment.apiURL.audioPath.protected.updateTags;
-
+  private GET_SAMPLE: string = this.PUBLIC_AUDIO + environment.apiURL.audioPath.public.getSample;
 
   public getSamplePage(params: any): Observable<SamplePage> {
     return this.httpClient.get(this.samplesHomeApi, { params }).pipe(map((res: SamplePage) => { return res }), share());
@@ -128,6 +128,10 @@ export class AudioWebService {
         }
       }
     );
+  }
+
+  getSample(audioUnitID: string): Observable<Sample> {
+    return this.httpClient.get(`${this.GET_SAMPLE}/${audioUnitID}`).pipe(map((sample: Sample) => sample));
   }
 
 

@@ -19,6 +19,7 @@ export function load_font() {
             custom: {
             families: ['Material Icons'],
           }});
+          
         resolve(true);  
         });
 }

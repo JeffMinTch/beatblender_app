@@ -71,7 +71,7 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
   duration: number;
 
   pageNo: number = 0;
-  pageSize: number = 3;
+  pageSize: number = 12;
   sortBy: string = 'title';
   count: number = 0;
 
@@ -552,6 +552,9 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
       }
       // window.alert(JSON.stringify(error));
     });
+  }
+  redirectToTermsAndConditions(sample: Sample) {
+    this.router.navigate(['sample-market', 'download', sample.audioUnit.audioUnitID]);
   }
 
 

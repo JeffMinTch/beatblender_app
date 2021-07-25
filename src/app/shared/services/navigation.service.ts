@@ -49,8 +49,8 @@ export class NavigationService {
       icon: 'library_books',
       state: 'profile/my-licenses',
       sub: [
-        { name: 'Basic Licenses', state: 'basic-licenses' },
-        {name: 'Extended Licenses', state: 'extended-licenses'},
+        { name: 'Basic Licenses', state: 'basic-licenses' , type: 'link'},
+        {name: 'Extended Licenses', state: 'extended-licenses', type: 'link'},
         // { name: 'How To Get A License', state: 'analytics' },
         // { name: 'Sampling Rules', state: 'crypto' },
         // { name: 'Video Tutorials', state: 'dark' },
@@ -65,8 +65,8 @@ export class NavigationService {
       icon: 'upload',
       state: 'profile',
       sub: [
-        { name: 'Upload Sample', state: 'upload-audio' },
-        {name: 'My Uploads', state: 'manage-audio'},
+        { name: 'Upload Sample', state: 'upload-audio', type: 'link' },
+        {name: 'My Uploads', state: 'manage-audio', type: 'link'},
         // { name: 'How To Get A License', state: 'analytics' },
         // { name: 'Sampling Rules', state: 'crypto' },
         // { name: 'Video Tutorials', state: 'dark' },
@@ -144,13 +144,13 @@ export class NavigationService {
       type: 'dropDown',
       tooltip: 'Documentation',
       icon: 'info',
-      state: 'licensing/docs',
+      state: 'sample-market/docs',
       sub: [
-        { name: 'Introduction', state: 'introduction' },
-        {name: 'What is Root Sounds', state: 'learning-management'},
-        { name: 'How To Get A License', state: 'analytics' },
-        { name: 'Sampling Rules', state: 'crypto' },
-        { name: 'Video Tutorials', state: 'dark' },
+        { name: 'Introduction', state: 'introduction' , type: 'link'},
+        {name: 'What is Root Sounds', state: 'learning-management', type: 'link'},
+        { name: 'How To Get A License', state: 'analytics' , type: 'link'},
+        { name: 'Sampling Rules', state: 'crypto' , type: 'link'},
+        { name: 'Video Tutorials', state: 'dark' , type: 'link'},
         { name: 'FAQ', state: 'dark' }
 
       ]
@@ -160,7 +160,7 @@ export class NavigationService {
       type: 'link',
       tooltip: 'Sample Market',
       icon: 'storefront',
-      state: 'licensing/sample-market'
+      state: 'sample-market'
     },
     // {
     //   name: 'Upload',
@@ -209,7 +209,7 @@ export class NavigationService {
       type: 'icon',
       tooltip: 'Sample Market',
       icon: 'storefront',
-      state: 'licensing/sample-market'
+      state: 'sample-market'
     },
     
     {
@@ -244,11 +244,11 @@ export class NavigationService {
       icon: 'music_note',
       state: 'dashboard',
       sub: [
-        { name: 'Default', state: 'default' },
-        {name: 'Learning Management', state: 'learning-management'},
-        { name: 'Analytics', state: 'analytics' },
-        { name: 'Cryptocurrency', state: 'crypto' },
-        { name: 'Dark Cards', state: 'dark' }
+        { name: 'Default', state: 'default' , type: 'link'},
+        {name: 'Learning Management', state: 'learning-management', type: 'link'},
+        { name: 'Analytics', state: 'analytics' , type: 'link'},
+        { name: 'Cryptocurrency', state: 'crypto' , type: 'link'},
+        { name: 'Dark Cards', state: 'dark' , type: 'link'}
       ]
     },
     {
@@ -258,9 +258,9 @@ export class NavigationService {
       icon: 'storefront',
       state: 'licensing',
       sub: [
-        {name: 'How it works', state: 'how-it-works'},
-        {name: 'Basic Licenses', state: 'basic-licenses'},
-        {name: 'Full Licenses', state: 'full-licenses'},
+        {name: 'How it works', state: 'how-it-works', type: 'link'},
+        {name: 'Basic Licenses', state: 'basic-licenses', type: 'link'},
+        {name: 'Full Licenses', state: 'full-licenses', type: 'link'},
         // {name: 'Upload Your Samples', state: 'upload-samples'}
       ]
     },
@@ -271,7 +271,7 @@ export class NavigationService {
       icon: 'publish',
       state: 'forms',
       sub: [
-        { name: 'Upload Audio', state: 'upload-audio'}
+        { name: 'Upload Audio', state: 'upload-audio', type: 'link'}
       ]
     },
     {
@@ -323,8 +323,8 @@ export class NavigationService {
       icon: 'filter_none',
       state: 'dialogs',
       sub: [
-        { name: 'CONFIRM', state: 'confirm' },
-        { name: 'LOADER', state: 'loader' }
+        { name: 'CONFIRM', state: 'confirm', type: 'link' },
+        { name: 'LOADER', state: 'loader' , type: 'link'}
       ]
     },
     {
@@ -334,9 +334,9 @@ export class NavigationService {
       icon: 'person',
       state: 'profile',
       sub: [
-        { name: 'OVERVIEW', state: 'overview' },
-        { name: 'SETTINGS', state: 'settings' },
-        { name: 'BLANK', state: 'blank' }
+        { name: 'OVERVIEW', state: 'overview' , type: 'link'},
+        { name: 'SETTINGS', state: 'settings', type: 'link'},
+        { name: 'BLANK', state: 'blank' , type: 'link'}
       ]
     },
     {

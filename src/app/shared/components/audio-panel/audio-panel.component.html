@@ -24,7 +24,7 @@
                     [max]="getMax(audioUnit?.sampleID)" -->
         <!-- value="0"
                   max="100"  -->
-        <div fxLayout="row" fxFlex class="ml-32" *ngIf="type === 'primary'">
+        <div fxLayout="row" fxFlex class="ml-32" *ngIf="type === 'primary' && light === 'false'">
           <!-- <div fxFlex fxLayoutAlign="center center">
         
                     </div> -->
@@ -69,7 +69,7 @@
     </mat-toolbar>
     <!-- <section fxLayout="column" *ngIf="type === 'sample'"> -->
     <ng-container *ngIf="type === 'sample' || type === 'playlist'">
-      <div class="info-wrap p-16">
+      <div class="info-wrap p-16" fxLayout="column">
         <div class="main-info">
           <h3 class="title">{{audioUnit?.title}}</h3>
           <p class=" p-line">by <span class="artist-name">{{audioUnit?.artistAlias.artistName}}</span></p>
@@ -119,26 +119,33 @@
         </div>
         <ng-container *ngIf="type === 'sample'">
           <div class="actions">
-            <div class="price-rating">
-              <div class="price">
-                <span>Karma: {{audioUnit?.lep}}</span>
-                <del class="text-muted">{{audioUnit?.lep}}Karma</del>
-              </div>
-            </div>
-            <div class="add-to-cart">
+            <!-- <div class="price-rating"> -->
+              <!-- <div class="price"> -->
+                <span><strong>License Type: </strong><a href="" style="color: var(--accent-color); text-decoration: underline;">BeatBlender License</a></span>
+                <!-- <del class="text-muted">{{audioUnit?.lep}}Karma</del> -->
+              <!-- </div> -->
+            <!-- </div> -->
+            <!-- <div class="add-to-cart">
               <span fxFlex></span>
               <button mat-icon-button>
                 <mat-icon>library_add</mat-icon>
               </button>
-            </div>
+            </div> -->
           </div>
           <span fxFlex></span>
-  
+          
         </ng-container>
+        <div fxLayout fxLayoutAlign="start center" class="mt-16"><mat-icon class="mr-8" color="primary">error_outline</mat-icon> <a href="" class="hypertext">Audio contains other samples</a></div>
       </div>
-      <button (click)="downloadBasicLicense()" *ngIf="type === 'sample'" fxFlex="50px" mat-stroked-button color="primary" class="full-width download-button">
-        <span class="fw-700 fs-16">Get A License</span>
-      </button>
+      <!-- (click)="downloadBasicLicense()" -->
+      <ng-container *ngIf="button === true">
+        <button (click)="throwClickEvent()" *ngIf="type === 'sample'" fxFlex="50px" mat-stroked-button color="primary" class="full-width download-button">
+          <span class="fw-700 fs-16">{{buttonText}}</span>
+        </button>
+        <!-- <button [routerLink]="['download', audioUnit.audioUnitID]" *ngIf="type === 'sample'" fxFlex="50px" mat-stroked-button color="primary" class="full-width download-button">
+          <span class="fw-700 fs-16">{{buttonText}}</span>
+        </button> -->
+      </ng-container>
     </ng-container>
   
   
