@@ -129,13 +129,13 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     // }
   ]
 
-  public panelOpenState = false;
+  // public panelOpenState = false;
 
-  public listenItems: any[];
-  public hasIconTypeMenuItem: boolean;
-  public iconTypeMenuTitle: string;
-  private menuItemsSub: Subscription;
-  public layoutConf: ILayoutConf;
+  // public listenItems: any[];
+  // public hasIconTypeMenuItem: boolean;
+  // public iconTypeMenuTitle: string;
+  // private menuItemsSub: Subscription;
+  // public layoutConf: ILayoutConf;
  
 
   // private homePS: PerfectScrollbar;
@@ -150,15 +150,15 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit() {
     this.mainVersion = this.versions[0]
   
-    this.iconTypeMenuTitle = this.navService.iconTypeMenuTitle;
-    this.menuItemsSub = this.navService.listenItems$.subscribe(sampleMarketItem => {
-      this.listenItems = sampleMarketItem;
-      //Checks item list has any icon type.
-      this.hasIconTypeMenuItem = !!this.listenItems.filter(
-        item => item.type === "icon"
-      ).length;
-    });
-    this.layoutConf = this.layout.layoutConf;
+    // this.iconTypeMenuTitle = this.navService.iconTypeMenuTitle;
+    // this.menuItemsSub = this.navService.listenItems$.subscribe(sampleMarketItem => {
+    //   this.listenItems = sampleMarketItem;
+    //   //Checks item list has any icon type.
+    //   this.hasIconTypeMenuItem = !!this.listenItems.filter(
+    //     item => item.type === "icon"
+    //   ).length;
+    // });
+    // this.layoutConf = this.layout.layoutConf;
   }
 
   ngOnDestroy() {

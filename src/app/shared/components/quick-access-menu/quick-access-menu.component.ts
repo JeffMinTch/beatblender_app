@@ -25,7 +25,7 @@ export class QuickAccessMenuComponent implements OnInit {
 
   ngOnInit() {
     this.iconTypeMenuTitle = this.navService.iconTypeMenuTitle;
-    this.menuItemsSub = this.navService.menuItems$.subscribe(menuItem => {
+    this.menuItemsSub = this.navService.quickAccessItems$.subscribe(menuItem => {
       this.menuItems = menuItem;
       //Checks item list has any icon type.
       this.hasIconTypeMenuItem = !!this.menuItems.filter(

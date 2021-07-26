@@ -1,3 +1,4 @@
+import { NavigationService } from './navigation.service';
 import { Injectable, Renderer2 } from '@angular/core';
 import { Router, RouterEvent, NavigationEnd } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
@@ -40,10 +41,25 @@ export class LayoutService {
   public currentRoute: string;
   public fullWidthRoutes = ['shop'];
 
-  constructor(private themeService: ThemeService, private router: Router) {
+  constructor(private themeService: ThemeService, private router: Router, private navigationService: NavigationService) {
 
     this.router.events.subscribe((routerEvent: RouterEvent) => {
       if (routerEvent instanceof NavigationEnd) {
+        // setTimeout(() => {
+          if(routerEvent.urlAfterRedirects.startsWith('/sample-market')) {
+            this.navigationService.publishNavigationChange('sample-market-menu');
+          } else if (routerEvent.urlAfterRedirects.startsWith('/profile')) {
+            this.navigationService.publishNavigationChange('account-menu');
+      
+          } else if (routerEvent.urlAfterRedirects.startsWith('/listen')) {
+            this.navigationService.publishNavigationChange('listen-menu');
+          } 
+        
+        // },1000);
+        // else {
+        //   this.navigationService.publishNavigationChange(null);
+        // }
+
         switch (routerEvent.urlAfterRedirects) {
           case '/sample-market':
             this.layoutConf.footerFixed = true;

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 
 interface IMenuItem {
   type: string; // Possible values: link/dropDown/icon/separator/extLink
@@ -656,18 +656,22 @@ export class NavigationService {
   // This title will appear if any icon type item is present in menu.
   iconTypeMenuTitle = 'Frequently Accessed';
   // sets iconMenu as default;
-  menuItems = new BehaviorSubject<IMenuItem[]>(this.iconMenu);
+  // this.iconMenu
+
+  quickAccessItems = new BehaviorSubject<IMenuItem[]>(this.iconMenu);
+  quickAccessItems$ = this.quickAccessItems.asObservable();
+  menuItems = new BehaviorSubject<IMenuItem[]>();
   // navigation component has subscribed to this Observable
   menuItems$ = this.menuItems.asObservable();
 
-  sampleMarketItems = new BehaviorSubject<IMenuItem[]>(this.sampleMarketMenu);
-  sampleMarketItems$ = this.sampleMarketItems.asObservable();
+  // sampleMarketItems = new BehaviorSubject<IMenuItem[]>(this.sampleMarketMenu);
+  // sampleMarketItems$ = this.sampleMarketItems.asObservable();
 
-  listenItems = new BehaviorSubject<IMenuItem[]>(this.listenMenu);
-  listenItems$ = this.listenItems.asObservable();
+  // listenItems = new BehaviorSubject<IMenuItem[]>(this.listenMenu);
+  // listenItems$ = this.listenItems.asObservable();
 
-  accountItems = new BehaviorSubject<IMenuItem[]>(this.accountMenu);
-  accountItems$ = this.accountItems.asObservable();
+  // accountItems = new BehaviorSubject<IMenuItem[]>(this.accountMenu);
+  // accountItems$ = this.accountItems.asObservable();
 
   constructor() {}
 
@@ -683,8 +687,18 @@ export class NavigationService {
       case 'icon-menu':
         this.menuItems.next(this.iconMenu);
         break;
-      default:
-        this.menuItems.next(this.plainMenu);
+      case 'sample-market-menu':
+        console.log(this.sampleMarketMenu);
+        this.menuItems.next(this.sampleMarketMenu);
+        break;
+      case 'listen-menu':
+        this.menuItems.next(this.listenMenu);
+        break;
+      case 'account-menu':
+        this.menuItems.next(this.accountMenu);
+        break;
+      // default:
+        // this.menuItems.next(this.plainMenu);
     }
   }
 }

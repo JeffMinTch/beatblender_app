@@ -15,13 +15,13 @@ import { egretAnimations } from 'app/shared/animations/egret-animations';
 export class ProfileComponent implements OnInit {
 
 
-  public panelOpenState = false;
+  // public panelOpenState = false;
 
-  public accountItems: any[];
-  public hasIconTypeMenuItem: boolean;
-  public iconTypeMenuTitle: string;
-  private menuItemsSub: Subscription;
-  public layoutConf: ILayoutConf;
+  // public accountItems: any[];
+  // public hasIconTypeMenuItem: boolean;
+  // public iconTypeMenuTitle: string;
+  // private menuItemsSub: Subscription;
+  // public layoutConf: ILayoutConf;
 
 
 
@@ -69,14 +69,14 @@ export class ProfileComponent implements OnInit {
     this.userInfo = this.jwtAuth.user$;
 
 
-    this.iconTypeMenuTitle = this.navService.iconTypeMenuTitle;
-    this.menuItemsSub = this.navService.accountItems$.subscribe(accountItem => {
-      this.accountItems = accountItem;
-      //Checks item list has any icon type.
-      this.hasIconTypeMenuItem = !!this.accountItems.filter(
-        item => item.type === "icon"
-      ).length;
-    });
-    this.layoutConf = this.layout.layoutConf;
+    // this.iconTypeMenuTitle = this.navService.iconTypeMenuTitle;
+    // this.menuItemsSub = this.navService.accountItems$.subscribe(accountItem => {
+    //   this.accountItems = accountItem;
+    //   //Checks item list has any icon type.
+    //   this.hasIconTypeMenuItem = !!this.accountItems.filter(
+    //     item => item.type === "icon"
+    //   ).length;
+    // });
+    // this.layoutConf = this.layout.layoutConf;
   }
 }

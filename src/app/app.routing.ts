@@ -31,36 +31,41 @@ export const rootRouterConfig: Routes = [
     component: AdminLayoutComponent,
     // canActivate: [AuthGuard],
     children: [
+      // {
+      //   path: 'sample-market',
+      //   loadChildren: () => import('./views/licensing/licensing.module').then(m => m.LicensingModule),
+      //   data: { title: 'Licensing', breadcrumb: 'Get Sample Licenses'}
+      // },
+      // {
+      //   path: 'listen',
+      //   loadChildren: () => import('./views/music-platform/music-platform.module').then(m => m.MusicPlatformModule),
+      //   data: { title: 'Listen', breadcrumb: 'All Music'}
+      // },
+      // {
+      //   path: 'profile',
+      //   loadChildren: () => import('./views/profile/profile.module').then(m => m.ProfileModule),
+      //   data: { title: 'Profile', breadcrumb: 'Profile' }
+      // },
+      // {
+      //   path: 'dashboard',
+      //   loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule),
+      //   data: { title: 'Dashboard', breadcrumb: 'Dashboard' }
+      // },
       {
-        path: 'sample-market',
-        loadChildren: () => import('./views/licensing/licensing.module').then(m => m.LicensingModule),
-        data: { title: 'Licensing', breadcrumb: 'Get Sample Licenses'}
-      },
-      {
-        path: 'listen',
-        loadChildren: () => import('./views/music-platform/music-platform.module').then(m => m.MusicPlatformModule),
-        data: { title: 'Listen', breadcrumb: 'All Music'}
-      },
-      {
-        path: 'profile',
-        loadChildren: () => import('./views/profile/profile.module').then(m => m.ProfileModule),
-        data: { title: 'Profile', breadcrumb: 'Profile' }
-      },
-      {
-        path: 'dashboard',
-        loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule),
-        data: { title: 'Dashboard', breadcrumb: 'Dashboard' }
+        path: '',
+        loadChildren: () => import('./views/sidenav/sidenav.module').then(m => m.SidenavModule),
+        data: { title: 'Choose A Demo' }
       },
       {
         path: 'home',
         loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule),
         data: { title: 'Choose A Demo' }
       },
-      {
-        path: 'audio',
-        loadChildren: () => import('./views/audio/audio.module').then(m => m.AudioModule),
-        data: { title: 'Audio' }
-      },
+      // {
+      //   path: 'audio',
+      //   loadChildren: () => import('./views/audio/audio.module').then(m => m.AudioModule),
+      //   data: { title: 'Audio' }
+      // },
     ]
   },
   {
