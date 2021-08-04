@@ -62,6 +62,7 @@ export class HeaderTopComponent implements OnInit, OnDestroy {
 
     this.jwtAuth.userData$.subscribe(userData => {
       this.userData = userData;
+      console.log(userData);
     });
   }
   ngOnDestroy() {

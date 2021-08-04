@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FinancesOverviewComponent } from './finances-overview.component';
 import { FinancesOverviewRoutes } from './finances-overview.routing';
 import { RouterModule } from '@angular/router';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 
@@ -16,7 +17,9 @@ import { RouterModule } from '@angular/router';
     RouterModule.forChild(FinancesOverviewRoutes),
     SharedModule,
     NgxPaginationModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgxDatatableModule,
+
   ]
 })
 export class FinancesOverviewModule { }

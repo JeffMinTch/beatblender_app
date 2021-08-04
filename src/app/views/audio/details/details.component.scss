@@ -1,0 +1,13 @@
+.content-box {
+    height: fit-content;
+}
+
+.corner-image {
+    width: 100%;
+    // object-fit: cover;
+    height: 200px;
+    background: url(../../../../assets/images/backgrounds/soundgirl.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

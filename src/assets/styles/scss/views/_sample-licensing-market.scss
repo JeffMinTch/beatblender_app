@@ -167,7 +167,7 @@ filter: drop-shadow(16px 0px 0 #fe2d52);
   // background-image: url(../../../images/svg-icons/Background2.svg);
   //   background-repeat: no-repeat;
   margin: 0;
-  min-height: 1600px;
+  // min-height: 1600px;
   .products-pagination {
     width: 100%;
     text-align: center;
@@ -189,15 +189,16 @@ filter: drop-shadow(16px 0px 0 #fe2d52);
     width: 33.33%;
     float: left;
     height: fit-content;
-    // .download-button {
+    .download-button {
+      margin: 8px;
+
       
-      // }
+      }
       
       &:hover .download-button {
         background: var(--primary-color);
         color: var(--light-theme);
       transition: all $transitionTiming $transitionDuration;
-
     }
  
 
@@ -225,6 +226,9 @@ filter: drop-shadow(16px 0px 0 #fe2d52);
       //       background: map-get($default-accent-palette, main) !important;
       //   }
       // }
+      &:hover {
+        background: var(--light-theme-accent);
+      }
       
       .product-badge {
         color: #fff;
@@ -253,6 +257,7 @@ filter: drop-shadow(16px 0px 0 #fe2d52);
       .info-wrap {
         display: flex;
         flex-direction: column;
+        
         .main-info {
           width: 100%;
           margin-bottom: 1rem;

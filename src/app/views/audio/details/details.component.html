@@ -1,36 +1,64 @@
-<!-- <p>details works!</p> -->
-<div fxLayout style="min-height: 1200px; width: 100%;">
-    <div fxFlex="65"fxLayout="column">
+<app-heading class="mt-16" title="Sample Details" subTitle="See who remixed and influenced this Sample." [breadcrumbs]=""></app-heading>
+<div fxLayout="column" fxLayoutGap="16px" style="min-height: 1200px; width: 100%;">
+  <div fxLayout fxLayoutAlign="start center" class="full-width">
+    <mat-card fxFlex="50" fxLayout class="">
+      <div fxLayout="column" class="full-width">
         <!-- <h2 class="pl-8">Sample Detail</h2> -->
-        <app-audio-panel [audioUnit]="sample?.audioUnit" type="sample" (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
+        <app-audio-panel class="full-width" [audioUnit]="sample?.audioUnit" type="sample"
+          (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
+      </div>
+      <!-- <h2>MixedIn Samples</h2> -->
+  
+    </mat-card>
+    <div fxFlex="50" fxLayout="column" fxLayoutAlign="start center">
+      <div>
+        <mat-card fxLayout fxLayoutAlign="center center" fxLayoutGap="16px" class="full-width">
+          <img src="../../../../assets/images/face-6.jpg" alt="" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover;">
+          <!-- <app-heading class="" title="Benjamin Kliemann" size="sm" subTitle="Creator" [breadcrumbs]=""></app-heading> -->
+          <h3>Bonnie M.</h3>
+          <h6>Creator</h6>
+        </mat-card>
+      </div>
+      <!-- <div fxFlex="50"> -->
+        <!-- <p class="pl-16 fs-16">
+          Hello my georgious friends out there! <br>
+  
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus voluptatum exercitationem quod corrupti quia temporibus facere aliquam iste repudiandae ratione alias, soluta nisi at labore voluptatem esse dolorum incidunt neque!
+        </p> -->
+        
+      <!-- </div> -->
     </div>
-    <!-- <h2>MixedIn Samples</h2> -->
-    <div fxFlex="35" fxLayout="column" class="pl-8" style="">
+  </div>
+  <section fxFlex>
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px" class="pl-8" style="">
+      <!-- <div class="corner-image"></div> -->
+      <mat-card fxFlex="50" class="content-box" fxLayout="column">
+
         <h5 style="font-size: 18px;" class="my-8">MixedIns</h5>
         <p>Audio() that have been sampled:</p>
         <!-- <mat-divider class="mb-8"></mat-divider> -->
         <div fxFlex class="product-container" fxLayout="column" fxLayoutAlign="start center"
           [ngClass]="{'list-view': viewMode === 'list-view'}">
           <!-- Product Box -->
-          <ng-container *ngIf="samples?.length <= 0 && samples != null"; else product>
+          <ng-container *ngIf="samples?.length <= 0 && samples != null" ; else product>
             <div fxFlex fxLayoutAlign="center">
               <span class="fs-24">No samples match your request.</span>
             </div>
           </ng-container>
           <ng-container #product>
             <!-- | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count } -->
-            <div fxLayout="row wrap" class="product-wrap full-width"
-              *ngFor="let sample of samples; let i = index;"
-              [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}"
-              >
+            <div fxLayout="row wrap" class="product-wrap full-width" *ngFor="let sample of samples; let i = index;"
+              [@animate]="{value:'*',params:{scale:'.9',delay:'300ms'}}">
+              <!-- [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}" -->
               <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
               <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
               <div fxLayout="column" class="product-inner default-bg full-width">
                 <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
-                    <span>{{product?.badge?.text}}</span>
-                  </div> -->
-                <app-audio-panel [audioUnit]="sample?.audioUnit" type="primary" light="true" buttonText="Download" (clickEvent)="downloadAudioFile(sample)"></app-audio-panel>
-                
+                  <span>{{product?.badge?.text}}</span>
+                </div> -->
+                <app-audio-panel [audioUnit]="sample?.audioUnit" type="primary" light="true" buttonText="Download"
+                  (clickEvent)="downloadAudioFile(sample)"></app-audio-panel>
+
                 <!-- Visible when viewMode === list-view -->
                 <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
                   <div class="more-info">
@@ -48,7 +76,7 @@
                         <mat-icon>favorite</mat-icon>
                       </button>
                     </div>
-    
+
                     <div>
                       <ul>
                         <li>
@@ -65,18 +93,98 @@
                         </li>
                       </ul>
                     </div>
-    
+
                   </div>
                 </div>
-    
+
               </div>
             </div>
           </ng-container>
-    
+
           <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
           <!-- <div class="products-pagination" *ngIf="count > pageSize">
-            <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
-          </div> -->
+          <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+        </div> -->
+          <p>Any sampels missing? Report <a href="" class="hypertext">here</a>.</p>
         </div>
+
+      </mat-card>
+
+      <mat-card fxFlex="50" class="content-box" fxLayout="column">
+        <h5 style="font-size: 18px;" class="my-8">Used In</h5>
+        <p>Song that used that Sample:</p>
+        <!-- <mat-divider class="mb-8"></mat-divider> -->
+        <div fxFlex class="product-container" fxLayout="column" fxLayoutAlign="start center"
+          [ngClass]="{'list-view': viewMode === 'list-view'}">
+          <!-- Product Box -->
+          <ng-container *ngIf="samples?.length <= 0 && samples != null" ; else product>
+            <div fxFlex fxLayoutAlign="center">
+              <span class="fs-24">No samples match your request.</span>
+            </div>
+          </ng-container>
+          <ng-container #product>
+            <!-- | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count } -->
+            <div fxLayout="row wrap" class="product-wrap full-width" *ngFor="let sample of samples; let i = index;"
+              [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}">
+              <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
+              <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
+              <div fxLayout="column" class="product-inner default-bg full-width">
+                <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
+                  <span>{{product?.badge?.text}}</span>
+                </div> -->
+                <app-audio-panel [audioUnit]="sample?.audioUnit" type="primary" light="true" buttonText="Download"
+                  (clickEvent)="downloadAudioFile(sample)"></app-audio-panel>
+
+                <!-- Visible when viewMode === list-view -->
+                <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
+                  <div class="more-info">
+                    <div class="more-actions mb-16">
+                      <div class="product-rating">
+                        <star-rating [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'"
+                          [rating]="4.63"></star-rating>
+                        <small class="text-muted">(140)</small>
+                      </div>
+                      <span fxFlex></span>
+                      <button mat-icon-button>
+                        <mat-icon>playlist_add</mat-icon>
+                      </button>
+                      <button mat-icon-button>
+                        <mat-icon>favorite</mat-icon>
+                      </button>
+                    </div>
+
+                    <div>
+                      <ul>
+                        <li>
+                          <mat-icon>check</mat-icon> Heavy duty
+                        </li>
+                        <li>
+                          <mat-icon>check</mat-icon> Water resistance
+                        </li>
+                        <li>
+                          <mat-icon>check</mat-icon> Clean design
+                        </li>
+                        <li>
+                          <mat-icon>check</mat-icon> High quality raw materials
+                        </li>
+                      </ul>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </ng-container>
+
+          <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
+          <!-- <div class="products-pagination" *ngIf="count > pageSize">
+          <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+        </div> -->
+          <p>Any sampels missing? Report <a href="" class="hypertext">here</a>.</p>
+        </div>
+      </mat-card>
     </div>
+  </section>
+
 </div>

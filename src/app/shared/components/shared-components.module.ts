@@ -1,3 +1,6 @@
+import { DividerComponent } from './divider/divider.component';
+import { SubHeadingComponent } from './sub-heading/sub-heading.component';
+import { HeadingComponent } from './heading/heading.component';
 import { EditAudioUnitComponent } from './dialogs/edit-audio-unit/edit-audio-unit.component';
 import { IconButtonDirective } from './icon-button/icon-button.directive';
 import { IconButtonComponent } from './icon-button/icon-button.component';
@@ -103,7 +106,10 @@ const components = [
   SimpleDialogComponent,
   IconButtonComponent,
   IconButtonDirective,
-  EditAudioUnitComponent
+  EditAudioUnitComponent,
+  HeadingComponent,
+  SubHeadingComponent,
+  DividerComponent
 ]
 
 @NgModule({
@@ -135,7 +141,8 @@ const components = [
     MatExpansionModule,
     MatSnackBarModule,
     MatListModule,
-NgxPaginationModule
+    NgxPaginationModule,
+
 
   ],
   declarations: components,

@@ -19,7 +19,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   constructor(
     public title: Title,
-    private authConfigService: AuthConfigService,
     private router: Router,
     private activeRoute: ActivatedRoute,
     private routePartsService: RoutePartsService,

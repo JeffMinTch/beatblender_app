@@ -54,7 +54,7 @@
       </div>
     </div> -->
     <!-- <div> -->
-      <div [fxHide.lt-md]="true" class="waveform-container" #waveFormContainer>
+      <div class="waveform-container" #waveFormContainer>
         <div id="waveform" #waveform>
           
         </div>
@@ -132,13 +132,13 @@
     </div>
   </div>
   <ng-container *ngFor="let audioUnit of audioUnits">
-    <div  *ngIf="audioUnit?.audioUnit.audioUnitID === (playStateControlService.currentSampleID$ | async)" class="current-audio-container">
+    <div  *ngIf="audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async)" class="current-audio-container">
       <div fxLayoutAlign="center center">
-        <img class="" src="{{'http://localhost:9090/api/web/public/media/image/' + audioUnit?.audioUnit.audioUnitID}}" alt="">
+        <img class="" src="{{'http://localhost:9090/api/web/public/media/image/' + audioUnit?.audioUnitID}}" alt="">
       </div>  
         <div class="current-audio-info" fxLayout="column">
-          <span fxLayout="row">{{audioUnit?.audioUnit.artistAlias.artistName}}</span>
-          <span fxLayout="row">{{audioUnit?.audioUnit.title}}</span>
+          <span fxLayout="row">{{audioUnit?.artistAlias.artistName}}</span>
+          <span fxLayout="row">{{audioUnit?.title}}</span>
         </div>
       </div>
     </ng-container>

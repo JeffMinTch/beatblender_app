@@ -26,9 +26,9 @@ export class AudioService implements OnDestroy {
   duration: number;
   private _playState: boolean;
 
-  public audioUnitSubject: Subject<Array<Sample | Track>> = new Subject<Array<Sample | Track>>();
-  audioUnits$: Observable<Array<Sample | Track>> = this.audioUnitSubject.asObservable();
-  public emitAudioUnits(audioUnits: Array<Sample | Track>): void {
+  public audioUnitSubject: Subject<Array<AudioUnit>> = new Subject<Array<AudioUnit>>();
+  audioUnits$: Observable<Array<AudioUnit>> = this.audioUnitSubject.asObservable();
+  public emitAudioUnits(audioUnits: Array<AudioUnit>): void {
     this.audioUnitSubject.next(audioUnits);
   }
 
@@ -102,6 +102,8 @@ export class AudioService implements OnDestroy {
       default:
         progressColor = window.getComputedStyle(document.documentElement).getPropertyValue('--body-color');  
     }
+
+
     this.wavesurfer = WaveSurfer.create({
       container: '#waveform',
       barWidth: 3,
@@ -289,6 +291,9 @@ export class AudioService implements OnDestroy {
       this.createWavesurferObj(theme);
       this.loadPlayAudio(audioUnits[0].audioUnitID);
     }
+    this.playStateControlService.emitCurrentSampleID(audioUnits[0].audioUnitID);
+      this.emitAudioUnits(audioUnits);
+      this.emitAudioUnitsLoading(false);
   }
 
 

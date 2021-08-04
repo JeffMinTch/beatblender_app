@@ -1,21 +1,21 @@
 <section fxLayout="row" fxLayout.lt-sm="column" class="shop-top-toolbar">
     <div class="wrap" fxFlex fxLayoutAlign="center center">
-      <button mat-stroked-button  color="primary" class="mr-16 br-8 full-height" (click)="toggleSidenav()">
+      <!-- <button mat-stroked-button  color="primary" class="mr-16 br-8 full-height" style="background: var(--light-theme);" (click)="toggleSidenav()">
         <mat-icon>short_text</mat-icon>
-      </button>
+      </button> -->
       <!-- <button mat-stroked-button color="primary" style="height: 50px;" (click)="toggleFilter()">
         <mat-icon>filter_list</mat-icon> {{isFilterOpen ? 'Close' : 'Open'}} Filter
       </button> -->
       <!-- <span fxFlex="10px"></span> -->
       <div class="product-search-wrap">
-        <form [formGroup]="searchForm"
+        <form [formGroup]="searchForm" style="background: var(--light-theme);"
           (ngSubmit)="selectedSearchOption === null ? handleSearchbar(searchInput.value) : handleSearchbar(searchInput.value, selectedSearchOption.value)">
-          <mat-form-field appearance="outline" class="full-width">
+          <mat-form-field appearance="" class="full-width">
 
             <input matInput #searchInput #searchInputTrigger="matAutocompleteTrigger" type="text" name="searchProduct"
-              [matAutocomplete]="auto" (input)="retrieveSuggestions(searchInput.value)"
+              [matAutocomplete]="auto"   (input)="retrieveSuggestions(searchInput.value)"
               placeholder="find by samples, artists or tags..."
-              class="product-search default-bg full-width" autocapitalize="false" autocomplete="off"
+              class="product-search default-bg full-width " autocapitalize="false" autocomplete="off"
               [formControl]="searchForm.controls['search']" spellcheck="false">
           </mat-form-field>
           <!-- Used displayWith here with filter function; see https://stackoverflow.com/questions/44234290/how-to-display-using-displaywith-in-autocomplete-material2 -->
@@ -41,9 +41,9 @@
           </mat-autocomplete>
         </form>
       </div>
-      <button *ngIf="extraButton === true" mat-stroked-button color="primary" style="height: 95%;" (click)="toggleFilter()">
+      <!-- <button *ngIf="extraButton === true" mat-stroked-button color="primary" style="height: 95%; background: var(--light-theme);" (click)="toggleFilter()">
         <mat-icon>filter_list</mat-icon> {{isFilterOpen ? 'Close' : 'Open'}} Filter
-      </button>
+      </button> -->
     </div>
     
 

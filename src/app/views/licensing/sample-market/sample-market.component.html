@@ -1,9 +1,27 @@
 
 <div class="shop-wrap">
-  <div class="full-width">
+  <div class="full-width" style="position: relative;">
     <!-- Search Form -->
     <!-- <router-outlet></router-outlet> -->
-    <app-searchbar type="sample" [searchForm]="searchForm" (searchRequest)="applyFilter(0)" (searchStringChange)="changeSearchString($event)" (pageChange)="changePage($event)" (countChange)="changeCount($event)" (expandFilter)="toggleFilter($event)" (sidenavChange)="toggleSidenav()" [sortBy]="sortBy" [page]="pageNo" [pageSize]="pageSize"></app-searchbar>
+    <!-- <app-heading class="mt-16" title="Sample Market" subTitle="Find the Samples you deserve." [breadcrumbs]="breadcrumbs"></app-heading> -->
+    <div class="pt-8">
+      <app-searchbar  type="sample" [searchForm]="searchForm" (searchRequest)="applyFilter(0)" (searchStringChange)="changeSearchString($event)" (pageChange)="changePage($event)" (countChange)="changeCount($event)" (expandFilter)="toggleFilter($event)" (sidenavChange)="toggleSidenav()" [sortBy]="sortBy" [page]="pageNo" [pageSize]="pageSize"></app-searchbar>
+      
+    </div>
+    <app-sub-heading title="License Type A1"></app-sub-heading>
+    <!-- <p class="p-line py-8 px-32" style="font-size: 16px; line-height: 20px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime modi totam dolores recusandae, et, aperiam atque sequi laudantium soluta repudiandae veniam vel nisi incidunt voluptatem error unde sint sunt culpa inventore? Adipisci facere incidunt reiciendis illo maiores officia accusamus natus ab doloremque nihil aliquam in suscipit quos, provident quis? Aperiam? <a href="#" class="hypertext">Read more</a></p> -->
+    <!-- <div style=" width: 100%; border-top: 5px dotted var(--primary-color); top: 90px; left: 0; position: absolute;"></div> -->
+    <!-- <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 5px; left: 0; position: absolute;"></div>
+    <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 10px; left: 0; position: absolute;"></div> -->
+    <!-- <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 0; left: 0; position: absolute;"></div>
+    <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 0; left: 0; position: absolute;"></div>
+    <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 0; left: 0; position: absolute;"></div>
+    <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 0; left: 0; position: absolute;"></div>
+    <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 0; left: 0; position: absolute;"></div> -->
+    
+    
+    
+    
     <!-- <mat-progress-bar color="primary" mode="determinate" value="100" class="mt-16"></mat-progress-bar> -->
     <!-- <mat-progress-bar *ngIf="!responseReceived" mode="query" class="mb-16"></mat-progress-bar> -->
     
@@ -31,7 +49,7 @@
             <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
                 <span>{{product?.badge?.text}}</span>
               </div> -->
-            <app-audio-panel [audioUnit]="sample?.audioUnit" type="sample" (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
+            <app-audio-panel [audioUnit]="sample?.audioUnit" light="true" type="sample" (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
             
             <!-- Visible when viewMode === list-view -->
             <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">

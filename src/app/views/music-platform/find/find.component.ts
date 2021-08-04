@@ -171,9 +171,9 @@ export class FindComponent implements OnInit {
       this.tracks = trackPage.tracks;
       this.count = totalItems;
       this.audioService.initAudioPlayer(this.tracks.map((track) => track.audioUnit), Theme.PRIMARY);
-      this.playStateControlService.emitCurrentSampleID(this.tracks[0].audioUnit.audioUnitID);
-      this.audioService.emitAudioUnits(this.tracks);
-      this.audioService.emitAudioUnitsLoading(false);
+      // this.playStateControlService.emitCurrentSampleID(this.tracks[0].audioUnit.audioUnitID);
+      // this.audioService.emitAudioUnits(this.tracks);
+      // this.audioService.emitAudioUnitsLoading(false);
       // this.dataSource = new MatTableDataSource(tracks);
       this.loader.close();
     }, (error) => {
@@ -297,9 +297,9 @@ export class FindComponent implements OnInit {
       this.tracks = trackPage.tracks;
       this.count = totalItems;
       this.audioService.initAudioPlayer(this.tracks.map((track) => track.audioUnit), Theme.PRIMARY);
-      this.playStateControlService.emitCurrentSampleID(this.tracks[0].audioUnit.audioUnitID);
-      this.audioService.emitAudioUnits(this.tracks);
-      this.audioService.emitAudioUnitsLoading(false);
+      // this.playStateControlService.emitCurrentSampleID(this.tracks[0].audioUnit.audioUnitID);
+      // this.audioService.emitAudioUnits(this.tracks);
+      // this.audioService.emitAudioUnitsLoading(false);
       // this.dataSource = new MatTableDataSource(tracks);
       this.loader.close();
     }, (error) => {

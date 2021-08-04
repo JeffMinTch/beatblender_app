@@ -1,7 +1,9 @@
+import { OnInit } from '@angular/core';
+import { LayoutService } from 'app/shared/services/layout.service';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
 
-interface IMenuItem {
+export interface IMenuItem {
   type: string; // Possible values: link/dropDown/icon/separator/extLink
   name?: string; // Used as display text for item and title for separator type
   state?: string; // Router state
@@ -26,8 +28,10 @@ interface IBadge {
   value: string; // Display text
 }
 
-@Injectable()
-export class NavigationService {
+@Injectable({
+  providedIn: 'root',
+})
+export class NavigationService implements OnInit {
 
   accountMenu: IMenuItem[] = [
     {
@@ -41,7 +45,7 @@ export class NavigationService {
       icon: 'dashboard',
       state: 'profile/overview'
     },
-    
+
     {
       name: 'My Licenses',
       type: 'dropDown',
@@ -49,8 +53,8 @@ export class NavigationService {
       icon: 'library_books',
       state: 'profile/my-licenses',
       sub: [
-        { name: 'Basic Licenses', state: 'basic-licenses' , type: 'link'},
-        {name: 'Extended Licenses', state: 'extended-licenses', type: 'link'},
+        { name: 'Basic Licenses', state: 'basic-licenses', type: 'link' },
+        { name: 'Extended Licenses', state: 'extended-licenses', type: 'link' },
         // { name: 'How To Get A License', state: 'analytics' },
         // { name: 'Sampling Rules', state: 'crypto' },
         // { name: 'Video Tutorials', state: 'dark' },
@@ -66,7 +70,7 @@ export class NavigationService {
       state: 'profile',
       sub: [
         { name: 'Upload Sample', state: 'upload-audio', type: 'link' },
-        {name: 'My Uploads', state: 'manage-audio', type: 'link'},
+        { name: 'My Uploads', state: 'manage-audio', type: 'link' },
         // { name: 'How To Get A License', state: 'analytics' },
         // { name: 'Sampling Rules', state: 'crypto' },
         // { name: 'Video Tutorials', state: 'dark' },
@@ -94,7 +98,7 @@ export class NavigationService {
       icon: 'settings',
       state: 'listen/find'
     },
-    
+
   ];
 
   listenMenu: IMenuItem[] = [
@@ -146,12 +150,50 @@ export class NavigationService {
       icon: 'info',
       state: 'sample-market/docs',
       sub: [
-        { name: 'Introduction', state: 'introduction' , type: 'link'},
-        {name: 'What is Root Sounds', state: 'learning-management', type: 'link'},
-        { name: 'How To Get A License', state: 'analytics' , type: 'link'},
-        { name: 'Sampling Rules', state: 'crypto' , type: 'link'},
-        { name: 'Video Tutorials', state: 'dark' , type: 'link'},
+        { name: 'Introduction', state: 'introduction', type: 'link' },
+        { name: 'What is Root Sounds', state: 'learning-management', type: 'link' },
+        { name: 'How To Get A License', state: 'analytics', type: 'link' },
+        { name: 'Sampling Rules', state: 'crypto', type: 'link' },
+        { name: 'Video Tutorials', state: 'dark', type: 'link' },
         { name: 'FAQ', state: 'dark' }
+
+      ]
+    },
+    {
+      name: 'License Rooms',
+      type: 'dropDown',
+      tooltip: 'License Rooms',
+      icon: 'info',
+      state: 'sample-market/docs',
+      sub: [
+        {
+          name: 'License A', state: 'introduction', type: 'dropDown', sub: [
+            { name: 'License A1', state: 'learning-management', type: 'link' },
+            { name: 'License A2', state: 'analytics', type: 'link' },
+          ]
+        },
+        {
+          name: 'License B', state: 'introduction', type: 'dropDown', sub: [
+            { name: 'License B1', state: 'learning-management', type: 'link' },
+            { name: 'License B2', state: 'analytics', type: 'link' },
+
+            // { name: 'Sampling Rules', state: 'crypto', type: 'link' },
+            // { name: 'Video Tutorials', state: 'dark', type: 'link' },
+            // { name: 'FAQ', state: 'dark' }
+
+          ]
+        },
+        {
+          name: 'License C', state: 'introduction', type: 'dropDown', sub: [
+            { name: 'License C1', state: 'learning-management', type: 'link' },
+            { name: 'License C2', state: 'analytics', type: 'link' },
+
+            // { name: 'Sampling Rules', state: 'crypto', type: 'link' },
+            // { name: 'Video Tutorials', state: 'dark', type: 'link' },
+            // { name: 'FAQ', state: 'dark' }
+
+          ]
+        },
 
       ]
     },
@@ -162,25 +204,25 @@ export class NavigationService {
       icon: 'storefront',
       state: 'sample-market'
     },
-    // {
-    //   name: 'Upload',
-    //   type: 'link',
-    //   tooltip: 'Documentation',
-    //   icon: 'library_books',
-    //   state: 'licensing/forms/upload-audio'
-    // },
-    // {
-    //   name: 'My Licenses',
-    //   type: 'dropDown',
-    //   tooltip: 'My Licenses',
-    //   icon: 'library_books',
-    //   state: 'licensing/my-licenses',
-    //   sub: [
-    //     { name: 'Basic Licenses', state: 'basic-licenses' },
-    //     {name: 'Extended Licenses', state: 'extended-licenses'},
-    //   ]
-    // },
   ];
+  // {
+  //   name: 'Upload',
+  //   type: 'link',
+  //   tooltip: 'Documentation',
+  //   icon: 'library_books',
+  //   state: 'licensing/forms/upload-audio'
+  // },
+  // {
+  //   name: 'My Licenses',
+  //   type: 'dropDown',
+  //   tooltip: 'My Licenses',
+  //   icon: 'library_books',
+  //   state: 'licensing/my-licenses',
+  //   sub: [
+  //     { name: 'Basic Licenses', state: 'basic-licenses' },
+  //     {name: 'Extended Licenses', state: 'extended-licenses'},
+  //   ]
+  // },
 
   iconMenu: IMenuItem[] = [
     {
@@ -211,7 +253,7 @@ export class NavigationService {
       icon: 'storefront',
       state: 'sample-market'
     },
-    
+
     {
       name: 'MUSIC',
       type: 'icon',
@@ -226,6 +268,10 @@ export class NavigationService {
       icon: 'group_work',
       state: 'home'
     },
+
+
+
+    // {
     // {
     //   name: 'Sample of the Day',
     //   type: 'icon',
@@ -244,11 +290,11 @@ export class NavigationService {
       icon: 'music_note',
       state: 'dashboard',
       sub: [
-        { name: 'Default', state: 'default' , type: 'link'},
-        {name: 'Learning Management', state: 'learning-management', type: 'link'},
-        { name: 'Analytics', state: 'analytics' , type: 'link'},
-        { name: 'Cryptocurrency', state: 'crypto' , type: 'link'},
-        { name: 'Dark Cards', state: 'dark' , type: 'link'}
+        { name: 'Default', state: 'default', type: 'link' },
+        { name: 'Learning Management', state: 'learning-management', type: 'link' },
+        { name: 'Analytics', state: 'analytics', type: 'link' },
+        { name: 'Cryptocurrency', state: 'crypto', type: 'link' },
+        { name: 'Dark Cards', state: 'dark', type: 'link' }
       ]
     },
     {
@@ -258,9 +304,9 @@ export class NavigationService {
       icon: 'storefront',
       state: 'licensing',
       sub: [
-        {name: 'How it works', state: 'how-it-works', type: 'link'},
-        {name: 'Basic Licenses', state: 'basic-licenses', type: 'link'},
-        {name: 'Full Licenses', state: 'full-licenses', type: 'link'},
+        { name: 'How it works', state: 'how-it-works', type: 'link' },
+        { name: 'Basic Licenses', state: 'basic-licenses', type: 'link' },
+        { name: 'Full Licenses', state: 'full-licenses', type: 'link' },
         // {name: 'Upload Your Samples', state: 'upload-samples'}
       ]
     },
@@ -271,7 +317,7 @@ export class NavigationService {
       icon: 'publish',
       state: 'forms',
       sub: [
-        { name: 'Upload Audio', state: 'upload-audio', type: 'link'}
+        { name: 'Upload Audio', state: 'upload-audio', type: 'link' }
       ]
     },
     {
@@ -324,7 +370,7 @@ export class NavigationService {
       state: 'dialogs',
       sub: [
         { name: 'CONFIRM', state: 'confirm', type: 'link' },
-        { name: 'LOADER', state: 'loader' , type: 'link'}
+        { name: 'LOADER', state: 'loader', type: 'link' }
       ]
     },
     {
@@ -334,9 +380,9 @@ export class NavigationService {
       icon: 'person',
       state: 'profile',
       sub: [
-        { name: 'OVERVIEW', state: 'overview' , type: 'link'},
-        { name: 'SETTINGS', state: 'settings', type: 'link'},
-        { name: 'BLANK', state: 'blank' , type: 'link'}
+        { name: 'OVERVIEW', state: 'overview', type: 'link' },
+        { name: 'SETTINGS', state: 'settings', type: 'link' },
+        { name: 'BLANK', state: 'blank', type: 'link' }
       ]
     },
     {
@@ -652,6 +698,7 @@ export class NavigationService {
     }
   ];
 
+
   // Icon menu TITLE at the very top of navigation.
   // This title will appear if any icon type item is present in menu.
   iconTypeMenuTitle = 'Frequently Accessed';
@@ -660,9 +707,26 @@ export class NavigationService {
 
   quickAccessItems = new BehaviorSubject<IMenuItem[]>(this.iconMenu);
   quickAccessItems$ = this.quickAccessItems.asObservable();
-  menuItems = new BehaviorSubject<IMenuItem[]>();
+  menuItems: ReplaySubject<IMenuItem[]> = new ReplaySubject();
+  menuItems$: Observable<IMenuItem[]> = this.menuItems.asObservable();
+
+  constructor(
+    // private layoutService: LayoutService
+  ) {
+    // this.menuItems  = new BehaviorSubject<IMenuItem[]>(this.sampleMarketMenu);
+    // this.menuItems$ = this.menuItems.asObservable();
+  }
+
+  ngOnInit(): void {
+    console.log('navigationservice');
+    // this.layoutService.layoutConf$.subscribe((layoutConf) => {
+    //   this.publishNavigationChange(layoutConf.sidenavMenu);
+    // });
+  }
+
+
+
   // navigation component has subscribed to this Observable
-  menuItems$ = this.menuItems.asObservable();
 
   // sampleMarketItems = new BehaviorSubject<IMenuItem[]>(this.sampleMarketMenu);
   // sampleMarketItems$ = this.sampleMarketItems.asObservable();
@@ -673,7 +737,7 @@ export class NavigationService {
   // accountItems = new BehaviorSubject<IMenuItem[]>(this.accountMenu);
   // accountItems$ = this.accountItems.asObservable();
 
-  constructor() {}
+
 
   // Customizer component uses this method to change menu.
   // You can remove this method and customizer component.
@@ -688,7 +752,7 @@ export class NavigationService {
         this.menuItems.next(this.iconMenu);
         break;
       case 'sample-market-menu':
-        console.log(this.sampleMarketMenu);
+        // console.log(this.sampleMarketMenu);
         this.menuItems.next(this.sampleMarketMenu);
         break;
       case 'listen-menu':
@@ -697,8 +761,8 @@ export class NavigationService {
       case 'account-menu':
         this.menuItems.next(this.accountMenu);
         break;
-      // default:
-        // this.menuItems.next(this.plainMenu);
+      default:
+        this.menuItems.next(this.plainMenu);
     }
   }
 }

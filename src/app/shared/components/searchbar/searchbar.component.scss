@@ -14,7 +14,7 @@
       height: 100%;
       .product-search {
         width: 260px;
-        min-height: 40px;
+        // min-height: 40px;
         // height: 100%;
         line-height: 20px;
         font-size: 16px;
@@ -28,12 +28,12 @@
     color: #ff3d57;
   }
 
-  .shop-top-toolbar ::ng-deep .mat-form-field-infix {
-    padding: 0 !important;
-  }
+//   .shop-top-toolbar ::ng-deep .mat-form-field-infix {
+//     padding: 0 !important;
+//   }
 
-  .shop-top-toolbar ::ng-deep .mat-form-field-wrapper {
-    width: auto !important;
-    padding-bottom: 0 !important;
-    margin: 0 !important;
-}
+//   .shop-top-toolbar ::ng-deep .mat-form-field-wrapper {
+//     width: auto !important;
+//     padding-bottom: 0 !important;
+//     margin: 0 !important;
+// }

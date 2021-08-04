@@ -1,4 +1,4 @@
-import { NavigationService } from './navigation.service';
+import { NavigationService, IMenuItem } from './navigation.service';
 import { Injectable, Renderer2 } from '@angular/core';
 import { Router, RouterEvent, NavigationEnd } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
@@ -20,6 +20,7 @@ export interface ILayoutConf {
   footerColor?: string; // Header background color http://demos.ui-lib.com/egret-doc/#egret-colors
   matTheme?: string; // material theme. egret-blue, egret-navy, egret-dark-purple, egret-dark-pink
   perfectScrollbar?: boolean;
+  menuItems?: IMenuItem[]; //sample-market-menu, account-menu, listen-menu
 }
 export interface ILayoutChangeOptions {
   duration?: number;
@@ -46,18 +47,46 @@ export class LayoutService {
     this.router.events.subscribe((routerEvent: RouterEvent) => {
       if (routerEvent instanceof NavigationEnd) {
         // setTimeout(() => {
-          if(routerEvent.urlAfterRedirects.startsWith('/sample-market')) {
-            this.navigationService.publishNavigationChange('sample-market-menu');
+        if (routerEvent.urlAfterRedirects !== this.currentRoute) {
+          if (routerEvent.urlAfterRedirects.startsWith('/sample-market')) {
+            this.layoutConf.menuItems = this.navigationService.sampleMarketMenu;
+            this.currentRoute = routerEvent.urlAfterRedirects;
+            this.publishLayoutChange(this.layoutConf);
+
+
+            // let that = this;
+            // setTimeout(() => {
+            //   that.navigationService.publishNavigationChange('sample-market-menu');
+            // },500);
           } else if (routerEvent.urlAfterRedirects.startsWith('/profile')) {
-            this.navigationService.publishNavigationChange('account-menu');
-      
+            this.layoutConf.menuItems = this.navigationService.accountMenu;
+            this.currentRoute = routerEvent.urlAfterRedirects;
+
+            this.publishLayoutChange(this.layoutConf);
+
+            // let that = this;
+            // setTimeout(() => {
+            //   that.navigationService.publishNavigationChange('account-menu');
+            // }, 500);
           } else if (routerEvent.urlAfterRedirects.startsWith('/listen')) {
-            this.navigationService.publishNavigationChange('listen-menu');
-          } 
-        
+            // let that = this;
+            // setTimeout(() => {
+            //   that.navigationService.publishNavigationChange('listen-menu');
+            // },500);
+            this.currentRoute = routerEvent.urlAfterRedirects;
+            this.layoutConf.menuItems = this.navigationService.listenMenu;
+            this.publishLayoutChange(this.layoutConf);
+
+          } else {
+            this.currentRoute = routerEvent.urlAfterRedirects;
+            this.layoutConf.menuItems = [];
+            this.publishLayoutChange(this.layoutConf);
+          }
+        }
+
         // },1000);
         // else {
-        //   this.navigationService.publishNavigationChange(null);
+        // this.navigationService.publishNavigationChange(null);
         // }
 
         switch (routerEvent.urlAfterRedirects) {
@@ -91,19 +120,21 @@ export class LayoutService {
           case '/profile/my-licenses/basic-licenses':
             this.layoutConf.footerFixed = true;
             break;
-            // case '/profile/my-licenses/basic-licenses':
-            //   this.layoutConf.footerFixed = true;
-            //   break;
-            // case '/sample-market/download':
-            // this.layoutConf.footerFixed = true;
-            // break;
+          // case '/profile/my-licenses/basic-licenses':
+          //   this.layoutConf.footerFixed = true;
+          //   break;
+          // case '/sample-market/download':
+          // this.layoutConf.footerFixed = true;
+          // break;
           default:
             this.layoutConf.footerFixed = false;
         }
-        if(routerEvent.urlAfterRedirects.startsWith('/audio/details')) {
+        if (routerEvent.urlAfterRedirects.startsWith('/audio/details')) {
           this.layoutConf.footerFixed = true;
         }
       }
+
+      // console.log('LayoutService');
 
     });
 

@@ -4,7 +4,7 @@
         <ng-container class="icon-menu-item" *ngFor="let item of menuItems; let i = index;">
             <div *ngIf="!item.disabled && item.type === 'icon'" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5px" class="button-container">
                 <!-- [ngStyle]="{'background': setBackgroundColor(i)}" -->
-                <button class="quick-access-button ml-8 mr-4 my-8"  mat-flat-button [matTooltip]="item.tooltip" [matTooltipPosition]="'above'"
+                <button class="quick-access-button ml-8 mr-4 my-8" mat-flat-button [matTooltip]="item.tooltip" [matTooltipPosition]="'above'"
                     routerLink="/{{item.state}}" routerLinkActive="active">
                     <!-- [ngStyle]="{'color': setIconColor(i)}" -->
                     <mat-icon *ngIf="item.icon" class="sidenav-mat-icon">{{item.icon}}</mat-icon>

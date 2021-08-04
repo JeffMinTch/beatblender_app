@@ -1,17 +1,12 @@
-import { SamplePage } from './../../models/sample-page.model';
 import { takeUntil } from 'rxjs/operators';
 import { ComponentCommunicationService } from './../../services/component-communication.service';
 import { SampleLicensingMarketService } from '../../../views/licensing/sample-licensing-market.service';
 import { PlayStateControlService } from './../../services/play-state-control.service';
-import { Subscription, Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { AudioService } from './../../services/audio.service';
 import { Component, OnInit, AfterViewInit, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
-import { Sample } from 'app/shared/models/sample.model';
-import { CurrentFile } from 'app/shared/models/current-file.model';
 import { AudioState } from 'app/shared/models/audio-state.model';
-import { map, share } from 'rxjs/operators';
-import { createTrue } from 'typescript';
-import { Track } from 'app/shared/models/track.model';
+import { AudioUnit } from 'app/shared/models/audio-unit.model';
 
 @Component({
   selector: 'app-footer',
@@ -22,14 +17,14 @@ import { Track } from 'app/shared/models/track.model';
 export class FooterComponent implements OnInit, AfterViewInit {
 
   // private samples: Array<Sample>;
-  private currentSampleID: string;
+  private currentAudioUnitID: string;
   isMuted: boolean = false;
   audioStateSubscription: Subscription;
   sampleSubscription: Subscription;
   // samples$: Observable<Sample[]>;
   audioLoadCompleteSubscription: Subscription;
   public initIcons: boolean = false;
-  public audioUnits: Array<Sample | Track>; 
+  public audioUnits: Array<AudioUnit>; 
 
   constructor(
     public audioService: AudioService,
@@ -72,8 +67,8 @@ export class FooterComponent implements OnInit, AfterViewInit {
 
     this.playStateControlService.currentSampleID$.pipe(
       takeUntil(this.playStateControlService.playStateServiceDestroyed$)
-    ).subscribe((currentSampleID: string) => {
-      this.currentSampleID = currentSampleID;
+    ).subscribe((currentAudioUnitID: string) => {
+      this.currentAudioUnitID = currentAudioUnitID;
       // this.changeDetectorRef.detectChanges();
     });
   }
@@ -114,26 +109,26 @@ export class FooterComponent implements OnInit, AfterViewInit {
   }
 
   previousNext(buttonName) {
-    let newActiveSampleIndex: number;
-    const activeSampleIndex: number = this.audioUnits.findIndex(audioUnit => audioUnit.audioUnit.audioUnitID === this.currentSampleID);
+    let newActiveAudioUnitIndex: number;
+    const activeAudioUnitIndex: number = this.audioUnits.findIndex(audioUnit => audioUnit.audioUnitID === this.currentAudioUnitID);
     switch (buttonName) {
       case 'prev':
-        newActiveSampleIndex = activeSampleIndex - 1;
+        newActiveAudioUnitIndex = activeAudioUnitIndex - 1;
         break;
       case 'next':
-        newActiveSampleIndex = activeSampleIndex + 1;
+        newActiveAudioUnitIndex = activeAudioUnitIndex + 1;
         break;
     }
-    this.loadAudio(this.audioUnits[newActiveSampleIndex].audioUnit.audioUnitID);
-    this.playStateControlService.emitCurrentSampleID(this.audioUnits[newActiveSampleIndex].audioUnit.audioUnitID);
+    this.loadAudio(this.audioUnits[newActiveAudioUnitIndex].audioUnitID);
+    this.playStateControlService.emitCurrentSampleID(this.audioUnits[newActiveAudioUnitIndex].audioUnitID);
     // this.playStateControlService.saveIDCurrentPlayElement(this.samples[newActiveSampleIndex].sampleID);
     this.changeDetectorRef.detectChanges();
   }
 
-  findSampleIndex(samples: Sample[]): number {
-    const activeSample: Sample = samples.find(sample => sample.audioUnit.audioUnitID === this.playStateControlService.getIDCurrentPlayElement())
-    const activeSampleIndex: number = samples.findIndex(sample => sample === activeSample);
-    return activeSampleIndex;
+  findSampleIndex(audioUnits: AudioUnit[]): number {
+    const activeAudioUnit: AudioUnit = audioUnits.find(audioUnit => audioUnit.audioUnitID === this.playStateControlService.getIDCurrentPlayElement())
+    const activeAudioUnitIndex: number = audioUnits.findIndex(audioUnit => audioUnit === activeAudioUnit);
+    return activeAudioUnitIndex;
   }
 
   loadAudio(audioUnitID: string):void {
@@ -142,7 +137,7 @@ export class FooterComponent implements OnInit, AfterViewInit {
 
   isFirst(): boolean {
     if (this.audioUnits) {
-      if (this.audioUnits.findIndex(sample => sample.audioUnit.audioUnitID === this.currentSampleID)===0) {
+      if (this.audioUnits.findIndex(audioUnit => audioUnit.audioUnitID === this.currentAudioUnitID)===0) {
         return true;
       } else {
         return false;
@@ -160,7 +155,8 @@ export class FooterComponent implements OnInit, AfterViewInit {
 
   isLast():boolean {
     if(this.audioUnits) {
-      if(this.audioUnits.findIndex(sample => sample.audioUnit.audioUnitID === this.currentSampleID) === this.audioUnits.length -1) {
+      if(this.audioUnits.findIndex(audioUnit => 
+        audioUnit.audioUnitID === this.currentAudioUnitID) === this.audioUnits.length -1) {
         return true;
       } else {
         return false;

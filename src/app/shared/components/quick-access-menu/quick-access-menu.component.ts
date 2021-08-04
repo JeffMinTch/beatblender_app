@@ -24,15 +24,18 @@ export class QuickAccessMenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.iconTypeMenuTitle = this.navService.iconTypeMenuTitle;
-    this.menuItemsSub = this.navService.quickAccessItems$.subscribe(menuItem => {
-      this.menuItems = menuItem;
-      //Checks item list has any icon type.
-      this.hasIconTypeMenuItem = !!this.menuItems.filter(
-        item => item.type === "icon"
-      ).length;
-    });
-    this.layoutConf = this.layout.layoutConf;
+    // setTimeout(() => {
+      this.iconTypeMenuTitle = this.navService.iconTypeMenuTitle;
+      this.menuItemsSub = this.navService.quickAccessItems$.subscribe(menuItem => {
+        this.menuItems = menuItem;
+        //Checks item list has any icon type.
+        this.hasIconTypeMenuItem = !!this.menuItems.filter(
+          item => item.type === "icon"
+        ).length;
+      });
+      this.layoutConf = this.layout.layoutConf;
+
+    // }, 1000);
 
   }
 

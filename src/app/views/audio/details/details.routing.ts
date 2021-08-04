@@ -5,6 +5,8 @@ export const DetailsRoutes: Routes = [
     {
         path: 'details/:id',
         component: DetailsComponent,
+        data: { title: 'Details', breadcrumb: 'Details' }
+
         // children: [
         //     {
         //         path: 'track/:id',

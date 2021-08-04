@@ -34,6 +34,7 @@ import { HttpService } from 'app/shared/services/web-services/http.service';
 import { AudioUnitType } from 'app/shared/enums/audio-unit-type.enums';
 import { Theme } from 'app/shared/enums/theme.enum';
 import { S } from '@angular/cdk/keycodes';
+import { Breadcrumb } from 'app/shared/models/breadcrumb.model';
 
 
 @Component({
@@ -66,12 +67,24 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
     minMaxSliderFormMap: null
   };
 
+  breadcrumbs: Array<Breadcrumb> = [
+    {
+      title: 'My Account',
+      route: '/profile/overview'
+    },
+    {
+      title: 'Finances',
+      route: '/profile/finances'
+    }
+  ];
+
+
   responseReceived: boolean = true;
   currentTime: number;
   duration: number;
 
   pageNo: number = 0;
-  pageSize: number = 12;
+  pageSize: number = 30;
   sortBy: string = 'title';
   count: number = 0;
 
@@ -129,9 +142,9 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
       takeUntil(this.sampleLicensingMarketService.sampleLicensingMarketDestroyed$),
     ).subscribe((samples: Array<Sample>) => {
       console.log(samples);
-      if (samples.length > 0) {
-        this.initCurrentFile(samples[0].audioUnit.audioUnitID);
-      }
+      // if (samples.length > 0) {
+      //   this.initCurrentFile(samples[0].audioUnit.audioUnitID);
+      // }
     });
     this.retrieveSamples();
   }
@@ -177,8 +190,8 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
       console.log('Apply')
       const { samples, totalItems } = response;
       this.count = totalItems;
-      this.audioService.emitAudioUnits(samples);
-      this.audioService.emitAudioUnitsLoading(false);
+      // this.audioService.emitAudioUnits(samples);
+      // this.audioService.emitAudioUnitsLoading(false);
       this.sampleLicensingMarketService.samples$.next(samples);
     }
     );
@@ -340,10 +353,10 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
 
 
 
-  initCurrentFile(audioUnitID: string) {
-    // this.playStateControlService.saveIDCurrentPlayElement(sampleID);
-    this.playStateControlService.emitCurrentSampleID(audioUnitID);
-  }
+  // initCurrentFile(audioUnitID: string) {
+  //   // this.playStateControlService.saveIDCurrentPlayElement(sampleID);
+  //   this.playStateControlService.emitCurrentSampleID(audioUnitID);
+  // }
 
 
   getCurrentTime(): number {

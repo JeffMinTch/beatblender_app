@@ -9,6 +9,7 @@ export const ProfileRoutes: Routes = [
   {
     path: '',
     component: ProfileComponent,
+    data: { title: 'Profile', breadcrumb: 'Profile' },
     children: [{
       path: 'overview',
       component: ProfileOverviewComponent,
