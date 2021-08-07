@@ -1,7 +1,7 @@
 import { NavigationService, IMenuItem } from './navigation.service';
-import { Injectable, Renderer2 } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Router, RouterEvent, NavigationEnd } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { getQueryParam } from '../helpers/url.helper';
 import { ThemeService } from './theme.service';
 
@@ -37,6 +37,8 @@ interface IAdjustScreenOptions {
 export class LayoutService {
   public layoutConf: ILayoutConf = {};
   layoutConfSubject = new BehaviorSubject<ILayoutConf>(this.layoutConf);
+  scrollTopSubject = new Subject<any>();
+  scrollTopSubject$ = this.scrollTopSubject.asObservable();
   layoutConf$ = this.layoutConfSubject.asObservable();
   public isMobile: boolean;
   public currentRoute: string;
@@ -77,7 +79,18 @@ export class LayoutService {
             this.layoutConf.menuItems = this.navigationService.listenMenu;
             this.publishLayoutChange(this.layoutConf);
 
-          } else {
+
+          } else if(routerEvent.urlAfterRedirects.startsWith('/about')) {
+            this.currentRoute = routerEvent.urlAfterRedirects;
+            this.layoutConf.menuItems = this.navigationService.aboutMenu;
+            this.publishLayoutChange(this.layoutConf);
+          } else if(routerEvent.urlAfterRedirects.startsWith('/licensing')) {
+            this.currentRoute = routerEvent.urlAfterRedirects;
+            this.layoutConf.menuItems = this.navigationService.licenseMenu;
+            this.publishLayoutChange(this.layoutConf);
+          }
+          
+          else {
             this.currentRoute = routerEvent.urlAfterRedirects;
             this.layoutConf.menuItems = [];
             this.publishLayoutChange(this.layoutConf);
@@ -132,6 +145,7 @@ export class LayoutService {
         if (routerEvent.urlAfterRedirects.startsWith('/audio/details')) {
           this.layoutConf.footerFixed = true;
         }
+        this.scrollTopSubject.next();
       }
 
       // console.log('LayoutService');

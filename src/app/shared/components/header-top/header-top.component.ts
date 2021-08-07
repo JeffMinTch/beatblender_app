@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy, Renderer2 } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { NavigationService } from "../../../shared/services/navigation.service";
 import { Subscription } from 'rxjs';
 import { ThemeService } from '../../../shared/services/theme.service';
@@ -31,7 +31,6 @@ export class HeaderTopComponent implements OnInit, OnDestroy {
     private navService: NavigationService,
     public themeService: ThemeService,
     public translate: TranslateService,
-    private renderer: Renderer2,
     public jwtAuth: JwtAuthService,
     private oauthService: OAuthService
 
@@ -55,7 +54,7 @@ export class HeaderTopComponent implements OnInit, OnDestroy {
         tooltip: 'More',
         icon: 'more_horiz',
         sub: subItems
-      })
+      });
       this.menuItems = mainItems
       // console.log(this.menuItems);
     })

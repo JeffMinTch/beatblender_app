@@ -58,30 +58,17 @@
 </div> -->
 
 <section fxLayout="column">
-  <!-- <div fxLayout fxLayoutAlign="space-between" class="py-32" style="">
-    <div fxFlex fxLayout="column">
-      <h5 style="font-weight: 100; font-size: 16px; margin: 0 0 16px 16px;"> <a class="hypertext" [routerLink]="'/profile/overview'">My Account</a> > <a [routerLink]="'/profile/finances'" class="hypertext">Finances</a> </h5>
-      <h1 style="margin: auto 0 0 16px; font-family: 'Lazer84'; color: var(--primary-color);"><span style="color: var(--primary-color);">R</span>oyalities</h1>
-      <h4 style="margin: 0 0 auto 16px; color: var(--body-color);">Overview your Financials.</h4>
-    </div>
-  </div> -->
+
   <app-heading title="Royalities" subTitle="Overview your Financials" [breadcrumbs]="breadcrumbs"></app-heading>
-  <app-sub-heading title="Overview"></app-sub-heading>
-  <!-- <div fxLayout fxLayoutAlign="space-between" class="py-8 mb-16" style="background: var(--light-theme-accent);">
-    <div fxFlex fxLayout="column">
-      <h1 style="margin: auto 0 0 16px; color: var(--body-color);"><span style="color: var(--body-color);">O</span>verview</h1>
-    </div>
-  </div> -->
+  <app-sub-heading title="Total Royalities"></app-sub-heading>
+ 
   <div fxFlex fxLayout fxLayoutAlign="center center" style="background: var(--light-theme);">
     <mat-card fxFlex fxLayout class="total-card" fxLayoutAlign="space-between">
       <div fxLayout="column" >
         <mat-card-title fxLayoutAlign="start center">
           <small class="">Total Wallet Balance</small>
           <span fxFlex></span>
-          <!-- <mat-chip
-            class="icon-chip" 
-            color="primary" 
-            selected="true"><mat-icon>trending_up</mat-icon>20%</mat-chip> -->
+        
           </mat-card-title>
           <mat-card-content>
             <h3 class="m-0 font-normal balance-text">22,450$</h3>
@@ -109,26 +96,20 @@
         <mat-card-title fxLayoutAlign="start center">
           <small class="text-muted">My Songs</small>
           <span fxFlex></span>
-          <!-- <mat-chip
-          class="icon-chip" 
-          color="primary" 
-          selected="true"><mat-icon>trending_up</mat-icon>20%</mat-chip> -->
+       
         </mat-card-title>
         <mat-card-content>
           <h3 class="m-0 font-normal balance-text">22,450$</h3>
           <small class="">Your Current Balance</small>
         </mat-card-content>
       </mat-card>
-  <mat-divider [vertical]="true" class="" style="background: var(--body-color); border: 2px solid var(--body-color);"></mat-divider>
+  <mat-divider [vertical]="true" class="" style="background: rgba(3, 2, 2, 0.02); border: 2px solid rgba(3, 2, 2, 0.02);"></mat-divider>
 
       <mat-card fxFlex class="dashboard-card right-card">
         <mat-card-title fxLayoutAlign="start center">
           <small class="">Sampling Participation</small>
           <span fxFlex></span>
-          <!-- <mat-chip
-          class="icon-chip" 
-          color="primary" 
-          selected="true"><mat-icon>trending_up</mat-icon>20%</mat-chip> -->
+         
         </mat-card-title>
         <mat-card-content>
           <h3 class="m-0 font-normal balance-text">22,450$</h3>
@@ -137,7 +118,6 @@
       </mat-card>
   
     </div>
-    <!-- <mat-divider class="mb-16" style="background: var(--accent-color); border: 2px solid var(--accent-color);"></mat-divider> -->
   
     
     
@@ -146,9 +126,7 @@
   </div>
 
 </section>
-<!-- <h2 class="ml-16" style="color: var(--base-accent-color);"><span
-  style="color: var(--primary-color);">R</span>oyalities
-from My Releases</h2> -->
+
 <app-sub-heading title="Sales"></app-sub-heading>
 
 

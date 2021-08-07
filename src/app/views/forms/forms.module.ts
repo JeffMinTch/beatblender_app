@@ -33,7 +33,6 @@ import { RichTextEditorComponent } from './rich-text-editor/rich-text-editor.com
 import { FileUploadComponent } from './file-upload/file-upload.component';
 
 import { FormsRoutes } from "./forms.routing";
-import { WizardComponent } from './wizard/wizard.component';
 
 @NgModule({
   imports: [
@@ -74,7 +73,6 @@ import { WizardComponent } from './wizard/wizard.component';
     BasicFormComponent, 
     RichTextEditorComponent, 
     FileUploadComponent, 
-    WizardComponent,
   ]
 })
 export class AppFormsModule { }

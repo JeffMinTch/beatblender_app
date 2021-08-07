@@ -1,5 +1,6 @@
 <!-- <ng-template > -->
-<section fxLayout="column" *ngIf="type !== 'iconButton'" [ngClass]="audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? 'mat-elevation-z1' : ''">
+  <!-- [ngClass]="audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? 'mat-elevation-z1' : ''" -->
+<section fxLayout="column" *ngIf="type !== 'iconButton'">
   <!-- [ngStyle]="{border: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? '2px solid var(--body-color)' : '2px dashed var(--light-theme-accent)'}" -->
   <!-- playState ? pause(audioUnit?.audioUnitID === currentSampleID, audioUnit?.audioUnitID) : play(audioUnit?.audioUnitID === currentSampleID, audioUnit?.audioUnitID) -->
   <mat-toolbar

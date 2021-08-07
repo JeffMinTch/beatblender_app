@@ -46,6 +46,10 @@ export class SidenavComponent {
         return {
           color: 'var(--body-color)'
         }
+      default:
+        return {
+          color: 'var(--light-theme)'
+        }
     }
 
   }

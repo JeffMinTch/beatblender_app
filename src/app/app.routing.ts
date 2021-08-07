@@ -7,7 +7,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 export const rootRouterConfig: Routes = [
   {
     path: '',
-    redirectTo: 'sample-market',
+    redirectTo: 'sample-market/bb-a1',
     pathMatch: 'full'
   },
   // {

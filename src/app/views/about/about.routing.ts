@@ -1,12 +1,13 @@
-import { DetailsComponent } from './details.component';
+import { UnderConstructionComponent } from './../../shared/components/under-construction/under-construction.component';
+import { AboutComponent } from './about.component';
 import { Routes } from '@angular/router';
 
-export const DetailsRoutes: Routes = [
+export const AboutRoutes: Routes = [
     {
-        path: 'details/:id',
-        component: DetailsComponent,
+        path: '',
+        component: UnderConstructionComponent,
         data: { title: 'Details', breadcrumb: 'Details' }
-        
+
         // children: [
         //     {
         //         path: 'track/:id',
@@ -22,4 +23,5 @@ export const DetailsRoutes: Routes = [
         //     //   },
 
         // ]
-    }]
+    }
+];

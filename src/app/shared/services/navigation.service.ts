@@ -46,46 +46,77 @@ export class NavigationService implements OnInit {
       state: 'profile/overview'
     },
 
+    // {
+    //   name: 'My Licenses',
+    //   type: 'dropDown',
+    //   tooltip: 'My Licenses',
+    //   icon: 'library_books',
+    //   state: 'profile/my-licenses',
+    //   sub: [
+    //     { name: 'Basic Licenses', state: 'basic-licenses', type: 'link' },
+    //     { name: 'Extended Licenses', state: 'extended-licenses', type: 'link' },
+    //   ]
+    // },
     {
-      name: 'My Licenses',
-      type: 'dropDown',
+      name: 'Sample Download Area',
+      type: 'link',
       tooltip: 'My Licenses',
       icon: 'library_books',
-      state: 'profile/my-licenses',
-      sub: [
-        { name: 'Basic Licenses', state: 'basic-licenses', type: 'link' },
-        { name: 'Extended Licenses', state: 'extended-licenses', type: 'link' },
-        // { name: 'How To Get A License', state: 'analytics' },
-        // { name: 'Sampling Rules', state: 'crypto' },
-        // { name: 'Video Tutorials', state: 'dark' },
-        // { name: 'FAQ', state: 'dark' }
-
-      ]
+      state: 'profile/my-licenses/basic-licenses'
+      // sub: [
+      //   { name: 'Basic Licenses', state: 'basic-licenses', type: 'link' },
+      //   { name: 'Extended Licenses', state: 'extended-licenses', type: 'link' },
+      // ]
+    },
+    // {
+    //   name: 'Manage Audio',
+    //   type: 'dropDown',
+    //   tooltip: 'Upload Audio',
+    //   icon: 'upload',
+    //   state: 'profile',
+    //   sub: [
+    //     { name: 'Upload Sample', state: 'upload-audio', type: 'link' },
+    //     { name: 'My Uploads', state: 'manage-audio', type: 'link' },
+    //   ]
+    // },
+    {
+      name: 'Upload Sample to Markets',
+      type: 'link',
+      tooltip: 'Upload Sample',
+      icon: 'upload',
+      state: 'profile/upload-audio',
+      // sub: [
+      //   { name: 'Upload Sample', state: 'upload-audio', type: 'link' },
+      //   { name: 'My Uploads', state: 'manage-audio', type: 'link' },
+      // ]
     },
     {
-      name: 'Manage Audio',
-      type: 'dropDown',
-      tooltip: 'Upload Audio',
+      name: 'Manage your Uploads',
+      type: 'link',
+      tooltip: 'Manage your Uploads',
       icon: 'upload',
-      state: 'profile',
-      sub: [
-        { name: 'Upload Sample', state: 'upload-audio', type: 'link' },
-        { name: 'My Uploads', state: 'manage-audio', type: 'link' },
-        // { name: 'How To Get A License', state: 'analytics' },
-        // { name: 'Sampling Rules', state: 'crypto' },
-        // { name: 'Video Tutorials', state: 'dark' },
-        // { name: 'FAQ', state: 'dark' }
-      ]
+      state: 'profile/manage-audio',
+      // sub: [
+      //   { name: 'Upload Sample', state: 'upload-audio', type: 'link' },
+      //   { name: 'My Uploads', state: 'manage-audio', type: 'link' },
+      // ]
     },
     {
       name: 'Collaborations',
       type: 'link',
       tooltip: 'Collaborations',
       icon: 'queue_music',
-      state: 'listen/playlists'
+      state: 'profile/collaborations'
     },
     {
-      name: 'Finances',
+      name: 'Distribute your sampled Track',
+      type: 'link',
+      tooltip: 'Distribute',
+      icon: 'public',
+      state: 'profile/distribute'
+    },
+    {
+      name: 'Manage your Finances',
       type: 'link',
       tooltip: 'Finances',
       icon: 'account_balance_wallet',
@@ -96,7 +127,7 @@ export class NavigationService implements OnInit {
       type: 'link',
       tooltip: 'Settings',
       icon: 'settings',
-      state: 'listen/find'
+      state: 'profile/settings'
     },
 
   ];
@@ -143,68 +174,155 @@ export class NavigationService implements OnInit {
       type: 'separator',
       name: 'Sample Market'
     },
+    // {
+    //   name: 'How It Works',
+    //   type: 'dropDown',
+    //   tooltip: 'Documentation',
+    //   icon: 'info',
+    //   state: 'sample-market/docs',
+    //   sub: [
+    //     { name: 'Introduction', state: 'introduction', type: 'link' },
+    //     { name: 'What is Root Sounds', state: 'learning-management', type: 'link' },
+    //     { name: 'How To Get A License', state: 'analytics', type: 'link' },
+    //     { name: 'Sampling Rules', state: 'crypto', type: 'link' },
+    //     { name: 'Video Tutorials', state: 'dark', type: 'link' },
+    //     { name: 'FAQ', state: 'dark' }
+
+    //   ]
+    // },
     {
-      name: 'How It Works',
-      type: 'dropDown',
-      tooltip: 'Documentation',
-      icon: 'info',
-      state: 'sample-market/docs',
-      sub: [
-        { name: 'Introduction', state: 'introduction', type: 'link' },
-        { name: 'What is Root Sounds', state: 'learning-management', type: 'link' },
-        { name: 'How To Get A License', state: 'analytics', type: 'link' },
-        { name: 'Sampling Rules', state: 'crypto', type: 'link' },
-        { name: 'Video Tutorials', state: 'dark', type: 'link' },
-        { name: 'FAQ', state: 'dark' }
-
-      ]
-    },
-    {
-      name: 'License Rooms',
-      type: 'dropDown',
-      tooltip: 'License Rooms',
-      icon: 'info',
-      state: 'sample-market/docs',
-      sub: [
-        {
-          name: 'License A', state: 'introduction', type: 'dropDown', sub: [
-            { name: 'License A1', state: 'learning-management', type: 'link' },
-            { name: 'License A2', state: 'analytics', type: 'link' },
-          ]
-        },
-        {
-          name: 'License B', state: 'introduction', type: 'dropDown', sub: [
-            { name: 'License B1', state: 'learning-management', type: 'link' },
-            { name: 'License B2', state: 'analytics', type: 'link' },
-
-            // { name: 'Sampling Rules', state: 'crypto', type: 'link' },
-            // { name: 'Video Tutorials', state: 'dark', type: 'link' },
-            // { name: 'FAQ', state: 'dark' }
-
-          ]
-        },
-        {
-          name: 'License C', state: 'introduction', type: 'dropDown', sub: [
-            { name: 'License C1', state: 'learning-management', type: 'link' },
-            { name: 'License C2', state: 'analytics', type: 'link' },
-
-            // { name: 'Sampling Rules', state: 'crypto', type: 'link' },
-            // { name: 'Video Tutorials', state: 'dark', type: 'link' },
-            // { name: 'FAQ', state: 'dark' }
-
-          ]
-        },
-
-      ]
-    },
-    {
-      name: 'Sample Market',
+      name: 'License Deed',
       type: 'link',
-      tooltip: 'Sample Market',
       icon: 'storefront',
-      state: 'sample-market'
+      state: 'license-deeds'
     },
+    {
+      name: 'License A', state: 'sample-market', type: 'dropDown', icon: 'storefront', sub: [
+        { name: 'License A1', state: 'bb-a1', type: 'link' },
+        { name: 'License A2', state: 'bb-a2', type: 'link' },
+      ]
+    },
+    {
+      name: 'License B', state: 'sample-market', type: 'dropDown', icon: 'storefront', sub: [
+        { name: 'License B1', state: 'bb-b1', type: 'link' },
+        { name: 'License B2', state: 'bb-b2', type: 'link' },
+
+        // { name: 'Sampling Rules', state: 'crypto', type: 'link' },
+        // { name: 'Video Tutorials', state: 'dark', type: 'link' },
+        // { name: 'FAQ', state: 'dark' }
+
+      ]
+    },
+    {
+      name: 'License C', state: 'sample-market', icon: 'storefront', type: 'dropDown', sub: [
+        { name: 'License C1', state: 'bb-c1', type: 'link' },
+        { name: 'License C2', state: 'bb-c2', type: 'link' },
+
+        // { name: 'Sampling Rules', state: 'crypto', type: 'link' },
+        // { name: 'Video Tutorials', state: 'dark', type: 'link' },
+        // { name: 'FAQ', state: 'dark' }
+
+      ]
+    },
+
+    // {
+    //   name: 'Sample Markets',
+    //   type: 'dropDown',
+    //   tooltip: 'Sample Markets',
+    //   icon: 'info',
+    //   state: 'sample-market',
+    //   sub: [
+    //     {
+    //       name: 'License Deed',
+    //       type: 'link',
+    //       icon: 'storefront',
+    //       state: 'license-deeds'
+    //     },
+    //     {
+    //       name: 'License A', state: '', type: 'dropDown', sub: [
+    //         { name: 'License A1', state: 'bb-a1', type: 'link' },
+    //         { name: 'License A2', state: 'bb-a2', type: 'link' },
+    //       ]
+    //     },
+    //     {
+    //       name: 'License B', state: '', type: 'dropDown', sub: [
+    //         { name: 'License B1', state: 'bb-b1', type: 'link' },
+    //         { name: 'License B2', state: 'bb-b2', type: 'link' },
+
+    //         // { name: 'Sampling Rules', state: 'crypto', type: 'link' },
+    //         // { name: 'Video Tutorials', state: 'dark', type: 'link' },
+    //         // { name: 'FAQ', state: 'dark' }
+
+    //       ]
+    //     },
+    //     {
+    //       name: 'License C', state: '', type: 'dropDown', sub: [
+    //         { name: 'License C1', state: 'bb-c1', type: 'link' },
+    //         { name: 'License C2', state: 'bb-c2', type: 'link' },
+
+    //         // { name: 'Sampling Rules', state: 'crypto', type: 'link' },
+    //         // { name: 'Video Tutorials', state: 'dark', type: 'link' },
+    //         // { name: 'FAQ', state: 'dark' }
+
+    //       ]
+    //     },
+
+    //   ]
+    // },
+
+    // {
+    //   name: 'Sample Market',
+    //   type: 'link',
+    //   tooltip: 'Sample Market',
+    //   icon: 'storefront',
+    //   state: 'sample-market'
+    // },
   ];
+
+  aboutMenu: IMenuItem[] = [
+    {
+      type: 'separator',
+      name: 'About'
+    },
+    {
+      name: 'About',
+      type: 'link',
+      tooltip: 'About',
+      icon: 'info',
+      state: 'about'
+    },
+    {
+      name: 'FAQ',
+      type: 'link',
+      tooltip: 'About',
+      icon: 'question_answer',
+      state: 'faq'
+    }
+
+  ];
+
+  licenseMenu: IMenuItem[] = [
+    {
+      type: 'separator',
+      name: 'Licensing'
+    },
+    {
+      name: 'License Register',
+      type: 'link',
+      tooltip: 'License Register',
+      icon: 'app_registration',
+      state: 'licensing/license-register'
+    },
+    {
+      name: 'Licenses',
+      type: 'link',
+      tooltip: 'Licenses',
+      icon: 'assignment',
+      state: 'licensing/faq'
+    }
+  ];
+
+
   // {
   //   name: 'Upload',
   //   type: 'link',
@@ -237,14 +355,14 @@ export class NavigationService implements OnInit {
       type: 'icon',
       tooltip: 'About',
       icon: 'info',
-      state: 'home'
+      state: 'about'
     },
     {
       name: 'Licensing',
       type: 'icon',
       tooltip: 'Licensing',
       icon: 'app_registration',
-      state: 'home'
+      state: 'license-register'
     },
     {
       name: 'SAMPLE MARKET',
@@ -262,9 +380,9 @@ export class NavigationService implements OnInit {
       state: 'listen'
     },
     {
-      name: 'Collaboration',
+      name: 'Collaborate with others',
       type: 'icon',
-      tooltip: 'Collaboration',
+      tooltip: 'Collaborate others',
       icon: 'group_work',
       state: 'home'
     },
@@ -760,6 +878,9 @@ export class NavigationService implements OnInit {
         break;
       case 'account-menu':
         this.menuItems.next(this.accountMenu);
+        break;
+      case 'about-menu':
+        this.menuItems.next(this.aboutMenu);
         break;
       default:
         this.menuItems.next(this.plainMenu);

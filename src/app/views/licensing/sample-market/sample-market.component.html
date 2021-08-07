@@ -8,7 +8,8 @@
       <app-searchbar  type="sample" [searchForm]="searchForm" (searchRequest)="applyFilter(0)" (searchStringChange)="changeSearchString($event)" (pageChange)="changePage($event)" (countChange)="changeCount($event)" (expandFilter)="toggleFilter($event)" (sidenavChange)="toggleSidenav()" [sortBy]="sortBy" [page]="pageNo" [pageSize]="pageSize"></app-searchbar>
       
     </div>
-    <app-sub-heading title="License Type A1"></app-sub-heading>
+    <h1>License Type <a class="hypertext">{{licenseType | uppercase}}</a></h1>
+    <!-- <app-sub-heading title="License Type BB-A1"></app-sub-heading> -->
     <!-- <p class="p-line py-8 px-32" style="font-size: 16px; line-height: 20px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime modi totam dolores recusandae, et, aperiam atque sequi laudantium soluta repudiandae veniam vel nisi incidunt voluptatem error unde sint sunt culpa inventore? Adipisci facere incidunt reiciendis illo maiores officia accusamus natus ab doloremque nihil aliquam in suscipit quos, provident quis? Aperiam? <a href="#" class="hypertext">Read more</a></p> -->
     <!-- <div style=" width: 100%; border-top: 5px dotted var(--primary-color); top: 90px; left: 0; position: absolute;"></div> -->
     <!-- <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 5px; left: 0; position: absolute;"></div>

@@ -1,6 +1,6 @@
 import { MatSidenav } from '@angular/material/sidenav';
 import { SampleLicensingMarketService } from '../../../../views/licensing/sample-licensing-market.service';
-import { Component, OnInit, AfterViewInit, ViewChild, HostListener, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, HostListener, ChangeDetectionStrategy, ChangeDetectorRef, ElementRef } from '@angular/core';
 import { 
   Router, 
   NavigationEnd, 
@@ -27,6 +27,9 @@ import { SidenavContent } from 'app/shared/models/sidenav-content.model';
 export class AdminLayoutComponent implements OnInit, AfterViewInit {
   
   @ViewChild('notificationPanel', { static: false, read: MatSidenav}) private notificationPanel: MatSidenav;
+  @ViewChild('rightsideContentHold', { static: false, read: ElementRef}) private rightsideContentHold: ElementRef;
+
+
   public isModuleLoading: Boolean = false;
   private moduleLoaderSub: Subscription;
   private layoutConfSub: Subscription;
@@ -70,6 +73,10 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
         this.cdr.markForCheck();
     });
 
+    this.layout.scrollTopSubject$.subscribe(() => {
+      this.scrollToTop();
+    });
+
     // FOR MODULE LOADER FLAG
     this.moduleLoaderSub = this.router.events.subscribe(event => {
       if(event instanceof RouteConfigLoadStart || event instanceof ResolveStart) {
@@ -103,12 +110,13 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
   scrollToTop() {
     if(document) {
       setTimeout(() => {
-        let element;
-        if(this.layoutConf.topbarFixed) {
-          element = <HTMLElement>document.querySelector('#rightside-content-hold');
-        } else {
-          element = <HTMLElement>document.querySelector('#main-content-wrap');
-        }
+        // let element;
+        const element = (this.rightsideContentHold.nativeElement as HTMLElement);
+        // if(this.layoutConf.topbarFixed) {
+        //   element = <HTMLElement>document.querySelector('#rightside-content-hold');
+        // } else {
+        //   element = <HTMLElement>document.querySelector('#main-content-wrap');
+        // }
         element.scrollTop = 0;
       })
     }

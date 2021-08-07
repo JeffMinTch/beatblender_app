@@ -1,11 +1,11 @@
 <mat-sidenav-container fxLayout="row" class="full-width br-8 sidenav-container profile-sidenav-container"
-  style="min-height: 1200px; margin-bottom: 80px;">
+  style="min-height: 1600px; margin-bottom: 80px;">
 
   <mat-sidenav EgretSideNavToggle class="shop-sidebar" style="border-right: none;">
     <div class="shop-filters-wrap " fxLayout="column" fxLayoutGap="5px">
       <!-- [hasIconMenu]="hasIconTypeMenuItem" -->
       <!-- [iconMenuTitle]="iconTypeMenuTitle" -->
-      <app-quick-access-menu class="quick-access-menu"></app-quick-access-menu>
+      <!-- <app-quick-access-menu class="quick-access-menu"></app-quick-access-menu> -->
       <ng-container *ngIf="isMenu; else spinner">
         <app-sidenav [items]="layoutConf.menuItems" [hasIconMenu]="hasIconTypeMenuItem"
           [iconMenuTitle]="iconTypeMenuTitle" titleColor="body"></app-sidenav>

@@ -18,7 +18,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { egretAnimations } from 'app/shared/animations/egret-animations';
 import { AppLoaderService } from 'app/shared/services/app-loader/app-loader.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { SampleLicensingMarketService } from '../sample-licensing-market.service';
 import { Sample } from 'app/shared/models/sample.model';
@@ -27,14 +27,15 @@ import { MatSliderChange } from '@angular/material/slider';
 import { SidenavContent } from 'app/shared/models/sidenav-content.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SamplePage } from '../../../shared/models/sample-page.model';
 import { PaginationRequestParams } from 'app/shared/models/pagination-request-params.model';
 import { HttpService } from 'app/shared/services/web-services/http.service';
 import { AudioUnitType } from 'app/shared/enums/audio-unit-type.enums';
 import { Theme } from 'app/shared/enums/theme.enum';
-import { S } from '@angular/cdk/keycodes';
 import { Breadcrumb } from 'app/shared/models/breadcrumb.model';
+import { LicenseType } from 'app/shared/models/types/license-type.model';
+
 
 
 @Component({
@@ -62,6 +63,9 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
   searchString: string;
   selectionList: Array<Selection>;
   minMaxList: Array<MinMaxSlider>;
+  licenseType: LicenseType;
+
+
   public searchFilterFormMap: SearchFilterFormMap = {
     selectionFormMap: null,
     minMaxSliderFormMap: null
@@ -124,8 +128,11 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
     private matchMedia: MatchMediaService,
     public dialog: MatDialog,
     private router: Router,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private activeRoute: ActivatedRoute,
   ) {
+
+    
 
     this.matchMedia.onMediaChange.subscribe((data) => {
       console.log('Data');
@@ -214,6 +221,16 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
       this.currentSampleID = currentSampleID;
     });
 
+    
+
+    // this.url = this.activeRoute;
+    // console.log('Path');
+    // console.log(this.activeRoute);
+    // this.activeRoute.sub
+    // this.url = this.activeRoute.url.subscribe(() => {
+
+    // });
+
     // this.sampleLicensingMarketService.getSelectionList().subscribe((selections: Array<Selection>) => {
     //   this.selections = selections;
     // });
@@ -243,6 +260,22 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
     // this.filterForm = this.buildFilterForm(this.sampleLicensingMarketService.initialFilters);
     this.searchForm = this.sampleLicensingMarketService.buildSearchForm();
 
+    this.activeRoute.params.subscribe(params => {
+      console.log(params) //log the entire params object
+      console.log(params['id']) //log the value of id
+      // if(params['id'] instanceof License)
+      this.licenseType = params['id'];
+      this.changeDetectorRef.detectChanges();
+      // try {
+      //   alert(this.licenseType);
+      // } catch {
+      //   alert('Error');
+      // }
+      // this.audioWebService.getSample(params['id']).subscribe((sample: Sample) => {
+      //   this.sample = sample;
+      //   this.audioService.initAudioPlayer(new Array<AudioUnit>(sample.audioUnit),Theme.ACCENT);
+      // })
+    });
   }
 
 

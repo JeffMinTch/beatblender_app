@@ -4,10 +4,8 @@ import { Routes } from '@angular/router';
 import { AuthGuard } from 'app/shared/guards/auth.guard';
 import { LicensingComponent } from './licensing/licensing.component';
 import { DownloadSampleComponent } from './sample-market/download-sample/download-sample.component';
-// import { ProductsComponent } from './products/products.component';
-// import { ProductDetailsComponent } from './product-details/product-details.component';
-// import { CartComponent } from './cart/cart.component';
-// import { CheckoutComponent } from './checkout/checkout.component';
+import { UnderConstructionComponent } from 'app/shared/components/under-construction/under-construction.component';
+
 
 export const LicensingRoutes: Routes = [
   {
@@ -20,13 +18,20 @@ export const LicensingRoutes: Routes = [
       data: { title: 'Sample Market', breadcrumb: 'Sample Market'}
     },
     {
+      path: 'license-register',
+      loadChildren: () => import('../../views/licensing/license-register/license-register.module').then(m => m.LicenseRegisterModule),
+      data: { title: 'License Register', breadcrumb: 'License Register'}
+    },
+    {
+      path: 'faq',
+      component: UnderConstructionComponent,
+      data: { title: 'License Register', breadcrumb: 'License Register'}
+    },
+    {
       path: 'download/:id',
       component: DownloadSampleComponent,
       data: { title: 'Download', breadcrumb: 'Download'}
     },
-
-
-
   //     {
   //   path: 'basic-licenses',
   //   component: BasicLicensesComponent,

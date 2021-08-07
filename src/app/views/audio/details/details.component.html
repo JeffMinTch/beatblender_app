@@ -1,22 +1,46 @@
 <app-heading class="mt-16" title="Sample Details" subTitle="See who remixed and influenced this Sample." [breadcrumbs]=""></app-heading>
 <div fxLayout="column" fxLayoutGap="16px" style="min-height: 1200px; width: 100%;">
-  <div fxLayout fxLayoutAlign="start center" class="full-width">
-    <mat-card fxFlex="50" fxLayout class="">
-      <div fxLayout="column" class="full-width">
-        <!-- <h2 class="pl-8">Sample Detail</h2> -->
-        <app-audio-panel class="full-width" [audioUnit]="sample?.audioUnit" type="sample"
-          (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
-      </div>
-      <!-- <h2>MixedIn Samples</h2> -->
   
-    </mat-card>
-    <div fxFlex="50" fxLayout="column" fxLayoutAlign="start center">
-      <div>
-        <mat-card fxLayout fxLayoutAlign="center center" fxLayoutGap="16px" class="full-width">
-          <img src="../../../../assets/images/face-6.jpg" alt="" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover;">
+  <div fxLayout fxLayoutAlign="start start" class="full-width">
+    <div fxFlex="50" fxLayout="column">
+      <!-- <app-sub-heading title="Sample"></app-sub-heading> -->
+      <mat-card fxLayout class="">
+        <div fxLayout="column" class="full-width">
+          <!-- <h2 class="pl-8">Sample Detail</h2> -->
+          <app-audio-panel class="full-width" [audioUnit]="sample?.audioUnit" type="sample"
+            (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
+        </div>
+        <!-- <h2>MixedIn Samples</h2> -->
+    
+      </mat-card>
+
+    </div>
+    <div fxFlex="50" fxLayout="column" fxLayoutAlign="center start" class="pt-16">
+      <div class="full-width pr-8" fxLayout="column" fxLayoutAlign="start center">
+        <app-sub-heading class="full-width" title="Copyright Owners"></app-sub-heading>
+        <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="30px" class="artist-card full-width">
+          <img src="../../../../assets/images/frau.jpg" alt="" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
           <!-- <app-heading class="" title="Benjamin Kliemann" size="sm" subTitle="Creator" [breadcrumbs]=""></app-heading> -->
-          <h3>Bonnie M.</h3>
-          <h6>Creator</h6>
+          <div fxFlex fxLayout="column" fxLayoutAlign="center center">
+            <h3 class="m-0">Bonnie M.</h3>
+            <h6 class="m-0" style="color: var(--primary-color);">Songwriter</h6>
+          </div>
+        </mat-card>
+        <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="30px" class="artist-card full-width">
+          <img src="../../../../assets/images/typ1.jpg" alt="" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+          <!-- <app-heading class="" title="Benjamin Kliemann" size="sm" subTitle="Creator" [breadcrumbs]=""></app-heading> -->
+          <div fxFlex fxLayout="column" fxLayoutAlign="center center">
+            <h3 class="m-0">Falco</h3>
+            <h6 class="m-0" style="color: var(--accent-color);">Beatmaker</h6>
+          </div>
+        </mat-card>
+        <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="30px" class="artist-card full-width">
+          <img src="../../../../assets/images/backgrounds/featuresHome-testimonial_04_2x.png" alt="" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+          <!-- <app-heading class="" title="Benjamin Kliemann" size="sm" subTitle="Creator" [breadcrumbs]=""></app-heading> -->
+          <div fxFlex fxLayout="column" fxLayoutAlign="center center">
+            <h3 class="m-0">Karim Abdul Jabbar</h3>
+            <h6 class="m-0">Composer</h6>
+          </div>
         </mat-card>
       </div>
       <!-- <div fxFlex="50"> -->
@@ -30,6 +54,7 @@
     </div>
   </div>
   <section fxFlex>
+    <app-sub-heading title="MixedIns"></app-sub-heading>
     <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px" class="pl-8" style="">
       <!-- <div class="corner-image"></div> -->
       <mat-card fxFlex="50" class="content-box" fxLayout="column">

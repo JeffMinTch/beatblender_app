@@ -1,3 +1,4 @@
+import { UnderConstructionComponent } from './under-construction/under-construction.component';
 import { DividerComponent } from './divider/divider.component';
 import { SubHeadingComponent } from './sub-heading/sub-heading.component';
 import { HeadingComponent } from './heading/heading.component';
@@ -109,7 +110,8 @@ const components = [
   EditAudioUnitComponent,
   HeadingComponent,
   SubHeadingComponent,
-  DividerComponent
+  DividerComponent,
+  UnderConstructionComponent
 ]
 
 @NgModule({

@@ -1,4 +1,4 @@
-<section #findComponent class="pt-8" fxLayout="column" fxLayoutGap="10px">
+<section #findComponent class="pt-32" fxLayout="column" fxLayoutGap="10px" style="overflow: hidden;">
     <app-searchbar [searchForm]="searchForm" (searchRequest)="filterTracks()"
         (searchStringChange)="changeSearchString($event)" (pageChange)="changePage($event)"
         (countChange)="changeCount($event)" (expandFilter)="toggleFilter($event)" (sidenavChange)="toggleSidenav()"

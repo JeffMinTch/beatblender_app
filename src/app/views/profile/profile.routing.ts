@@ -1,3 +1,4 @@
+import { UnderConstructionComponent } from './../../shared/components/under-construction/under-construction.component';
 import { Routes } from '@angular/router';
 
 import { ProfileComponent } from "./profile.component";
@@ -12,7 +13,7 @@ export const ProfileRoutes: Routes = [
     data: { title: 'Profile', breadcrumb: 'Profile' },
     children: [{
       path: 'overview',
-      component: ProfileOverviewComponent,
+      component: UnderConstructionComponent,
       data: { title: 'Overview', breadcrumb: 'OVERVIEW' }
     }, 
     {
@@ -49,6 +50,16 @@ export const ProfileRoutes: Routes = [
       path: 'my-licenses',
       loadChildren: () => import('../licensing/my-licenses/my-licenses.module').then(m => m.MyLicensesModule),
       data: { title: 'my-licenses', breadcrumb: 'My Licenses'}
+    },
+    {
+      path: 'collaborations',
+      component: UnderConstructionComponent,
+      data: { title: 'Blank', breadcrumb: 'BLANK' }
+    },
+    {
+      path: 'distribute',
+      component: UnderConstructionComponent,
+      data: { title: 'Blank', breadcrumb: 'BLANK' }
     },
     {
       path: '**',

@@ -32,7 +32,19 @@ export const SidenavRoutes: Routes = [
         path: 'audio',
         loadChildren: () => import('../../views/audio/audio.module').then(m => m.AudioModule),
         data: { title: 'Audio' }
-      }
+      },
+      {
+        path: 'about',
+        loadChildren: () => import('../../views/about/about.module').then(m => m.AboutModule),
+        data: { title: 'Audio' }
+      },
+      // {
+      //   path: 'licensing',
+      //   loadChildren: () => import('../../views/licensing/licensing.module').then(m => m.LicensingModule),
+      //   data: { title: 'Audio' }
+      // },
+      
+      
     ]
   }
 

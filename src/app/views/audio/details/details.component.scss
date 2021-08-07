@@ -11,3 +11,10 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.artist-card {
+    cursor: pointer;
+    &:hover {
+        background: rgba(3, 2, 2, 0.02);
+    }
+}
