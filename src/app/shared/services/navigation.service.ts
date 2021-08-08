@@ -296,7 +296,7 @@ export class NavigationService implements OnInit {
       type: 'link',
       tooltip: 'About',
       icon: 'question_answer',
-      state: 'faq'
+      state: 'about/faq'
     }
 
   ];
@@ -307,19 +307,23 @@ export class NavigationService implements OnInit {
       name: 'Licensing'
     },
     {
-      name: 'License Register',
-      type: 'link',
-      tooltip: 'License Register',
-      icon: 'app_registration',
-      state: 'licensing/license-register'
-    },
-    {
       name: 'Licenses',
-      type: 'link',
+      type: 'dropDown',
       tooltip: 'Licenses',
       icon: 'assignment',
-      state: 'licensing/faq'
-    }
+      state: 'licensing',
+      sub: [
+        { name: 'License Register', state: 'license-register', type: 'link' },
+        { name: 'License Deeds', state: 'license-deeds' , type: 'link'},
+      ]
+    },
+    // {
+    //   name: 'License Register',
+    //   type: 'link',
+    //   tooltip: 'License Register',
+    //   icon: 'app_registration',
+    //   state: 'licensing/license-register'
+    // },
   ];
 
 
@@ -362,7 +366,7 @@ export class NavigationService implements OnInit {
       type: 'icon',
       tooltip: 'Licensing',
       icon: 'app_registration',
-      state: 'license-register'
+      state: 'licensing'
     },
     {
       name: 'SAMPLE MARKET',
@@ -379,13 +383,13 @@ export class NavigationService implements OnInit {
       icon: 'headset',
       state: 'listen'
     },
-    {
-      name: 'Collaborate with others',
-      type: 'icon',
-      tooltip: 'Collaborate others',
-      icon: 'group_work',
-      state: 'home'
-    },
+    // {
+    //   name: 'Collaborate with others',
+    //   type: 'icon',
+    //   tooltip: 'Collaborate others',
+    //   icon: 'group_work',
+    //   state: 'home'
+    // },
 
 
 
@@ -415,19 +419,19 @@ export class NavigationService implements OnInit {
         { name: 'Dark Cards', state: 'dark', type: 'link' }
       ]
     },
-    {
-      name: 'Audio Licenses',
-      type: 'dropDown',
-      tooltip: 'Sample Market',
-      icon: 'storefront',
-      state: 'licensing',
-      sub: [
-        { name: 'How it works', state: 'how-it-works', type: 'link' },
-        { name: 'Basic Licenses', state: 'basic-licenses', type: 'link' },
-        { name: 'Full Licenses', state: 'full-licenses', type: 'link' },
-        // {name: 'Upload Your Samples', state: 'upload-samples'}
-      ]
-    },
+    // {
+    //   name: 'Audio Licenses',
+    //   type: 'dropDown',
+    //   tooltip: 'Sample Market',
+    //   icon: 'storefront',
+    //   state: 'licensing',
+    //   sub: [
+    //     { name: 'How it works', state: 'how-it-works', type: 'link' },
+    //     { name: 'Basic Licenses', state: 'basic-licenses', type: 'link' },
+    //     { name: 'Full Licenses', state: 'full-licenses', type: 'link' },
+    //     // {name: 'Upload Your Samples', state: 'upload-samples'}
+    //   ]
+    // },
     {
       name: 'Upload Audio',
       type: 'dropDown',
@@ -881,6 +885,9 @@ export class NavigationService implements OnInit {
         break;
       case 'about-menu':
         this.menuItems.next(this.aboutMenu);
+        break;
+      case 'license-menu':
+        this.menuItems.next(this.licenseMenu);
         break;
       default:
         this.menuItems.next(this.plainMenu);

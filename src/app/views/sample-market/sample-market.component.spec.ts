@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { BasicLicensesComponent } from './basic-licenses.component';
-import { SampleMarketComponent } from '../../sample-market/sample-market.component';
+import { SampleMarketComponent } from './sample-market.component';
 
 describe('SampleMarketComponent', () => {
   let component: SampleMarketComponent;

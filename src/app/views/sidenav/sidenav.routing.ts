@@ -8,9 +8,14 @@ export const SidenavRoutes: Routes = [
     component: SidenavComponent,
     children: [
       {
-        path: 'sample-market',
+        path: 'licensing',
         loadChildren: () => import('../../views/licensing/licensing.module').then(m => m.LicensingModule),
-        data: { title: 'Licensing', breadcrumb: 'Get Sample Licenses'}
+        data: { title: 'Licensing' }
+      },
+      {
+        path: 'sample-market',
+        loadChildren: () => import('../../views/sample-market/sample-market.module').then(m => m.SampleMarketModule),
+        data: { title: 'Sample Market', breadcrumb: 'Sample Market'}
       },
       {
         path: 'listen',
@@ -27,7 +32,6 @@ export const SidenavRoutes: Routes = [
         loadChildren: () => import('../../views/dashboard/dashboard.module').then(m => m.DashboardModule),
         data: { title: 'Dashboard', breadcrumb: 'Dashboard' }
       },
-      
       {
         path: 'audio',
         loadChildren: () => import('../../views/audio/audio.module').then(m => m.AudioModule),
@@ -38,11 +42,7 @@ export const SidenavRoutes: Routes = [
         loadChildren: () => import('../../views/about/about.module').then(m => m.AboutModule),
         data: { title: 'Audio' }
       },
-      // {
-      //   path: 'licensing',
-      //   loadChildren: () => import('../../views/licensing/licensing.module').then(m => m.LicensingModule),
-      //   data: { title: 'Audio' }
-      // },
+      
       
       
     ]

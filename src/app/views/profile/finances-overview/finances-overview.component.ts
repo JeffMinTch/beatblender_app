@@ -5,8 +5,9 @@ import { egretAnimations } from 'app/shared/animations/egret-animations';
 import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
 import { LocalStoreService } from 'app/shared/services/local-store.service';
 import { HttpService } from 'app/shared/services/web-services/http.service';
-import { SampleLicensingMarketService } from 'app/views/licensing/sample-licensing-market.service';
+// import { SampleLicensingMarketService } from 'app/views/licensing/sample-licensing-market.service';
 import { share } from 'rxjs/operators';
+import { SampleLicensingMarketService } from 'app/views/sample-market/sample-licensing-market.service';
 
 @Component({
   selector: 'app-finances-overview',

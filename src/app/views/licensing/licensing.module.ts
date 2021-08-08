@@ -9,9 +9,7 @@ import { SharedModule } from '../../shared/shared.module';
 import {LicensingRoutes } from './licensing.routing';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { FullLicensesComponent } from './full-licenses/full-licenses.component';
-import { BasicLicenseSidenavComponent } from './sample-market/basic-license-sidenav/basic-license-sidenav.component';
 import { LicensingComponent } from './licensing/licensing.component';
-import { DownloadSampleComponent } from './sample-market/download-sample/download-sample.component';
 
 
 
@@ -31,7 +29,7 @@ import { DownloadSampleComponent } from './sample-market/download-sample/downloa
   // exports: [
   //   NgxPaginationModule
   // ],
-  declarations: [HowItWorksComponent, FullLicensesComponent, BasicLicenseSidenavComponent, LicensingComponent, DownloadSampleComponent],
+  declarations: [LicensingComponent, HowItWorksComponent, FullLicensesComponent],
   providers: [
   ]
 })

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SampleLicensingMarketService } from './sample-licensing-market.service';
+import { SampleLicensingMarketService } from '../sample-market/sample-licensing-market.service';
 
 describe('SampleLicensingMarketService', () => {
   let service: SampleLicensingMarketService;

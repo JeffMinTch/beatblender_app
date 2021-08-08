@@ -17,7 +17,6 @@ import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
 import { LayoutService } from 'app/shared/services/layout.service';
 import { PlayStateControlService } from 'app/shared/services/play-state-control.service';
 import { AudioWebService } from 'app/shared/services/web-services/audio-web.service';
-import { SampleLicensingMarketService } from 'app/views/licensing/sample-licensing-market.service';
 import { environment } from 'environments/environment';
 import { FileItem, FileUploader, FileUploaderOptions } from 'ng2-file-upload';
 import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';

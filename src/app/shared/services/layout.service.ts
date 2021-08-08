@@ -49,6 +49,7 @@ export class LayoutService {
     this.router.events.subscribe((routerEvent: RouterEvent) => {
       if (routerEvent instanceof NavigationEnd) {
         // setTimeout(() => {
+          // alert(routerEvent.urlAfterRedirects);
         if (routerEvent.urlAfterRedirects !== this.currentRoute) {
           if (routerEvent.urlAfterRedirects.startsWith('/sample-market')) {
             this.layoutConf.menuItems = this.navigationService.sampleMarketMenu;
@@ -85,6 +86,7 @@ export class LayoutService {
             this.layoutConf.menuItems = this.navigationService.aboutMenu;
             this.publishLayoutChange(this.layoutConf);
           } else if(routerEvent.urlAfterRedirects.startsWith('/licensing')) {
+            // alert(routerEvent.urlAfterRedirects);
             this.currentRoute = routerEvent.urlAfterRedirects;
             this.layoutConf.menuItems = this.navigationService.licenseMenu;
             this.publishLayoutChange(this.layoutConf);

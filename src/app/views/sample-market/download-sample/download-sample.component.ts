@@ -1,5 +1,5 @@
-import { AudioUnit } from './../../../../shared/models/audio-unit.model';
-import { AudioWebService } from './../../../../shared/services/web-services/audio-web.service';
+import { AudioUnit } from '../../../shared/models/audio-unit.model';
+import { AudioWebService } from '../../../shared/services/web-services/audio-web.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Sample } from 'app/shared/models/sample.model';

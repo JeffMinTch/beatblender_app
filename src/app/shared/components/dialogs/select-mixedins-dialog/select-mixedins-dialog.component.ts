@@ -3,7 +3,7 @@ import { element } from 'protractor';
 import { Sample } from './../../../models/sample.model';
 import { ChangeDetectionStrategy, ChangeDetectorRef, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
-import { SampleLicensingMarketService } from './../../../../views/licensing/sample-licensing-market.service';
+import { SampleLicensingMarketService } from '../../../../views/sample-market/sample-licensing-market.service';
 import { Component, Inject, OnInit, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { share } from 'rxjs/operators';

@@ -27,7 +27,6 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { SharedComponentsModule } from 'app/shared/components/shared-components.module';
 import { SharedDirectivesModule } from 'app/shared/directives/shared-directives.module';
-import { FormsRoutes } from 'app/views/forms/forms.routing';
 import { QuillModule } from 'ngx-quill';
 
 
@@ -65,7 +64,7 @@ import { QuillModule } from 'ngx-quill';
     FlexLayoutModule,
     QuillModule,
     NgxDatatableModule,
-    RouterModule.forChild(FormsRoutes),
+    RouterModule.forChild(FileUploadRoutes),
     SharedDirectivesModule,
     // SharedModule
     SharedComponentsModule

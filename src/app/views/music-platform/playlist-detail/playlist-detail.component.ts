@@ -9,7 +9,7 @@ import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
 import { LocalStoreService } from 'app/shared/services/local-store.service';
 import { PlayStateControlService } from 'app/shared/services/play-state-control.service';
 import { HttpService } from 'app/shared/services/web-services/http.service';
-import { SampleLicensingMarketService } from 'app/views/licensing/sample-licensing-market.service';
+import { SampleLicensingMarketService } from 'app/views/sample-market/sample-licensing-market.service';
 import { map, share, takeUntil } from 'rxjs/operators';
 
 @Component({

@@ -89,7 +89,7 @@
   </ng-container>
   <!-- <section fxLayout="column" *ngIf="type === 'sample'"> -->
   <ng-container *ngIf="type === 'sample' || type === 'playlist'">
-    <div class="info-wrap p-16" fxLayout="column" [routerLink]="'/audio/details/' + audioUnit?.audioUnitID">
+    <div class="info-wrap p-16" fxLayout="column" [routerLink]="'/details/' + audioUnit?.audioUnitID">
       <div class="main-info">
         <h3 class="title">{{audioUnit?.title}}</h3>
         <p class=" p-line">by <span class="artist-name">{{audioUnit?.artistAlias.artistName}}</span></p>

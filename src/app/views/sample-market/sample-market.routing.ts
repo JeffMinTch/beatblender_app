@@ -1,4 +1,4 @@
-import { UnderConstructionComponent } from './../../../shared/components/under-construction/under-construction.component';
+import { DownloadSampleComponent } from './download-sample/download-sample.component';
 import { Routes } from '@angular/router';
 import { SampleMarketComponent } from './sample-market.component';
 export const SampleMarketRoutes: Routes = [{
@@ -18,6 +18,7 @@ export const SampleMarketRoutes: Routes = [{
           component: SampleMarketComponent,
           data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'}
         },
+        
         // {
         //   path: '/:id',
         //   component: SampleMarketComponent,

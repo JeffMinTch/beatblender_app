@@ -9,11 +9,11 @@ export const AudioRoutes: Routes = [
     component: AudioComponent,
     // data: { title: 'Sample Market', breadcrumb: 'Audio'},
     children: [
-      {
-        path: '',
-        loadChildren: () => import('./details/details.module').then(m => m.DetailsModule),
-        data: { title: 'Sample Market', breadcrumb: 'Audio'}
-      },
+      // {
+      //   path: '',
+      //   loadChildren: () => import('./details/details.module').then(m => m.DetailsModule),
+      //   data: { title: 'Sample Market', breadcrumb: 'Audio'}
+      // },
     //   {
     //     path: 'download/:id',
     //     component: DetailsComponent,

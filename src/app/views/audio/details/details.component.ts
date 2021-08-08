@@ -1,4 +1,4 @@
-import { SampleLicensingMarketService } from './../../licensing/sample-licensing-market.service';
+import { SampleLicensingMarketService } from '../../sample-market/sample-licensing-market.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Theme } from 'app/shared/enums/theme.enum';
@@ -103,7 +103,7 @@ export class DetailsComponent implements OnInit {
   }
 
   redirectToTermsAndConditions(sample: Sample) {
-    this.router.navigate(['sample-market', 'download', sample.audioUnit.audioUnitID]);
+    this.router.navigate(['download', sample.audioUnit.audioUnitID]);
   }
 
   

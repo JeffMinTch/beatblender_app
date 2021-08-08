@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { AdminLayoutComponent } from './shared/components/layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './shared/components/layouts/auth-layout/auth-layout.component';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { DownloadSampleComponent } from './views/sample-market/download-sample/download-sample.component';
 
 export const rootRouterConfig: Routes = [
   {
@@ -61,6 +62,16 @@ export const rootRouterConfig: Routes = [
         loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule),
         data: { title: 'Choose A Demo' }
       },
+      {
+        path: 'download/:id',
+        component: DownloadSampleComponent,
+        data: { title: 'Download', breadcrumb: 'Download'}
+      },
+      {
+        path: 'details',
+        loadChildren: () => import('./views/audio/details/details.module').then(m => m.DetailsModule),
+        data: { title: 'Sample Details', breadcrumb: 'Sample Details'}
+      },
       // {
       //   path: 'audio',
       //   loadChildren: () => import('./views/audio/audio.module').then(m => m.AudioModule),
@@ -68,9 +79,9 @@ export const rootRouterConfig: Routes = [
       // },
     ]
   },
-  {
-    path: '**',
-    redirectTo: 'sessions/404'
-  }
+  // {
+  //   path: '**',
+  //   redirectTo: 'sessions/404'
+  // }
 ];
 

@@ -1,4 +1,4 @@
-import { SampleLicensingMarketService } from '../../../views/licensing/sample-licensing-market.service';
+import { SampleLicensingMarketService } from '../../../views/sample-market/sample-licensing-market.service';
 // import { SampleLicensingMarketRoutes } from '../../../views/licensing/licensing.routing';
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';

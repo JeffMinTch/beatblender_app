@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 
 export const DetailsRoutes: Routes = [
     {
-        path: 'details/:id',
+        path: ':id',
         component: DetailsComponent,
         data: { title: 'Details', breadcrumb: 'Details' }
         

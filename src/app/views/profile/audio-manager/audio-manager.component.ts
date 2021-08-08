@@ -10,13 +10,13 @@ import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
 import { LocalStoreService } from 'app/shared/services/local-store.service';
 import { PlayStateControlService } from 'app/shared/services/play-state-control.service';
 import { HttpService } from 'app/shared/services/web-services/http.service';
-import { SampleLicensingMarketService } from 'app/views/licensing/sample-licensing-market.service';
 import { share } from 'rxjs/operators';
 import { MyUploads } from 'app/shared/models/my-uploads.model';
 import { MatDialog } from '@angular/material/dialog';
 import { Sample } from 'app/shared/models/sample.model';
 import { Track } from 'app/shared/models/track.model';
 import { AudioUnitReplacement } from 'app/shared/models/audio-unit-replacement.model';
+import { SampleLicensingMarketService } from 'app/views/sample-market/sample-licensing-market.service';
 
 @Component({
   selector: 'app-audio-manager',

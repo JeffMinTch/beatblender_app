@@ -1,6 +1,5 @@
 import { ExtendedLicensesComponent } from './extended-licenses/extended-licenses.component';
 import { BasicLicensesComponent } from './basic-licenses/basic-licenses.component';
-import { MyLicensesComponent } from './my-licenses.component';
 import { Routes } from '@angular/router';
 export const MyLicensesRoutes: Routes = [{
   path: '',

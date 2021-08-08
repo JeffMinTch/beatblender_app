@@ -1,5 +1,5 @@
 import { CreatePlaylistDialogComponent } from './../../../shared/components/dialogs/create-playlist-dialog/create-playlist-dialog.component';
-import { SampleLicensingMarketService } from './../../licensing/sample-licensing-market.service';
+import { SampleLicensingMarketService } from '../../sample-market/sample-licensing-market.service';
 import { Component, OnInit } from '@angular/core';
 import { PlayStateControlService } from 'app/shared/services/play-state-control.service';
 import { AudioService } from 'app/shared/services/audio.service';

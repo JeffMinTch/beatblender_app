@@ -1,18 +1,18 @@
-import { SimpleDialogComponent } from './../../../shared/components/dialogs/simple-dialog/simple-dialog.component';
-import { LicenseWebService } from './../../../shared/services/web-services/license-web.service';
-import { MatchMediaService } from './../../../shared/services/match-media.service';
-import { SearchFilterFormMap } from '../../../shared/models/search-filter-form-map.model';
-import { MinMaxSlider } from '../../../shared/models/min-max-slider.model';
-import { Selection } from '../../../shared/models/selection.model';
+import { SimpleDialogComponent } from '../../shared/components/dialogs/simple-dialog/simple-dialog.component';
+import { LicenseWebService } from '../../shared/services/web-services/license-web.service';
+import { MatchMediaService } from '../../shared/services/match-media.service';
+import { SearchFilterFormMap } from '../../shared/models/search-filter-form-map.model';
+import { MinMaxSlider } from '../../shared/models/min-max-slider.model';
+import { Selection } from '../../shared/models/selection.model';
 import { debounceTime } from 'rxjs/operators';
-import { AudioWebService } from '../../../shared/services/web-services/audio-web.service';
-import { LocalStoreService } from '../../../shared/services/local-store.service';
+import { AudioWebService } from '../../shared/services/web-services/audio-web.service';
+import { LocalStoreService } from '../../shared/services/local-store.service';
 import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
-import { LayoutService } from '../../../shared/services/layout.service';
+import { LayoutService } from '../../shared/services/layout.service';
 import { SampleSearchQuery } from 'app/shared/models/sample-search-query.model';
-import { AudioService } from '../../../shared/services/audio.service';
+import { AudioService } from '../../shared/services/audio.service';
 import { share, takeUntil } from 'rxjs/operators';
-import { PlayStateControlService } from '../../../shared/services/play-state-control.service';
+import { PlayStateControlService } from '../../shared/services/play-state-control.service';
 import { AfterViewInit, ChangeDetectorRef, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -20,7 +20,7 @@ import { egretAnimations } from 'app/shared/animations/egret-animations';
 import { AppLoaderService } from 'app/shared/services/app-loader/app-loader.service';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { SampleLicensingMarketService } from '../sample-licensing-market.service';
+import { SampleLicensingMarketService } from './sample-licensing-market.service';
 import { Sample } from 'app/shared/models/sample.model';
 import { AudioState } from 'app/shared/models/audio-state.model';
 import { MatSliderChange } from '@angular/material/slider';
@@ -28,7 +28,7 @@ import { SidenavContent } from 'app/shared/models/sidenav-content.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SamplePage } from '../../../shared/models/sample-page.model';
+import { SamplePage } from '../../shared/models/sample-page.model';
 import { PaginationRequestParams } from 'app/shared/models/pagination-request-params.model';
 import { HttpService } from 'app/shared/services/web-services/http.service';
 import { AudioUnitType } from 'app/shared/enums/audio-unit-type.enums';
@@ -600,7 +600,8 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
     });
   }
   redirectToTermsAndConditions(sample: Sample) {
-    this.router.navigate(['sample-market', 'download', sample.audioUnit.audioUnitID]);
+    this.router.navigate(['download', sample.audioUnit.audioUnitID]);
+    
   }
 
 
