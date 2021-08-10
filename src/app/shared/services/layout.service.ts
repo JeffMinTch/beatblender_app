@@ -105,7 +105,7 @@ export class LayoutService {
         // }
 
         switch (routerEvent.urlAfterRedirects) {
-          case '/sample-market':
+          case '/sample-market/bb-a1':
             this.layoutConf.footerFixed = true;
             break;
           case '/docs/introduction':

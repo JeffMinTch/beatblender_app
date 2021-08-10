@@ -1,4 +1,6 @@
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
+import { FaqComponent } from './faq/faq.component';
+
 import { DividerComponent } from './divider/divider.component';
 import { SubHeadingComponent } from './sub-heading/sub-heading.component';
 import { HeadingComponent } from './heading/heading.component';
@@ -111,7 +113,8 @@ const components = [
   HeadingComponent,
   SubHeadingComponent,
   DividerComponent,
-  UnderConstructionComponent
+  UnderConstructionComponent,
+  FaqComponent
 ]
 
 @NgModule({

@@ -1,3 +1,4 @@
+import { UnderConstructionComponent } from 'app/shared/components/under-construction/under-construction.component';
 import { DocumentationComponent } from './documentation.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { Routes } from '@angular/router';
@@ -10,7 +11,48 @@ export const DocsRoutes: Routes = [{
       component: IntroductionComponent,
       // data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'}
     },
+    {
+      path: 'how-to-get-a-license',
+      component: UnderConstructionComponent,
+      // data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'}
+    },
+    {
+      path: 'sampling-rules',
+      component: UnderConstructionComponent,
+      // data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'}
+    },
+    {
+      path: 'video-tutorials',
+      component: UnderConstructionComponent,
+      // data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'}
+    },
+
+    {
+      path: 'partners',
+      component: UnderConstructionComponent,
+      // data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'}
+    },
+    {
+      path: 'faq',
+      children: [
+        {
+          path: '',
+          loadChildren: () => import('../about/faq/faq.module').then(m => m.FaqModule),
+              data: { title: 'docs', breadcrumb: 'Docs' }
+          // },
+    },
+    
   ]
+
+  // component: FaqComponent,
+  // data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'}
+},
+{
+  path: '',
+  redirectTo: 'introduction'
+}
+
+]
   // {
   //   path: 'full-licenses',
   //   component: FullLicensesComponent,
@@ -27,4 +69,4 @@ export const DocsRoutes: Routes = [{
   //     data: { title: 'Checkout', breadcrumb: 'CHECKOUT' }
   //   }
   // ]
-}]
+}];

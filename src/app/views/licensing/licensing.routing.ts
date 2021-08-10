@@ -62,11 +62,11 @@ export const LicensingRoutes: Routes = [
       //   loadChildren: () => import('../forms/forms.module').then(m => m.AppFormsModule),
       //   data: { title: 'Forms', breadcrumb: 'FORMS'}
       // },
-      {
-        path: 'docs',
-        loadChildren: () => import('../documentation/documentation.module').then(m => m.DocumentationModule),
-        data: { title: 'docs', breadcrumb: 'Docs' }
-      },
+      // {
+      //   path: 'docs',
+      //   loadChildren: () => import('../documentation/documentation.module').then(m => m.DocumentationModule),
+      //   data: { title: 'docs', breadcrumb: 'Docs' }
+      // },
       {
         path: '',
         redirectTo: 'license-register'

@@ -1,6 +1,12 @@
 ::ng-deep .mat-sidenav-content {
     width: 100% !important;
 }
+
+footer {
+    height: 300px;
+    width: 100%;
+    background: var(--primary-light-color);
+}
 .introduction-container {
     // background: yellow; 
     width: 100%; 

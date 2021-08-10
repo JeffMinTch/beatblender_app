@@ -284,21 +284,29 @@ export class NavigationService implements OnInit {
       type: 'separator',
       name: 'About'
     },
-    {
-      name: 'About',
-      type: 'link',
-      tooltip: 'About',
-      icon: 'info',
-      state: 'about'
-    },
-    {
-      name: 'FAQ',
-      type: 'link',
-      tooltip: 'About',
-      icon: 'question_answer',
-      state: 'about/faq'
-    }
+    // {
+    //   name: 'About',
+    //   type: 'link',
+    //   tooltip: 'About',
+    //   icon: 'info',
+    //   state: 'about'
+    // },
+    // {
+    //   name: 'FAQ',
+    //   type: 'link',
+    //   tooltip: 'About',
+    //   icon: 'question_answer',
+    //   state: 'about/faq',
+    //   sub: [
+    //   ]
+    // },
 
+    { name: 'About', state: 'about/introduction', type: 'link', icon: 'info' },
+    { name: 'How To Get A License', state: 'about/how-to-get-a-license', type: 'link', icon: 'info' },
+    { name: 'Sampling Rules', state: 'about/sampling-rules', type: 'link', icon: 'info' },
+    { name: 'Video Tutorials', state: 'about/video-tutorials', type: 'link', icon: 'info' },
+    { name: 'FAQ', state: 'about/faq' , type: 'link', icon: 'info'},
+    { name: 'Our Partners', state: 'about/partners', type: 'link', icon: 'help' },
   ];
 
   licenseMenu: IMenuItem[] = [
@@ -306,24 +314,33 @@ export class NavigationService implements OnInit {
       type: 'separator',
       name: 'Licensing'
     },
+    // {
+    //   name: 'Licenses',
+    //   type: 'dropDown',
+    //   tooltip: 'Licenses',
+    //   icon: 'assignment',
+    //   state: 'licensing',
+    //   sub: [
+    //     { name: 'License Register', state: 'license-register', type: 'link' },
+    //     { name: 'License Deeds', state: 'license-deeds' , type: 'link'},
+    //   ]
+    // },
+    {
+      name: 'License Register',
+      type: 'link',
+      tooltip: 'License Register',
+      icon: 'app_registration',
+      state: 'licensing/license-register'
+    },
     {
       name: 'Licenses',
-      type: 'dropDown',
-      tooltip: 'Licenses',
-      icon: 'assignment',
-      state: 'licensing',
-      sub: [
-        { name: 'License Register', state: 'license-register', type: 'link' },
-        { name: 'License Deeds', state: 'license-deeds' , type: 'link'},
-      ]
+      type: 'link',
+      tooltip: 'Our Licenses',
+      icon: 'app_registration',
+      state: 'licensing/license-deeds',
+
     },
-    // {
-    //   name: 'License Register',
-    //   type: 'link',
-    //   tooltip: 'License Register',
-    //   icon: 'app_registration',
-    //   state: 'licensing/license-register'
-    // },
+
   ];
 
 

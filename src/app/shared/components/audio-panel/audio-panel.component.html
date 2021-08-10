@@ -4,7 +4,7 @@
   <!-- [ngStyle]="{border: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? '2px solid var(--body-color)' : '2px dashed var(--light-theme-accent)'}" -->
   <!-- playState ? pause(audioUnit?.audioUnitID === currentSampleID, audioUnit?.audioUnitID) : play(audioUnit?.audioUnitID === currentSampleID, audioUnit?.audioUnitID) -->
   <mat-toolbar
-    [ngStyle]="{background: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? 'var(--light-theme-accent)' : 'var(--light-theme-accent)'}" 
+    [ngStyle]="{background: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? 'var(--light-theme-accent)' : 'var(--light-theme)'}" 
     (click)="triggerToolbar()" style="border-left: none; border-right: none;" class="player-widget pl-0 py-0"
     fxLayout="row" fxLayoutAlign="start center">
     <!-- [routerLink]="['/shop/products/', product._id]" -->
