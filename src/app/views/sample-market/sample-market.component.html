@@ -1,104 +1,169 @@
-
 <div class="shop-wrap">
   <div class="full-width" style="position: relative;">
     <!-- Search Form -->
     <!-- <router-outlet></router-outlet> -->
     <!-- <app-heading class="mt-16" title="Sample Market" subTitle="Find the Samples you deserve." [breadcrumbs]="breadcrumbs"></app-heading> -->
-    <div class="pt-8">
-      <app-searchbar  type="sample" [searchForm]="searchForm" (searchRequest)="applyFilter(0)" (searchStringChange)="changeSearchString($event)" (pageChange)="changePage($event)" (countChange)="changeCount($event)" (expandFilter)="toggleFilter($event)" (sidenavChange)="toggleSidenav()" [sortBy]="sortBy" [page]="pageNo" [pageSize]="pageSize"></app-searchbar>
-      
-    </div>
-    <h1>License Type <a class="hypertext">{{licenseType | uppercase}}</a></h1>
-    <!-- <app-sub-heading title="License Type BB-A1"></app-sub-heading> -->
-    <!-- <p class="p-line py-8 px-32" style="font-size: 16px; line-height: 20px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime modi totam dolores recusandae, et, aperiam atque sequi laudantium soluta repudiandae veniam vel nisi incidunt voluptatem error unde sint sunt culpa inventore? Adipisci facere incidunt reiciendis illo maiores officia accusamus natus ab doloremque nihil aliquam in suscipit quos, provident quis? Aperiam? <a href="#" class="hypertext">Read more</a></p> -->
-    <!-- <div style=" width: 100%; border-top: 5px dotted var(--primary-color); top: 90px; left: 0; position: absolute;"></div> -->
-    <!-- <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 5px; left: 0; position: absolute;"></div>
-    <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 10px; left: 0; position: absolute;"></div> -->
-    <!-- <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 0; left: 0; position: absolute;"></div>
-    <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 0; left: 0; position: absolute;"></div>
-    <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 0; left: 0; position: absolute;"></div>
-    <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 0; left: 0; position: absolute;"></div>
-    <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 0; left: 0; position: absolute;"></div> -->
-    
-    
-    
-    
-    <!-- <mat-progress-bar color="primary" mode="determinate" value="100" class="mt-16"></mat-progress-bar> -->
-    <!-- <mat-progress-bar *ngIf="!responseReceived" mode="query" class="mb-16"></mat-progress-bar> -->
-    
-    <app-search-filter [searchFilterFormMap]="searchFilterFormMap" (filterFormChange)="applyFilter(0, $event)" [isFilterOpen]="isFilterOpen"></app-search-filter>
-    <!-- <app-search-filter></app-search-filter> -->
-    <!-- Products container -->
-    <!-- <h2 style="color: var(--primary-color);">Sample Market</h2> -->
-    <!-- <h2><span style="color: var(--primary-color);">S</span>ample <span style="color: var(--accent-color);">M</span>arket </h2> -->
-    <div class="product-container" fxLayout="row wrap" fxLayoutAlign="start start"
-      [ngClass]="{'list-view': viewMode === 'list-view'}">
-      <!-- Product Box -->
-      <ng-container *ngIf="(sampleLicensingMarketService.samples$ | async)?.length <= 0 && (sampleLicensingMarketService.samples$ | async) != null"; else product>
-        <div fxFlex fxLayoutAlign="center">
-          <span class="fs-24">No samples match your request.</span>
+    <div fxLayout fxLayoutAlign="space-between center" fxLayoutGap="20px">
+      <div class="m-16">
+        <img src="../../../assets/images/sido.jpeg" alt="" class="artist-image mat-elevation-z1">
+      </div>
+      <h1>Sample <a class="hypertext">{{artistName}}</a> now.</h1>
+      <div fxLayout="column" class="mr-8">
+        <div fxLayout fxLayoutGap="10px" fxLayoutAlign="end end">
+          <button mat-raised-button color="primary">
+            <mat-icon class="mr-8">person_add</mat-icon>
+            Follow
+          </button>
+          <button mat-raised-button color="accent" style="color: var(--light-theme);">
+            <mat-icon class="mr-8">email</mat-icon>
+            Collaboration Request
+          </button>
+
         </div>
-      </ng-container>
-      <ng-container #product>
-        <div fxLayout="row" class="product-wrap"
-          *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count }; let i = index;"
-          [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}"
-          >
-          <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
-          <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
-          <div fxLayout="column" class="product-inner default-bg mx-8 my-16 full-width">
-            <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
-                <span>{{product?.badge?.text}}</span>
-              </div> -->
-            <app-audio-panel [audioUnit]="sample?.audioUnit" light="true" type="sample" (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
-            
-            <!-- Visible when viewMode === list-view -->
-            <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
-              <div class="more-info">
-                <div class="more-actions mb-16">
-                  <div class="product-rating">
-                    <star-rating [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'"
-                      [rating]="4.63"></star-rating>
-                    <small class="text-muted">(140)</small>
-                  </div>
-                  <span fxFlex></span>
-                  <button mat-icon-button>
-                    <mat-icon>playlist_add</mat-icon>
-                  </button>
-                  <button mat-icon-button>
-                    <mat-icon>favorite</mat-icon>
-                  </button>
-                </div>
-
-                <div>
-                  <ul>
-                    <li>
-                      <mat-icon>check</mat-icon> Heavy duty
-                    </li>
-                    <li>
-                      <mat-icon>check</mat-icon> Water resistance
-                    </li>
-                    <li>
-                      <mat-icon>check</mat-icon> Clean design
-                    </li>
-                    <li>
-                      <mat-icon>check</mat-icon> High quality raw materials
-                    </li>
-                  </ul>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </ng-container>
-
-      <div class="products-pagination" *ngIf="count > pageSize">
-        <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
-        <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
       </div>
     </div>
+    <h4 class="pl-8 mt-4" style="font-size: 20px; font-weight: 300;">No matter what license you use, no Sample requires
+      a pre-investment and can be used on all Streaming Services.</h4>
+      <mat-card class="p-0" style="box-shadow: none !important;">
+        <mat-tab-group>
+          <mat-tab label="Samples">
+            <div class="pt-8 full-width" fxLayout fxLayoutAlign="space-between center">
+              <div fxLayout fxLayoutGap="10px" fxLayoutAlign="start center" class="pl-8">
+                <!-- <button [routerLink]="'/sample-market/bb-license/' + artistName + '/all'" routerLinkActive="active" class="quick-access-button"
+                    mat-raised-button>All</button> -->
+                <button [routerLink]="customerRouteFor('bb-100')" routerLinkActive="active" class="quick-access-button"
+                  mat-raised-button>BB-100</button>
+                <button [routerLink]="customerRouteFor('bb-70')" routerLinkActive="active" class="quick-access-button"
+                  mat-raised-button>BB-70</button>
+                <button [routerLink]="customerRouteFor('bb-30')" routerLinkActive="active" class="quick-access-button"
+                  mat-raised-button>BB-30</button>
+              </div>
+              <div fxLayout fxLayoutGap="10px">
+                <button mat-raised-button (click)="changeViewMode('grid-view')" [color]="viewMode === 'grid-view' ? 'primary' : ''">
+                  <mat-icon>
+                    <span class="material-icons-outlined">
+                      apps
+                      </span>
+                  </mat-icon>
+                </button>
+                <button mat-raised-button (click)="changeViewMode('list-view')" [color]="viewMode === 'list-view' ? 'primary' : ''">
+                  <mat-icon>list</mat-icon>
+                </button>
+              </div>
+              <app-searchbar style="width: 500px;" type="sample" [searchForm]="searchForm" (searchRequest)="applyFilter(0)"
+                (searchStringChange)="changeSearchString($event)" (pageChange)="changePage($event)"
+                (countChange)="changeCount($event)" (expandFilter)="toggleFilter($event)" (sidenavChange)="toggleSidenav()"
+                [sortBy]="sortBy" [page]="pageNo" [pageSize]="pageSize"></app-searchbar>
+            </div>
+        
+            <!-- <app-sub-heading title="License Type BB-A1"></app-sub-heading> -->
+            <!-- <p class="p-line py-8 px-32" style="font-size: 16px; line-height: 20px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime modi totam dolores recusandae, et, aperiam atque sequi laudantium soluta repudiandae veniam vel nisi incidunt voluptatem error unde sint sunt culpa inventore? Adipisci facere incidunt reiciendis illo maiores officia accusamus natus ab doloremque nihil aliquam in suscipit quos, provident quis? Aperiam? <a href="#" class="hypertext">Read more</a></p> -->
+            <!-- <div style=" width: 100%; border-top: 5px dotted var(--primary-color); top: 90px; left: 0; position: absolute;"></div> -->
+            <!-- <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 5px; left: 0; position: absolute;"></div>
+            <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 10px; left: 0; position: absolute;"></div> -->
+            <!-- <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 0; left: 0; position: absolute;"></div>
+            <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 0; left: 0; position: absolute;"></div>
+            <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 0; left: 0; position: absolute;"></div>
+            <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 0; left: 0; position: absolute;"></div>
+            <div style="height: 0px; width: 300px; border: 2px dotted var(--primary-color); top: 0; left: 0; position: absolute;"></div> -->
+        
+        
+        
+        
+            <!-- <mat-progress-bar color="primary" mode="determinate" value="100" class="mt-16"></mat-progress-bar> -->
+            <!-- <mat-progress-bar *ngIf="!responseReceived" mode="query" class="mb-16"></mat-progress-bar> -->
+        
+            <app-search-filter [searchFilterFormMap]="searchFilterFormMap" (filterFormChange)="applyFilter(0, $event)"
+              [isFilterOpen]="isFilterOpen"></app-search-filter>
+            <!-- <app-search-filter></app-search-filter> -->
+            <!-- Products container -->
+            <!-- <h2 style="color: var(--primary-color);">Sample Market</h2> -->
+            <!-- <h2><span style="color: var(--primary-color);">S</span>ample <span style="color: var(--accent-color);">M</span>arket </h2> -->
+            <!-- [ngClass]="{'list-view': viewMode === 'list-view'}" -->
+            
+            
+            <div class="product-container" fxLayout="row wrap" fxLayoutAlign="start start"
+              >
+              <!-- Product Box -->
+              <ng-container
+                *ngIf="(sampleLicensingMarketService.samples$ | async)?.length <= 0 && (sampleLicensingMarketService.samples$ | async) != null"
+                ; else product>
+                <div fxFlex fxLayoutAlign="center">
+                  <span class="fs-24">No samples match your request.</span>
+                </div>
+              </ng-container>
+              <ng-container #product>
+                <div fxLayout="row" class="product-wrap"
+                  *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count }; let i = index;"
+                  [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}">
+                  <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
+                  <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
+                  <div fxLayout="column" class="product-inner default-bg mx-8 my-16 full-width">
+                    <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
+                        <span>{{product?.badge?.text}}</span>
+                      </div> -->
+                    <app-audio-panel [audioUnit]="sample?.audioUnit" light="true" [type]="viewMode === 'grid-view' ? 'sample' : 'primary'"
+                      (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
+        
+                    <!-- Visible when viewMode === list-view -->
+                    <!-- <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
+                      <div class="more-info">
+                        <div class="more-actions mb-16">
+                          <div class="product-rating">
+                            <star-rating [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'"
+                              [rating]="4.63"></star-rating>
+                            <small class="text-muted">(140)</small>
+                          </div>
+                          <span fxFlex></span>
+                          <button mat-icon-button>
+                            <mat-icon>playlist_add</mat-icon>
+                          </button>
+                          <button mat-icon-button>
+                            <mat-icon>favorite</mat-icon>
+                          </button>
+                        </div>
+        
+                        <div>
+                          <ul>
+                            <li>
+                              <mat-icon>check</mat-icon> Heavy duty
+                            </li>
+                            <li>
+                              <mat-icon>check</mat-icon> Water resistance
+                            </li>
+                            <li>
+                              <mat-icon>check</mat-icon> Clean design
+                            </li>
+                            <li>
+                              <mat-icon>check</mat-icon> High quality raw materials
+                            </li>
+                          </ul>
+                        </div>
+        
+                      </div>
+                    </div> -->
+        
+                  </div>
+                </div>
+              </ng-container>
+        
+              <div class="products-pagination" *ngIf="count > pageSize">
+                <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
+                <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="Biographie">
+            <div class="p-16">
+              <h4 class="" style="font-size: 20px; font-weight: 300;">Benjamin had his first experience with electronic music in 2004. Since then he was in the ban of Techno, House and later some other experimental electronic stuff. Since he found his way to Ableton Live in 2009, Ben is working on his own projects anywhere between Techno and House - Always atmospheric and with a slice of the Dresden club culture in it! Sometimes he is makin' some Neurofunk DnB too. He also play this genres only with Vinyl.</h4>
+
+            </div>
+          </mat-tab>
+          <mat-tab label="Collaboration Requests">
+            <app-under-construction></app-under-construction>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card>  
   </div>
 
 </div>

@@ -12,17 +12,19 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BasicLicenseSidenavComponent } from './basic-license-sidenav/basic-license-sidenav.component';
+import { ChooseCategoryComponent } from './choose-category/choose-category.component';
+import { ChooseArtistComponent } from './choose-artist/choose-artist.component';
 
 
 
 @NgModule({
-  declarations: [SampleMarketComponent, DownloadSampleComponent, BasicLicenseSidenavComponent],
+  declarations: [SampleMarketComponent, DownloadSampleComponent, BasicLicenseSidenavComponent, ChooseCategoryComponent, ChooseArtistComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(SampleMarketRoutes),
     FlexLayoutModule,
     SharedModule,
-    NgxPaginationModule
+    NgxPaginationModule,
     // PaginatePipe
     // NgxPaginationModule,
 

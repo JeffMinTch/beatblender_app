@@ -1,3 +1,4 @@
+import { JwtAuthService } from './../../../../shared/services/auth/jwt-auth.service';
 import { AudioService } from './../../../../shared/services/audio.service';
 import { MediaWebService } from './../../../../shared/services/web-services/media-web.service';
 import { LicenseWebService } from './../../../../shared/services/web-services/license-web.service';
@@ -61,8 +62,9 @@ export interface PeriodicElement {
 export class BasicLicensesComponent implements OnInit {
 
   public samples: Array<Sample> = null;
-  public viewMode = 'grid-view';
+  public viewMode: 'grid-view' | 'list-view' = 'grid-view';
 
+  licenseType: string;
 
     // dataSource: MatTableDataSource<PeriodicElement>;
   // displayedColumns: string[];
@@ -75,7 +77,8 @@ export class BasicLicensesComponent implements OnInit {
   constructor(
     private mediaWebService: MediaWebService,
     private licenseWebService: LicenseWebService,
-    private audioService: AudioService
+    private audioService: AudioService,
+    private jwt: JwtAuthService
     ) {
   }
   
@@ -86,7 +89,9 @@ export class BasicLicensesComponent implements OnInit {
       this.audioService.initAudioPlayer(this.samples.map(sample => sample.audioUnit), Theme.BODY);
       this.basicLicenseSubject$.next(data);
       this.dataSource = new MatTableDataSource<BasicLicense>(data);
-    })
+    });
+    console.log("User Info");
+    console.log(this.jwt.getUserInfo());
     // this.displayedColumns = ['position', 'name', 'weight', 'symbol', 'c'];
   }
   
@@ -114,6 +119,14 @@ export class BasicLicensesComponent implements OnInit {
   downloadBasicLicenseFile(element) {
     const API = `${environment.apiURL.baseUrl + environment.apiURL.mediaPath.protected.root + environment.apiURL.mediaPath.protected.getBasicLicenseFile}/${element.sample.sampleID}/${element.downloader.uuid}`;
     window.location.href = API;
+  }
+
+  customerRouteFor(licenseType: string): (string | number)[] {
+    return ['/profile/my-licenses/basic-licenses' , licenseType];
+  }
+
+  changeViewMode(viewMode: 'grid-view' | 'list-view') {
+    this.viewMode = viewMode;
   }
 
 

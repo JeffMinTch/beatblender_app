@@ -41,7 +41,7 @@
       </form>
     </div>
   </mat-sidenav> -->
-<section class="p-16" style="min-height: 1500px;">
+<section fxLayout="column" class="p-16" style="min-height: 1500px;">
   <!-- <mat-card-title class="">
         <div class="card-title-text">Upload Audio</div>
         <mat-divider></mat-divider>
@@ -53,14 +53,14 @@
     <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
     <span style="color: var(--primary-color);">U</span>
     <span style="">pload </span>
-    <span style="color: var(--accent-color); font-weight: 600;"> A</span>
-    <span style="font-weight: 600; color: var(--base-accent-color);">udio</span>
+    <span style="color: var(--accent-color); font-weight: 600;"> S</span>
+    <span style="font-weight: 600; color: var(--base-accent-color);">ample</span>
   </h1>
+  <p style="font-size: 22px; color: var(--base-accent-color);">Upload your Samples To BeatBlenders Sample Market.</p>
   <mat-divider></mat-divider>
+ 
   <!-- <mat-card-content> -->
   <div class="mb-16 mt-16">
-    <p style="font-size: 22px; color: var(--base-accent-color);">1. Step: Select one or multiple Samples you want to
-      upload</p>
     <!-- <h3 style="color: var(--base-accent-color);">Select one or multiple Samples you want to upload</h3> -->
     <input type="file" (onFileSelected)="onFileSelected($event)" ng2FileSelect [uploader]="uploader" multiple /><br />
     <!-- <p>Single</p>
@@ -147,7 +147,7 @@
       <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
             {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
           </button> -->
-
+          
 
 
       <mat-vertical-stepper linear="false" #stepper>
@@ -160,36 +160,21 @@
               your
               track you need to download a Basic License in your Track. Select at least one.</mat-label>
             <section class="mt-32" fxLayout="column">
-              <mat-checkbox #sampleMarketCheckbox class="mb-8" checked="true" (change)="uploadAsSample(item, $event)">
+              <!-- <mat-checkbox #sampleMarketCheckbox class="mb-8" checked="true" (change)="uploadAsSample(item, $event)">
                 <span style="color: var(--accent-color); font-weight: 700;">Sample Market</span>
               </mat-checkbox>
               <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Sample Price (Karma Points)</mat-label>
-                <!-- <span matPrefix>Tempo (BPM) &nbsp;</span> -->
                 <input formControlName="samplePrice" type="number" matInput autocomplete="off" placeholder="1"
                   [min]="minimumSamplePrice" [max]="maximumSamplePrice">
-                <!-- <mat-icon matSuffix>mode_edit</mat-icon> -->
                 <span matSuffix [ngClass]="!sampleMarketCheckbox.checked ? 'disabled-color' : ''">Karma Points</span>
-                <!-- <mat-hint
-                  *ngIf="(formsSubject | async)?.get(item).controls['descriptionForm'].controls['tempo'].valid || !(formsSubject | async)?.get(item).controls['descriptionForm'].controls['tempo'].touched">
-                  Tempo in BPM.</mat-hint>
-                <mat-hint *ngIf="
-                  ((formsSubject | async)?.get(item).controls['descriptionForm'].controls['tempo'].hasError('min')
-                  || (formsSubject | async)?.get(item).controls['descriptionForm'].controls['tempo'].hasError('max'))
-                  && (formsSubject | async)?.get(item).controls['descriptionForm'].controls['tempo'].touched">
-                  Please enter a value between {{minimumBPM}} and {{maximumBPM}}.
-                </mat-hint>
-                <mat-hint
-                  *ngIf="(formsSubject | async)?.get(item).controls['descriptionForm'].controls['tempo'].hasError('required') && (formsSubject | async)?.get(item).controls['descriptionForm'].controls['tempo'].touched">
-                  Tempo for your sample is required.</mat-hint> -->
-
 
               </mat-form-field>
               <mat-label class="mb-32 pl-16">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora minima sit
                 maxime placeat! Eos voluptatibus natus, reiciendis mollitia cupiditate ullam a similique laboriosam
                 velit
                 ipsa, earum, distinctio perspiciatis odit eaque quaerat minima eveniet. Fuga voluptatum fugiat qui hic,
-                animi velit.</mat-label>
+                animi velit.</mat-label> -->
               <mat-checkbox #beatblenderMusicCheckbox class="mb-8" color="primary" checked="true"
                 (change)="uploadAsTrack(item, $event)"> <span
                   style="color: var(--primary-color); font-weight: 700;">BeatBlender Music</span></mat-checkbox>
@@ -200,7 +185,8 @@
                 voluptas nihil delectus sequi! Esse, earum.</mat-label>
               <div id="soundcloudCheckbox" fxLayout="column" fxLayoutGap="10px" class="mb-16">
                 <mat-checkbox #soundCloudCheckbox class="mb-8" checked="true" (change)="uploadAsTrack(item, $event)">
-                  <span style="color: var(--soundcloud); font-weight: 700;">Soundcloud</span></mat-checkbox>
+                  <span style="color: var(--soundcloud); font-weight: 700;">Soundcloud</span>
+                </mat-checkbox>
                 <mat-label class="pl-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
                   dolorem
                   corrupti sapiente molestias ducimus incidunt assumenda cupiditate dolor eaque suscipit aspernatur
@@ -209,7 +195,8 @@
               </div>
               <div id="spotifyCheckbox" fxLayout="column" fxLayoutGap="10px" class="mb-16">
                 <mat-checkbox #soundCloudCheckbox class="mb-8" checked="true" (change)="uploadAsTrack(item, $event)">
-                  <span style="color: var(--spotify); font-weight: 700;">Spotify</span></mat-checkbox>
+                  <span style="color: var(--spotify); font-weight: 700;">Spotify</span>
+                </mat-checkbox>
                 <mat-label class="pl-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
                   dolorem
                   corrupti sapiente molestias ducimus incidunt assumenda cupiditate dolor eaque suscipit aspernatur
@@ -218,7 +205,8 @@
               </div>
               <div id="youtubeCheckbox" fxLayout="column" fxLayoutGap="10px" class="mb-16">
                 <mat-checkbox #soundCloudCheckbox class="mb-8" checked="true" (change)="uploadAsTrack(item, $event)">
-                  <span style="color: var(--youtube); font-weight: 700;">Youtube</span></mat-checkbox>
+                  <span style="color: var(--youtube); font-weight: 700;">Youtube</span>
+                </mat-checkbox>
                 <mat-label class="pl-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
                   dolorem
                   corrupti sapiente molestias ducimus incidunt assumenda cupiditate dolor eaque suscipit aspernatur
@@ -227,7 +215,8 @@
               </div>
               <div id="iTunesCheckbox" fxLayout="column" fxLayoutGap="10px" class="mb-16">
                 <mat-checkbox #soundCloudCheckbox class="mb-8" checked="true" (change)="uploadAsTrack(item, $event)">
-                  <span style="color: var(--iTunes); font-weight: 700;">iTunes</span></mat-checkbox>
+                  <span style="color: var(--iTunes); font-weight: 700;">iTunes</span>
+                </mat-checkbox>
                 <mat-label class="pl-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
                   dolorem
                   corrupti sapiente molestias ducimus incidunt assumenda cupiditate dolor eaque suscipit aspernatur
@@ -236,7 +225,8 @@
               </div>
               <div id="amazonMusicCheckbox" fxLayout="column" fxLayoutGap="10px" class="mb-16">
                 <mat-checkbox #soundCloudCheckbox class="mb-8" checked="true" (change)="uploadAsTrack(item, $event)">
-                  <span style="color: var(--amazonMusic); font-weight: 700;">Amazon Music</span></mat-checkbox>
+                  <span style="color: var(--amazonMusic); font-weight: 700;">Amazon Music</span>
+                </mat-checkbox>
                 <mat-label class="pl-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
                   dolorem
                   corrupti sapiente molestias ducimus incidunt assumenda cupiditate dolor eaque suscipit aspernatur

@@ -7,8 +7,28 @@ export const MyLicensesRoutes: Routes = [{
   children: [
     {
       path: 'basic-licenses',
-      component: BasicLicensesComponent,
-      data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'}
+      // component: BasicLicensesComponent,
+      data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'},
+      children: [
+       
+            {
+              path: 'bb-100',
+              component: BasicLicensesComponent,
+            },
+            {
+              path: 'bb-70',
+              component: BasicLicensesComponent,
+            },
+            {
+              path: 'bb-30',
+              component: BasicLicensesComponent,
+            },
+            {
+              path: '',
+              redirectTo: 'bb-100'
+            }
+
+      ]
     },
     {
       path: 'extended-licenses',

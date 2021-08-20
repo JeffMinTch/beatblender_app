@@ -13,14 +13,43 @@
       <span style="color: var(--accent-color); font-weight: 600;"> A</span>
       <span style="font-weight: 600; color: var(--base-accent-color);">rea</span>
     </h1>
+    <h4 class="pl-8 mt-4" style="font-size: 20px; font-weight: 300;">No matter what license you use, no Sample requires
+      a pre-investment and can be used on all Streaming Services.</h4>
+      
+      <div class="pt-8 full-width" fxLayout fxLayoutAlign="space-between center">
+        <div fxLayout fxLayoutGap="10px" fxLayoutAlign="start center" class="pl-8">
+          <!-- <button [routerLink]="'/sample-market/bb-license/' + artistName + '/all'" routerLinkActive="active" class="quick-access-button"
+              mat-raised-button>All</button> -->
+          <button [routerLink]="customerRouteFor('bb-100')" routerLinkActive="active" class="quick-access-button"
+            mat-raised-button>BB-100</button>
+          <button [routerLink]="customerRouteFor('bb-70')" routerLinkActive="active" class="quick-access-button"
+            mat-raised-button>BB-70</button>
+          <button [routerLink]="customerRouteFor('bb-30')" routerLinkActive="active" class="quick-access-button"
+            mat-raised-button>BB-30</button>
+        </div>
+        <div fxLayout fxLayoutGap="10px">
+          <button mat-raised-button (click)="changeViewMode('grid-view')" [color]="viewMode === 'grid-view' ? 'primary' : ''">
+            <mat-icon>
+              <span class="material-icons-outlined">
+                apps
+                </span>
+            </mat-icon>
+          </button>
+          <button class="mr-8" mat-raised-button (click)="changeViewMode('list-view')" [color]="viewMode === 'list-view' ? 'primary' : ''">
+            <mat-icon>list</mat-icon>
+          </button>
+        </div>
+       
+      </div>
       <!-- <p class="pl-16">Overview and manage all your Basic Licenses. Basic Licenses enbale you
     without having payed anything yet to use the sample commercially in your own produtions.
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas quidem placeat unde ut rem vitae error
     temporibus, ad exercitationem accusantium!
   </p> -->
   <!-- <app-divider></app-divider> -->
+  <!-- [ngClass]="{'list-view': viewMode === 'list-view'}" -->
   <div class="product-container" fxLayout="row wrap" fxLayoutAlign="start start"
-      [ngClass]="{'list-view': viewMode === 'list-view'}">
+      >
       <!-- Product Box -->
       <ng-container *ngIf="samples?.length <= 0 && samples != null"; else product>
         <div fxFlex fxLayoutAlign="center">
@@ -39,10 +68,10 @@
             <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
                 <span>{{product?.badge?.text}}</span>
               </div> -->
-            <app-audio-panel [audioUnit]="sample?.audioUnit" type="sample" buttonText="Download" (clickEvent)="downloadAudioFile(sample)"></app-audio-panel>
+            <app-audio-panel [audioUnit]="sample?.audioUnit" [type]="viewMode === 'grid-view' ? 'sample' : 'primary'" light="true" buttonText="Download" (clickEvent)="downloadAudioFile(sample)"></app-audio-panel>
             
             <!-- Visible when viewMode === list-view -->
-            <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
+            <!-- <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
               <div class="more-info">
                 <div class="more-actions mb-16">
                   <div class="product-rating">
@@ -77,7 +106,7 @@
                 </div>
 
               </div>
-            </div>
+            </div> -->
 
           </div>
         </div>

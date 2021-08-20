@@ -1,5 +1,13 @@
 .mat-card {
-    box-shadow: none !important;
+    // box-shadow: none !important;
+}
+
+.artist-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--light-theme);
 }
 
 h2 {
@@ -9,6 +17,9 @@ h2 {
 .dashboard-card {
     // box-shadow: none !important;
     border: 2px solid var(--light-theme-accent);
+    small {
+        font-size: 14px;
+    }
     &:hover {
         .mat-card-title small {
             color: var(--body-color) !important;

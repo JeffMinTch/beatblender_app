@@ -81,6 +81,8 @@ export class FileUploadComponent implements OnInit, OnDestroy {
     songKeyList: string[] = ['A major', 'A minor', 'A flat major', 'A flat minor', 'B major', 'B minor', 'B flat major', 'B flat minor', 'C major', 'C minor', 'D major', 'D minor', 'D flat major', 'D flat minor', 'E major', 'E minor', 'E flat major', 'E flat minor', 'F major', 'F minor', 'G major', 'G minor', 'G flat major', 'G flat minor'];
     artistPseudonymList: string[] = ['MyFirstArtistName', 'MySecondArtistName', 'MyThirdArtistName'];
 
+    
+
     constructor(
         private _snackbar: MatSnackBar,
         private playStateControlService: PlayStateControlService,
@@ -535,43 +537,6 @@ export class FileUploadComponent implements OnInit, OnDestroy {
             this.formsSubject.next(this.formsMap);
         });
     }
-
-
-    // selected(event: MatAutocompleteSelectedEvent): void {
-    //   this.fruits.push(event.option.viewValue);
-    //   this.fruitInput.nativeElement.value = '';
-    //   this.fruitCtrl.setValue(null);
-    // }
-
-    // private _filter(value: string): string[] {
-    //   const filterValue = value.toLowerCase();
-
-    //   return this.allFruits.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
-    // }
-
-
-    // addTag(event: MatChipInputEvent): void {
-    //   const input = event.input;
-    //   const value = event.value;
-
-    //   // Add our fruit
-    //   if ((value || '').trim()) {
-    //     this.fruits.push({name: value.trim()});
-    //   }
-
-    //   // Reset the input value
-    //   if (input) {
-    //     input.value = '';
-    //   }
-    // }
-
-    // removeTag(tag: string): void {
-    //   const index = this.fruits.indexOf(tag);
-
-    //   if (index >= 0) {
-    //     this.fruits.splice(index, 1);
-    //   }
-    // }
 
 
 }

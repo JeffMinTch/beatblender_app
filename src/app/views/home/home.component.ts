@@ -1,3 +1,4 @@
+import { OAuthService } from 'angular-oauth2-oidc';
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { AppLoaderService } from '../../shared/services/app-loader/app-loader.service';
@@ -144,6 +145,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     private loader: AppLoaderService,
     public layout: LayoutService,
     private navService: NavigationService,
+    private oauthService: OAuthService
     // public themeService: ThemeService,
   ) { }
 
@@ -208,6 +210,10 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   goToListen() {
     // this.loader.open();
     this.router.navigateByUrl('/listen/find')
+  }
+
+  login(): void {
+    this.oauthService.initLoginFlow();
   }
 
 

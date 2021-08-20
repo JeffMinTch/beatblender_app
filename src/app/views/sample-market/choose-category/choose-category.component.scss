@@ -1,0 +1,50 @@
+.genres-container {
+    // width: 100%;
+    // min-height: 1600;
+    overflow: hidden;
+    // height: fit-content;
+    min-height: 1200px;
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+li::before {
+    content: "\2022";
+    color: var(--accent-color);
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+    span {
+        font-size: 18px;
+    }
+}
+
+.genres-wrapper {
+    width: 33.33%;
+}
+
+.genres-item {
+    height: 120px;
+    width: 95%;
+    height: 95%;
+    cursor: pointer;
+    // border-radius: 16px;
+    border: 1px solid var(--light-theme-accent);
+    background: rgba(106,106,106, 0.02);
+
+    &:hover {
+        background: var(--light-theme-accent);
+        // border: 2px solid var(--body-color);
+        h3 {
+            color: var(--body-color) !important;
+        }
+        h3::first-letter {
+            color: var(--accent-color);
+        }
+    }
+}
+

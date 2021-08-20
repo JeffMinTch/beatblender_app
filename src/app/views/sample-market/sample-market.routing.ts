@@ -1,63 +1,108 @@
+import { ChooseCategoryComponent } from './choose-category/choose-category.component';
 import { DownloadSampleComponent } from './download-sample/download-sample.component';
 import { Routes } from '@angular/router';
 import { SampleMarketComponent } from './sample-market.component';
+import { ChooseArtistComponent } from './choose-artist/choose-artist.component';
 export const SampleMarketRoutes: Routes = [{
   path: '',
   // component: SampleMarketComponent,
   // component: SampleMarketComponent,
   children: [
     {
-      path: '',
+      path: 'bb-license',
       // redirectTo: 'bb-a1',
       // component: SampleMarketComponent,
-      
-      data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'},
+
+      data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses' },
       children: [
+        // {
+        //   path: 'samples',
+        //   component: SampleMarketComponent,
+        //   data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses' }
+        // },
+        {
+          path: 'choose-license',
+          component: ChooseCategoryComponent,
+          data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses' }
+        },
+        {
+          path: 'artists',
+          data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses' },
+          children: [
+            {
+              path: ':id',
+              component: ChooseArtistComponent,
+              // component: SampleMarketComponent,
+              data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses' },
+            },
+            // {
+            //   path: '',
+            //   component: ChooseArtistComponent
+            // },
+          ]
+        },
+        // {
+        //   path: ':id',
+        //   component: SampleMarketComponent,
+        //   data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses' },
+        // },
+        // {
+        //   path: 'bb-70',
+        //   component: ChooseArtistComponent,
+        //   data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses' }
+        // },
+        // {
+        //   path: 'bb-30',
+        //   component: ChooseArtistComponent,
+        //   data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses' }
+        // },
+        {
+          path: 'all',
+          component: ChooseArtistComponent,
+          data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses' }
+        },
         {
           path: ':id',
-          component: SampleMarketComponent,
-          data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'}
+          data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses' },
+          children: [
+            {
+              path: 'bb-100',
+              component: SampleMarketComponent,
+          data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses' },
+
+            },
+            {
+              path: 'bb-70',
+              component: SampleMarketComponent,
+          data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses' },
+
+            },
+            {
+              path: 'bb-30',
+              component: SampleMarketComponent,
+          data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses' },
+
+            },
+            {
+              path: '',
+              redirectTo: 'bb-100'
+              // component: SampleMarketComponent,
+            },
+          ]
         },
-        
-        // {
-        //   path: '/:id',
-        //   component: SampleMarketComponent,
-        //   data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'}
-        // },
-        // {
-        //   path: '/:id',
-        //   component: SampleMarketComponent,
-        //   data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'}
-        // },
-        // {
-        //   path: '/:id',
-        //   component: SampleMarketComponent,
-        //   data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'}
-        // },
-        // {
-        //   path: '/:id',
-        //   component: SampleMarketComponent,
-        //   data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'}
-        // },
-        // {
-        //   path: '/:id',
-        //   component: SampleMarketComponent,
-        //   data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'}
-        // },
-        // {
-        //   path: '/:id',
-        //   component: UnderConstructionComponent,
-        //   data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'}
-        // },
         {
           path: '',
-          redirectTo: 'bb-a1'
+          redirectTo: 'choose-license'
         }
-
       ]
+
     },
+    {
+      path: '',
+      redirectTo: 'bb-license'
+    }
   ],
-  
+
   // {
   //   path: 'full-licenses',
   //   component: FullLicensesComponent,

@@ -8,7 +8,7 @@ import { DownloadSampleComponent } from './views/sample-market/download-sample/d
 export const rootRouterConfig: Routes = [
   {
     path: '',
-    redirectTo: 'sample-market/bb-a1',
+    redirectTo: 'sample-market/bb-license',
     pathMatch: 'full'
   },
   // {

@@ -1,0 +1,85 @@
+<div fxLayout fxLayoutGap="10px" fxLayoutAlign="space-between center" class="">
+    <!-- <div fxLayout="column"> -->
+    <!-- <span class="quick-access-button-text">BB-100</span> -->
+    <!-- </div> -->
+    <!-- <span></span> -->
+    <div fxLayout fxLayoutGap="10px" fxLayoutAlign="start center" class="pl-8">
+        <button routerLink="/sample-market/bb-license/artists/all" routerLinkActive="active" class="quick-access-button"
+            mat-raised-button>All</button>
+        <button routerLink="/sample-market/bb-license/artists/bb-100" routerLinkActive="active" class="quick-access-button"
+            mat-raised-button>BB-100</button>
+        <button routerLink="/sample-market/bb-license/artists/bb-70" routerLinkActive="active" class="quick-access-button"
+            mat-raised-button>BB-70</button>
+        <button routerLink="/sample-market/bb-license/artists/bb-30" routerLinkActive="active" class="quick-access-button"
+            mat-raised-button>BB-30</button>
+    </div>
+    <!-- <span fxFlex></span> -->
+    <div fxLayout  fxLayoutAlign="start center">
+        <div fxLayoutAlign="start end" style="width: 500px; height: 80px;" class="pr-8">
+            <mat-form-field class="full-width">
+                <mat-label>Find Artist</mat-label>
+                <input matInput autocomplete="off" placeholder="Enter Name">
+                <mat-icon matSuffix>search</mat-icon>
+                <!-- <mat-hint>Hint</mat-hint> -->
+              </mat-form-field>
+
+        </div>
+        <!-- <div class="pt-8">
+            <app-searchbar  type="sample" [searchForm]="searchForm" (searchRequest)="applyFilter(0)" (searchStringChange)="changeSearchString($event)" (pageChange)="changePage($event)" (countChange)="changeCount($event)" (expandFilter)="toggleFilter($event)" (sidenavChange)="toggleSidenav()" [sortBy]="sortBy" [page]="pageNo" [pageSize]="pageSize"></app-searchbar>
+          </div> -->
+    </div>
+
+</div>
+<!-- <app-divider size="xs" color="rgba(106, 108, 116, 0.12)"></app-divider> -->
+<h1 class="mb-16 pl-8"><span style="color: var(--primary-color);">M</span>ost Sampled Artists</h1>
+<section class="genres-container" fxLayout="row wrap">
+    <section [routerLink]="'/sample-market/bb-license/' + artist.name + '/' + licenseType" class="mb-16" *ngFor="let artist of artistList" fxLayout fxLayoutAlign="center center"
+        class="genres-wrapper">
+        <div fxLayout fxLayoutAlign="start center" class="genres-item mat-elevation-z1" mat-ripple>
+            <div class="mx-16">
+                <img [src]="artist.path" alt="" class="artist-image mat-elevation-z1">
+            </div>
+            <div fxFlex fxLayout fxLayoutAlign="center center">
+                <h4 style="text-align: center; color: var(--base-accent-color);">{{artist.name}}</h4>
+            </div>
+        </div>
+    </section>
+    <button mat-flat-button color="primary" class="ml-auto mr-8" style="border-radius: 0;">View All</button>
+</section>
+
+<h1 class="mb-16 pl-8"><span style="color: var(--primary-color);">T</span>rending</h1>
+<section class="genres-container py-16" fxLayout="row wrap">
+    <section routerLink="find" *ngFor="let artist of artistList" fxLayout fxLayoutAlign="center center"
+        class="genres-wrapper">
+        <div fxLayout fxLayoutAlign="start center" class="genres-item mat-elevation-z1" mat-ripple>
+            <div class="mx-16">
+                <img [src]="artist.path" alt="" class="artist-image mat-elevation-z1">
+            </div>
+            <div fxFlex fxLayout fxLayoutAlign="center center">
+                <h4 style="text-align: center; color: var(--base-accent-color);">{{artist.name}}</h4>
+            </div>
+        </div>
+    </section>
+    <button mat-flat-button color="primary" class="ml-auto mr-8" style="border-radius: 0;">View All</button>
+
+</section>
+
+<!-- <app-divider size="xs" color="rgba(106, 108, 116, 0.12)"></app-divider> -->
+
+
+<h1 class="mb-16 pl-8"><span style="color: var(--primary-color);">N</span>ewcomers</h1>
+<section class="genres-container py-16" fxLayout="row wrap">
+    <section routerLink="find" *ngFor="let artist of artistList" fxLayout fxLayoutAlign="center center"
+        class="genres-wrapper">
+        <div fxLayout fxLayoutAlign="start center" class="genres-item mat-elevation-z1" mat-ripple>
+            <div class="mx-16">
+                <img [src]="artist.path" alt="" class="artist-image mat-elevation-z1">
+            </div>
+            <div fxFlex fxLayout fxLayoutAlign="center center">
+                <h4 style="text-align: center; color: var(--base-accent-color);">{{artist.name}}</h4>
+            </div>
+        </div>
+    </section>
+    <button mat-flat-button color="primary" class="ml-auto mr-8" style="border-radius: 0;">View All</button>
+
+</section>

@@ -105,7 +105,7 @@ export class LayoutService {
         // }
 
         switch (routerEvent.urlAfterRedirects) {
-          case '/sample-market/bb-a1':
+          case '/sample-market/bb-license':
             this.layoutConf.footerFixed = true;
             break;
           case '/docs/introduction':
@@ -120,9 +120,9 @@ export class LayoutService {
           case '/listen/playlists':
             this.layoutConf.footerFixed = true;
             break;
-          case '/profile/upload-audio':
-            this.layoutConf.footerFixed = true;
-            break;
+          // case '/profile/upload-audio':
+          //   this.layoutConf.footerFixed = true;
+          //   break;
           case '/profile/manage-audio':
             this.layoutConf.footerFixed = true;
             break;
@@ -145,6 +145,9 @@ export class LayoutService {
             this.layoutConf.footerFixed = false;
         }
         if (routerEvent.urlAfterRedirects.startsWith('/audio/details')) {
+          this.layoutConf.footerFixed = true;
+        }
+        if (routerEvent.urlAfterRedirects.startsWith('/sample-market')) {
           this.layoutConf.footerFixed = true;
         }
         this.scrollTopSubject.next();

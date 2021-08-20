@@ -1,3 +1,5 @@
+import { AudioTilesComponent } from './audio-tiles/audio-tiles.component';
+import { ReferencesComponent } from './references/references.component';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
 import { FaqComponent } from './faq/faq.component';
 
@@ -114,7 +116,9 @@ const components = [
   SubHeadingComponent,
   DividerComponent,
   UnderConstructionComponent,
-  FaqComponent
+  FaqComponent,
+  ReferencesComponent,
+  AudioTilesComponent
 ]
 
 @NgModule({

@@ -1,5 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { Router, ActivatedRoute } from '@angular/router';
 import { egretAnimations } from 'app/shared/animations/egret-animations';
+import { Theme } from 'app/shared/enums/theme.enum';
+import { SamplePage } from 'app/shared/models/sample-page.model';
+import { Sample } from 'app/shared/models/sample.model';
+import { AppLoaderService } from 'app/shared/services/app-loader/app-loader.service';
+import { AudioService } from 'app/shared/services/audio.service';
+import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
+import { LayoutService } from 'app/shared/services/layout.service';
+import { LocalStoreService } from 'app/shared/services/local-store.service';
+import { MatchMediaService } from 'app/shared/services/match-media.service';
+import { PlayStateControlService } from 'app/shared/services/play-state-control.service';
+import { AudioWebService } from 'app/shared/services/web-services/audio-web.service';
+import { HttpService } from 'app/shared/services/web-services/http.service';
+import { LicenseWebService } from 'app/shared/services/web-services/license-web.service';
+import { SampleLicensingMarketService } from 'app/views/sample-market/sample-licensing-market.service';
+import { map, share, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-profile-overview',
@@ -9,6 +28,12 @@ import { egretAnimations } from 'app/shared/animations/egret-animations';
 
 })
 export class ProfileOverviewComponent implements OnInit {
+
+  pageNo: number = 0;
+  pageSize: number = 30;
+  sortBy: string = 'title';
+  count: number = 0;
+
   activityData = [{
     month: 'January',
     spent: 240,
@@ -88,9 +113,86 @@ export class ProfileOverviewComponent implements OnInit {
 
   
 
-  constructor() { }
+  constructor(
+    public sampleLicensingMarketService: SampleLicensingMarketService,
+    public playStateControlService: PlayStateControlService,
+    private audioService: AudioService,
+    private loader: AppLoaderService,
+    private changeDetectorRef: ChangeDetectorRef,
+    private jwt: JwtAuthService,
+    private ls: LocalStoreService,
+    private audioWebService: AudioWebService,
+    private licenseWebService: LicenseWebService,
+    private fb: FormBuilder,
+    private layout: LayoutService,
+    private matchMedia: MatchMediaService,
+    public dialog: MatDialog,
+    private router: Router,
+    private httpService: HttpService,
+    private activeRoute: ActivatedRoute,
+  ) { 
+
+    this.sampleLicensingMarketService.samples$.pipe(
+      map((samples: Array<Sample>) => {
+        this.loader.close();
+        this.audioService.initAudioPlayer(samples.map(sample => sample.audioUnit), Theme.ACCENT);
+        return samples;
+      }),
+      takeUntil(this.sampleLicensingMarketService.sampleLicensingMarketDestroyed$),
+    ).subscribe((samples: Array<Sample>) => {
+      console.log(samples);
+      // if (samples.length > 0) {
+      //   this.initCurrentFile(samples[0].audioUnit.audioUnitID);
+      // }
+    });
+
+    this.retrieveSamples();
+
+  }
 
   ngOnInit() {
+  }
+
+  public retrieveSamples(): void {
+    const params = this.httpService.getRequestParams(this.sortBy, this.pageNo, this.pageSize);
+    this.audioService.emitAudioUnitsLoading(true);
+    this.sampleLicensingMarketService.initSamples(params).pipe(
+      share(),
+      map((res: SamplePage) => { return res })
+    ).subscribe((response: SamplePage) => {
+      console.log("Response");
+      console.log(response);
+      const { samples, totalItems } = response;
+      this.count = totalItems;
+      this.audioService.emitAudioUnitsLoading(false);
+      this.sampleLicensingMarketService.samples$.next(samples);
+
+    }, (error) => {
+      if (error instanceof HttpErrorResponse) {
+        if (error.status === 401) {
+          this.ls.clear();
+          this.jwt.signin();
+        }
+      }
+      console.log(error);
+    });
+  }
+
+  // handlePageChange(pageNo: number) {
+  //   console.log(pageNo);
+  //   this.pageNo = pageNo;
+  //   this.applyFilter(this.pageNo - 1, this.searchFilterFormMap);
+  //   // this.retrieveSamples();
+  // }
+
+  // changePage(pageNo: number) {
+  //   this.pageNo = pageNo;
+  //   this.initSearchFilterFormMap(this.selectionList, this.minMaxList);
+
+  // }
+
+  changeCount(count: number) {
+    this.count = count;
   }
 
 }

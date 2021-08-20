@@ -90,24 +90,24 @@ export class NavigationService implements OnInit {
       //   { name: 'My Uploads', state: 'manage-audio', type: 'link' },
       // ]
     },
-    {
-      name: 'Manage your Uploads',
-      type: 'link',
-      tooltip: 'Manage your Uploads',
-      icon: 'upload',
-      state: 'profile/manage-audio',
-      // sub: [
-      //   { name: 'Upload Sample', state: 'upload-audio', type: 'link' },
-      //   { name: 'My Uploads', state: 'manage-audio', type: 'link' },
-      // ]
-    },
-    {
-      name: 'Collaborations',
-      type: 'link',
-      tooltip: 'Collaborations',
-      icon: 'queue_music',
-      state: 'profile/collaborations'
-    },
+    // {
+    //   name: 'Manage your Uploads',
+    //   type: 'link',
+    //   tooltip: 'Manage your Uploads',
+    //   icon: 'upload',
+    //   state: 'profile/manage-audio',
+    //   // sub: [
+    //   //   { name: 'Upload Sample', state: 'upload-audio', type: 'link' },
+    //   //   { name: 'My Uploads', state: 'manage-audio', type: 'link' },
+    //   // ]
+    // },
+    // {
+    //   name: 'Collaborations',
+    //   type: 'link',
+    //   tooltip: 'Collaborations',
+    //   icon: 'queue_music',
+    //   state: 'profile/collaborations'
+    // },
     {
       name: 'Distribute your sampled Track',
       type: 'link',
@@ -191,39 +191,39 @@ export class NavigationService implements OnInit {
     //   ]
     // },
     {
-      name: 'License Deed',
+      name: 'BB License',
       type: 'link',
       icon: 'storefront',
-      state: 'license-deeds'
+      state: 'sample-market/bb-license'
     },
-    {
-      name: 'License A', state: 'sample-market', type: 'dropDown', icon: 'storefront', sub: [
-        { name: 'License A1', state: 'bb-a1', type: 'link' },
-        { name: 'License A2', state: 'bb-a2', type: 'link' },
-      ]
-    },
-    {
-      name: 'License B', state: 'sample-market', type: 'dropDown', icon: 'storefront', sub: [
-        { name: 'License B1', state: 'bb-b1', type: 'link' },
-        { name: 'License B2', state: 'bb-b2', type: 'link' },
+    // {
+    //   name: 'License A', state: 'sample-market', type: 'dropDown', icon: 'storefront', sub: [
+    //     { name: 'License A1', state: 'bb-a1', type: 'link' },
+    //     { name: 'License A2', state: 'bb-a2', type: 'link' },
+    //   ]
+    // },
+    // {
+    //   name: 'License B', state: 'sample-market', type: 'dropDown', icon: 'storefront', sub: [
+    //     { name: 'License B1', state: 'bb-b1', type: 'link' },
+    //     { name: 'License B2', state: 'bb-b2', type: 'link' },
 
-        // { name: 'Sampling Rules', state: 'crypto', type: 'link' },
-        // { name: 'Video Tutorials', state: 'dark', type: 'link' },
-        // { name: 'FAQ', state: 'dark' }
+    //     // { name: 'Sampling Rules', state: 'crypto', type: 'link' },
+    //     // { name: 'Video Tutorials', state: 'dark', type: 'link' },
+    //     // { name: 'FAQ', state: 'dark' }
 
-      ]
-    },
-    {
-      name: 'License C', state: 'sample-market', icon: 'storefront', type: 'dropDown', sub: [
-        { name: 'License C1', state: 'bb-c1', type: 'link' },
-        { name: 'License C2', state: 'bb-c2', type: 'link' },
+    //   ]
+    // },
+    // {
+    //   name: 'License C', state: 'sample-market', icon: 'storefront', type: 'dropDown', sub: [
+    //     { name: 'License C1', state: 'bb-c1', type: 'link' },
+    //     { name: 'License C2', state: 'bb-c2', type: 'link' },
 
-        // { name: 'Sampling Rules', state: 'crypto', type: 'link' },
-        // { name: 'Video Tutorials', state: 'dark', type: 'link' },
-        // { name: 'FAQ', state: 'dark' }
+    //     // { name: 'Sampling Rules', state: 'crypto', type: 'link' },
+    //     // { name: 'Video Tutorials', state: 'dark', type: 'link' },
+    //     // { name: 'FAQ', state: 'dark' }
 
-      ]
-    },
+    //   ]
+    // },
 
     // {
     //   name: 'Sample Markets',
@@ -365,25 +365,11 @@ export class NavigationService implements OnInit {
 
   iconMenu: IMenuItem[] = [
     {
-      name: 'HOME',
-      type: 'icon',
-      tooltip: 'Account',
-      icon: 'person',
-      state: 'profile'
-    },
-    {
       name: 'About',
       type: 'icon',
       tooltip: 'About',
       icon: 'info',
       state: 'about'
-    },
-    {
-      name: 'Licensing',
-      type: 'icon',
-      tooltip: 'Licensing',
-      icon: 'app_registration',
-      state: 'licensing'
     },
     {
       name: 'SAMPLE MARKET',
@@ -392,7 +378,7 @@ export class NavigationService implements OnInit {
       icon: 'storefront',
       state: 'sample-market'
     },
-
+    
     {
       name: 'MUSIC',
       type: 'icon',
@@ -401,7 +387,21 @@ export class NavigationService implements OnInit {
       state: 'listen'
     },
     // {
-    //   name: 'Collaborate with others',
+      {
+        name: 'Licensing',
+        type: 'icon',
+        tooltip: 'Licensing',
+        icon: 'app_registration',
+        state: 'licensing'
+      },
+      //   name: 'Collaborate with others',
+      {
+        name: 'HOME',
+        type: 'icon',
+        tooltip: 'Account',
+        icon: 'person',
+        state: 'profile'
+      },
     //   type: 'icon',
     //   tooltip: 'Collaborate others',
     //   icon: 'group_work',

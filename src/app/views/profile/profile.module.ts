@@ -1,3 +1,4 @@
+import { DistributeModule } from './distribute/distribute.module';
 import { SharedModule } from 'app/shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -27,6 +28,7 @@ import { ProfileOverviewComponent } from './profile-overview/profile-overview.co
 import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
 import { ProfileBlankComponent } from './profile-blank/profile-blank.component';
 import { ProfileRoutes } from "./profile.routing";
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
@@ -50,7 +52,9 @@ import { ProfileRoutes } from "./profile.routing";
     NgxDatatableModule,
     ChartsModule,
     FileUploadModule,
+    DistributeModule,
     SharedPipesModule,
+    NgxPaginationModule,
     RouterModule.forChild(ProfileRoutes)
   ],
   declarations: [ProfileComponent, ProfileOverviewComponent, ProfileSettingsComponent, ProfileBlankComponent]

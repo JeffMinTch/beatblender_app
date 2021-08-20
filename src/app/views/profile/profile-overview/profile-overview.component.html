@@ -1,60 +1,236 @@
-<!-- <div fxLayout fxLayoutAlign="space-between">
-  <div fxLayout="column">
+<div fxLayout="column" fxLayoutAlign="space-between" class="p-16" >
+  <!-- <div fxLayout="column">
     <h1 style="margin: auto 0 0 8px;"> My <span style="color: var(--primary-color);">D</span>ash<span
         style="color: var(--accent-color);">b</span>oard</h1>
     <h4 style="margin: 0 0 auto 8px;">Overview your Financials.</h4>
-  </div>
-  <mat-card class="total-card">
-    <mat-card-title fxLayoutAlign="start center">
-      <small class="text-muted">Your Wallet Balance</small>
-      <span fxFlex></span>
+  </div> -->
+  <div fxLayout fxlayoutGap="10px" fxLayoutAlign="start center">
+    <div class="m-16">
+      <img src="../../../assets/images/sido.jpeg" alt="" class="artist-image mat-elevation-z1">
+    </div>
+    <h1 class="m-0">
+      <!-- <div style="width: 64px; height: 64px;" class="mr-16">
+            <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
+          </div> -->
+      <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
+      <span style="color: var(--primary-color);">H</span>
+      <span style="">i, </span>
+      <span style="color: var(--accent-color); font-weight: 600;">S</span>
+      <span style="font-weight: 600; color: var(--base-accent-color);">ido!</span>
+    </h1>
 
-    </mat-card-title>
-    <mat-card-content>
-      <h3 class="m-0 font-normal balance-text">22,450$</h3>
-      <small class="text-muted">Your Current Balance</small>
-    </mat-card-content>
-  </mat-card>
+  </div>
+  <p style="font-size: 22px; color: var(--base-accent-color);">Build Your Legacy With BeatBlender</p>
+
+  <h4 class="pl-8 mt-4" style="font-size: 20px; font-weight: 300;">No matter what license you use, no Sample requires
+    a pre-investment and can be used on all Streaming Services.</h4>
 </div>
-<div class="p-8">
+<div class="p-8" style="overflow: hidden;">
   <div fxLayout="row wrap" class="mb-16">
     <mat-card fxFlex class="dashboard-card">
       <mat-card-title fxLayoutAlign="start center">
-        <small class="text-muted">Your Wallet Balance</small>
+        <small class="text-muted">Sampled</small>
         <span fxFlex></span>
 
       </mat-card-title>
       <mat-card-content>
-        <h3 class="m-0 font-normal balance-text">22,450$</h3>
-        <small class="text-muted">Your Current Balance</small>
+        <h3 class="m-0 font-normal balance-text">128 Times</h3>
+        <small class="text-muted">by our Community</small>
       </mat-card-content>
     </mat-card>
     <mat-card fxFlex class="dashboard-card">
       <mat-card-title fxLayoutAlign="start center">
-        <small class="text-muted">Your Wallet Balance</small>
+        <small class="text-muted">Currrent Balance</small>
         <span fxFlex></span>
 
       </mat-card-title>
       <mat-card-content>
-        <h3 class="m-0 font-normal balance-text">22,450$</h3>
-        <small class="text-muted">Your Current Balance</small>
+        <h3 class="m-0 font-normal balance-text">22,450 Dollar</h3>
+        <small class="text-muted">earned by you</small>
       </mat-card-content>
     </mat-card>
     <mat-card fxFlex class="dashboard-card">
       <mat-card-title fxLayoutAlign="start center">
-        <small class="text-muted">Your Wallet Balance</small>
+        <small class="text-muted">Produced Tracks</small>
         <span fxFlex></span>
 
       </mat-card-title>
       <mat-card-content>
-        <h3 class="m-0 font-normal balance-text">22,450$</h3>
-        <small class="text-muted">Your Current Balance</small>
+        <h3 class="m-0 font-normal balance-text">3 <span style="color: var(--primary-color);">B</span> <span
+            style="color: var(--accent-color);">B</span>-Remixes</h3>
+        <small class="text-muted">with Samples from BeatBlender</small>
       </mat-card-content>
     </mat-card>
 
   </div>
   <mat-divider class="mb-16"></mat-divider>
+  <h1 class="mx-0 mb-16">
+    <!-- <div style="width: 64px; height: 64px;" class="mr-16">
+          <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
+        </div> -->
+    <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
+    <span style="color: var(--primary-color);">Y</span>
+    <span style="">our </span>
+    <span style="color: var(--accent-color); font-weight: 600;">S</span>
+    <span style="font-weight: 600; color: var(--base-accent-color);">amples</span>
+  </h1>
+  <div class="product-container" fxLayout="row wrap" fxLayoutAlign="start start">
+    <!-- Product Box -->
+    <ng-container
+      *ngIf="(sampleLicensingMarketService.samples$ | async)?.length <= 0 && (sampleLicensingMarketService.samples$ | async) != null"
+      ; else product>
+      <div fxFlex fxLayoutAlign="center">
+        <span class="fs-24">No samples match your request.</span>
+      </div>
+    </ng-container>
+    <ng-container #product>
+      <ng-container
+        *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count }; let i = index;">
+        <div *ngIf="i < 4" fxLayout="row" class="product-wrap"
+          [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}">
+          <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
+          <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
+          <div fxLayout="column" class="product-inner default-bg mx-8 my-16 full-width">
+            <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
+                            <span>{{product?.badge?.text}}</span>
+                          </div> -->
+            <app-audio-panel [audioUnit]="sample?.audioUnit" light="true"
+              [type]="viewMode === 'grid-view' ? 'sample' : 'primary'"
+              (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
 
+            <!-- Visible when viewMode === list-view -->
+            <!-- <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
+                          <div class="more-info">
+                            <div class="more-actions mb-16">
+                              <div class="product-rating">
+                                <star-rating [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'"
+                                  [rating]="4.63"></star-rating>
+                                <small class="text-muted">(140)</small>
+                              </div>
+                              <span fxFlex></span>
+                              <button mat-icon-button>
+                                <mat-icon>playlist_add</mat-icon>
+                              </button>
+                              <button mat-icon-button>
+                                <mat-icon>favorite</mat-icon>
+                              </button>
+                            </div>
+            
+                            <div>
+                              <ul>
+                                <li>
+                                  <mat-icon>check</mat-icon> Heavy duty
+                                </li>
+                                <li>
+                                  <mat-icon>check</mat-icon> Water resistance
+                                </li>
+                                <li>
+                                  <mat-icon>check</mat-icon> Clean design
+                                </li>
+                                <li>
+                                  <mat-icon>check</mat-icon> High quality raw materials
+                                </li>
+                              </ul>
+                            </div>
+            
+                          </div>
+                        </div> -->
+
+          </div>
+        </div>
+
+      </ng-container>
+    </ng-container>
+
+    <div class="products-pagination" *ngIf="count > pageSize">
+      <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
+      <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+    </div>
+  </div>
+  <h1 class="mx-0 mb-16">
+    <!-- <div style="width: 64px; height: 64px;" class="mr-16">
+          <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
+        </div> -->
+    <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
+    Your
+    
+    <span style="color: var(--primary-color); font-weight: 600;">B</span><span style="color: var(--accent-color); font-weight: 600;">B</span>
+    <span style="font-weight: 600; color: var(--base-accent-color);">-Remixes</span>
+  </h1>
+  <div class="product-container" fxLayout="row wrap" fxLayoutAlign="start start">
+    <!-- Product Box -->
+    <ng-container
+      *ngIf="(sampleLicensingMarketService.samples$ | async)?.length <= 0 && (sampleLicensingMarketService.samples$ | async) != null"
+      ; else product>
+      <div fxFlex fxLayoutAlign="center">
+        <span class="fs-24">No samples match your request.</span>
+      </div>
+    </ng-container>
+    <ng-container #product>
+      <ng-container
+        *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count }; let i = index;">
+        <div *ngIf="i < 2" fxLayout="row" class="product-wrap"
+          [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}">
+          <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
+          <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
+          <div fxLayout="column" class="product-inner default-bg mx-8 my-16 full-width">
+            <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
+                            <span>{{product?.badge?.text}}</span>
+                          </div> -->
+            <app-audio-panel [audioUnit]="sample?.audioUnit" light="true"
+              [type]="viewMode === 'grid-view' ? 'sample' : 'primary'"
+              (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
+
+            <!-- Visible when viewMode === list-view -->
+            <!-- <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
+                          <div class="more-info">
+                            <div class="more-actions mb-16">
+                              <div class="product-rating">
+                                <star-rating [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'"
+                                  [rating]="4.63"></star-rating>
+                                <small class="text-muted">(140)</small>
+                              </div>
+                              <span fxFlex></span>
+                              <button mat-icon-button>
+                                <mat-icon>playlist_add</mat-icon>
+                              </button>
+                              <button mat-icon-button>
+                                <mat-icon>favorite</mat-icon>
+                              </button>
+                            </div>
+            
+                            <div>
+                              <ul>
+                                <li>
+                                  <mat-icon>check</mat-icon> Heavy duty
+                                </li>
+                                <li>
+                                  <mat-icon>check</mat-icon> Water resistance
+                                </li>
+                                <li>
+                                  <mat-icon>check</mat-icon> Clean design
+                                </li>
+                                <li>
+                                  <mat-icon>check</mat-icon> High quality raw materials
+                                </li>
+                              </ul>
+                            </div>
+            
+                          </div>
+                        </div> -->
+
+          </div>
+        </div>
+
+      </ng-container>
+    </ng-container>
+
+    <div class="products-pagination" *ngIf="count > pageSize">
+      <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
+      <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+    </div>
+  </div>
+  <!-- 
   <h2 class="ml-16" style="color: var(--base-accent-color);"><span
       style="color: var(--primary-color);">R</span>oyalities
     from My Releases</h2>

@@ -1,0 +1,47 @@
+.references {
+    height: 500px;
+    background: transparent;
+    width: 100%;
+    .content {
+        max-width: 1400px;
+        margin: 0 16px 80px 16px;
+        width: 100%;
+       .left-footer {
+        // background: red;
+       }
+
+       .middle-footer {
+           .ref-column {
+               padding-top: 100px;
+               dt {
+                   font-size: 30px;
+                   color: var(--body-color); 
+                   margin: 0 0 20px 0;
+                   font-weight: 700;
+               }
+               dd {
+                //    margin: 0;
+                font-size: 22px;
+                   margin: 0 0 20px 0;
+                   font-weight: 300;
+               }
+           }
+
+       }
+
+       .right-footer {
+        .link-button {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+        }
+       }
+    }
+
+    .bottom-row {
+        width: full-width;
+        
+    }
+
+
+}

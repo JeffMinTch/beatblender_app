@@ -34,7 +34,6 @@ import { HttpService } from 'app/shared/services/web-services/http.service';
 import { AudioUnitType } from 'app/shared/enums/audio-unit-type.enums';
 import { Theme } from 'app/shared/enums/theme.enum';
 import { Breadcrumb } from 'app/shared/models/breadcrumb.model';
-import { LicenseType } from 'app/shared/models/types/license-type.model';
 
 
 
@@ -49,7 +48,7 @@ import { LicenseType } from 'app/shared/models/types/license-type.model';
 export class SampleMarketComponent implements OnInit, AfterViewInit {
   public isFilterOpen: boolean = false;
   public isSideNavOpen: boolean;
-  public viewMode = 'grid-view';
+  public viewMode: 'grid-view' | 'list-view' = 'grid-view';
   public currentPage: any;
 
 
@@ -63,7 +62,7 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
   searchString: string;
   selectionList: Array<Selection>;
   minMaxList: Array<MinMaxSlider>;
-  licenseType: LicenseType;
+  artistName: string;
 
 
   public searchFilterFormMap: SearchFilterFormMap = {
@@ -264,7 +263,8 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
       console.log(params) //log the entire params object
       console.log(params['id']) //log the value of id
       // if(params['id'] instanceof License)
-      this.licenseType = params['id'];
+      this.artistName = params['id'];
+      // alert(this.artistName);
       this.changeDetectorRef.detectChanges();
       // try {
       //   alert(this.licenseType);
@@ -604,5 +604,13 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
     
   }
 
+  
+  customerRouteFor(licenseType: string): (string | number)[] {
+    return ['/sample-market/bb-license', this.artistName, licenseType];
+  }
+
+  changeViewMode(viewMode: 'grid-view' | 'list-view') {
+    this.viewMode = viewMode;
+  }
 
 }

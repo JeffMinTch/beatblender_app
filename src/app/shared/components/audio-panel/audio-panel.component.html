@@ -1,18 +1,17 @@
 <!-- <ng-template > -->
-  <!-- [ngClass]="audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? 'mat-elevation-z1' : ''" -->
+<!-- [ngClass]="audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? 'mat-elevation-z1' : ''" -->
 <section fxLayout="column" *ngIf="type !== 'iconButton'">
   <!-- [ngStyle]="{border: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? '2px solid var(--body-color)' : '2px dashed var(--light-theme-accent)'}" -->
   <!-- playState ? pause(audioUnit?.audioUnitID === currentSampleID, audioUnit?.audioUnitID) : play(audioUnit?.audioUnitID === currentSampleID, audioUnit?.audioUnitID) -->
   <mat-toolbar
-    [ngStyle]="{background: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? 'var(--light-theme-accent)' : 'var(--light-theme)'}" 
+    [ngStyle]="{background: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? 'var(--light-theme-accent)' : 'var(--light-theme-accent)'}"
     (click)="triggerToolbar()" style="border-left: none; border-right: none;" class="player-widget pl-0 py-0"
     fxLayout="row" fxLayoutAlign="start center">
     <!-- [routerLink]="['/shop/products/', product._id]" -->
     <!-- <div fxLayout="row" fxLayoutAlign="center center" class="category">
         </div> -->
     <!-- <img [src]="audioUnit?.imageDownLoadUri" alt=""> -->
-    <img src="{{'http://localhost:9090/api/web/public/media/image/' + audioUnit?.audioUnitID}}" alt=""
-      class="">
+    <img src="{{'http://localhost:9090/api/web/public/media/image/' + audioUnit?.audioUnitID}}" alt="" class="">
     <div fxFlex="1 1 auto" class="slider-container mb-auto" fxLayout="row" fxLayoutAlign="start center">
       <!-- <mat-slider #audioSlider thumbLabel="true" class="slider" min="0"
             [max]="audioUnit?.sampleID === (playStateControlService.currentSampleID$ | async) ? getDuration() : durationFallback()"
@@ -24,18 +23,7 @@
                     [max]="getMax(audioUnit?.sampleID)" -->
       <!-- value="0"
                   max="100"  -->
-                  <ng-container *ngIf="type === 'primary' && light === 'true'">
-                    
-                    <div fxFlex fxLayout="column" fxLayoutAlign="start start" class="ml-8">
-                      <div fxFlex="100" fxLayout="row" fxLayoutAlign="start center" class="">
-                        <span fxFlex class="cell-content" style="font-family: 'Lazer84'; font-size: 10px;">{{audioUnit?.artistAlias?.artistName}}</span>
-                      </div>
-                      <div fxFlex="50" fxLayout="row" fxLayoutAlign="start center" class="">
-                        <span fxFlex class="cell-content" style="font-size: 8px;">{{audioUnit?.title}}</span>
-                      </div>
-              
-                    </div>
-                  </ng-container>
+      
       <div fxLayout="row" fxFlex class="ml-32" *ngIf="type === 'primary' && light === 'false'">
         <!-- <div fxFlex fxLayoutAlign="center center">
         
@@ -59,8 +47,7 @@
     <button (click)="triggerPlayButton($event)" mat-icon-button [ngStyle]="{background: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? '#fafafa' : '#fafafa',
         border: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? '3px solid var(--primary-color)' : '3px solid var(--body-color)'
         
-      }"
-      fxLayout="row" fxLayoutAlign="center center">
+      }" fxLayout="row" fxLayoutAlign="center center">
       <!-- [ngClass]="audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? 'mat-elevation-z1' : ''" -->
       <!-- [ngStyle]="{color: audioUnit?.sampleID === (playStateControlService.currentSampleID$ | async) ? 'var(--body-color)': 'grey'}"> -->
       <mat-icon
@@ -75,18 +62,28 @@
       </button> -->
   </mat-toolbar>
   <ng-container *ngIf="type === 'primary' && light === 'true'">
-                    
-    <div fxFlex fxLayout="row" fxLayoutAlign="space-between start">
-      <!-- <div fxFlex="50" fxLayout="row" fxLayoutAlign="start center" class="">
-        <span fxFlex class="cell-content py-8" style="font-family: 'Lazer84';">{{audioUnit?.artistAlias?.artistName}}</span>
-      </div> -->
+
+    <div fxFlex fxLayout="column" fxLayoutAlign="start start" class="ml-8 mt-8">
+      <div fxFlex="100" fxLayout="row" fxLayoutAlign="start center" class="">
+        <span fxFlex class="cell-content"
+          style="font-size: 16px; font-weight: 700;">{{audioUnit?.artistAlias?.artistName}}</span>
+      </div>
       <div fxFlex="50" fxLayout="row" fxLayoutAlign="start center" class="">
-        <!-- <span fxFlex class="cell-content">{{audioUnit?.title}}</span> -->
+        <span fxFlex class="cell-content" style="font-size: 14px; font-weight: 300;">{{audioUnit?.title}}</span>
+      </div>
+
+    </div>
+  </ng-container>
+  <!-- <ng-container *ngIf="type === 'primary' && light === 'true'">
+
+    <div fxFlex fxLayout="row" fxLayoutAlign="space-between start">
+     
+      <div fxFlex="50" fxLayout="row" fxLayoutAlign="start center" class="">
       </div>
       <a [routerLink]="'/audio/details/' + audioUnit?.audioUnitID" class="hypertext pr-8">Details</a>
 
     </div>
-  </ng-container>
+  </ng-container> -->
   <!-- <section fxLayout="column" *ngIf="type === 'sample'"> -->
   <ng-container *ngIf="type === 'sample' || type === 'playlist'">
     <div class="info-wrap p-16" fxLayout="column" [routerLink]="'/details/' + audioUnit?.audioUnitID">
@@ -164,18 +161,20 @@
     <!-- (click)="downloadBasicLicense()" -->
     <ng-container *ngIf="button === true">
       <ng-container *ngIf="type === 'sample'">
-        <button (click)="throwClickEvent()" *ngIf="audioUnit?.audioUnitID !== (playStateControlService.currentSampleID$ | async)" fxFlex="50px" mat-stroked-button color="primary"
-          class="download-button">
+        <button (click)="throwClickEvent()"
+          *ngIf="audioUnit?.audioUnitID !== (playStateControlService.currentSampleID$ | async)" fxFlex="50px"
+          mat-stroked-button color="primary" class="download-button">
           <span class="fw-700 fs-16">{{buttonText}}</span>
         </button>
 
       </ng-container>
-      <ng-container *ngIf="type === 'sample'" >
-      <button (click)="throwClickEvent()"  *ngIf="audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async)" fxFlex="50px" mat-raised-button color="primary"
-        class="download-button">
-        <span class="fw-700 fs-16">{{buttonText}}</span>
-      </button>
-</ng-container>
+      <ng-container *ngIf="type === 'sample'">
+        <button (click)="throwClickEvent()"
+          *ngIf="audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async)" fxFlex="50px"
+          mat-raised-button color="primary" class="download-button">
+          <span class="fw-700 fs-16">{{buttonText}}</span>
+        </button>
+      </ng-container>
       <!-- <button [routerLink]="['download', audioUnit.audioUnitID]" *ngIf="type === 'sample'" fxFlex="50px" mat-stroked-button color="primary" class="full-width download-button">
           <span class="fw-700 fs-16">{{buttonText}}</span>
         </button> -->
