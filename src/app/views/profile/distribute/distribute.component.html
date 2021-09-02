@@ -1,4 +1,4 @@
-<h1 class="">
+<h1 [ngStyle.lt-lg]="{'text-align': 'center'}" class="">
     <!-- <div style="width: 64px; height: 64px;" class="mr-16">
           <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
         </div> -->
@@ -8,11 +8,11 @@
     <span style="color: var(--accent-color); font-weight: 600;"> T</span>
     <span style="font-weight: 600; color: var(--base-accent-color);">rack</span>
   </h1>
-  <p style="font-size: 22px; color: var(--base-accent-color);">Upload your sampled Track to all Major Streaming Services</p>
+  <p [ngStyle.lt-lg]="{'text-align': 'center'}" style="font-size: 22px; color: var(--base-accent-color);">Upload your sampled Track to all Major Streaming Services</p>
   <mat-divider></mat-divider>
 
-  <div fxLayout fxLayoutAlign="start center" fxLayoutGap="10px" class="py-8">
-    <mat-card class="streaming-service-card" *ngFor="let streamingService of streamingServiceList">
+  <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px" class="py-8">
+    <mat-card class="streaming-service-card mb-8" *ngFor="let streamingService of streamingServiceList">
       <img [src]="'../../../../assets/images/brand-logos/' + streamingService.path" alt="">
     </mat-card>
     <span>+165 Stores</span>

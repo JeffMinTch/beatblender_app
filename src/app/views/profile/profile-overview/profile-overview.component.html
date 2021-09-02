@@ -27,7 +27,7 @@
 </div>
 <div class="p-8" style="overflow: hidden;">
   <div fxLayout="row wrap" class="mb-16">
-    <mat-card fxFlex class="dashboard-card">
+    <mat-card [ngStyle.xs]="{'width' : '100%'}" [ngStyle.sm]="{'width' : '50%'}" [ngStyle.md]="{'width' : '50%'}" [ngStyle.lg]="{'width' : '33.33%'}" [ngStyle.xl]="{'width' : '33.33%'}" class="dashboard-card">
       <mat-card-title fxLayoutAlign="start center">
         <small class="text-muted">Sampled</small>
         <span fxFlex></span>
@@ -38,7 +38,7 @@
         <small class="text-muted">by our Community</small>
       </mat-card-content>
     </mat-card>
-    <mat-card fxFlex class="dashboard-card">
+    <mat-card  [ngStyle.xs]="{'width' : '100%'}" [ngStyle.sm]="{'width' : '50%'}" [ngStyle.md]="{'width' : '50%'}" [ngStyle.lg]="{'width' : '33.33%'}" [ngStyle.xl]="{'width' : '33.33%'}" class="dashboard-card">
       <mat-card-title fxLayoutAlign="start center">
         <small class="text-muted">Currrent Balance</small>
         <span fxFlex></span>
@@ -49,7 +49,7 @@
         <small class="text-muted">earned by you</small>
       </mat-card-content>
     </mat-card>
-    <mat-card fxFlex class="dashboard-card">
+    <mat-card [ngStyle.xs]="{'width' : '100%'}" [ngStyle.sm]="{'width' : '50%'}" [ngStyle.md]="{'width' : '50%'}" [ngStyle.lg]="{'width' : '33.33%'}" [ngStyle.xl]="{'width' : '33.33%'}" class="dashboard-card">
       <mat-card-title fxLayoutAlign="start center">
         <small class="text-muted">Produced Tracks</small>
         <span fxFlex></span>

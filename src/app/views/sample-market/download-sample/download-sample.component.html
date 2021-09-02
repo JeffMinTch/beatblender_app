@@ -1,12 +1,12 @@
 <div class="download-sample-page">
 
-    <h1 style="color: var(--primary);"><span style="color: var(--primary-color);">Agree </span>to our <span
+    <h1 style="color: var(--primary);" [ngStyle.lt-lg]="{'text-align': 'center'}"><span style="color: var(--primary-color);">Agree </span>to our <span
             style="color: var(--accent-color);">License Conditions</span></h1>
     <!-- <mat-divider></mat-divider> -->
     <p class="">You do not have to comply with the license for elements of the material in the public domain or where
         your use is permitted by an applicable exception or limitation.</p>
     <!-- <mat-divider class="my-16"></mat-divider> -->
-    <div fxLayout fxLayoutGap="10px">
+    <div [fxLayout.lt-lg]="'column'" [fxLayout.gt-md]="'row'" fxLayoutGap="10px">
         <div fxFlex fxLayout="column" fxLayoutGap="10px">
             <div class="license">
                 <section class="license-header" fxLayout="column">

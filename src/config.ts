@@ -17,6 +17,7 @@ export const config = {
       protected: {
         root: '/protected/audio',
         uploadSamples: '/upload-samples',
+        
         getUploads: '/get-uploads',
         updateTitle: '/update-title',
         updateGenre: '/update-genre',
@@ -31,8 +32,10 @@ export const config = {
       },
       protected: {
         root: '/protected/user',
-        userData: '/user-data'
-        
+        userData: '/user-data',
+        setArtistImage: '/set-artist-image',
+        setArtistName: '/set-artist-name'
+      
       }
     },
     licensePath: {

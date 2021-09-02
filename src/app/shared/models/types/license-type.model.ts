@@ -1,1 +1,1 @@
-export type LicenseType = 'bb-a1' | 'bb-a2' | 'bb-b1' | 'bb-b2' | 'bb-c1' | 'bb-c2';
+export type LicenseType = 'BB100' | 'BB70' | 'BB30';

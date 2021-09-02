@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { NavigationService } from "../../../shared/services/navigation.service";
 import { Subscription } from 'rxjs';
 import { ThemeService } from '../../../shared/services/theme.service';
@@ -11,7 +11,10 @@ import { OAuthService } from 'angular-oauth2-oidc';
   selector: 'app-header-top',
   templateUrl: './header-top.component.html'
 })
-export class HeaderTopComponent implements OnInit, OnDestroy {
+export class HeaderTopComponent implements OnInit, AfterViewInit ,OnDestroy {
+
+  @ViewChild('artistImage') public artistImage: ElementRef<HTMLImageElement>;
+
   layoutConf: any;
   menuItems:any;
   menuItemSub: Subscription;
@@ -35,6 +38,18 @@ export class HeaderTopComponent implements OnInit, OnDestroy {
     private oauthService: OAuthService
 
   ) { }
+  ngAfterViewInit(): void {
+    this.jwtAuth.userData$.subscribe(userData => {
+      let that = this;
+      setTimeout(() => {
+        this.userData = userData;
+  
+        (this.artistImage.nativeElement as HTMLImageElement).src = `http://localhost:9090/api/web/protected/media/artist-image/${this.userData.artistAlias.artistALiasID}`;
+        console.log(userData);
+
+      }, 500);
+    });
+  }
 
   ngOnInit() {
     this.layoutConf = this.layout.layoutConf;
@@ -59,10 +74,7 @@ export class HeaderTopComponent implements OnInit, OnDestroy {
       // console.log(this.menuItems);
     })
 
-    this.jwtAuth.userData$.subscribe(userData => {
-      this.userData = userData;
-      console.log(userData);
-    });
+    
   }
   ngOnDestroy() {
     this.menuItemSub.unsubscribe()

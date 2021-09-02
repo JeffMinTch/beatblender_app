@@ -1,3 +1,4 @@
+import { LicenseType } from './types/license-type.model';
 import { ArtistAlias } from "./artist-alias.model"
 import { Artist } from "./artist.model"
 
@@ -9,7 +10,7 @@ export class AudioUnit {
     private _downloads: number;
     private _genre: string;
     private _imageFileName: string;
-    private _lep: number;
+    private _licenseType: LicenseType;
     private _moods: Array<string>;
     private _tags: Array<string>;
     private _tempo: number;
@@ -69,8 +70,8 @@ export class AudioUnit {
      * Getter lep
      * @return {number}
      */
-	public get lep(): number {
-		return this._lep;
+	public get licenseType(): LicenseType {
+		return this._licenseType;
 	}
 
     /**
@@ -163,10 +164,10 @@ export class AudioUnit {
 
     /**
      * Setter lep
-     * @param {number} value
+     * @param {LicenseType} value
      */
-	public set lep(value: number) {
-		this._lep = value;
+	public set licenseType(value: LicenseType) {
+		this._licenseType = value;
 	}
 
     /**

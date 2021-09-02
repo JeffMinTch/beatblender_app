@@ -41,8 +41,8 @@
       </div>
     </div>
     <!-- style="font-size: 32px;" -->
-    <button mat-icon-button color="" class="mr-8" *ngIf="type === 'primary'">
-      <mat-icon>more_vert</mat-icon>
+    <button mat-icon-button class="mr-8" *ngIf="type === 'primary'" (click)="stopPropagation($event)">
+      <mat-icon>download</mat-icon>
     </button>
     <button (click)="triggerPlayButton($event)" mat-icon-button [ngStyle]="{background: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? '#fafafa' : '#fafafa',
         border: audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async) ? '3px solid var(--primary-color)' : '3px solid var(--body-color)'
@@ -139,7 +139,7 @@
           <!-- <div class="price-rating"> -->
           <!-- <div class="price"> -->
           <span><strong>License Type: </strong><a href=""
-              style="color: var(--accent-color); text-decoration: underline;">BeatBlender License</a></span>
+              style="color: var(--accent-color); text-decoration: underline;">{{getLicenseType(audioUnit)}}</a></span>
           <!-- <del class="text-muted">{{audioUnit?.lep}}Karma</del> -->
           <!-- </div> -->
           <!-- </div> -->

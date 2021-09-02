@@ -12,15 +12,20 @@ import { SimpleInputDialogComponent } from 'app/shared/components/dialogs/simple
 import { Theme } from 'app/shared/enums/theme.enum';
 import { AudioState } from 'app/shared/models/audio-state.model';
 import { Sample } from 'app/shared/models/sample.model';
+import { LicenseType } from 'app/shared/models/types/license-type.model';
 import { AudioService } from 'app/shared/services/audio.service';
 import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
-import { LayoutService } from 'app/shared/services/layout.service';
 import { PlayStateControlService } from 'app/shared/services/play-state-control.service';
-import { AudioWebService } from 'app/shared/services/web-services/audio-web.service';
 import { environment } from 'environments/environment';
 import { FileItem, FileUploader, FileUploaderOptions } from 'ng2-file-upload';
 import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
+
+
+export interface LicenseMap {
+    abbreviation: string,
+    percentage: number
+}
 
 @Component({
     selector: 'app-file-upload',
@@ -46,6 +51,8 @@ export class FileUploadComponent implements OnInit, OnDestroy {
     // fruits: string[] = ['Lemon'];
     allFruits: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
 
+    userData: any;
+
     private uploadOptions: FileUploaderOptions;
     private imageUploadOptions: FileUploaderOptions;
     private uploadUrl: string;
@@ -68,8 +75,25 @@ export class FileUploadComponent implements OnInit, OnDestroy {
     public minimumMoods = 1;
     public maximumMoods = 3;
     public maximumSampleTitle = 200;
-    public minimumSamplePrice = 1;
-    public maximumSamplePrice = 1000000000;
+    // public minimumSamplePrice = 1;
+    // public maximumSamplePrice = 1000000000;
+
+    licenseTypes: LicenseMap[] = [
+        {
+            abbreviation: 'BB-100',
+            percentage: 100
+        },
+        {
+            abbreviation: 'BB-70',
+            percentage: 70
+        },
+        {
+            abbreviation: 'BB-30',
+            percentage: 30
+        }
+    ];
+
+
 
 
 
@@ -159,7 +183,6 @@ export class FileUploadComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-
         this.playStateControlService.emitPlayState(false);
         this.uploader.onBuildItemForm = (fileItem: FileItem, formData: FormData) => {
             // https://stackoverflow.com/questions/60303518/angular-ng2-file-upload-input-file-filter-not-working-for-png-in-internet-explor
@@ -173,7 +196,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
             // }
             // this.uploadOptions.authToken = 'Bearer ' + this.jwt.getJwtToken();
             console.log(this.uploadOptions);
-            console.log(fileItem);
+            console.log(fileItem); 
             console.log(((this.fileItemForm.controls['image'] as FormGroup).controls['file'].value as FileItem)._file);
             console.log('Yuhee');
             // tslint:disable-next-line:max-line-length
@@ -184,7 +207,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
             formData.append('sampleType', formGroup.controls['sampleType'].value);
             formData.append('trackType', formGroup.controls['trackType'].value);
             formData.append('artistAlias', (formGroup.controls['artistPseudonymGroup'] as FormGroup).controls['artistPseudonym'].value);
-            formData.append('samplePrice', (formGroup.controls['samplePriceGroup'] as FormGroup).controls['samplePrice'].value);
+            formData.append('licenseType', (formGroup.controls['licenseTypeGroup'] as FormGroup).controls['licenseType'].value.abbreviation);
             formData.append('genre', (formGroup.controls['descriptionForm'] as FormGroup).controls['genre'].value as string);
             ((formGroup.controls['descriptionForm'] as FormGroup).controls['moods'].value as string[]).forEach((mood) => {
                 formData.append('moods', mood);
@@ -236,6 +259,10 @@ export class FileUploadComponent implements OnInit, OnDestroy {
 
         setTimeout(() => {
             this.audioService.createWavesurferObj(Theme.PRIMARY);
+        });
+
+        this.jwt.userData$.subscribe((userData: any) => {
+            this.userData = userData;
         });
 
         //   (this.formsMap.get(item).controls['artistPseudonymGroup'] as FormGroup).controls['artistPseudonym']
@@ -322,11 +349,11 @@ export class FileUploadComponent implements OnInit, OnDestroy {
             'artistPseudonymGroup': this.fb.group({
                 'artistPseudonym': ['', [Validators.required]],
             }),
-            'samplePriceGroup': this.fb.group({
-                'samplePrice': [this.minimumSamplePrice, [
+            'licenseTypeGroup': this.fb.group({
+                'licenseType': [this.licenseTypes[0], [
                     Validators.required, 
-                    Validators.min(this.minimumSamplePrice),
-                    Validators.max(this.maximumSamplePrice)
+                    // Validators.min(this.minimumSamplePrice),
+                    // Validators.max(this.maximumSamplePrice)
                 ]],
             }),
 
@@ -536,6 +563,12 @@ export class FileUploadComponent implements OnInit, OnDestroy {
             // console.log(this.formsMap.get(item).controls['mixedIns'].value);
             this.formsSubject.next(this.formsMap);
         });
+    }
+
+    selectLicenseTypeOption(item: FileItem, licenseType: LicenseType) {
+        if((this.formsMap.get(item).controls['licenseTypeGroup'] as FormGroup).controls['licenseType'].value !== licenseType) {
+            (this.formsMap.get(item).controls['licenseTypeGroup'] as FormGroup).controls['licenseType'].setValue(licenseType);
+        }
     }
 
 

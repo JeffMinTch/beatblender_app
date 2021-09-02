@@ -1,4 +1,4 @@
-<footer class="main-footer" style="position: relative;">
+<footer fxFlex class="main-footer" style="position: relative;">
   <div class="container-dynamic d-flex" style="">
     <!-- <div class="toolbar" fxLayout="row" fxLayoutAlign="center center">
       
@@ -54,7 +54,64 @@
       </div>
     </div> -->
     <!-- <div> -->
-      <div class="waveform-container" #waveFormContainer>
+      <ng-container  *ngFor="let audioUnit of audioUnits">
+        <div   fxShow [fxHide.gt-md]="true" *ngIf="audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async)" class="current-audio-container">
+          <div fxLayoutAlign="center center">
+            <img style="width: 64px; height: 64px;" class="" src="{{'http://localhost:9090/api/web/public/media/image/' + audioUnit?.audioUnitID}}" alt="">
+          </div>  
+            <div class="current-audio-info" fxLayout="column">
+              <span fxLayout="row">{{audioUnit?.artistAlias.artistName}}</span>
+              <span fxLayout="row">{{audioUnit?.title}}</span>
+            </div>
+          </div>
+        </ng-container>
+
+        <div fxShow [fxHide.gt-md]="true" fxFlex class="player" fxLayout="row nowrap">
+          <button 
+          
+          class="player-button" 
+          (click)="previousNext('prev')"
+          [disabled]="isFirst()" 
+          type="button"
+          mat-icon-button 
+          onclick="this.blur()">
+            <mat-icon class="skip-previous player-icon" aria-hidden="false" aria-label="skip previous track">skip_previous_outline</mat-icon>
+          </button>
+        <button *ngIf="!(playStateControlService.playState$ | async)" 
+                type="button" 
+                mat-icon-button 
+                (click)="play()" 
+                [disabled]="audioService.audioUnitsLoading$ | async"
+                onclick="this.blur()" 
+                class="player-button">
+          <mat-icon
+            class="player-icon" aria-hidden="false" 
+            aria-label="Example home icon">
+            play_arrow_outline
+          </mat-icon>
+        </button>
+          <button 
+            *ngIf="(playStateControlService.playState$ | async)"
+            type="button" 
+            mat-icon-button 
+            (click)="pause()" 
+            onclick="this.blur()" 
+            class="player-button">
+            <mat-icon color="primary"
+            class="player-icon" 
+            aria-hidden="false"
+            aria-label="Example home icon">
+            pause
+          </mat-icon>
+          </button>
+        
+            <button (click)="previousNext('next')" type="button" mat-icon-button onclick="this.blur()"
+              [disabled]="isLast()" class="player-button next-button-player">
+              <mat-icon class="skip-next player-icon icon-control-end rewind-icon" aria-hidden="false"
+                aria-label="Example home icon">skip_next</mat-icon>
+            </button>
+      </div>
+      <div fxShow [fxHide.lt-md]="true" class="waveform-container" #waveFormContainer>
         <div id="waveform" #waveform>
           
         </div>
@@ -76,7 +133,7 @@
     </ng-container> -->
     
   </div>
-  <div fxLayout fxLayoutAlign="space-between" class="player-top mat-elevation-z9" style="z-index: -1;">
+  <div fxLayout fxLayoutAlign="space-between" class="player-top mat-elevation-z9" style="z-index: -1;" fxShow [fxHide.lt-md]="true">
     <div class="toolbar" fxLayout="row" fxLayoutAlign="center center">
     
     <div class="player" fxLayout="row nowrap">

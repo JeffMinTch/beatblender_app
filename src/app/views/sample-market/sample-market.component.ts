@@ -142,7 +142,7 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
     this.sampleLicensingMarketService.samples$.pipe(
       map((samples: Array<Sample>) => {
         this.loader.close();
-        this.audioService.initAudioPlayer(samples.map(sample => sample.audioUnit), Theme.ACCENT);
+        this.audioService.initAudioPlayer(samples.map(sample => sample.audioUnit), Theme.PRIMARY);
         return samples;
       }),
       takeUntil(this.sampleLicensingMarketService.sampleLicensingMarketDestroyed$),

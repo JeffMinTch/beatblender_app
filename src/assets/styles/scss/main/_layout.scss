@@ -176,6 +176,7 @@ app-documentation {
     max-width: 1400px;
     width: 100%;
     margin: 0 auto;
+    // background: var(--light-theme); border-top-left-radius: 8px; border-top-right-radius: 8px;
   }
   .main-content-wrap {
     float: none;
@@ -194,8 +195,8 @@ app-documentation {
     overflow: hidden;
     left: -$sidebar-width;
     .navigation-hold {
-      margin-top: 48px;
-      height: calc(100% - 48px);
+      margin-top: 78px;
+      height: calc(100% - 78px);
     }
   }
 }

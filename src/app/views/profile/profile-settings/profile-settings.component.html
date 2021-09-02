@@ -1,16 +1,83 @@
 <mat-card class="p-0" style="box-shadow: none !important;">
   <mat-tab-group>
-    <mat-tab label="Account Settings">
+    <mat-tab label="Artist Settings">
       <mat-card-content class="mt-16">
-          <form>
-            <mat-form-field class="full-width">
-              <input
-              matInput
-              name="name"
-              placeholder="Name"
-              value="">
-            </mat-form-field>
-            <mat-form-field class="full-width">
+          <form [formGroup]="fileItemForm">
+            <div fxLayout="column">
+              <p style="font-weight: 300;">Choose your artist name.</p>
+              <div fxLayout fxLayoutAlign="space-between center" class="px-8">
+                <mat-form-field style="width: 60%;">
+                  <mat-label style="font-weight: 300;">Choose Your Artist Name</mat-label>
+                  <input
+                  #artistNameInput 
+                  formControlName="artistName"
+                  matInput
+                  name="name"
+                  placeholder="Your Artist Name"
+                  autocomplete="off"
+                  value="">
+                </mat-form-field>
+                <button mat-raised-button color="primary" (click)="changeArtistName()">Change Artist Name</button>
+              </div>
+
+            </div>
+            <div class="mb-16 mt-16">
+              <p>Upload a profile picture</p>
+              <input type="file" ng2FileSelect [uploader]="uploader" />
+            </div>
+    
+            <div class="mb-16">
+              <div ng2FileDrop
+              [ngClass]="{'dz-file-over': hasBaseDropZoneOver}"
+              [uploader]="uploader"
+              (fileOver)="fileOverBase($event)"
+              class="fileupload-drop-zone">
+              Drop png/jpeg file here
+              </div>
+            </div>
+            <table *ngIf="uploader.queue.length" class="default-table mb-24" style="width: 100%">
+              <thead>
+                <tr>
+                  <th width="30%">Name</th>
+                  <th>Size</th>
+                  <th>Progress</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="uploader.queue.length; else tableNoData">
+                <tr *ngFor="let item of uploader.queue">
+                  <td><span fxLayout="row">
+                      <mat-icon class="mr-8" inline="true">insert_drive_file</mat-icon>{{ item?.file?.name }}
+                    </span></td>
+                  <td>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                  <td>
+                    <div class="progress" style="margin-bottom: 0;">
+                      <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                      <mat-progress-bar class="" color="primary" mode="determinate" [value]="item.progress">
+                      </mat-progress-bar>
+                    </div>
+                  </td>
+                  <td class="">
+                    <mat-icon *ngIf="item.isSuccess" color="primary">check</mat-icon>
+                    <mat-icon *ngIf="item.isCancel" color="accent">cancel</mat-icon>
+                    <mat-icon *ngIf="item.isError" color="warn">error</mat-icon>
+                  </td>
+                  <td nowrap>
+                    <button mat-raised-button color="primary" class="mx-4" (click)="item.upload()"
+                      [disabled]="item.isReady || item.isUploading || item.isSuccess || !fileItemForm.controls['image'].controls['file'].valid">Upload</button>
+                    <button mat-raised-button color="accent" class="mx-4" (click)="item.cancel()"
+                      [disabled]="!item.isUploading">Cancel</button>
+          
+                    <button mat-raised-button color="warn" class="mx-4" (click)="item.remove()">Remove</button>
+                  </td>
+                </tr>
+              </tbody>
+              <ng-template #tableNoData>
+                <p [ngStyle]="{padding: '0 1.2rem'}">No samples added yet.</p>
+              </ng-template>
+            </table>
+            <!-- <mat-form-field class="full-width">
                 <input
                 matInput
                 name="title"
@@ -44,12 +111,12 @@
               name="website"
               placeholder="Website"
               value="">
-            </mat-form-field>
-            <button mat-raised-button color="primary">Save</button>
+            </mat-form-field> -->
+            <!-- <button mat-raised-button color="primary">Save</button> -->
           </form>
       </mat-card-content>
     </mat-tab>
-    <mat-tab label="Profile Picture">
+    <mat-tab label="Bank Data">
       <mat-card-content>
         <div class="mb-16 mt-16">
           <p>Upload a profile picture</p>
@@ -100,7 +167,7 @@
                     mat-raised-button
                     class="mat-primary"
                     (click)="item.upload()"
-                    [disabled]="item.isReady || item.isUploading || item.isSuccess">Upload</button>
+                    [disabled]="item.isReady || item.isUploading || item.isSuccess || fileItemForm.valid">Upload</button>
                     <button 
                     mat-raised-button
                     class="mat-accent"
@@ -140,7 +207,36 @@
               <mat-radio-button value="purple">Purple</mat-radio-button>
             </mat-radio-group>
         </div>
-        <button mat-raised-button color="primary">Save</button>
+        <div *ngIf="uploader.queue.length">
+          <p>Queue progress:</p>
+          <div class="progress mb-16">
+            <mat-progress-bar class="" color="primary" mode="determinate" [value]="uploader.progress">
+            </mat-progress-bar>
+          </div>
+          <!-- [disabled]="!uploader.getNotUploadedItems().length" -->
+          <button mat-raised-button color="primary" class="mx-4" (click)="uploader.uploadAll()">Upload all</button>
+      
+          <button mat-raised-button color="accent" class="mx-4" (click)="uploader.cancelAll()"
+            [disabled]="!uploader.isUploading">Cancel all</button>
+      
+          <button mat-raised-button color="warn" class="mx-4" (click)="uploader.clearQueue()"
+            [disabled]="!uploader.queue.length">Remove all</button>
+        </div>
+        <div *ngIf="uploader.queue.length">
+          <p>Queue progress:</p>
+          <div class="progress mb-16">
+            <mat-progress-bar class="" color="primary" mode="determinate" [value]="uploader.progress">
+            </mat-progress-bar>
+          </div>
+          <!-- [disabled]="!uploader.getNotUploadedItems().length" -->
+          <button mat-raised-button color="primary" class="mx-4" (click)="uploader.uploadAll()">Upload all</button>
+      
+          <button mat-raised-button color="accent" class="mx-4" (click)="uploader.cancelAll()"
+            [disabled]="!uploader.isUploading">Cancel all</button>
+      
+          <button mat-raised-button color="warn" class="mx-4" (click)="uploader.clearQueue()"
+            [disabled]="!uploader.queue.length">Remove all</button>
+        </div>
       </mat-card-content>
     </mat-tab>
   </mat-tab-group>

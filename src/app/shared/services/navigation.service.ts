@@ -378,7 +378,6 @@ export class NavigationService implements OnInit {
       icon: 'storefront',
       state: 'sample-market'
     },
-    
     {
       name: 'MUSIC',
       type: 'icon',
@@ -392,7 +391,7 @@ export class NavigationService implements OnInit {
         type: 'icon',
         tooltip: 'Licensing',
         icon: 'app_registration',
-        state: 'licensing'
+        state: 'licensing',
       },
       //   name: 'Collaborate with others',
       {
@@ -420,52 +419,233 @@ export class NavigationService implements OnInit {
     // },
     {
       type: 'separator',
-      name: 'App - Navigation'
+      name: 'Navigate'
     },
     {
-      name: 'All Music',
+      name: 'About',
       type: 'dropDown',
-      tooltip: 'Dashboard',
-      icon: 'music_note',
-      state: 'dashboard',
+      tooltip: 'About',
+      icon: 'info',
+      state: 'about',
       sub: [
-        { name: 'Default', state: 'default', type: 'link' },
-        { name: 'Learning Management', state: 'learning-management', type: 'link' },
-        { name: 'Analytics', state: 'analytics', type: 'link' },
-        { name: 'Cryptocurrency', state: 'crypto', type: 'link' },
-        { name: 'Dark Cards', state: 'dark', type: 'link' }
+        { name: 'Introduction', state: 'introduction', type: 'link', icon: 'info' },
+    { name: 'How To Get A License', state: 'how-to-get-a-license', type: 'link', icon: 'info' },
+    { name: 'Sampling Rules', state: 'sampling-rules', type: 'link', icon: 'info' },
+    { name: 'Video Tutorials', state: 'video-tutorials', type: 'link', icon: 'info' },
+    { name: 'FAQ', state: 'faq' , type: 'link', icon: 'info'},
+    { name: 'Our Partners', state: 'partners', type: 'link', icon: 'help' },
+      ]
+    },
+    {
+      name: 'Sample Market',
+      type: 'dropDown',
+      tooltip: 'Sample Market',
+      icon: 'storefront',
+      state: 'sample-market',
+      sub: [
+        {
+          name: 'BB License',
+          type: 'link',
+          icon: 'storefront',
+          state: 'bb-license'
+        }
+      ]
+    },
+    {
+      name: 'Listen Music',
+      type: 'dropDown',
+      tooltip: 'Listen Music',
+      icon: 'headset',
+      state: 'listen',
+      sub: [
+        {
+          name: 'All Music',
+          type: 'link',
+          // tooltip: 'All Music',
+          icon: 'headphones',
+          state: 'all-music'
+        },
+        {
+          name: 'Find',
+          type: 'link',
+          // tooltip: 'Find',
+          icon: 'search',
+          state: 'find'
+        },
+        {
+          name: 'Genres',
+          type: 'link',
+          // tooltip: 'Documentation',
+          icon: 'library_books',
+          state: 'genres'
+        },
+        {
+          name: 'Playlists',
+          type: 'link',
+          // tooltip: 'Playlists',
+          icon: 'queue_music',
+          state: 'playlists'
+        },
       ]
     },
     // {
-    //   name: 'Audio Licenses',
+      {
+        name: 'Licensing',
+        type: 'dropDown',
+        tooltip: 'Licensing',
+        icon: 'app_registration',
+        state: '',
+        sub: [
+          {
+            name: 'License Register',
+            type: 'link',
+            // tooltip: 'License Register',
+            icon: 'app_registration',
+            state: 'licensing/license-register'
+          },
+          {
+            name: 'Licenses',
+            type: 'link',
+            // tooltip: 'Our Licenses',
+            icon: 'app_registration',
+            state: 'licensing/license-deeds',
+      
+          },
+        ]
+      },
+      //   name: 'Collaborate with others',
+      {
+        name: 'Account',
+        type: 'dropDown',
+        tooltip: 'Account',
+        icon: 'person',
+        state: 'profile',
+        sub: [
+          {
+            name: 'Dashboard',
+            type: 'link',
+            // tooltip: 'Dashboard',
+            icon: 'dashboard',
+            state: 'overview'
+          },
+      
+          // {
+          //   name: 'My Licenses',
+          //   type: 'dropDown',
+          //   tooltip: 'My Licenses',
+          //   icon: 'library_books',
+          //   state: 'profile/my-licenses',
+          //   sub: [
+          //     { name: 'Basic Licenses', state: 'basic-licenses', type: 'link' },
+          //     { name: 'Extended Licenses', state: 'extended-licenses', type: 'link' },
+          //   ]
+          // },
+          {
+            name: 'Sample Download Area',
+            type: 'link',
+            // tooltip: 'My Licenses',
+            icon: 'library_books',
+            state: 'my-licenses/basic-licenses'
+            // sub: [
+            //   { name: 'Basic Licenses', state: 'basic-licenses', type: 'link' },
+            //   { name: 'Extended Licenses', state: 'extended-licenses', type: 'link' },
+            // ]
+          },
+          // {
+          //   name: 'Manage Audio',
+          //   type: 'dropDown',
+          //   tooltip: 'Upload Audio',
+          //   icon: 'upload',
+          //   state: 'profile',
+          //   sub: [
+          //     { name: 'Upload Sample', state: 'upload-audio', type: 'link' },
+          //     { name: 'My Uploads', state: 'manage-audio', type: 'link' },
+          //   ]
+          // },
+          {
+            name: 'Upload Sample to Markets',
+            type: 'link',
+            // tooltip: 'Upload Sample',
+            icon: 'upload',
+            state: 'upload-audio',
+            // sub: [
+            //   { name: 'Upload Sample', state: 'upload-audio', type: 'link' },
+            //   { name: 'My Uploads', state: 'manage-audio', type: 'link' },
+            // ]
+          },
+          // {
+          //   name: 'Manage your Uploads',
+          //   type: 'link',
+          //   tooltip: 'Manage your Uploads',
+          //   icon: 'upload',
+          //   state: 'profile/manage-audio',
+          //   // sub: [
+          //   //   { name: 'Upload Sample', state: 'upload-audio', type: 'link' },
+          //   //   { name: 'My Uploads', state: 'manage-audio', type: 'link' },
+          //   // ]
+          // },
+          // {
+          //   name: 'Collaborations',
+          //   type: 'link',
+          //   tooltip: 'Collaborations',
+          //   icon: 'queue_music',
+          //   state: 'profile/collaborations'
+          // },
+          {
+            name: 'Distribute your sampled Track',
+            type: 'link',
+            // tooltip: 'Distribute',
+            icon: 'public',
+            state: 'distribute'
+          },
+          {
+            name: 'Manage your Finances',
+            type: 'link',
+            // tooltip: 'Finances',
+            icon: 'account_balance_wallet',
+            state: 'finances'
+          },
+          {
+            name: 'Settings',
+            type: 'link',
+            // tooltip: 'Settings',
+            icon: 'settings',
+            state: 'settings'
+          },
+        ]
+      },
+    // {
+    //   name: 'All Music',
     //   type: 'dropDown',
-    //   tooltip: 'Sample Market',
-    //   icon: 'storefront',
-    //   state: 'licensing',
+    //   tooltip: 'Dashboard',
+    //   icon: 'music_note',
+    //   state: 'dashboard',
     //   sub: [
-    //     { name: 'How it works', state: 'how-it-works', type: 'link' },
-    //     { name: 'Basic Licenses', state: 'basic-licenses', type: 'link' },
-    //     { name: 'Full Licenses', state: 'full-licenses', type: 'link' },
-    //     // {name: 'Upload Your Samples', state: 'upload-samples'}
+    //     { name: 'Default', state: 'default', type: 'link' },
+    //     { name: 'Learning Management', state: 'learning-management', type: 'link' },
+    //     { name: 'Analytics', state: 'analytics', type: 'link' },
+    //     { name: 'Cryptocurrency', state: 'crypto', type: 'link' },
+    //     { name: 'Dark Cards', state: 'dark', type: 'link' }
     //   ]
     // },
-    {
-      name: 'Upload Audio',
-      type: 'dropDown',
-      tooltip: 'Upload Audio',
-      icon: 'publish',
-      state: 'forms',
-      sub: [
-        { name: 'Upload Audio', state: 'upload-audio', type: 'link' }
-      ]
-    },
-    {
-      name: 'DOC',
-      type: 'extLink',
-      tooltip: 'Documentation',
-      icon: 'library_books',
-      state: 'http://demos.ui-lib.com/egret-doc/'
-    }
+    
+    // {
+    //   name: 'Upload Audio',
+    //   type: 'dropDown',
+    //   tooltip: 'Upload Audio',
+    //   icon: 'publish',
+    //   state: 'forms',
+    //   sub: [
+    //     { name: 'Upload Audio', state: 'upload-audio', type: 'link' }
+    //   ]
+    // },
+    // {
+    //   name: 'DOC',
+    //   type: 'extLink',
+    //   tooltip: 'Documentation',
+    //   icon: 'library_books',
+    //   state: 'http://demos.ui-lib.com/egret-doc/'
+    // }
   ];
 
   separatorMenu: IMenuItem[] = [

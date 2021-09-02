@@ -15,7 +15,7 @@ li::before {
     content: "\2022";
     color: var(--accent-color);
     font-weight: bold;
-    display: inline-block; 
+    display: inline-block;
     width: 1em;
     margin-left: -1em;
     span {
@@ -34,7 +34,7 @@ li::before {
     cursor: pointer;
     // border-radius: 16px;
     border: 1px solid var(--light-theme-accent);
-    background: rgba(106,106,106, 0.02);
+    background: rgba(106, 106, 106, 0.02);
 
     &:hover {
         background: var(--light-theme-accent);
@@ -48,3 +48,14 @@ li::before {
     }
 }
 
+@media (max-width: 1100px) {
+    .genres-wrapper {
+        width: 50%;
+    }
+}
+
+@media (max-width: 680px) {
+    .genres-wrapper {
+        width: 100%;
+    }
+}

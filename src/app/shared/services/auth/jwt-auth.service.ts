@@ -83,7 +83,9 @@ export class JwtAuthService {
       }  else {
         this.setUserAndToken(null, null, false);
       }
-    })
+    });
+
+    
     // return of({token: DEMO_TOKEN, user: DEMO_USER})
     //   .pipe(
     //     delay(1000),

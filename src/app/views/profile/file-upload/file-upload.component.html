@@ -58,69 +58,80 @@
   </h1>
   <p style="font-size: 22px; color: var(--base-accent-color);">Upload your Samples To BeatBlenders Sample Market.</p>
   <mat-divider></mat-divider>
- 
-  <!-- <mat-card-content> -->
-  <div class="mb-16 mt-16">
-    <!-- <h3 style="color: var(--base-accent-color);">Select one or multiple Samples you want to upload</h3> -->
-    <input type="file" (onFileSelected)="onFileSelected($event)" ng2FileSelect [uploader]="uploader" multiple /><br />
-    <!-- <p>Single</p>
-          <input type="file" ng2FileSelect [uploader]="uploader" /> -->
-  </div>
-  <div class="mb-16">
-    <div ng2FileDrop [ngClass]="{'dz-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)"
-      [uploader]="uploader" class="fileupload-drop-zone mb-24">
-      Drop file here
-    </div>
-  </div>
-  <table *ngIf="uploader.queue.length" class="default-table mb-24" style="width: 100%">
-    <thead>
-      <tr>
-        <th width="30%">Name</th>
-        <th>Size</th>
-        <th>Progress</th>
-        <th>Status</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody *ngIf="uploader.queue.length; else tableNoData">
-      <tr *ngFor="let item of uploader.queue">
-        <td><span fxLayout="row">
-            <mat-icon class="mr-8" inline="true">insert_drive_file</mat-icon>{{ item?.file?.name }}
-          </span></td>
-        <td>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
-        <td>
-          <div class="progress" style="margin-bottom: 0;">
-            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
-            <mat-progress-bar class="" color="primary" mode="determinate" [value]="item.progress">
-            </mat-progress-bar>
-          </div>
-        </td>
-        <td class="">
-          <mat-icon *ngIf="item.isSuccess" color="primary">check</mat-icon>
-          <mat-icon *ngIf="item.isCancel" color="accent">cancel</mat-icon>
-          <mat-icon *ngIf="item.isError" color="warn">error</mat-icon>
-        </td>
-        <td nowrap>
-          <button mat-raised-button color="primary" class="mx-4" (click)="item.upload()"
-            [disabled]="item.isReady || item.isUploading || item.isSuccess">Upload</button>
-          <button mat-raised-button color="accent" class="mx-4" (click)="item.cancel()"
-            [disabled]="!item.isUploading">Cancel</button>
+  <mat-card *ngIf="!userData" fxLayout="column" style="border: 1px solid var(--light-theme-accent); border-radius: 4px;">
+    <p style="font-weight: 300;">Please finish your Artist Account Settings to put your Sample upon one of our Sample
+      Markets.</p>
+    <button routerLink="/profile/settings" mat-raised-button style="width: 30%;" color="primary">Complete Artist Settings</button>
+    </mat-card>
 
-          <button mat-raised-button color="warn" class="mx-4" (click)="item.remove()">Remove</button>
-        </td>
-      </tr>
-    </tbody>
-    <ng-template #tableNoData>
-      <p [ngStyle]="{padding: '0 1.2rem'}">No samples added yet.</p>
-    </ng-template>
-  </table>
+
+  <!-- <mat-card-content> -->
+  <ng-container *ngIf="userData">
+
+    <div class="mb-16 mt-16">
+      <!-- <h3 style="color: var(--base-accent-color);">Select one or multiple Samples you want to upload</h3> -->
+      <input type="file" (onFileSelected)="onFileSelected($event)" ng2FileSelect [uploader]="uploader" multiple /><br />
+      <!-- <p>Single</p>
+          <input type="file" ng2FileSelect [uploader]="uploader" /> -->
+    </div>
+    <div class="mb-16">
+      <div ng2FileDrop [ngClass]="{'dz-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)"
+        [uploader]="uploader" class="fileupload-drop-zone mb-24">
+        Drop file here
+      </div>
+    </div>
+    <table *ngIf="uploader.queue.length" class="default-table mb-24" style="width: 100%">
+      <thead>
+        <tr>
+          <th width="30%">Name</th>
+          <th>Size</th>
+          <th>Progress</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="uploader.queue.length; else tableNoData">
+        <tr *ngFor="let item of uploader.queue">
+          <td><span fxLayout="row">
+              <mat-icon class="mr-8" inline="true">insert_drive_file</mat-icon>{{ item?.file?.name }}
+            </span></td>
+          <td>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+          <td>
+            <div class="progress" style="margin-bottom: 0;">
+              <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+              <mat-progress-bar class="" color="primary" mode="determinate" [value]="item.progress">
+              </mat-progress-bar>
+            </div>
+          </td>
+          <td class="">
+            <mat-icon *ngIf="item.isSuccess" color="primary">check</mat-icon>
+            <mat-icon *ngIf="item.isCancel" color="accent">cancel</mat-icon>
+            <mat-icon *ngIf="item.isError" color="warn">error</mat-icon>
+          </td>
+          <td nowrap>
+            <button mat-raised-button color="primary" class="mx-4" (click)="item.upload()"
+              [disabled]="item.isReady || item.isUploading || item.isSuccess">Upload</button>
+            <button mat-raised-button color="accent" class="mx-4" (click)="item.cancel()"
+              [disabled]="!item.isUploading">Cancel</button>
+
+            <button mat-raised-button color="warn" class="mx-4" (click)="item.remove()">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+      <ng-template #tableNoData>
+        <p [ngStyle]="{padding: '0 1.2rem'}">No samples added yet.</p>
+      </ng-template>
+    </table>
+
+  </ng-container>
+
   <!-- <mat-divider></mat-divider> -->
   <!-- <h2 class="pb-8 pt-16 pl-8" *ngIf="uploader.queue.length">2. Add additional information for the sample(s) your want
         to
         upload to BeatBlender:
       </h2> -->
-  <p *ngIf="uploader.queue.length" class="pt-16" style="font-size: 22px; color: var(--base-accent-color);">Add
-    2. Step: Add Audio Information</p>
+  <!-- <p *ngIf="uploader.queue.length" class="pt-16" style="font-size: 22px; color: var(--base-accent-color);">Add
+    2. Step: Add Audio Information</p> -->
 
   <section *ngFor="let item of uploader.queue; let i = index" class="sample-info my-16 mx-0 p-0">
     <mat-card-title fxLayout="row" class="py-8 text-white mb-0">
@@ -147,34 +158,41 @@
       <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
             {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
           </button> -->
-          
+
 
 
       <mat-vertical-stepper linear="false" #stepper>
-        <mat-step [stepControl]="(formsSubject | async)?.get(item).controls['samplePriceGroup']">
-          <form fxLayout="column" [formGroup]="(formsSubject | async)?.get(item).controls['samplePriceGroup']">
+        <mat-step [stepControl]="(formsSubject | async)?.get(item).controls['licenseTypeGroup']">
+          <form fxLayout="column" [formGroup]="(formsSubject | async)?.get(item).controls['licenseTypeGroup']">
 
 
-            <ng-template matStepLabel>Upload Audio To ...</ng-template>
-            <mat-label class="">Choose the Samples you've included in your Track. Before you can include a sample in
+            <ng-template matStepLabel>Choose License Type</ng-template>
+            <!-- <mat-label class="" style="font-size: 20px; font-weight: 300;">Choose the Samples you've included in your
+              Track. Before you can include a sample in
               your
-              track you need to download a Basic License in your Track. Select at least one.</mat-label>
-            <section class="mt-32" fxLayout="column">
-              <!-- <mat-checkbox #sampleMarketCheckbox class="mb-8" checked="true" (change)="uploadAsSample(item, $event)">
-                <span style="color: var(--accent-color); font-weight: 700;">Sample Market</span>
-              </mat-checkbox>
-              <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Sample Price (Karma Points)</mat-label>
-                <input formControlName="samplePrice" type="number" matInput autocomplete="off" placeholder="1"
-                  [min]="minimumSamplePrice" [max]="maximumSamplePrice">
-                <span matSuffix [ngClass]="!sampleMarketCheckbox.checked ? 'disabled-color' : ''">Karma Points</span>
+              track you need to download a Basic License in your Track. Select at least one.</mat-label> -->
+            <section class="mt-32" fxLayout="column" fxLayoutGap="40px">
+              <h4 class="pl-8 py-8 mt-4 text-center" style="line-height: 40px; font-size: 20px; font-weight: 300;">
+                <strong>Selected Option: </strong>You Receive <strong
+                  style="color: var(--light-theme); background: var(--primary-color); border-radius: 4px;"
+                  class="px-16 py-8">{{(formsSubject |
+                  async)?.get(item).controls['licenseTypeGroup'].controls['licenseType'].value.percentage}}%</strong> Of
+                The Remixer's Streaming Income.</h4>
+              <div fxLayout fxLayoutGap="10px" fxLayoutAlign="center center" class="pl-8 mb-16">
+                <!-- <button [routerLink]="'/sample-market/bb-license/' + artistName + '/all'" routerLinkActive="active" class="quick-access-button"
+                      mat-raised-button>All</button> -->
+                <button (click)="selectLicenseTypeOption(item, licenseType)" *ngFor="let licenseType of licenseTypes"
+                  [ngClass]="licenseType === (formsSubject | async)?.get(item).controls['licenseTypeGroup'].controls['licenseType'].value ? 'active' : ''"
+                  class="quick-access-button" mat-raised-button>{{licenseType.abbreviation}}</button>
 
-              </mat-form-field>
-              <mat-label class="mb-32 pl-16">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora minima sit
-                maxime placeat! Eos voluptatibus natus, reiciendis mollitia cupiditate ullam a similique laboriosam
-                velit
-                ipsa, earum, distinctio perspiciatis odit eaque quaerat minima eveniet. Fuga voluptatum fugiat qui hic,
-                animi velit.</mat-label> -->
+              </div>
+              <div fxLayout fxLayoutAlign="end center">
+                <button mat-raised-button
+                  [disabled]="!(formsSubject | async)?.get(item).controls['licenseTypeGroup'].valid"
+                  matStepperNext>Next</button>
+              </div>
+            </section>
+            <!-- <section class="mt-32" fxLayout="column">
               <mat-checkbox #beatblenderMusicCheckbox class="mb-8" color="primary" checked="true"
                 (change)="uploadAsTrack(item, $event)"> <span
                   style="color: var(--primary-color); font-weight: 700;">BeatBlender Music</span></mat-checkbox>
@@ -233,7 +251,7 @@
                   nostrum
                   voluptas nihil delectus sequi! Esse, earum.</mat-label>
               </div>
-            </section>
+            </section> -->
           </form>
 
 

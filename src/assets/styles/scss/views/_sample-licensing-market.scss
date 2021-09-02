@@ -519,3 +519,10 @@ filter: drop-shadow(16px 0px 0 #fe2d52);
 }
 
 
+// .mat-tab-body .mat-tab-body-active {
+//   overflow-y: hidden !important;
+// }
+
+.mat-tab-body-content {
+  overflow-y: hidden !important;
+}
