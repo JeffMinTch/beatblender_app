@@ -4,6 +4,7 @@
 
 .home-sidenav .mat-sidenav-content {
   overflow: hidden !important;
+  width: 100% !important;
 }
 
 .landing-container {
@@ -25,12 +26,21 @@
   height: 250px;
   width: 350px;
   flex-direction: column;
-  
 }
 
 .opportunity-card {
   width: 400px;
-  height: 250px;
+  height: 180px;
+  p {
+    text-align: center;
+    font-size: 28px;
+    line-height: 50px;
+    font-weight: 300;
+    span {
+      font-family: Lazer84;
+    }
+  }
+  // height: 1;
 }
 
 .scrollable {
@@ -81,13 +91,13 @@
   .demo-box {
     position: relative;
     border-radius: 8px;
-    transition: .2s all ease-in-out;
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    transition: 0.2s all ease-in-out;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     &:hover {
-      box-shadow: 0 10px 16px rgba(0,0,0,.2);
+      box-shadow: 0 10px 16px rgba(0, 0, 0, 0.2);
       .caption {
         opacity: 1;
-        transform: translateY(-10px)
+        transform: translateY(-10px);
       }
     }
     .caption {
@@ -102,8 +112,8 @@
       margin: auto;
       border-radius: 8px;
       width: 220px;
-      transition: .2s all ease-in-out;
-      box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+      transition: 0.2s all ease-in-out;
+      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     }
     h3 {
       margin: 0 0 1rem;
@@ -125,29 +135,24 @@
   }
 }
 
-
 .home-section-title {
   // text-align: center;
-  text-align: center; 
+  text-align: center;
   max-width: 90%;
   font-size: 18px;
   line-height: 50px;
   span {
-    font-weight: 700; 
+    font-weight: 700;
     color: var(--primary-color);
     // font-family: 'Lazer84';
   }
-.home-section {
+  .home-section {
   }
 
-
-
-  
-
   .highlight {
-    font-weight: 700; 
-    color: var(--primary-color); 
-    font-family: 'Lazer84';
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: "Lazer84";
     padding: 0 8px;
   }
 }
@@ -170,7 +175,6 @@
   // background-size: cover;
   // background-repeat: no-repeat;
   // background-position: center;
-    
 }
 
 .question-card-container {
@@ -201,7 +205,6 @@ app-benefit-card {
   // background: var(--primary-light-color);
 }
 
-
 .step-card-title {
   font-size: 22px;
   color: var(--body-color);
@@ -216,19 +219,18 @@ app-benefit-card {
   background: white;
 }
 
-
 .licensing-process-container {
   // background: var(--light-theme-accent);
   padding: 32px;
 }
 
 // .benefits-container {
-  .left-container {
-    background-image: url(../../../images/backgrounds/soundgirl.jpg);
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-  }
+.left-container {
+  background-image: url(../../../images/backgrounds/soundgirl.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
 // }
 
 .process-illustration {
@@ -256,7 +258,6 @@ video {
   // height: 400px;
 }
 
-
 .pie-diagramm {
   // background-image: url(../../../../assets/images/backgrounds/lp-4.svg);
   // background-repeat: no-repeat;
@@ -264,7 +265,6 @@ video {
   // background-position: center;
   // height: 900px;
 }
-
 
 .license-process-image {
   background-image: url(../../../../assets/images/backgrounds/lp-3.svg);
@@ -275,14 +275,12 @@ video {
   height: 600px;
 }
 
-
 .simple-card {
   .simple-card-icon-container {
     width: 170px;
     height: auto;
   }
 }
-
 
 .artist-image {
   border-radius: 50%;
@@ -293,14 +291,16 @@ video {
 
 .banner {
   img {
-
   }
 }
-
 
 .artist-name {
   color: var(--base-disabled-color);
   text-align: left;
 }
 
-
+.round-artist-image {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}

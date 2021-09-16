@@ -12,7 +12,8 @@ export class UserWebService {
   private PROTECTED_USER = this.ROOT + environment.apiURL.userPath.protected.root;
   private GET_USER_DATA: string = this.PROTECTED_USER + environment.apiURL.userPath.protected.userData;
   private CHANGE_ARTIST_NAME: string = this.PROTECTED_USER + environment.apiURL.userPath.protected.setArtistName;
-  
+  private TRY_CREATE_USER: string = this.PROTECTED_USER + environment.apiURL.userPath.protected.tryCreateUser;
+
   
   constructor(
     private httpClient: HttpClient
@@ -27,6 +28,14 @@ export class UserWebService {
     formData.append("artistName", artistName);
     return this.httpClient.post(this.CHANGE_ARTIST_NAME, formData);
   }
+
+  tryCreateUser() {
+    const formData: FormData = new FormData();
+    return this.httpClient.post(this.TRY_CREATE_USER, formData);
+
+  }
+
+  
 
   
 

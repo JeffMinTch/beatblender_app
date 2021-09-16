@@ -1,6 +1,20 @@
 <mat-card class="p-0" style="box-shadow: none !important;">
   <mat-tab-group>
     <mat-tab label="Artist Settings">
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
       <mat-card-content class="mt-16">
           <form [formGroup]="fileItemForm">
             <div fxLayout="column">
@@ -17,7 +31,9 @@
                   autocomplete="off"
                   value="">
                 </mat-form-field>
-                <button mat-raised-button color="primary" (click)="changeArtistName()">Change Artist Name</button>
+                <button [disabled]="!fileItemForm.controls['artistName'].valid || fileItemForm.controls['artistName'].value === currentArtistName" mat-raised-button color="primary" (click)="changeArtistName()">
+                  Change Artist Name
+                </button>
               </div>
 
             </div>

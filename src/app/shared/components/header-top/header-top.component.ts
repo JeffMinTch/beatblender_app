@@ -43,9 +43,10 @@ export class HeaderTopComponent implements OnInit, AfterViewInit ,OnDestroy {
       let that = this;
       setTimeout(() => {
         this.userData = userData;
-  
-        (this.artistImage.nativeElement as HTMLImageElement).src = `http://localhost:9090/api/web/protected/media/artist-image/${this.userData.artistAlias.artistALiasID}`;
+        // alert(userData);
         console.log(userData);
+        
+        (this.artistImage.nativeElement as HTMLImageElement).src = `http://localhost:9090/api/web/protected/media/artist-image/${this.userData.artistAlias.artistALiasID}`;
 
       }, 500);
     });

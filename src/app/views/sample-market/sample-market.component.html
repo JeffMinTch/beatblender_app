@@ -3,12 +3,12 @@
     <!-- Search Form -->
     <!-- <router-outlet></router-outlet> -->
     <!-- <app-heading class="mt-16" title="Sample Market" subTitle="Find the Samples you deserve." [breadcrumbs]="breadcrumbs"></app-heading> -->
-    <div class="full-width" [fxLayout.lt-lg]="'column'" [fxLayout.gt-md]="'row'" [fxLayoutAlign.gt-md]="'space-between center'" [fxLayoutAlign.lt-lg]="'start start'" fxLayoutGap="20px">
+    <div class="full-width p-8" [fxLayout.lt-lg]="'column'" [fxLayout.gt-md]="'row'" [fxLayoutAlign.gt-md]="'space-between center'" [fxLayoutAlign.lt-lg]="'start start'" fxLayoutGap="20px">
       <div class="full-width" [fxLayout.xs]="'column'" [fxLayout.gt-xs]="'row'" [fxLayoutAlign.gt-xs]="'start center'" [fxLayoutAlign.xs]="'start center'">
-        <div class="m-16">
-          <img src="../../../assets/images/sido.jpeg" alt="" class="artist-image mat-elevation-z1">
-        </div>
-        <h1 [ngStyle.xs]="{'text-align' : 'center'}" [ngStyle.gt-xs]="{'text-align' : 'left'}">Sample <a class="hypertext">{{artistName}}</a> now.</h1>
+        <!-- <div class="m-16" style="width: 100px; height: 100px;"> -->
+          <img src="../../../assets/images/sido.jpeg" style="" alt="" class="artist-image mat-elevation-z1">
+        <!-- </div> -->
+        <h1 fxFlex [ngStyle.xs]="{'text-align' : 'center'}" [ngStyle.gt-xs]="{'text-align' : 'center'}" style="font-size: 34px;"><span class="" style="color: var(--body-color);">{{artistName}}</span></h1>
 
       </div>
       <div fxLayout="column" class="mx-8 full-width">
@@ -163,7 +163,13 @@
           </mat-tab>
           <mat-tab label="Biographie">
             <div class="p-16">
-              <h4 class="" style="font-size: 20px; font-weight: 300;">Benjamin had his first experience with electronic music in 2004. Since then he was in the ban of Techno, House and later some other experimental electronic stuff. Since he found his way to Ableton Live in 2009, Ben is working on his own projects anywhere between Techno and House - Always atmospheric and with a slice of the Dresden club culture in it! Sometimes he is makin' some Neurofunk DnB too. He also play this genres only with Vinyl.</h4>
+              <h4 class="" style="font-size: 20px; font-weight: 300;">releases: BSR007 - UltraWild001 - FNK001 - JR132 - FNK002 - ANT070 - FNK003 - FNK004 - FNK005
+                booking: matteogarbi@icloud.com
+                store: matt2nd.bandcamp.com/music
+                vinyls: www.discogs.com/it/seller/matt2nd/profile
+                
+                Artists with whom I had the pleasure to share the stage:
+                Juno Reactor, KDS, Stabfinger, Kernel Panik, Blackqirex, Manito MNT, Ben Coda, Hazard Unitz, Nonem, Groove Addiction, Sandblasting, Pyrotek, Blame Society, 69db, Ixindamix, Max Volume, Jeff23, Epsylonn, Trakerz, Sloogy, Bangbass, Latitanz, Suburbass, Tomahawk, Desert Storm, Okupe, Penn-ak, Mononom, 25eme Dimension, Prosper, Autogeddon, Kilfa, Zod, Vikkei, K-Luis, Pablito el Drito, Electrobugs, Frank Blake, Freakbrothers, Tysot, Ulver Kaos, Kris Klownz, Baboden, Uindigo, Ekomatik, Acid Anonymous & more</h4>
 
             </div>
           </mat-tab>

@@ -8,8 +8,19 @@
           <!-- <img class="left-image" src="../../../../assets/images/backgrounds/featuresSounds-artists_2x.png" alt=""> -->
         </div>
         <div fxFlex="70" fxLayout="column" style="padding: 0 100px;">
-          <h4 *ngIf="firstTitle"  class="text-center first-title">{{firstTitle}}</h4>
-          <h2 *ngIf="secondTitle" class="text-center second-title">{{secondTitle}}</h2>
+          <h4 *ngIf="firstTitle"  class="text-center first-title" style="width: fit-content; margin-left: auto;">
+            {{firstTitle}}
+            
+          </h4>
+          <!-- <h2 *ngIf="secondTitle" class="text-center second-title"> -->
+            <!-- <blockquote> -->
+              <q style="font-size: 52px; text-align: center;">
+                <span class="text-center second-title"></span>
+                {{secondTitle}}
+
+              </q>
+            <!-- </blockquote> -->
+          <!-- </h2> -->
         </div>
       </div>
 
@@ -19,10 +30,10 @@
 
       <!-- <ng-content select="[headerText]"></ng-content> -->
     </div>
+    <ng-content select="[content]"></ng-content>
 
     <!-- <> -->
     <!-- <div class="pl-16"> -->
-      <ng-content select="[content]"></ng-content>
     <!-- </div> -->
     <!-- </ng-container> -->
     <!-- <mat-divider></mat-divider> -->

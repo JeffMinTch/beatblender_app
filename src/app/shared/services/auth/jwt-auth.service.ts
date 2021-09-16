@@ -73,12 +73,15 @@ export class JwtAuthService {
   //(username, password)
   public signin():void {
     // this.oauthService.initLoginFlow();
+
+    
     this.oauthService.loadDiscoveryDocumentAndLogin().then((loggedIn: boolean) => {
       if(loggedIn) {
         this.oauthService.loadUserProfile().then((userInfo: UserInfo) => {
           this.setUserAndToken(this.oauthService.getAccessToken(), userInfo, loggedIn);
         });
         this.oauthService.setupAutomaticSilentRefresh();
+
         
       }  else {
         this.setUserAndToken(null, null, false);
@@ -119,6 +122,10 @@ export class JwtAuthService {
     return new Promise<boolean>((resolve, reject) => {
       this.oauthService.loadDiscoveryDocumentAndTryLogin().then((isLoggedIn) => {
         if (isLoggedIn) {
+          this.userWebService.tryCreateUser().subscribe((res: any) => {
+            console.log('User Creation Request');
+            console.log(res);
+          });
               this.oauthService.setupAutomaticSilentRefresh();
               if(this.oauthService.hasValidAccessToken()) {
                 this.oauthService.loadUserProfile().then((userInfo: UserInfo) => {
@@ -147,6 +154,10 @@ export class JwtAuthService {
     } else {
       return false;
     }
+  }
+
+  public tryCreateUser() {
+    
   }
 
   /*

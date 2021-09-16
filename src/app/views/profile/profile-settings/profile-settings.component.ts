@@ -21,12 +21,14 @@ export class ProfileSettingsComponent implements OnInit , AfterViewInit{
   public hasBaseDropZoneOver: boolean = false;
 
   private uploadOptions: FileUploaderOptions;
-  private imageUploadOptions: FileUploaderOptions;
+  // private imageUploadOptions: FileUploaderOptions;
   private uploadUrl: string;
   public uploader: FileUploader;
   public imageUploader: FileUploader;
   public fileItemForm: FormGroup;
   public formsMap: Map<FileItem, FormGroup>;
+
+  currentArtistName: string;
 
 
   // public hasBaseDropZoneOver = true;
@@ -53,16 +55,16 @@ export class ProfileSettingsComponent implements OnInit , AfterViewInit{
       maxFileSize: 500 * 1024 * 1024
     };
 
-    this.imageUploadOptions = {
-      url: this.uploadUrl,
-      allowedMimeType: ['image/jpeg', 'image/png', 'image/gif'],
-      allowedFileType: ['image'],
-      // 100 MB max
-      maxFileSize: 100 * 1024 * 1024
-    };
+    // this.imageUploadOptions = {
+    //   url: this.uploadUrl,
+    //   allowedMimeType: ['image/jpeg', 'image/png', 'image/gif'],
+    //   allowedFileType: ['image'],
+    //   // 100 MB max
+    //   maxFileSize: 100 * 1024 * 1024
+    // };
     this.uploader = new FileUploader(this.uploadOptions);
 
-    this.imageUploader = new FileUploader(this.imageUploadOptions);
+    // this.imageUploader = new FileUploader(this.imageUploadOptions);
 
     this.oauthService.events
       .pipe(filter((e: any) => {
@@ -86,6 +88,7 @@ export class ProfileSettingsComponent implements OnInit , AfterViewInit{
       console.log(this.artistNameInput);
       // (this.artistNameInput.nativeElement as HTMLInputElement).value = userData.artistAlias.artistName;
       this.fileItemForm.controls['artistName'].setValue(userData.artistAlias.artistName);
+      this.currentArtistName = userData.artistAlias.artistName;
       console.log(userData);
     });
   }

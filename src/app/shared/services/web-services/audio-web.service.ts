@@ -1,5 +1,7 @@
 import { AudioUnitType } from './../../enums/audio-unit-type.enums';
 import { TrackPage } from './../../models/track-page.model';
+import { ArtistsHome } from './../../models/artists-home.model';
+
 import { PaginationRequestParams } from '../../models/pagination-request-params.model';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -48,6 +50,8 @@ export class AudioWebService {
   private UPDATE_MOODS: string = this.PROTECTED_AUDIO + environment.apiURL.audioPath.protected.updateMoods;
   private UPDATE_TAGS: string = this.PROTECTED_AUDIO + environment.apiURL.audioPath.protected.updateTags;
   private GET_SAMPLE: string = this.PUBLIC_AUDIO + environment.apiURL.audioPath.public.getSample;
+  private ARTISTS_HOME: string = this.PUBLIC_AUDIO + environment.apiURL.audioPath.public.artistHome;
+
 
   public getSamplePage(params: any): Observable<SamplePage> {
     return this.httpClient.get(this.samplesHomeApi, { params }).pipe(map((res: SamplePage) => { return res }), share());
@@ -137,6 +141,10 @@ export class AudioWebService {
 
   filterTracks(params: HttpParams): Observable<TrackPage> {
     return this.httpClient.get(this.FILTER_TRACKS, { params: params}).pipe(map((trackPage: TrackPage) => trackPage));
+  }
+
+  getArtistsHome(params: HttpParams): Observable<ArtistsHome> {
+    return this.httpClient.get(this.ARTISTS_HOME, { params: params}).pipe(map((artistsHome: ArtistsHome) => artistsHome));
   }
 
   getUploads(): Observable<MyUploads> {

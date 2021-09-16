@@ -23,7 +23,7 @@
                     [max]="getMax(audioUnit?.sampleID)" -->
       <!-- value="0"
                   max="100"  -->
-      
+
       <div fxLayout="row" fxFlex class="ml-32" *ngIf="type === 'primary' && light === 'false'">
         <!-- <div fxFlex fxLayoutAlign="center center">
         
@@ -131,6 +131,13 @@
             <!-- </mat-chip-list> -->
             <span>mp3</span>
             <span>wav</span>
+          </p>
+          <p class=" p-line">
+            <strong>Remixable:</strong>
+            <span>
+              <mat-icon color="primary">check</mat-icon>
+
+            </span>
           </p>
         </ng-container>
       </div>

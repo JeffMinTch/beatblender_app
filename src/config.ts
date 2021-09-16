@@ -11,7 +11,8 @@ export const config = {
         searchMusicByInput: '/searchMusicByInput',
         filterSamples: '/filter-samples',
         filterTracks: '/filter-tracks',
-        getSample: '/get-sample'
+        getSample: '/get-sample',
+        artistHome: '/artists-home'
          
       },
       protected: {
@@ -34,8 +35,8 @@ export const config = {
         root: '/protected/user',
         userData: '/user-data',
         setArtistImage: '/set-artist-image',
-        setArtistName: '/set-artist-name'
-      
+        setArtistName: '/set-artist-name',
+        tryCreateUser: '/try-create-user',
       }
     },
     licensePath: {
