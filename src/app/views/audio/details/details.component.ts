@@ -51,7 +51,7 @@ export class DetailsComponent implements OnInit {
       console.log(params['id']) //log the value of id
       this.audioWebService.getSample(params['id']).subscribe((sample: Sample) => {
         this.sample = sample;
-        this.audioService.initAudioPlayer(new Array<AudioUnit>(sample.audioUnit),Theme.ACCENT);
+        this.audioService.initAudioPlayer(new Array<Sample>(sample).map(sample => sample.audioUnit),Theme.ACCENT);
       })
     });
 

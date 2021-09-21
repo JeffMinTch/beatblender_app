@@ -9,6 +9,7 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Sample } from 'app/shared/models/sample.model';
 import { Track } from 'app/shared/models/track.model';
 import { AudioUnitReplacement } from 'app/shared/models/audio-unit-replacement.model';
+import { AudioUnit } from 'app/shared/models/audio-unit.model';
 
 
 
@@ -20,6 +21,8 @@ import { AudioUnitReplacement } from 'app/shared/models/audio-unit-replacement.m
 export class EditAudioUnitComponent implements OnInit {
 
   separatorKeysCodes: number[] = [ENTER, COMMA];
+
+  // : AudioUnit;
 
   formGroup: FormGroup;
   minimumBPM: 0;
@@ -43,24 +46,34 @@ export class EditAudioUnitComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    
+    // if(this.data.audioUnit instanceof Sample) {
+    //   this.audioUnit = 
+    // } else if (this.data.audioUnit instanceof Track) {
+
+    // } else {
+    //   throw new Error("No Instance of Sample or Track provided");
+    
+    // }
+
     this.formGroup = this.fb.group({});
 
     let formControl: FormControl;
     switch (this.data.audioUnitDataType) {
       case 'title':
-        formControl = new FormControl(this.data.audioUnit.audioUnit.title);
+        formControl = new FormControl(this.data.sample.title);
         break;
       case 'tempo':
-        formControl = new FormControl(this.data.audioUnit.audioUnit.tempo, [
+        formControl = new FormControl(this.data.sample.tempo, [
           Validators.required,
           Validators.min(this.minimumBPM),
           Validators.max(this.maximumBPM)]);
         break;
       case 'genre':
-        formControl = new FormControl(this.data.audioUnit.audioUnit.genre);
+        formControl = new FormControl(this.data.sample.genre);
         break;
       case 'moods':
-        formControl = new FormControl(this.data.audioUnit.audioUnit.moods, [
+        formControl = new FormControl(this.data.sample.moods, [
           Validators.required,
           Validators.minLength(this.minimumMoods),
           Validators.maxLength(this.maximumMoods)]);
@@ -68,7 +81,7 @@ export class EditAudioUnitComponent implements OnInit {
       // case AudioUnitDataType.Tempo:
       //   return 'tempo';
       case 'tags':
-        formControl = new FormControl(this.data.audioUnit.audioUnit.tags, [
+        formControl = new FormControl(this.data.sample.tags, [
           Validators.required,
           Validators.minLength(this.minimumTags),
           Validators.maxLength(this.maximumTags)
@@ -206,11 +219,11 @@ export class EditAudioUnitComponent implements OnInit {
 
   updateTitle(newTitle: string) {
     this.isLoading = true;
-    this.audioWebService.updateTitle(newTitle, this.data.audioUnit.audioUnit).subscribe((updatedAudioUnit: Sample | Track) => {
+    this.audioWebService.updateTitle(newTitle, this.data.sample.audioUnit).subscribe((updatedAudioUnit: Sample | Track) => {
       let that = this;
       setTimeout(() => {
         that.isLoading = false;
-        that.dialogRef.close(new AudioUnitReplacement(that.data.audioUnit, updatedAudioUnit));
+        that.dialogRef.close(new AudioUnitReplacement(that.data.sample, updatedAudioUnit));
       }, 3000);
     });
   }
@@ -218,17 +231,17 @@ export class EditAudioUnitComponent implements OnInit {
   updateTempo(newTempo: number) {
     this.isLoading = true;
       this.isLoading = true;
-    this.audioWebService.updateTempo(newTempo, this.data.audioUnit.audioUnit).subscribe((updatedAudioUnit: Sample | Track) => {
+    this.audioWebService.updateTempo(newTempo, this.data.sample.audioUnit).subscribe((updatedAudioUnit: Sample | Track) => {
       this.isLoading = false;
-      this.dialogRef.close(new AudioUnitReplacement(this.data.audioUnit, updatedAudioUnit));
+      this.dialogRef.close(new AudioUnitReplacement(this.data.sample, updatedAudioUnit));
     });
   }
 
   updateGenre(newGenre: string) {
     this.isLoading = true;
-    this.audioWebService.updateTitle(newGenre, this.data.audioUnit.audioUnit).subscribe((updatedAudioUnit: Sample | Track) => {
+    this.audioWebService.updateTitle(newGenre, this.data.sample.audioUnit).subscribe((updatedAudioUnit: Sample | Track) => {
       this.isLoading = false;
-      this.dialogRef.close(new AudioUnitReplacement(this.data.audioUnit, updatedAudioUnit));
+      this.dialogRef.close(new AudioUnitReplacement(this.data.sample, updatedAudioUnit));
     });
   }
 

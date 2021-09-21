@@ -2,7 +2,9 @@ import { Routes } from '@angular/router';
 import { UnderConstructionComponent } from '../../shared/components/under-construction/under-construction.component';
 import { FullLicensesComponent } from './full-licenses/full-licenses.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
+import { HowToDistributeComponent } from './how-to-distribute/how-to-distribute.component';
 import { LicensingComponent } from './licensing/licensing.component';
+import { RegisterTrackComponent } from './register-track/register-track.component';
 
 
 export const LicensingRoutes: Routes = [
@@ -12,16 +14,24 @@ export const LicensingRoutes: Routes = [
     path: '',
     component: LicensingComponent,
     children: [
+      // {
+      //   path: 'license-register',
+      //   // component: UnderConstructionComponent,
+      //   loadChildren: () => import('../../views/licensing/license-register/license-register.module').then(m => m.LicenseRegisterModule),
+      //   data: { title: 'License Register', breadcrumb: 'License Register' }
+      // },
+      // {
+      //   path: 'license-deeds',
+      //   component: UnderConstructionComponent,
+      //   data: { title: 'License Register', breadcrumb: 'License Register' }
+      // },
       {
-        path: 'license-register',
-        // component: UnderConstructionComponent,
-        loadChildren: () => import('../../views/licensing/license-register/license-register.module').then(m => m.LicenseRegisterModule),
-        data: { title: 'License Register', breadcrumb: 'License Register' }
+        path: 'how-to-distribute',
+        component: HowToDistributeComponent,
       },
       {
-        path: 'license-deeds',
-        component: UnderConstructionComponent,
-        data: { title: 'License Register', breadcrumb: 'License Register' }
+          path: 'register-track',
+          component: RegisterTrackComponent
       },
       
       // {
@@ -36,16 +46,16 @@ export const LicensingRoutes: Routes = [
       //   component: BasicLicensesComponent,
       //   data: { title: 'Basic Licenses', breadcrumb: 'Basic Licenses'}
       // }, 
-      {
-        path: 'full-licenses',
-        component: FullLicensesComponent,
-        data: { title: 'Full Licenses', breadcrumb: 'Full Licenses' }
-      },
-      {
-        path: 'how-it-works',
-        component: HowItWorksComponent,
-        data: { title: 'Cart', breadcrumb: 'How it works' }
-      },
+      // {
+      //   path: 'full-licenses',
+      //   component: FullLicensesComponent,
+      //   data: { title: 'Full Licenses', breadcrumb: 'Full Licenses' }
+      // },
+      // {
+      //   path: 'how-it-works',
+      //   component: HowItWorksComponent,
+      //   data: { title: 'Cart', breadcrumb: 'How it works' }
+      // },
       // {
       //   path: 'dashboard',
       //   loadChildren: () => import('../dashboard/dashboard.module').then(m => m.DashboardModule),
@@ -69,7 +79,7 @@ export const LicensingRoutes: Routes = [
       // },
       {
         path: '',
-        redirectTo: 'license-register'
+        redirectTo: 'how-to-distribute'
       }
       // {
       //   path: 'my-licenses',

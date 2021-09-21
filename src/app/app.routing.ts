@@ -8,7 +8,7 @@ import { DownloadSampleComponent } from './views/sample-market/download-sample/d
 export const rootRouterConfig: Routes = [
   {
     path: '',
-    redirectTo: 'sample-market/bb-license',
+    redirectTo: 'sample-market',
     pathMatch: 'full'
   },
   // {
@@ -61,6 +61,11 @@ export const rootRouterConfig: Routes = [
         path: 'home',
         loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule),
         data: { title: 'Choose A Demo' }
+      },
+      {
+        path: 'sample-market',
+        loadChildren: () => import('./views/sample-market/sample-market.module').then(m => m.SampleMarketModule),
+        data: { title: 'Sample Market', breadcrumb: 'Sample Market'}
       },
       {
         path: 'download/:id',

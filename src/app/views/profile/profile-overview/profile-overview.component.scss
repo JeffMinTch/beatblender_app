@@ -3,8 +3,8 @@
 }
 
 .artist-image {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 50%;
     border: 2px solid var(--light-theme);
@@ -16,7 +16,7 @@ h2 {
 
 .dashboard-card {
     // box-shadow: none !important;
-    border: 2px solid var(--light-theme-accent);
+    // border: 2px solid var(--light-theme-accent);
     small {
         font-size: 14px;
     }

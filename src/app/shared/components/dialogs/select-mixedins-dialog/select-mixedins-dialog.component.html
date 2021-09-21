@@ -14,7 +14,7 @@
              <mat-checkbox [checked]="checkBox(basicLicense.sample)" (change)="handleMixedIn($event, basicLicense.sample)" class="ml-8"></mat-checkbox>
          </div>
          <div fxFlex>
-            <app-audio-panel [audioUnit]="basicLicense?.sample.audioUnit" type="primary"></app-audio-panel>
+            <app-audio-panel [sample]="basicLicense?.sample" type="primary"></app-audio-panel>
          </div>
      </div>
   </section>

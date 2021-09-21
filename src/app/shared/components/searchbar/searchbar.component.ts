@@ -300,11 +300,13 @@ export class SearchbarComponent implements OnInit {
     }
   }
 
-  public displaySample(audioUnit: Sample | Track): string {
+  public displaySample(sample: Sample): string {
 
 
-    if (audioUnit) {
-      return audioUnit.audioUnit.title;
+    if (sample) {
+      // return audioUnit.audio
+      
+      return sample.audioUnit.title;
       // return sample.title + ' ' + '(' + sample.artistName + ')';
     } else {
       return '';

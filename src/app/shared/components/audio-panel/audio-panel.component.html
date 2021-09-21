@@ -64,13 +64,28 @@
   <ng-container *ngIf="type === 'primary' && light === 'true'">
 
     <div fxFlex fxLayout="column" fxLayoutAlign="start start" class="ml-8 mt-8">
-      <div fxFlex="100" fxLayout="row" fxLayoutAlign="start center" class="">
-        <span fxFlex class="cell-content"
+      <div fxFlex="100" fxLayout="column" fxLayoutAlign="start start" class="p-16">
+        <h3 class="title m-0">{{audioUnit?.title}}</h3>
+          <p class=" p-line" (click)="routeToArtistProfile($event)">by <a
+              class="hypertext">{{audioUnit?.artistAlias.artistName}}</a></p>
+        <!-- <span> by <a fxFlex class="cell-content" style="font-size: 16px; font-weight: 700;"
+            (click)="routeToArtistProfile($event)">{{audioUnit?.artistAlias?.artistName}}</a>
+        </span> -->
+        <!-- <span fxFlex class="cell-content" style="font-size: 16px; font-weight: 700;">{{audioUnit?.title}}</span> -->
+      </div>
+      <!-- <div *ngIf="track" fxFlex="100" fxLayout="row" fxLayoutAlign="start center" class="">
+        <span fxFlex class="cell-content" style="font-size: 16px; font-weight: 700;">{{audioUnit?.releaseArtistName}}</span>
+        <span fxFlex class="cell-content" style="font-size: 16px; font-weight: 700;">{{track?.releaseTitle}}</span>
+      </div> -->
+      <!-- <div *ngIf="track" fxFlex="100" fxLayout="row" fxLayoutAlign="start center" class="">
+        <a fxFlex class="cell-content"
+          style="font-size: 16px; font-weight: 700;" (click)="routeToArtistProfile($event)">{{audioUnit?.artistAlias?.artistName}}</a>
+          <span  fxFlex class="cell-content"
           style="font-size: 16px; font-weight: 700;">{{audioUnit?.artistAlias?.artistName}}</span>
-      </div>
-      <div fxFlex="50" fxLayout="row" fxLayoutAlign="start center" class="">
+      </div> -->
+      <!-- <div fxFlex="50" fxLayout="row" fxLayoutAlign="start center" class="">
         <span fxFlex class="cell-content" style="font-size: 14px; font-weight: 300;">{{audioUnit?.title}}</span>
-      </div>
+      </div> -->
 
     </div>
   </ng-container>
@@ -85,17 +100,20 @@
     </div>
   </ng-container> -->
   <!-- <section fxLayout="column" *ngIf="type === 'sample'"> -->
+  <!-- <ng-container *ngIf="sample"> -->
+
   <ng-container *ngIf="type === 'sample' || type === 'playlist'">
     <div class="info-wrap p-16" fxLayout="column" [routerLink]="'/details/' + audioUnit?.audioUnitID">
       <div class="main-info">
         <h3 class="title">{{audioUnit?.title}}</h3>
-        <p class=" p-line">by <span class="artist-name">{{audioUnit?.artistAlias.artistName}}</span></p>
+        <p class=" p-line" (click)="routeToArtistProfile($event)">by <a
+            class="artist-name">{{audioUnit?.artistAlias.artistName}}</a></p>
         <ng-container *ngIf="type === 'sample'">
           <p class=" p-line">
-            <strong>Category:</strong> {{audioUnit?.genre}}
+            <strong>Category:</strong> {{sample?.genre}}
           </p>
           <p class=" p-line">
-            <strong>Tempo:</strong> {{audioUnit?.tempo}} BPM
+            <strong>Tempo:</strong> {{sample?.tempo}} BPM
           </p>
           <p class=" p-line">
             <strong>Moods:</strong>
@@ -104,7 +122,7 @@
                         <span>#{{audioUnit?.region}}</span>
                         <span>#{{audioUnit?.songKey}}</span>
                         <span>#Dmoll</span> -->
-            <span *ngFor="let mood of audioUnit?.moods">{{mood}}</span>
+            <span *ngFor="let mood of sample?.moods">{{mood}}</span>
 
             <!-- </span-list> -->
             <!-- <span *ngFor="let t of ">{{audioUnit?.sampleTitle}} </span> -->
@@ -116,7 +134,7 @@
                         <span>#{{audioUnit?.region}}</span>
                         <span>#{{audioUnit?.songKey}}</span>
                         <span>#Dmoll</span> -->
-            <span *ngFor="let tag of audioUnit?.tags">#{{tag}}</span>
+            <span *ngFor="let tag of sample?.tags">#{{tag}}</span>
 
             <!-- </span-list> -->
             <!-- <span *ngFor="let t of ">{{audioUnit?.sampleTitle}} </span> -->
@@ -145,8 +163,8 @@
         <div class="actions">
           <!-- <div class="price-rating"> -->
           <!-- <div class="price"> -->
-          <span><strong>License Type: </strong><a href=""
-              style="color: var(--accent-color); text-decoration: underline;">{{getLicenseType(audioUnit)}}</a></span>
+          <!-- <span><strong>License Type: </strong><a href=""
+              style="color: var(--accent-color); text-decoration: underline;">{{getLicenseType(audioUnit)}}</a></span> -->
           <!-- <del class="text-muted">{{audioUnit?.lep}}Karma</del> -->
           <!-- </div> -->
           <!-- </div> -->
@@ -187,6 +205,8 @@
         </button> -->
     </ng-container>
   </ng-container>
+  <!-- </ng-container> -->
+
 
 
   <!-- </section> -->

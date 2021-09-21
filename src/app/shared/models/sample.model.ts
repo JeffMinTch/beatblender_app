@@ -34,10 +34,26 @@ export class Sample {
 
     private _sampleID: string;
     private _audioUnit: AudioUnit;
+    private _title: string;
+    private _genre: string;
+    private _tempo: number;
+    private _moods: Array<string>;
+    private _tags: Array<string>;
 
 
-	constructor() {
+
+
+
+	constructor(sampleID: string, audioUnit: AudioUnit, title: string, genre: string, tempo: number, moods: Array<string>, tags: Array<string>) {
+		this._sampleID = sampleID;
+		this._audioUnit = audioUnit;
+		this._title = title;
+		this._genre = genre;
+		this._tempo = tempo;
+		this._moods = moods;
+		this._tags = tags;
 	}
+
 
 
     /**
@@ -57,6 +73,46 @@ export class Sample {
 	}
 
     /**
+     * Getter title
+     * @return {string}
+     */
+	public get title(): string {
+		return this._title;
+	}
+
+    /**
+     * Getter genre
+     * @return {string}
+     */
+	public get genre(): string {
+		return this._genre;
+	}
+
+    /**
+     * Getter tempo
+     * @return {number}
+     */
+	public get tempo(): number {
+		return this._tempo;
+	}
+
+    /**
+     * Getter moods
+     * @return {Array<string>}
+     */
+	public get moods(): Array<string> {
+		return this._moods;
+	}
+
+    /**
+     * Getter tags
+     * @return {Array<string>}
+     */
+	public get tags(): Array<string> {
+		return this._tags;
+	}
+
+    /**
      * Setter sampleID
      * @param {string} value
      */
@@ -71,5 +127,46 @@ export class Sample {
 	public set audioUnit(value: AudioUnit) {
 		this._audioUnit = value;
 	}
+
+    /**
+     * Setter title
+     * @param {string} value
+     */
+	public set title(value: string) {
+		this._title = value;
+	}
+
+    /**
+     * Setter genre
+     * @param {string} value
+     */
+	public set genre(value: string) {
+		this._genre = value;
+	}
+
+    /**
+     * Setter tempo
+     * @param {number} value
+     */
+	public set tempo(value: number) {
+		this._tempo = value;
+	}
+
+    /**
+     * Setter moods
+     * @param {Array<string>} value
+     */
+	public set moods(value: Array<string>) {
+		this._moods = value;
+	}
+
+    /**
+     * Setter tags
+     * @param {Array<string>} value
+     */
+	public set tags(value: Array<string>) {
+		this._tags = value;
+	}
+
 
 }

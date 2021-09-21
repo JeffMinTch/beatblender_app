@@ -1,40 +1,54 @@
-<section fxFlex fxLayout="column" fxLayoutGap="40px" class="home-section">
-    <div fxLayout="column" fxLayoutAlign="center center" class="header">
-      <!-- <mat-card style="border: 3px solid;">
+<section fxFlex fxLayout="column" fxLayoutGap="40px" class="home-section" style="position: relative;">
+  <div fxLayout="column" fxLayoutAlign="center center" class="header">
+    <!-- <mat-card style="border: 3px solid;">
       </mat-card> -->
-      <div [fxLayout]="align === 'left' ? 'row' : 'row-reverse'" fxLayoutAlign="center center">
-        <div fxFlex="30" fxLayout>
-          <ng-content select="[image]"></ng-content>
-          <!-- <img class="left-image" src="../../../../assets/images/backgrounds/featuresSounds-artists_2x.png" alt=""> -->
-        </div>
-        <div fxFlex="70" fxLayout="column" style="padding: 0 100px;">
-          <h4 *ngIf="firstTitle"  class="text-center first-title" style="width: fit-content; margin-left: auto;">
-            {{firstTitle}}
-            
-          </h4>
-          <!-- <h2 *ngIf="secondTitle" class="text-center second-title"> -->
-            <!-- <blockquote> -->
-              <q style="font-size: 52px; text-align: center;">
-                <span class="text-center second-title"></span>
-                {{secondTitle}}
+    <div [fxLayout]="align === 'left' ? 'row' : 'row-reverse'" fxLayoutAlign="center center">
+      <div fxFlex="30" fxLayout>
+        <!-- <div style="width: 250px; height: 250px;" fxLayout> -->
 
-              </q>
-            <!-- </blockquote> -->
-          <!-- </h2> -->
-        </div>
+        <ng-content select="[image]"></ng-content>
+        <!-- </div> -->
+
+        <!-- <img class="left-image" src="../../../../assets/images/backgrounds/featuresSounds-artists_2x.png" alt=""> -->
       </div>
+      <div fxFlex="70" fxLayout="column" style="padding: 0 100px;">
+        <h4 *ngIf="firstTitle" class="text-center first-title" style="width: fit-content; margin-left: auto;">
+          {{firstTitle}}
+
+        </h4>
+        <!-- <h2 *ngIf="secondTitle" class="text-center second-title"> -->
+        <!-- <blockquote> -->
+        <ng-content select="[secondtitle]"></ng-content>
 
 
-      <!-- <mat-card style="border: 4px solid;">
+        <!-- <q style="font-size: 52px; text-align: center;">
+          <span class="text-center second-title"></span>
+          {{secondTitle}}
+
+        </q> -->
+        <!-- </blockquote> -->
+        <!-- </h2> -->
+      </div>
+    </div>
+
+
+    <!-- <mat-card style="border: 4px solid;">
       </mat-card> -->
 
-      <!-- <ng-content select="[headerText]"></ng-content> -->
-    </div>
-    <ng-content select="[content]"></ng-content>
-
+    <!-- <ng-content select="[headerText]"></ng-content> -->
+  </div>
+  <ng-content select="[content]"></ng-content>
+  <!-- <div style="position: absolute; bottom: 0px; right: -100px; border-radius: 50%; background: var(--primary-light-color); width: 150px; height: 150px; z-index: 2; transform: translateY(-150px);">
+    
+  </div>
+  <div style="position: absolute; bottom: 0px; right: -100px; border-radius: 50%; background: var(--primary-color); width: 150px; height: 150px; z-index: 1; transform: translateY(0)">
+  </div> -->
+  <div style="position: absolute; bottom: 0px; right: -100px; border-radius: 50%; background: var(--accent-color); width: 150px; height: 150px; z-index: 0; transform: translateY(120px);">
+  </div>
     <!-- <> -->
-    <!-- <div class="pl-16"> -->
-    <!-- </div> -->
-    <!-- </ng-container> -->
-    <!-- <mat-divider></mat-divider> -->
-  </section>
+  <!-- <div class="pl-16"> -->
+  <!-- </div> -->
+  <!-- </ng-container> -->
+  <!-- <mat-divider></mat-divider> -->
+
+</section>

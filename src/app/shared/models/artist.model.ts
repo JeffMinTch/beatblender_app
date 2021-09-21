@@ -1,13 +1,16 @@
 import { User } from './user.model';
  export class Artist {
 
-    private _artistID: string;
-    private _birthDate: Date;
-    private _creationDate: Date;
-    private _lep: number;
-    private _realFirstName: string;
-    private _realLastName: string;
-    private _user: User;
+      private _artistID: string;
+      private _user: User;
+      private _creationDate: Date;
+
+	constructor(artistID: string, user: User, creationDate: Date) {
+		this._artistID = artistID;
+		this._user = user;
+		this._creationDate = creationDate;
+	}
+
 
 
     /**
@@ -19,11 +22,11 @@ import { User } from './user.model';
 	}
 
     /**
-     * Getter birthDate
-     * @return {Date}
+     * Getter user
+     * @return {User}
      */
-	public get birthDate(): Date {
-		return this._birthDate;
+	public get user(): User {
+		return this._user;
 	}
 
     /**
@@ -35,38 +38,6 @@ import { User } from './user.model';
 	}
 
     /**
-     * Getter lep
-     * @return {number}
-     */
-	public get lep(): number {
-		return this._lep;
-	}
-
-    /**
-     * Getter realFirstName
-     * @return {string}
-     */
-	public get realFirstName(): string {
-		return this._realFirstName;
-	}
-
-    /**
-     * Getter realLastName
-     * @return {string}
-     */
-	public get realLastName(): string {
-		return this._realLastName;
-	}
-
-    /**
-     * Getter user
-     * @return {User}
-     */
-	public get user(): User {
-		return this._user;
-	}
-
-    /**
      * Setter artistID
      * @param {string} value
      */
@@ -75,11 +46,11 @@ import { User } from './user.model';
 	}
 
     /**
-     * Setter birthDate
-     * @param {Date} value
+     * Setter user
+     * @param {User} value
      */
-	public set birthDate(value: Date) {
-		this._birthDate = value;
+	public set user(value: User) {
+		this._user = value;
 	}
 
     /**
@@ -90,37 +61,6 @@ import { User } from './user.model';
 		this._creationDate = value;
 	}
 
-    /**
-     * Setter lep
-     * @param {number} value
-     */
-	public set lep(value: number) {
-		this._lep = value;
-	}
-
-    /**
-     * Setter realFirstName
-     * @param {string} value
-     */
-	public set realFirstName(value: string) {
-		this._realFirstName = value;
-	}
-
-    /**
-     * Setter realLastName
-     * @param {string} value
-     */
-	public set realLastName(value: string) {
-		this._realLastName = value;
-	}
-
-    /**
-     * Setter user
-     * @param {User} value
-     */
-	public set user(value: User) {
-		this._user = value;
-	}
-   
+	
 
  }

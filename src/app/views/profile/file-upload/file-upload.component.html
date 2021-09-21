@@ -630,7 +630,7 @@
             <button mat-button (click)="stepper.reset()">Reset</button>
           </div>
         </mat-step>
-        <mat-step>
+        <!-- <mat-step>
           <ng-template matStepLabel>Select MixedIns</ng-template>
           <mat-label class="mb-16">Which Samples did you include in your Audio?</mat-label>
           <div fxFlex fxLayout="column">
@@ -652,7 +652,6 @@
               <h3 class="mb-32">Your MixedIn Samples</h3>
               <div fxFlex fxLayout="column"
                 *ngFor="let sample of (formsSubject | async)?.get(item).controls['mixedIns'].value; let i = index;">
-                <!-- <span>{{i}}</span> -->
                 <div fxFlex>
                   <app-audio-panel [audioUnit]="sample.audioUnit" type="primary"></app-audio-panel>
                 </div>
@@ -662,7 +661,7 @@
           </div>
 
 
-        </mat-step>
+        </mat-step> -->
 
       </mat-vertical-stepper>
 

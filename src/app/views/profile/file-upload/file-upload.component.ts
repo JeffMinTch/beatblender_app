@@ -219,10 +219,10 @@ export class FileUploadComponent implements OnInit, OnDestroy {
             formData.append('tempo', (formGroup.controls['descriptionForm'] as FormGroup).controls['tempo'].value);
             // formData.append('genre', (formGroup.controls['descriptionForm'] as FormGroup).controls['moods'].value as string);
             // form.append('genre', JSON.stringify(this.fileItemForm.));
-            (formGroup.controls['mixedIns'].value as Array<Sample>).map(sample => sample.sampleID).forEach((sampleId: string) => {
-                this.console.log(sampleId);
-                formData.append('mixedInID', sampleId);
-            });
+            // (formGroup.controls['mixedIns'].value as Array<Sample>).map(sample => sample.sampleID).forEach((sampleId: string) => {
+            //     this.console.log(sampleId);
+            //     formData.append('mixedInID', sampleId);
+            // });
         };
 
 

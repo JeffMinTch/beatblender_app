@@ -14,6 +14,7 @@ import { MyUploads } from 'app/shared/models/my-uploads.model';
 import { AudioUnit } from 'app/shared/models/audio-unit.model';
 import { Sample } from 'app/shared/models/sample.model';
 import { Track } from 'app/shared/models/track.model';
+import { Release } from 'app/shared/models/release.model';
 
 
 
@@ -51,11 +52,15 @@ export class AudioWebService {
   private UPDATE_TAGS: string = this.PROTECTED_AUDIO + environment.apiURL.audioPath.protected.updateTags;
   private GET_SAMPLE: string = this.PUBLIC_AUDIO + environment.apiURL.audioPath.public.getSample;
   private ARTISTS_HOME: string = this.PUBLIC_AUDIO + environment.apiURL.audioPath.public.artistHome;
+  private GET_SAMPLES_FROM_ARTIST: string = this.PROTECTED_AUDIO + environment.apiURL.audioPath.protected.getSampleFromArtist;
+  private GET_RELEASES: string = this.PROTECTED_AUDIO + environment.apiURL.audioPath.protected.getReleases;
 
 
   public getSamplePage(params: any): Observable<SamplePage> {
     return this.httpClient.get(this.samplesHomeApi, { params }).pipe(map((res: SamplePage) => { return res }), share());
   }
+
+
 
   public getTracksHome(params: any): Observable<TrackPage> {
     return this.httpClient.get(this.TRACKS_HOME, { params }).pipe(map((res: TrackPage) => { return res }), share());
@@ -138,6 +143,10 @@ export class AudioWebService {
     return this.httpClient.get(`${this.GET_SAMPLE}/${audioUnitID}`).pipe(map((sample: Sample) => sample));
   }
 
+  public getReleases(): Observable<Array<Release>> {
+    return this.httpClient.get(this.GET_RELEASES).pipe(map((res: Array<Release>) => { return res }));
+  }
+
 
   filterTracks(params: HttpParams): Observable<TrackPage> {
     return this.httpClient.get(this.FILTER_TRACKS, { params: params}).pipe(map((trackPage: TrackPage) => trackPage));
@@ -149,6 +158,10 @@ export class AudioWebService {
 
   getUploads(): Observable<MyUploads> {
     return this.httpClient.get(this.GET_UPLOADS).pipe(map((myUploads: MyUploads) => myUploads));
+  }
+
+  getSamplesFromArtist(artistALiasID: string, params: HttpParams): Observable<SamplePage> {
+    return this.httpClient.get(`${this.GET_SAMPLES_FROM_ARTIST}/${artistALiasID}`).pipe(map((samples: SamplePage) => samples));
   }
 
   updateTitle(title: string, audioUnit: AudioUnit): Observable<Sample | Track> {

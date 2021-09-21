@@ -289,16 +289,7 @@ filter: drop-shadow(16px 0px 0 #fe2d52);
           width: 100%;
           margin-bottom: 1rem;
           min-height: 160px;
-          .title {
-            margin: 0;
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 4px;
-            cursor: pointer;
-            &:active {
-              outline: none;
-            }
-          }
+          
           span {
             padding: 0 5px;
           }
@@ -525,4 +516,15 @@ filter: drop-shadow(16px 0px 0 #fe2d52);
 
 .mat-tab-body-content {
   overflow-y: hidden !important;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+  cursor: pointer;
+  &:active {
+    outline: none;
+  }
 }

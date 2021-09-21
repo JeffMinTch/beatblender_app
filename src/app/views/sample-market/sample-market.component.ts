@@ -62,8 +62,9 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
   searchString: string;
   selectionList: Array<Selection>;
   minMaxList: Array<MinMaxSlider>;
-  artistName: string;
 
+  artistName: string;
+  artistAliasID: string;
 
   public searchFilterFormMap: SearchFilterFormMap = {
     selectionFormMap: null,
@@ -152,33 +153,33 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
       //   this.initCurrentFile(samples[0].audioUnit.audioUnitID);
       // }
     });
-    this.retrieveSamples();
+    // this.retrieveSamples();
   }
 
-  public retrieveSamples(): void {
-    const params = this.httpService.getRequestParams(this.sortBy, this.pageNo, this.pageSize);
-    this.audioService.emitAudioUnitsLoading(true);
-    this.sampleLicensingMarketService.initSamples(params).pipe(
-      share(),
-      map((res: SamplePage) => { return res })
-    ).subscribe((response: SamplePage) => {
-      console.log("Response");
-      console.log(response);
-      const { samples, totalItems } = response;
-      this.count = totalItems;
-      this.audioService.emitAudioUnitsLoading(false);
-      this.sampleLicensingMarketService.samples$.next(samples);
+  // public retrieveSamples(): void {
+  //   const params = this.httpService.getRequestParams(this.sortBy, this.pageNo, this.pageSize);
+  //   this.audioService.emitAudioUnitsLoading(true);
+  //   this.sampleLicensingMarketService.initSamples(params).pipe(
+  //     share(),
+  //     map((res: SamplePage) => { return res })
+  //   ).subscribe((response: SamplePage) => {
+  //     console.log("Response");
+  //     console.log(response);
+  //     const { samples, totalItems } = response;
+  //     this.count = totalItems;
+  //     this.audioService.emitAudioUnitsLoading(false);
+  //     this.sampleLicensingMarketService.samples$.next(samples);
 
-    }, (error) => {
-      if (error instanceof HttpErrorResponse) {
-        if (error.status === 401) {
-          this.ls.clear();
-          this.jwt.signin();
-        }
-      }
-      console.log(error);
-    });
-  }
+  //   }, (error) => {
+  //     if (error instanceof HttpErrorResponse) {
+  //       if (error.status === 401) {
+  //         this.ls.clear();
+  //         this.jwt.signin();
+  //       }
+  //     }
+  //     console.log(error);
+  //   });
+  // }
 
   ngOnInit() {
     this.searchFilterFormMap.selectionFormMap = new Map<FormControl, Selection>();
@@ -263,7 +264,24 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
       console.log(params) //log the entire params object
       console.log(params['id']) //log the value of id
       // if(params['id'] instanceof License)
-      this.artistName = params['id'];
+    this.audioService.emitAudioUnitsLoading(true);
+    const httpParams = this.httpService.getRequestParams(this.sortBy, this.pageNo, this.pageSize);
+
+      this.artistName = params['artistName'];
+      this.artistAliasID = params['artistAliasID'];
+      this.audioWebService.getSamplesFromArtist(this.artistAliasID, httpParams).subscribe((response: SamplePage) => {
+        const { samples, totalItems } = response;
+      this.count = totalItems;
+      this.audioService.emitAudioUnitsLoading(false);
+      this.sampleLicensingMarketService.samples$.next(samples);
+      }, (error) => {
+        if (error instanceof HttpErrorResponse) {
+          if (error.status === 401) {
+            this.ls.clear();
+            this.jwt.signin();
+          }
+        }
+      });
       // alert(this.artistName);
       this.changeDetectorRef.detectChanges();
       // try {
@@ -553,7 +571,7 @@ export class SampleMarketComponent implements OnInit, AfterViewInit {
         // data: {name: this.name, animal: this.animal}
         data: {
           title: 'Congratulations!',
-          firstParagraph: `Now you own a Basic License for ${sample.audioUnit.title} by ${sample.audioUnit.artistAlias.artistName}.`,
+          firstParagraph: `Now you own a Basic License for ${sample.title} by ${sample.audioUnit.artistAlias.artistName}.`,
           submitButton: 'Manage Samples',
           // route: ''
           cancelButton: 'Keep digging'

@@ -1,3 +1,4 @@
+import { MyReleasesComponent } from './my-releases/my-releases.component';
 import { ProfileOverviewComponent } from './profile-overview/profile-overview.component';
 import { DistributeComponent } from './distribute/distribute.component';
 import { UnderConstructionComponent } from './../../shared/components/under-construction/under-construction.component';
@@ -55,12 +56,17 @@ export const ProfileRoutes: Routes = [
         data: { title: 'my-licenses', breadcrumb: 'My Licenses' }
       },
       {
-        path: 'distribute',
-        component: DistributeComponent,
-
-        loadChildren: () => import('./distribute/distribute.module').then(m => m.DistributeModule),
-        data: { title: 'Upload Audio', breadcrumb: 'Upload Audio' }
+        path: 'my-releases',
+        component: MyReleasesComponent,
+        data: { title: 'Blank', breadcrumb: 'BLANK' }
       },
+      // {
+      //   path: 'distribute',
+      //   component: DistributeComponent,
+
+      //   loadChildren: () => import('./distribute/distribute.module').then(m => m.DistributeModule),
+      //   data: { title: 'Upload Audio', breadcrumb: 'Upload Audio' }
+      // },
       // {
       //   path: 'collaborations',
       //   component: UnderConstructionComponent,

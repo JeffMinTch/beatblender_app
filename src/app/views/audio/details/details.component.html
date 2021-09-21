@@ -8,7 +8,7 @@
         <mat-card fxLayout class="">
           <div fxLayout="column" class="full-width">
             <!-- <h2 class="pl-8">Sample Detail</h2> -->
-            <app-audio-panel class="full-width" [audioUnit]="sample?.audioUnit" type="sample"
+            <app-audio-panel class="full-width" [sample]="sample" type="sample"
               (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
           </div>
           <!-- <h2>MixedIn Samples</h2> -->

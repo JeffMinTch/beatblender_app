@@ -29,6 +29,7 @@ import { ProfileSettingsComponent } from './profile-settings/profile-settings.co
 import { ProfileBlankComponent } from './profile-blank/profile-blank.component';
 import { ProfileRoutes } from "./profile.routing";
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MyReleasesComponent } from './my-releases/my-releases.component';
 
 @NgModule({
   imports: [
@@ -52,13 +53,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NgxDatatableModule,
     ChartsModule,
     FileUploadModule,
-    DistributeModule,
+    // DistributeModule,
     SharedPipesModule,
     NgxPaginationModule,
     ReactiveFormsModule,
 
     RouterModule.forChild(ProfileRoutes)
   ],
-  declarations: [ProfileComponent, ProfileOverviewComponent, ProfileSettingsComponent, ProfileBlankComponent]
+  declarations: [ProfileComponent, ProfileOverviewComponent, ProfileSettingsComponent, ProfileBlankComponent, MyReleasesComponent]
 })
 export class ProfileModule { }

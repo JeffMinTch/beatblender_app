@@ -1,8 +1,10 @@
+import { SampleInfoComponent } from './sample-info/sample-info.component';
+import { TrackInfoComponent } from './track-info/track-info.component';
+
 import { AudioTilesComponent } from './audio-tiles/audio-tiles.component';
 import { ReferencesComponent } from './references/references.component';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
 import { FaqComponent } from './faq/faq.component';
-
 import { DividerComponent } from './divider/divider.component';
 import { SubHeadingComponent } from './sub-heading/sub-heading.component';
 import { HeadingComponent } from './heading/heading.component';
@@ -118,7 +120,9 @@ const components = [
   UnderConstructionComponent,
   FaqComponent,
   ReferencesComponent,
-  AudioTilesComponent
+  AudioTilesComponent,
+  SampleInfoComponent,
+  TrackInfoComponent
 ]
 
 @NgModule({

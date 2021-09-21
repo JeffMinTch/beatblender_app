@@ -1,30 +1,35 @@
-import { LicenseType } from './types/license-type.model';
-import { ArtistAlias } from "./artist-alias.model"
+import { ArtistAlias } from "./artist-alias.model";
 import { Artist } from "./artist.model"
 
 export class AudioUnit {
-    private _artistAlias: ArtistAlias;
-    private _audioFileName: string;
+    
+
     private _audioUnitID: string;
-    private _creator: Artist;
-    private _downloads: number;
-    private _genre: string;
-    private _imageFileName: string;
-    private _licenseType: LicenseType;
-    private _moods: Array<string>;
-    private _tags: Array<string>;
-    private _tempo: number;
+    private _artistAlias: ArtistAlias;
     private _title: string;
+    private _creator: Artist;
+    private _audioFileName: string;
+    private _imageFileName: string;
+    private _downloads: number;
+    private _streams: number;
     private _uploadDate: Date;
 
 
-    /**
-     * Getter artistAlias
-     * @return {ArtistAlias}
-     */
-	public get artistAlias(): ArtistAlias {
-		return this._artistAlias;
+
+
+	constructor(audioUnitID: string, artistAlias: ArtistAlias, title: string, creator: Artist, audioFileName: string, imageFileName: string, downloads: number, streams: number, uploadDate: Date) {
+		this._audioUnitID = audioUnitID;
+		this._artistAlias = artistAlias;
+		this._title = title;
+		this._creator = creator;
+		this._audioFileName = audioFileName;
+		this._imageFileName = imageFileName;
+		this._downloads = downloads;
+		this._streams = streams;
+		this._uploadDate = uploadDate;
 	}
+	
+
 
     /**
      * Getter audioUnitID
@@ -35,67 +40,11 @@ export class AudioUnit {
 	}
 
     /**
-     * Getter creator
-     * @return {Artist}
+     * Getter artistAlias
+     * @return {ArtistAlias}
      */
-	public get creator(): Artist {
-		return this._creator;
-	}
-
-    /**
-     * Getter downloads
-     * @return {number}
-     */
-	public get downloads(): number {
-		return this._downloads;
-	}
-
-    /**
-     * Getter genre
-     * @return {string}
-     */
-	public get genre(): string {
-		return this._genre;
-	}
-
-    /**
-     * Getter imageFileName
-     * @return {string}
-     */
-	public get imageFileName(): string {
-		return this._imageFileName;
-	}
-
-    /**
-     * Getter lep
-     * @return {number}
-     */
-	public get licenseType(): LicenseType {
-		return this._licenseType;
-	}
-
-    /**
-     * Getter moods
-     * @return {Array<string>}
-     */
-	public get moods(): Array<string> {
-		return this._moods;
-	}
-
-    /**
-     * Getter tags
-     * @return {Array<string>}
-     */
-	public get tags(): Array<string> {
-		return this._tags;
-	}
-
-    /**
-     * Getter tempo
-     * @return {number}
-     */
-	public get tempo(): number {
-		return this._tempo;
+	public get artistAlias(): ArtistAlias {
+		return this._artistAlias;
 	}
 
     /**
@@ -107,19 +56,51 @@ export class AudioUnit {
 	}
 
     /**
+     * Getter creator
+     * @return {Artist}
+     */
+	public get creator(): Artist {
+		return this._creator;
+	}
+
+    /**
+     * Getter audioFileName
+     * @return {string}
+     */
+	public get audioFileName(): string {
+		return this._audioFileName;
+	}
+
+    /**
+     * Getter imageFileName
+     * @return {string}
+     */
+	public get imageFileName(): string {
+		return this._imageFileName;
+	}
+
+    /**
+     * Getter downloads
+     * @return {number}
+     */
+	public get downloads(): number {
+		return this._downloads;
+	}
+
+    /**
+     * Getter streams
+     * @return {number}
+     */
+	public get streams(): number {
+		return this._streams;
+	}
+
+    /**
      * Getter uploadDate
      * @return {Date}
      */
 	public get uploadDate(): Date {
 		return this._uploadDate;
-	}
-
-    /**
-     * Setter artistAlias
-     * @param {ArtistAlias} value
-     */
-	public set artistAlias(value: ArtistAlias) {
-		this._artistAlias = value;
 	}
 
     /**
@@ -131,67 +112,11 @@ export class AudioUnit {
 	}
 
     /**
-     * Setter creator
-     * @param {Artist} value
+     * Setter artistAlias
+     * @param {ArtistAlias} value
      */
-	public set creator(value: Artist) {
-		this._creator = value;
-	}
-
-    /**
-     * Setter downloads
-     * @param {number} value
-     */
-	public set downloads(value: number) {
-		this._downloads = value;
-	}
-
-    /**
-     * Setter genre
-     * @param {string} value
-     */
-	public set genre(value: string) {
-		this._genre = value;
-	}
-
-    /**
-     * Setter imageFileName
-     * @param {string} value
-     */
-	public set imageFileName(value: string) {
-		this._imageFileName = value;
-	}
-
-    /**
-     * Setter lep
-     * @param {LicenseType} value
-     */
-	public set licenseType(value: LicenseType) {
-		this._licenseType = value;
-	}
-
-    /**
-     * Setter moods
-     * @param {Array<string>} value
-     */
-	public set moods(value: Array<string>) {
-		this._moods = value;
-	}
-
-    /**
-     * Setter tags
-     * @param {Array<string>} value
-     */
-	public set tags(value: Array<string>) {
-		this._tags = value;
-	}
-
-    /**
-     * Setter tempo
-     * @param {number} value
-     */
-	public set tempo(value: number) {
-		this._tempo = value;
+	public set artistAlias(value: ArtistAlias) {
+		this._artistAlias = value;
 	}
 
     /**
@@ -203,20 +128,11 @@ export class AudioUnit {
 	}
 
     /**
-     * Setter uploadDate
-     * @param {Date} value
+     * Setter creator
+     * @param {Artist} value
      */
-	public set uploadDate(value: Date) {
-		this._uploadDate = value;
-	}
-
-
-    /**
-     * Getter audioFileName
-     * @return {string}
-     */
-	public get audioFileName(): string {
-		return this._audioFileName;
+	public set creator(value: Artist) {
+		this._creator = value;
 	}
 
     /**
@@ -227,7 +143,46 @@ export class AudioUnit {
 		this._audioFileName = value;
 	}
 
+    /**
+     * Setter imageFileName
+     * @param {string} value
+     */
+	public set imageFileName(value: string) {
+		this._imageFileName = value;
+	}
 
+    /**
+     * Setter downloads
+     * @param {number} value
+     */
+	public set downloads(value: number) {
+		this._downloads = value;
+	}
+
+    /**
+     * Setter streams
+     * @param {number} value
+     */
+	public set streams(value: number) {
+		this._streams = value;
+	}
+
+    /**
+     * Setter uploadDate
+     * @param {Date} value
+     */
+	public set uploadDate(value: Date) {
+		this._uploadDate = value;
+	}
+
+
+	
+
+
+
+
+    
+   
 
     
 }

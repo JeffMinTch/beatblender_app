@@ -1,11 +1,13 @@
 import { LicenseType } from './../../models/types/license-type.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PlayStateControlService } from './../../services/play-state-control.service';
-import { Component, Input, OnInit, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectorRef, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
 import { AudioService } from 'app/shared/services/audio.service';
 import { AudioState } from 'app/shared/models/audio-state.model';
 import { AudioUnit } from 'app/shared/models/audio-unit.model';
+import { Sample } from 'app/shared/models/sample.model';
+import { Track } from 'app/shared/models/track.model';
 
 export type AudioPanelType = 'primary' | 'sample' | 'playlist' | 'iconButton';
 
@@ -14,9 +16,18 @@ export type AudioPanelType = 'primary' | 'sample' | 'playlist' | 'iconButton';
   templateUrl: './audio-panel.component.html',
   styleUrls: ['./audio-panel.component.scss']
 })
-export class AudioPanelComponent implements OnInit {
+export class AudioPanelComponent implements OnInit, AfterViewInit {
 
-  @Input() audioUnit: AudioUnit;
+  // @Input() audioUnit: AudioUnit;
+  // @Input() title: string;
+  // @Input() 
+
+  @Input() sample: Sample;
+  @Input() track: Track;
+
+  
+  audioUnit: AudioUnit;
+
   @Input() type: AudioPanelType;
   @Input() triggerAudioBy: 'panel' | 'button' = 'panel';
   @Input() button: boolean = true;
@@ -32,20 +43,34 @@ export class AudioPanelComponent implements OnInit {
     private audioService: AudioService,
     private changeDetectorRef: ChangeDetectorRef,
     private router: Router,
-    private activeRoute: ActivatedRoute
-    // private jwt: JwtAuthService
     ) { }
 
 
     ngAfterViewInit() {
-      setTimeout(() => {
-        console.log(this.audioUnit);
-      }, 5000);
+      if(this.sample) {
+        this.audioUnit = this.sample.audioUnit;
+      } else if(this.track) {
+        this.audioUnit = this.track.audioUnit;
+      } else {
+        throw new Error("No Sample or Track provided");
+      }
+      // setTimeout(() => {
+      //   console.log(this.audioUnit);
+      // }, 5000);
       // console.log(this.sample);
 
     }
 
   ngOnInit(): void {
+    if(this.sample) {
+      this.audioUnit = this.sample.audioUnit;
+    } else if(this.track) {
+      this.audioUnit = this.track.audioUnit;
+    } else {
+      throw new Error("No Sample or Track provided");
+    }
+
+    
 
     this.playStateControlService.playState$.pipe(
       takeUntil(this.playStateControlService.playStateServiceDestroyed$)
@@ -147,20 +172,20 @@ export class AudioPanelComponent implements OnInit {
 
   }
 
-  getLicenseType(audioUnit: AudioUnit) {
-    switch(audioUnit.licenseType) {
-      case 'BB100':
-        return 'BB-100';
-      case 'BB70':
-        return 'BB-70';
-      case 'BB30':
-        return 'BB-30'
-    }
-  }
-
-  // disableDownloadButton() {
-  //   const userID = this.jwt.getUserInfo().sub;
-  //   this.sample.
+  // getLicenseType(audioUnit: AudioUnit) {
+  //   switch(audioUnit.licenseType) {
+  //     case 'BB100':
+  //       return 'BB-100';
+  //     case 'BB70':
+  //       return 'BB-70';
+  //     case 'BB30':
+  //       return 'BB-30'
+  //   }
   // }
+
+  routeToArtistProfile(event: Event) {
+    event.stopPropagation();
+      this.router.navigate(['sample-market', this.audioUnit.artistAlias.artistName, this.audioUnit.artistAlias.artistALiasID]);
+  }
 
 }

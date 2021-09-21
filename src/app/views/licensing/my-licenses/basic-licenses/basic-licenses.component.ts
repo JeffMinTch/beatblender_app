@@ -121,9 +121,9 @@ export class BasicLicensesComponent implements OnInit {
     window.location.href = API;
   }
 
-  customerRouteFor(licenseType: string): (string | number)[] {
-    return ['/profile/my-licenses/basic-licenses' , licenseType];
-  }
+  // customerRouteFor(licenseType: string): (string | number)[] {
+  //   return ['/profile/my-licenses/basic-licenses' , licenseType];
+  // }
 
   changeViewMode(viewMode: 'grid-view' | 'list-view') {
     this.viewMode = viewMode;

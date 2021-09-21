@@ -10,6 +10,9 @@ import {LicensingRoutes } from './licensing.routing';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { FullLicensesComponent } from './full-licenses/full-licenses.component';
 import { LicensingComponent } from './licensing/licensing.component';
+import { RegisterTrackComponent } from './register-track/register-track.component';
+import { HowToDistributeComponent } from './how-to-distribute/how-to-distribute.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 
@@ -23,13 +26,14 @@ import { LicensingComponent } from './licensing/licensing.component';
     StarRatingModule.forRoot(),
     NgxDatatableModule,
     RouterModule.forChild(LicensingRoutes),
+    FileUploadModule,
     SharedModule,
     
   ],
   // exports: [
   //   NgxPaginationModule
   // ],
-  declarations: [LicensingComponent, HowItWorksComponent, FullLicensesComponent],
+  declarations: [LicensingComponent, HowItWorksComponent, FullLicensesComponent, RegisterTrackComponent, HowToDistributeComponent],
   providers: [
   ]
 })

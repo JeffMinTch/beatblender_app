@@ -170,7 +170,7 @@ export class FindComponent implements OnInit {
       const totalItems  = trackPage.totalItems;
       this.tracks = trackPage.tracks;
       this.count = totalItems;
-      this.audioService.initAudioPlayer(this.tracks.map((track) => track.audioUnit), Theme.PRIMARY);
+      this.audioService.initAudioPlayer(this.tracks.map(track => track.audioUnit), Theme.PRIMARY);
       // this.playStateControlService.emitCurrentSampleID(this.tracks[0].audioUnit.audioUnitID);
       // this.audioService.emitAudioUnits(this.tracks);
       // this.audioService.emitAudioUnitsLoading(false);
@@ -296,7 +296,7 @@ export class FindComponent implements OnInit {
       const totalItems  = trackPage.totalItems;
       this.tracks = trackPage.tracks;
       this.count = totalItems;
-      this.audioService.initAudioPlayer(this.tracks.map((track) => track.audioUnit), Theme.PRIMARY);
+      this.audioService.initAudioPlayer(this.tracks.map(track => track.audioUnit), Theme.PRIMARY);
       // this.playStateControlService.emitCurrentSampleID(this.tracks[0].audioUnit.audioUnitID);
       // this.audioService.emitAudioUnits(this.tracks);
       // this.audioService.emitAudioUnitsLoading(false);

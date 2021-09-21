@@ -46,7 +46,8 @@
     <section fxLayout fxLayoutAlign="space-around center">
       <mat-card class="opportunity-card" fxLayoutAlign="center center">
         <!-- <mat-card-title> -->
-          <p style="">1. Upload Track Or Sample To <span style="color: var(--primary-color);">Beat</span><span style="color: var(--accent-color);">Blender</span></p> 
+        <p style="">1. Upload Track Or Sample To <span style="color: var(--primary-color);">Beat</span><span
+            style="color: var(--accent-color);">Blender</span></p>
         <!-- </mat-card-title> -->
         <mat-card-content>
           <!-- <h4 class="pl-8 mt-4" style="font-size: 20px; font-weight: 300; text-align: center;">Every Top Quality Sample from BeatBlender do not cost money. They are free to use.</h4> -->
@@ -54,7 +55,7 @@
       </mat-card>
       <mat-card class="opportunity-card" fxLayoutAlign="center center">
         <!-- <mat-card-title> -->
-          <p> 2. Community Creates <span style="color: var(--accent-color);"> Remixes</span></p> 
+        <p> 2. Community Creates <span style="color: var(--accent-color);"> Remixes</span></p>
         <!-- </mat-card-title> -->
         <mat-card-content>
           <!-- <h4 class="pl-8 mt-4" style="font-size: 20px; font-weight: 300; text-align: center;">When giving your Samples to the Community.</h4> -->
@@ -62,17 +63,31 @@
       </mat-card>
       <mat-card class="opportunity-card" fxLayoutAlign="center center">
         <mat-card-title>
-          <p>3. Streaming Money Gets <span style="color: var(--primary-color);">Donated</span></p> 
+          <p>3. Streaming Money Gets <span style="color: var(--primary-color);">Donated</span></p>
         </mat-card-title>
         <!-- <mat-card-content> -->
-          <!-- <h4 class="pl-8 mt-4" style="font-size: 20px; font-weight: 300; text-align: center;">Every Sample can be uploaded</h4> -->
+        <!-- <h4 class="pl-8 mt-4" style="font-size: 20px; font-weight: 300; text-align: center;">Every Sample can be uploaded</h4> -->
         <!-- </mat-card-content> -->
       </mat-card>
-      
+
     </section>
-    <app-home-section align="left" firstTitle="KHMRE - Producer from San Francisco"
-      secondTitle="Producing Free Remixes Now Creates A Social Impact">
-      <img image class="round-artist-image ml-16" src="../../../assets/images/backgrounds/splice5.png" alt="">
+    <!-- secondTitle="Producing Free Remixes Now Creates A Social Impact" -->
+    <app-home-section class="my-32" align="left" firstTitle="KHMRE - Producer from San Francisco"
+      >
+      <div fxFlex fxLayout fxLayoutAlign="center center" image class="pl-32">
+        <div fxLayout fxLayoutAlign="center center" style="width: 400px; height: 350px; overflow: hidden;">
+          <img  class="round-artist-image" src="../../../assets/images/backgrounds/splice5.png" alt="">
+        </div>
+        
+      </div>
+      <div secondtitle fxLayout fxLayoutAlign="center center">
+        <q  style="font-size: 52px; text-align: center;">
+          <span class="text-center second-title" style="font-weight: 300;">
+            Producing <span style="font-weight: 900; color: var(--accent-color);">Free Remixes</span> Now Creates A  <span style="color: var(--primary-color); font-weight: 900;">Social Impact</span>  
+          </span>
+        </q>
+      </div>
+      
     </app-home-section>
     <!-- <section fxLayout fxLayoutAlign="space-around center">
       <mat-card class="opportunity-card">
@@ -124,23 +139,21 @@
       </mat-card>
       
     </section> -->
-    
 
-    
 
-    
-    <app-banner color="primary" firstTitle="Change The Way Artists Share Value"
-    title="Become A BeatBlender" align="left">
-    <div fxFlex fxLayout="column" fxLayoutAlign="center center" style="margin: 0 10px 10px 0;">
-      <div style="width: 250px; height: 250px; object-fit: cover; overflow: hidden;">
+
+
+
+    <app-banner color="primary" firstTitle="Change The Way Artists Share Value" title="Become A BeatBlender"
+      align="left">
+      <div fxFlex fxLayout="column" fxLayoutAlign="center center" style="margin: 0 10px 10px 0;">
         <img style="width: 350px; height: 350px; object-fit: cover;"
           src="../../../assets/images/backgrounds/featuresSounds-artists_2x.png" alt="">
+        <button mat-raised-button routerLink="/about/introduction"
+          style="width: 80%; border-radius: 32px; padding: 8px 32px; font-size: 20px;">Learn More</button>
       </div>
-      <button mat-raised-button
-        style="width: 80%; border-radius: 32px; padding: 8px 32px; font-size: 20px;">Learn More</button>
-    </div>
-  </app-banner>
-    
+    </app-banner>
+
 
     <!-- <app-home-section firstTitle="Sakula Mula From Hanoi" style="background: var(--primary-light-color);" secondTitle="'BeatBlending gives artists wings.'">
       <img image class="left-image" src="../../../assets/images/backgrounds/splice6.png" alt="">

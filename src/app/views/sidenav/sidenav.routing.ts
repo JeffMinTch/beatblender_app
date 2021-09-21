@@ -12,11 +12,11 @@ export const SidenavRoutes: Routes = [
         loadChildren: () => import('../../views/licensing/licensing.module').then(m => m.LicensingModule),
         data: { title: 'Licensing' }
       },
-      {
-        path: 'sample-market',
-        loadChildren: () => import('../../views/sample-market/sample-market.module').then(m => m.SampleMarketModule),
-        data: { title: 'Sample Market', breadcrumb: 'Sample Market'}
-      },
+      // {
+      //   path: 'sample-market',
+      //   loadChildren: () => import('../../views/sample-market/sample-market.module').then(m => m.SampleMarketModule),
+      //   data: { title: 'Sample Market', breadcrumb: 'Sample Market'}
+      // },
       {
         path: 'listen',
         loadChildren: () => import('../../views/music-platform/music-platform.module').then(m => m.MusicPlatformModule),

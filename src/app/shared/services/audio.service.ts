@@ -286,9 +286,19 @@ export class AudioService implements OnDestroy {
     if (this.playStateControlService.getPlayState()) {
       this.playStateControlService.emitPlayState(false);
     }
+    // let samples: Array<Sample> = null;
+    // let tracks: Array<Track>  = null;
     // this.loader.close();
     if(audioUnits.length > 0) {
       this.createWavesurferObj(theme);
+      // if(audioUnits instanceof Sample) {
+      //   samples = audioUnits as Array<Sample>;
+      // } else if(audioUnits instanceof Track) {
+      //   tracks = audioUnits as Array<Track>;
+      // } else {
+      //   throw new Error("AudioUnits not instanceof Sample or Track");
+      // }
+
       this.loadPlayAudio(audioUnits[0].audioUnitID);
     }
     this.playStateControlService.emitCurrentSampleID(audioUnits[0].audioUnitID);

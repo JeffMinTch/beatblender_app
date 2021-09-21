@@ -18,13 +18,15 @@ export const config = {
       protected: {
         root: '/protected/audio',
         uploadSamples: '/upload-samples',
-        
+        registerTrack: '/register-track',
         getUploads: '/get-uploads',
+        getReleases: '/get-releases',
         updateTitle: '/update-title',
         updateGenre: '/update-genre',
         updateTempo: '/update-tempo',
         updateMoods: '/update-moods',
-        updateTags: '/update-tags'
+        updateTags: '/update-tags',
+        getSampleFromArtist: '/get-samples-from-artist'
       }
     },
     userPath: {

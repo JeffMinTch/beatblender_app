@@ -14,11 +14,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { BasicLicenseSidenavComponent } from './basic-license-sidenav/basic-license-sidenav.component';
 import { ChooseCategoryComponent } from './choose-category/choose-category.component';
 import { ChooseArtistComponent } from './choose-artist/choose-artist.component';
+import { FindAllComponent } from './find-all/find-all.component';
 
 
 
 @NgModule({
-  declarations: [SampleMarketComponent, DownloadSampleComponent, BasicLicenseSidenavComponent, ChooseCategoryComponent, ChooseArtistComponent],
+  declarations: [SampleMarketComponent, DownloadSampleComponent, BasicLicenseSidenavComponent, ChooseCategoryComponent, ChooseArtistComponent, FindAllComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(SampleMarketRoutes),

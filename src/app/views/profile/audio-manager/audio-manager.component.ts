@@ -71,7 +71,7 @@ export class AudioManagerComponent implements OnInit, AfterViewInit {
       //   this.audioService.loadPlayAudio(myUploads.sampleList[0].sampleID);
       //   this.initCurrentFile(myUploads.sampleList[0].sampleID);  
       // }
-      this.audioService.initAudioPlayer(this.myUploads.sampleList.map((track) => track.audioUnit), Theme.BODY);
+      this.audioService.initAudioPlayer(this.myUploads.sampleList, Theme.BODY);
       // this.playStateControlService.emitCurrentSampleID(this.myUploads.sampleList[0].audioUnit.audioUnitID);
       // this.audioService.emitAudioUnits(this.myUploads.sampleList);
       // this.audioService.emitAudioUnitsLoading(false);

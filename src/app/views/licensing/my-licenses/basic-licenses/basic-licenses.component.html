@@ -17,17 +17,8 @@
       a pre-investment and can be used on all Streaming Services.</h4>
       
       <div class="pt-8 full-width" fxLayout fxLayoutAlign="space-between center">
-        <div fxLayout fxLayoutGap="10px" fxLayoutAlign="start center" class="pl-8">
-          <!-- <button [routerLink]="'/sample-market/bb-license/' + artistName + '/all'" routerLinkActive="active" class="quick-access-button"
-              mat-raised-button>All</button> -->
-          <button [routerLink]="customerRouteFor('bb-100')" routerLinkActive="active" class="quick-access-button"
-            mat-raised-button>BB-100</button>
-          <button [routerLink]="customerRouteFor('bb-70')" routerLinkActive="active" class="quick-access-button"
-            mat-raised-button>BB-70</button>
-          <button [routerLink]="customerRouteFor('bb-30')" routerLinkActive="active" class="quick-access-button"
-            mat-raised-button>BB-30</button>
-        </div>
-        <div fxLayout fxLayoutGap="10px">
+        
+        <div fxLayout fxLayoutGap="10px" class="ml-auto">
           <button mat-raised-button (click)="changeViewMode('grid-view')" [color]="viewMode === 'grid-view' ? 'primary' : ''">
             <mat-icon>
               <span class="material-icons-outlined">
@@ -68,7 +59,7 @@
             <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
                 <span>{{product?.badge?.text}}</span>
               </div> -->
-            <app-audio-panel [audioUnit]="sample?.audioUnit" [type]="viewMode === 'grid-view' ? 'sample' : 'primary'" light="true" buttonText="Download" (clickEvent)="downloadAudioFile(sample)"></app-audio-panel>
+            <app-audio-panel [sample]="sample" [type]="viewMode === 'grid-view' ? 'sample' : 'primary'" light="true" buttonText="Download" (clickEvent)="downloadAudioFile(sample)"></app-audio-panel>
             
             <!-- Visible when viewMode === list-view -->
             <!-- <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">

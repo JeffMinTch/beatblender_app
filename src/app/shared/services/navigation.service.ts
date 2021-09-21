@@ -68,6 +68,17 @@ export class NavigationService implements OnInit {
       //   { name: 'Extended Licenses', state: 'extended-licenses', type: 'link' },
       // ]
     },
+    {
+      name: 'My Releases',
+      type: 'link',
+      tooltip: 'My Releases',
+      icon: 'album',
+      state: 'profile/my-releases'
+      // sub: [
+      //   { name: 'Basic Licenses', state: 'basic-licenses', type: 'link' },
+      //   { name: 'Extended Licenses', state: 'extended-licenses', type: 'link' },
+      // ]
+    },
     // {
     //   name: 'Manage Audio',
     //   type: 'dropDown',
@@ -108,20 +119,20 @@ export class NavigationService implements OnInit {
     //   icon: 'queue_music',
     //   state: 'profile/collaborations'
     // },
-    {
-      name: 'Distribute your sampled Track',
-      type: 'link',
-      tooltip: 'Distribute',
-      icon: 'public',
-      state: 'profile/distribute'
-    },
-    {
-      name: 'Manage your Finances',
-      type: 'link',
-      tooltip: 'Finances',
-      icon: 'account_balance_wallet',
-      state: 'profile/finances'
-    },
+    // {
+    //   name: 'Distribute your sampled Track',
+    //   type: 'link',
+    //   tooltip: 'Distribute',
+    //   icon: 'public',
+    //   state: 'profile/distribute'
+    // },
+    // {
+    //   name: 'Manage your Finances',
+    //   type: 'link',
+    //   tooltip: 'Finances',
+    //   icon: 'account_balance_wallet',
+    //   state: 'profile/finances'
+    // },
     {
       name: 'Settings',
       type: 'link',
@@ -191,10 +202,10 @@ export class NavigationService implements OnInit {
     //   ]
     // },
     {
-      name: 'BB License',
+      name: 'Find All',
       type: 'link',
       icon: 'storefront',
-      state: 'sample-market/bb-license'
+      state: 'sample-market/find-all'
     },
     // {
     //   name: 'License A', state: 'sample-market', type: 'dropDown', icon: 'storefront', sub: [
@@ -325,19 +336,35 @@ export class NavigationService implements OnInit {
     //     { name: 'License Deeds', state: 'license-deeds' , type: 'link'},
     //   ]
     // },
+    // {
+    //   name: 'License Register',
+    //   type: 'link',
+    //   tooltip: 'License Register',
+    //   icon: 'app_registration',
+    //   state: 'licensing/license-register'
+    // },
+    // {
+    //   name: 'Licenses',
+    //   type: 'link',
+    //   tooltip: 'Our Licenses',
+    //   icon: 'app_registration',
+    //   state: 'licensing/license-deeds',
+
+    // },
     {
-      name: 'License Register',
+      name: 'How It Works',
       type: 'link',
-      tooltip: 'License Register',
+      tooltip: 'How it works',
       icon: 'app_registration',
-      state: 'licensing/license-register'
+      state: 'licensing/how-to-distribute',
+
     },
     {
-      name: 'Licenses',
+      name: 'Your Songs',
       type: 'link',
       tooltip: 'Our Licenses',
       icon: 'app_registration',
-      state: 'licensing/license-deeds',
+      state: 'licensing/register-track',
 
     },
 
@@ -501,14 +528,14 @@ export class NavigationService implements OnInit {
             type: 'link',
             // tooltip: 'License Register',
             icon: 'app_registration',
-            state: 'licensing/license-register'
+            state: 'licensing/how-to-distribute'
           },
           {
             name: 'Licenses',
             type: 'link',
             // tooltip: 'Our Licenses',
             icon: 'app_registration',
-            state: 'licensing/license-deeds',
+            state: 'licensing/register-track',
       
           },
         ]
@@ -591,20 +618,24 @@ export class NavigationService implements OnInit {
           //   icon: 'queue_music',
           //   state: 'profile/collaborations'
           // },
-          {
-            name: 'Distribute your sampled Track',
-            type: 'link',
-            // tooltip: 'Distribute',
-            icon: 'public',
-            state: 'distribute'
-          },
-          {
-            name: 'Manage your Finances',
-            type: 'link',
-            // tooltip: 'Finances',
-            icon: 'account_balance_wallet',
-            state: 'finances'
-          },
+          // {
+          //   name: 'Distribute your sampled Track',
+          //   type: 'link',
+          //   // tooltip: 'Distribute',
+          //   icon: 'public',
+          //   state: '',
+          //   // sub: [
+          //   //       { name: 'Basic Licenses', state: 'how-to-distribute', type: 'link' },
+          //   //       { name: 'Extended Licenses', state: 'register-track', type: 'link' },
+          //   //     ]
+          // },
+          // {
+          //   name: 'Manage your Finances',
+          //   type: 'link',
+          //   // tooltip: 'Finances',
+          //   icon: 'account_balance_wallet',
+          //   state: 'finances'
+          // },
           {
             name: 'Settings',
             type: 'link',
