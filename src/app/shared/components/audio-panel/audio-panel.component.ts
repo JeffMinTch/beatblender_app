@@ -8,6 +8,7 @@ import { AudioState } from 'app/shared/models/audio-state.model';
 import { AudioUnit } from 'app/shared/models/audio-unit.model';
 import { Sample } from 'app/shared/models/sample.model';
 import { Track } from 'app/shared/models/track.model';
+import { environment } from 'environments/environment';
 
 export type AudioPanelType = 'primary' | 'sample' | 'playlist' | 'iconButton';
 
@@ -32,8 +33,15 @@ export class AudioPanelComponent implements OnInit, AfterViewInit {
   @Input() triggerAudioBy: 'panel' | 'button' = 'panel';
   @Input() button: boolean = true;
   @Input() buttonText: string = 'Get a License';
+  @Input() secondButtonText: string;
+
   @Input() light: boolean = false;
   @Output() clickEvent = new EventEmitter();
+  @Output() secondButtonClickEvent = new EventEmitter();
+
+  private IMAGE = environment.apiURL.baseUrl + environment.apiURL.mediaPath.public.root + environment.apiURL.mediaPath.public.image;
+
+
 
   public playState: boolean;
   public currentSampleID: string;
@@ -186,6 +194,10 @@ export class AudioPanelComponent implements OnInit, AfterViewInit {
   routeToArtistProfile(event: Event) {
     event.stopPropagation();
       this.router.navigate(['sample-market', this.audioUnit.artistAlias.artistName, this.audioUnit.artistAlias.artistALiasID]);
+  }
+
+  getImage() {
+    return `${this.IMAGE}/${this.audioUnit.audioUnitID}`;
   }
 
 }

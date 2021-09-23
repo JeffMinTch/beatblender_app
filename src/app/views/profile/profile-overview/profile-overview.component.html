@@ -18,8 +18,8 @@
       <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
       <span style="color: var(--primary-color);">H</span>
       <span style="">i, </span>
-      <span style="color: var(--accent-color); font-weight: 600;">S</span>
-      <span style="font-weight: 600; color: var(--base-accent-color);">ido!</span>
+      <!-- <span style="color: var(--accent-color); font-weight: 600;">S</span> -->
+      <span style="font-weight: 600; color: var(--base-accent-color);">{{userData?.artistAlias?.artistName}}</span>
     </h1>
 
   </div>
@@ -31,7 +31,7 @@
 <div class="p-8" style="overflow: hidden;">
 
   <mat-divider class="mb-16"></mat-divider>
-  <h1 class="mx-0 mb-16">
+  <h1 class="mx-0 mb-16 text-center">
     <!-- <div style="width: 64px; height: 64px;" class="mr-16">
           <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
         </div> -->
@@ -44,9 +44,8 @@
   <!-- <div
     style="background: var; background-image: url(../../../../assets/images/techno.jpg); background-repeat: none; background-size: cover;"
     class="py-48"> -->
-    <div fxLayout="row wrap" fxLayoutAlign="space-between center" class="p-16 my-32 mx-48 mat-elevation-z1"
-      style="border-radius: 8px; background: var(--light-theme);">
-      <section fxLayoutAlign="center center" fxLayout="column" [ngStyle.xs]="{'width' : '100%'}"
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center" class="p-16 my-32 mx-48" fxLayoutGap="10px">
+      <mat-card fxLayoutAlign="center center" fxLayout="column" [ngStyle.xs]="{'width' : '100%'}"
         [ngStyle.sm]="{'width' : '50%'}" [ngStyle.md]="{'width' : '50%'}" [ngStyle.lg]="{'width' : '30%'}"
         [ngStyle.xl]="{'width' : '30%'}" class="dashboard-card">
         <h4 fxLayoutAlign="start center" class="my-16 text-muted" style="">
@@ -60,8 +59,8 @@
           <h3 class="m-0 font-normal balance-text">128 Times</h3>
           <small class="text-muted">by our Community</small>
         </div>
-      </section>
-      <section fxLayoutAlign="center center" fxLayout="column"
+      </mat-card>
+      <mat-card fxLayoutAlign="center center" fxLayout="column"
         style="border-left: 2px solid var(--light-theme-accent); border-right: 2px solid var(--light-theme-accent);"
         [ngStyle.xs]="{'width' : '100%'}" [ngStyle.sm]="{'width' : '50%'}" [ngStyle.md]="{'width' : '50%'}"
         [ngStyle.lg]="{'width' : '30%'}" [ngStyle.xl]="{'width' : '30%'}" class="dashboard-card">
@@ -74,8 +73,8 @@
           <h3 class="m-0 font-normal balance-text">22,450 Dollar</h3>
           <small class="text-muted">earned by you</small>
         </div>
-      </section>
-      <section fxLayoutAlign="center center" fxLayout="column" [ngStyle.xs]="{'width' : '100%'}"
+      </mat-card>
+      <mat-card fxLayoutAlign="center center" fxLayout="column" [ngStyle.xs]="{'width' : '100%'}"
         [ngStyle.sm]="{'width' : '50%'}" [ngStyle.md]="{'width' : '50%'}" [ngStyle.lg]="{'width' : '30%'}"
         [ngStyle.xl]="{'width' : '30%'}" class="dashboard-card">
         <h4 fxLayoutAlign="start center" class="my-16">
@@ -88,7 +87,7 @@
               style="color: var(--accent-color);">B</span>-Remixes</h3>
           <small class="text-muted">with Samples from BeatBlender</small>
         </div>
-      </section>
+      </mat-card>
 
     </div>
 

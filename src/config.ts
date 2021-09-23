@@ -64,7 +64,8 @@ export const config = {
     mediaPath: {
       public: {
         root: '/public/media',
-        audio: '/audio'
+        audio: '/audio',
+        image: '/image'
       },
       protected: {
         root: '/protected/media',

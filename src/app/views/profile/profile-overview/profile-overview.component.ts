@@ -111,6 +111,9 @@ export class ProfileOverviewComponent implements OnInit {
     isOpen: false
   }]
 
+  userData: any;
+
+
   
 
   constructor(
@@ -151,6 +154,9 @@ export class ProfileOverviewComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.jwt.userData$.subscribe((userData) => {
+      this.userData = userData;
+    });
   }
 
   public retrieveSamples(): void {

@@ -51,7 +51,7 @@
             <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
                 <span>{{product?.badge?.text}}</span>
               </div> -->
-            <app-audio-panel [track]="release?.track" [type]="viewMode === 'grid-view' ? 'sample' : 'primary'" light="true" buttonText="Download"></app-audio-panel>
+            <app-audio-panel (clickEvent)="downloadTrackLicense(track)" [track]="release?.track" [type]="viewMode === 'grid-view' ? 'sample' : 'primary'" light="true" buttonText="Download License"></app-audio-panel>
             
             <!-- Visible when viewMode === list-view -->
             <!-- <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">

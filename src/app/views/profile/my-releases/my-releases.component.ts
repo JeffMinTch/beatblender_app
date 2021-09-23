@@ -1,9 +1,12 @@
+import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
 import { AudioWebService } from 'app/shared/services/web-services/audio-web.service';
 import { Component, OnInit } from '@angular/core';
 import { Release } from '../../../shared/models/release.model';
 import { AudioService } from 'app/shared/services/audio.service';
 import { Theme } from 'app/shared/enums/theme.enum';
 import { egretAnimations } from 'app/shared/animations/egret-animations';
+import { environment } from 'environments/environment';
+import { Track } from 'app/shared/models/track.model';
 @Component({
   selector: 'app-my-releases',
   templateUrl: './my-releases.component.html',
@@ -16,11 +19,10 @@ export class MyReleasesComponent implements OnInit {
   public releases: Array<Release> = null;
 
 
-
   constructor(
     private audioWebService: AudioWebService,
     private audioService: AudioService,
-
+    private jwt: JwtAuthService
   ) { }
 
   ngOnInit(): void {
@@ -31,10 +33,17 @@ export class MyReleasesComponent implements OnInit {
       // this.basicLicenseSubject$.next(data);
       // this.dataSource = new MatTableDataSource<BasicLicense>(data);
     });
+
+   
   } 
 
   changeViewMode(viewMode: 'grid-view' | 'list-view') {
     this.viewMode = viewMode;
+  }
+
+  downloadTrackLicense(track: Track) {
+    const API = `${environment.apiURL.baseUrl + environment.apiURL.mediaPath.protected.root + environment.apiURL.mediaPath.protected.getBasicLicenseFile}/${track.trackID}/${track.audioUnit.artistAlias.artist.user.uuid}`;
+    window.location.href = API;
   }
 
 }
