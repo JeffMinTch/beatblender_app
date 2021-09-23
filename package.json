@@ -2,6 +2,9 @@
   "name": "egret",
   "version": "10.0.0",
   "license": "https://themeforest.net/licenses/terms/regular",
+  "engines": {
+    "node": "10.x"
+  },
   "scripts": {
     "postinstall": "ngcc",
     "ng": "ng",
