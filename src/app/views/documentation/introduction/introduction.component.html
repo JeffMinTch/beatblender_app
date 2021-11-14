@@ -1,151 +1,314 @@
-<div class="introduction-container pl-16" fxFlex fxLayout="column">
-  <h1>About the BeatBlender Project.</h1>
-  <p class="standard-text">
-    BeatBlender is a music and licesensing platform that was created with the aim of making a world of commercial music
-    sampling accessible to everyone. Regardless of their income. It creates a music licensing system with the aim of
-    creating the maximum variety of music. Not just for you, but for everyone. Lorem ipsum dolor sit amet consectetur
-    adipisicing elit. Dolores magnam cumque sapiente! Eum in reprehenderit iusto similique deserunt repellat facere.
-  </p>
-  <h2>BeatBlender is Different</h2>
-  <p class="standard-text">
-    Music Licensing works different at Back2Roots than on usual Sample Markets. Unlike there, you don't buy music rights
-    here by paying a painful sum of money for them. You get music rights by paying with creativity. <br>Wait What?
-    Creativity? Yes, you've heard me right!
+<div fxLayout="column">
+    
+    
+  <section fxFlex fxLayout="row wrap">
+        <div fxLayout="column" fxFlex="100">
+          <div fxLayoutAlign="start start"
+            style="width: 100%; height: 200px; background-image: url(../../../../assets/images/backgrounds/window-studio2.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;">
+            <!-- <mat-card style="opacity: 1; padding: 20px 80px;" class="">
+            <mat-card-title class="text-center"> <span style="font-weight: 300;">All Samples Are For</span> <br> <span style="font-weight: 700; font-size: 36px; color: var(--primary-color);">Free <span style="color: var(--accent-color);">Use</span></span></mat-card-title>
+            </mat-card> -->
+          </div>
+  <h1 class="text-center">How To Create Tracks</h1>
 
-  </p>
-  <section fxFlex fxLayout="row wrap" fxLayoutAlign="center start" class="card-section">
-    <div fxLayout="row" class="card-container">
+          <div fxLayout fxLayoutGap="10px" fxLayoutAlign="center center">
+            <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+            <div class="" #soundBar
+              *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21, 22,23,24,25,26]"
+              style="width: 10px; background: var(--light-theme-accent);">
+  
+            </div>
+            <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+  
+  
+  
+          </div>
+          <div>
+            <mat-card-content style="font-size: 20px; line-height: 50px;">
+              <div fxLayout fxLayoutGap="50px" fxLayoutAlign="center center">
+                <!-- <img style="width: 500px; height: 200px; object-fit: cover; border-radius: 8px;" src="../../../assets/images/backgrounds/studio1.jpg" alt=""> -->
+                <div fxLayout="column" fxLayoutAlign="start center">
+                  <!-- <div fxLayout fxLayoutAlign="start center" fxLayoutGap="space-between">
+                    
+                  </div> -->
+                  <div fxLayout fxLayoutGap="30px" fxLayoutAlign="center center">
+                    <app-divider size="sm" fxFlex color="var(--light-theme-accent)"></app-divider>
+                    <h1 style="width: 60px;">1</h1>
+                    <app-divider size="sm" fxFlex color="var(--light-theme-accent)"></app-divider>
+                  </div>
+                  <mat-card-title class="text-center"> <span style="font-weight: 300;">Download</span><br> <span
+                      style="font-weight: 700; font-size: 72px; color: var(--primary-color); line-height: 100px;">Endless
+                      <span style="color: var(--accent-color);">Music</span></span></mat-card-title>
+                  <p fxFlex class="text-center">
+                    Passionated Creators have produced loads of music to share with the community. The sad truth is that
+                    many producer dont upload their music to Free Music Platforms because they hope they can sell their
+                    music for high prices on sample markets, which mostly likely won't be the case unless your a famous
+                    sample producer.
+                  </p>
+                  <button mat-raised-button mat-lg-button color="accent" style="color: var(--light-theme);"
+                    routerLink="/sample-market">Sample Market</button>
+                </div>
+              </div>
+            </mat-card-content>
+          </div>
+          <div fxLayout fxLayoutGap="10px" fxLayoutAlign="center center" class="my-48">
+            <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+            <div class="" #soundBar
+              *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21, 22,23,24,25,26]"
+              style="width: 10px; background: var(--light-theme-accent);">
+  
+            </div>
+            <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+  
+  
+  
+          </div>
+          <div>
+            <mat-card-content style="font-size: 20px; line-height: 50px;">
+              <div fxLayout fxLayoutGap="50px" fxLayoutAlign="center center">
+                <!-- <img style="width: 500px; height: 200px; object-fit: cover; border-radius: 8px;" src="../../../assets/images/backgrounds/studio1.jpg" alt=""> -->
+                <div fxLayout="column" fxLayoutAlign="start center">
+                  <h1>2</h1>
+  
+                  <mat-card-title class="text-center"> <span style="font-weight: 300;">Produce Your</span><br> <span
+                      style="font-weight: 700; font-size: 72px; color: var(--primary-color); line-height: 100px;">New
+                      <span style="color: var(--accent-color);">Track</span></span></mat-card-title>
+                  <p fxFlex class="text-center">
+                    Passionated Creators have produced loads of music to share with the community. The sad truth is that
+                    many producer dont upload their music to Free Music Platforms because they hope they can sell their
+                    music for high prices on sample markets, which mostly likely won't be the case unless your a famous
+                    sample producer.
+                  </p>
+                </div>
+              </div>
+            </mat-card-content>
+          </div>
+          <div fxLayout fxLayoutGap="10px" fxLayoutAlign="center center" class="my-48">
+            <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+            <div class="" #soundBar
+              *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21, 22,23,24,25,26]"
+              style="width: 10px; background: var(--light-theme-accent);">
+  
+            </div>
+            <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+  
+  
+  
+          </div>
+          <div>
+            <mat-card-content style="font-size: 20px; line-height: 50px;">
+              <div fxLayout fxLayoutGap="50px" fxLayoutAlign="center center">
+                <!-- <img style="width: 500px; height: 200px; object-fit: cover; border-radius: 8px;" src="../../../assets/images/backgrounds/studio1.jpg" alt=""> -->
+                <div fxLayout="column" fxLayoutAlign="start center">
+                  <h1>3</h1>
+  
+                  <mat-card-title class="text-center"> <span style="font-weight: 300;">To Release Your Sound</span><br>
+                    <span
+                      style="font-weight: 700; font-size: 72px; color: var(--primary-color); line-height: 100px;">Register
+                      <span style="color: var(--accent-color);">Track</span></span></mat-card-title>
+                  <p fxFlex class="text-center">
+                    Passionated Creators have produced loads of music to share with the community. The sad truth is that
+                    many producer dont upload their music to Free Music Platforms because they hope they can sell their
+                    music for high prices on sample markets, which mostly likely won't be the case unless your a famous
+                    sample producer.
+                  </p>
+                  <button mat-raised-button mat-lg-button color="primary" routerLink="/licensing/register-track">Release
+                    Track</button>
+  
+                </div>
+              </div>
+            </mat-card-content>
+          </div>
+          <div fxLayout fxLayoutGap="10px" fxLayoutAlign="center center" class="my-48">
+            <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+            <div class="" #soundBar
+              *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21, 22,23,24,25,26]"
+              style="width: 10px; background: var(--light-theme-accent);">
+  
+            </div>
+            <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+  
+  
+  
+          </div>
+         
+  
+  
+  
+        </div>
+  
+        <!-- <div fxFlex="33">
+          <mat-card >
+            <mat-card-title>Free To Use</mat-card-title>
+            <mat-card-content>
+              All Sampeles from our platform are free to use and dont require a payed subscription. 
+            </mat-card-content>
+          </mat-card>
+  
+        </div>
+        <div fxFlex="33">
+          <mat-card>
+            <mat-card-title>Endless Resources</mat-card-title>
+            <mat-card-content>
+              What's so special about BeatBlender are endless combination possibilities. No matter if you want to use 1 or 100 samples. There are no limits in freedom and creativity.  
+            </mat-card-content>
+          </mat-card>
+  
+        </div> -->
+  
+      </section>
 
-      <mat-card>
-        <!-- <mat-card-header> -->
-        <!-- <div mat-card-avatar class="example-header-image"></div> -->
-        <mat-card-title>What is BeatBlender</mat-card-title>
-        <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
-        <!-- </mat-card-header> -->
-        <mat-card-content fxLayoutAlign="center center">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora neque autem ad.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <!-- <button mat-button>LIKE</button>
-                    <button mat-button>SHARE</button> -->
-        </mat-card-actions>
-      </mat-card>
-    </div>
-
-    <div fxLayout="row" class="card-container">
-
-      <mat-card>
-        <!-- <mat-card-header> -->
-        <!-- <div mat-card-avatar class="example-header-image"></div> -->
-        <mat-card-title>How To Get A License</mat-card-title>
-        <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
-        <!-- </mat-card-header> -->
-        <mat-card-content fxLayoutAlign="center center">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam officia cupiditate modi quia nihil sit
-            vel quo quos eum veritatis.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <!-- <button mat-button>LIKE</button>
-                    <button mat-button>SHARE</button> -->
-        </mat-card-actions>
-      </mat-card>
-    </div>
-    <div fxLayout="row" class="card-container">
-
-      <mat-card>
-        <!-- <mat-card-header> -->
-        <!-- <div mat-card-avatar class="example-header-image"></div> -->
-        <mat-card-title>Sampling Rules</mat-card-title>
-        <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
-        <!-- </mat-card-header> -->
-        <mat-card-content fxLayoutAlign="center center">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam natus iste quidem.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <!-- <button mat-button>LIKE</button>
-                    <button mat-button>SHARE</button> -->
-        </mat-card-actions>
-      </mat-card>
-    </div>
-    <div fxLayout="row" class="card-container">
-
-      <mat-card>
-        <!-- <mat-card-header> -->
-        <!-- <div mat-card-avatar class="example-header-image"></div> -->
-        <mat-card-title>Video Tutorials</mat-card-title>
-        <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
-        <!-- </mat-card-header> -->
-        <mat-card-content fxLayoutAlign="center center">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam natus iste quidem.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <!-- <button mat-button>LIKE</button>
-                    <button mat-button>SHARE</button> -->
-        </mat-card-actions>
-      </mat-card>
-    </div>
-    <div fxLayout="row" class="card-container">
-
-      <mat-card>
-        <!-- <mat-card-header> -->
-        <!-- <div mat-card-avatar class="example-header-image"></div> -->
-        <mat-card-title>FAQ</mat-card-title>
-        <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
-        <!-- </mat-card-header> -->
-        <mat-card-content fxLayoutAlign="center center">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam natus iste quidem.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <!-- <button mat-button>LIKE</button>
-                    <button mat-button>SHARE</button> -->
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </section>
-  <p class="standard-text">
-    BeatBlender is a project that was created with the aim of making a world of commercial music sampling accessible to
-    everyone. It creates a music licensing system with the aim of creating the maximum variety of music. Not just for
-    you, but for everyone. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores magnam cumque sapiente! Eum
-    in reprehenderit iusto similique deserunt repellat facere.
-  </p>
-  <!-- <mat-divider class="py-32"></mat-divider> -->
-  <h2>How To Support Us.</h2>
-  <p class="standard-text">
-    BeatBlender is a project that was created with the aim of making a world of commercial music sampling accessible to
-    everyone. It creates a music licensing system with the aim of creating the maximum variety of music. Not just for
-    you, but for everyone. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores magnam cumque sapiente! Eum
-    in reprehenderit iusto similique deserunt repellat facere.
-  </p>
-  <div class="pl-16">
-    <h3>You are an Artist.</h3>
+  
+  <div class="introduction-container pl-16" fxFlex fxLayout="column">
+    <h1>About the BeatBlender Project.</h1>
     <p class="standard-text">
-      BeatBlender is a project that was created with the aim of making a world of commercial music sampling accessible
-      to everyone. It creates a music licensing system with the aim of creating the maximum variety of music. Not just
-      for you, but for everyone. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores magnam cumque
-      sapiente! Eum in reprehenderit iusto similique deserunt repellat facere.
+      BeatBlender is a music and licesensing platform that was created with the aim of making a world of commercial music
+      sampling accessible to everyone. Regardless of their income. It creates a music licensing system with the aim of
+      creating the maximum variety of music. Not just for you, but for everyone. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Dolores magnam cumque sapiente! Eum in reprehenderit iusto similique deserunt repellat facere.
     </p>
-    <h3>You are a Listener.</h3>
+    <h2>BeatBlender is Different</h2>
     <p class="standard-text">
-      BeatBlender is a project that was created with the aim of making a world of commercial music sampling accessible
-      to everyone. It creates a music licensing system with the aim of creating the maximum variety of music. Not just
-      for you, but for everyone. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores magnam cumque
-      sapiente! Eum in reprehenderit iusto similique deserunt repellat facere.
+      Music Licensing works different at Back2Roots than on usual Sample Markets. Unlike there, you don't buy music rights
+      here by paying a painful sum of money for them. You get music rights by paying with creativity. <br>Wait What?
+      Creativity? Yes, you've heard me right!
+  
     </p>
-
+    <section fxFlex fxLayout="row wrap" fxLayoutAlign="center start" class="card-section">
+      <div fxLayout="row" class="card-container">
+  
+        <mat-card>
+          <!-- <mat-card-header> -->
+          <!-- <div mat-card-avatar class="example-header-image"></div> -->
+          <mat-card-title>What is BeatBlender</mat-card-title>
+          <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+          <!-- </mat-card-header> -->
+          <mat-card-content fxLayoutAlign="center center">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora neque autem ad.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <!-- <button mat-button>LIKE</button>
+                      <button mat-button>SHARE</button> -->
+          </mat-card-actions>
+        </mat-card>
+      </div>
+  
+      <div fxLayout="row" class="card-container">
+  
+        <mat-card>
+          <!-- <mat-card-header> -->
+          <!-- <div mat-card-avatar class="example-header-image"></div> -->
+          <mat-card-title>How To Get A License</mat-card-title>
+          <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+          <!-- </mat-card-header> -->
+          <mat-card-content fxLayoutAlign="center center">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam officia cupiditate modi quia nihil sit
+              vel quo quos eum veritatis.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <!-- <button mat-button>LIKE</button>
+                      <button mat-button>SHARE</button> -->
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div fxLayout="row" class="card-container">
+  
+        <mat-card>
+          <!-- <mat-card-header> -->
+          <!-- <div mat-card-avatar class="example-header-image"></div> -->
+          <mat-card-title>Sampling Rules</mat-card-title>
+          <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+          <!-- </mat-card-header> -->
+          <mat-card-content fxLayoutAlign="center center">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam natus iste quidem.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <!-- <button mat-button>LIKE</button>
+                      <button mat-button>SHARE</button> -->
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div fxLayout="row" class="card-container">
+  
+        <mat-card>
+          <!-- <mat-card-header> -->
+          <!-- <div mat-card-avatar class="example-header-image"></div> -->
+          <mat-card-title>Video Tutorials</mat-card-title>
+          <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+          <!-- </mat-card-header> -->
+          <mat-card-content fxLayoutAlign="center center">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam natus iste quidem.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <!-- <button mat-button>LIKE</button>
+                      <button mat-button>SHARE</button> -->
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div fxLayout="row" class="card-container">
+  
+        <mat-card>
+          <!-- <mat-card-header> -->
+          <!-- <div mat-card-avatar class="example-header-image"></div> -->
+          <mat-card-title>FAQ</mat-card-title>
+          <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+          <!-- </mat-card-header> -->
+          <mat-card-content fxLayoutAlign="center center">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam natus iste quidem.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <!-- <button mat-button>LIKE</button>
+                      <button mat-button>SHARE</button> -->
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </section>
+    <p class="standard-text">
+      BeatBlender is a project that was created with the aim of making a world of commercial music sampling accessible to
+      everyone. It creates a music licensing system with the aim of creating the maximum variety of music. Not just for
+      you, but for everyone. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores magnam cumque sapiente! Eum
+      in reprehenderit iusto similique deserunt repellat facere.
+    </p>
+    <!-- <mat-divider class="py-32"></mat-divider> -->
+    <h2>How To Support Us.</h2>
+    <p class="standard-text">
+      BeatBlender is a project that was created with the aim of making a world of commercial music sampling accessible to
+      everyone. It creates a music licensing system with the aim of creating the maximum variety of music. Not just for
+      you, but for everyone. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores magnam cumque sapiente! Eum
+      in reprehenderit iusto similique deserunt repellat facere.
+    </p>
+    <div class="pl-16">
+      <h3>You are an Artist.</h3>
+      <p class="standard-text">
+        BeatBlender is a project that was created with the aim of making a world of commercial music sampling accessible
+        to everyone. It creates a music licensing system with the aim of creating the maximum variety of music. Not just
+        for you, but for everyone. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores magnam cumque
+        sapiente! Eum in reprehenderit iusto similique deserunt repellat facere.
+      </p>
+      <h3>You are a Listener.</h3>
+      <p class="standard-text">
+        BeatBlender is a project that was created with the aim of making a world of commercial music sampling accessible
+        to everyone. It creates a music licensing system with the aim of creating the maximum variety of music. Not just
+        for you, but for everyone. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores magnam cumque
+        sapiente! Eum in reprehenderit iusto similique deserunt repellat facere.
+      </p>
+  
+    </div>
+    <h2>Feedback.</h2>
+    <p class="standard-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum aspernatur repellat beatae
+      quos commodi odit voluptate ullam facere inventore dolor ab quae, repellendus similique? Inventore sint repellat,
+      veritatis sit, nobis necessitatibus nemo ipsa nostrum dolores quo fuga recusandae! Nesciunt, deleniti?</p>
+      <footer></footer>
   </div>
-  <h2>Feedback.</h2>
-  <p class="standard-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum aspernatur repellat beatae
-    quos commodi odit voluptate ullam facere inventore dolor ab quae, repellendus similique? Inventore sint repellat,
-    veritatis sit, nobis necessitatibus nemo ipsa nostrum dolores quo fuga recusandae! Nesciunt, deleniti?</p>
-    <footer></footer>
 </div>
+

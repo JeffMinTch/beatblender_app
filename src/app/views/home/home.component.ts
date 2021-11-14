@@ -1,5 +1,5 @@
 import { OAuthService } from 'angular-oauth2-oidc';
-import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ViewChildren, ElementRef, QueryList, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router'
 import { AppLoaderService } from '../../shared/services/app-loader/app-loader.service';
 // import PerfectScrollbar from 'perfect-scrollbar';
@@ -7,6 +7,7 @@ import { ILayoutConf, LayoutService } from 'app/shared/services/layout.service';
 import Typewriter from 'typewriter-effect/dist/core';
 import { NavigationService } from 'app/shared/services/navigation.service';
 import { Subscription } from 'rxjs';
+import { StreamingService } from '../profile/distribute/distribute.component';
 
 
 @Component({
@@ -14,7 +15,58 @@ import { Subscription } from 'rxjs';
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
+
+  @ViewChildren('soundBar') public soundbars: QueryList<ElementRef>;
+
   public mainVersion;
+
+  streamingServiceList: StreamingService[] = [
+    {
+        name: 'spotify',
+        path: 'spotify-new.svg'
+    },
+    {
+        name: 'apple-music',
+        path: 'apple-new.svg'
+    },
+    {
+        name: 'amazon-music',
+        path: 'amazon-music-new.svg'
+    },
+    {
+        name: 'tidal',
+        path: 'tidal-new.svg'
+    },
+    {
+        name: 'pandora',
+        path: 'pandora-new.svg'
+    },
+    {
+        name: 'youtube',
+        path: 'youtube-music-new.svg'
+    },
+    {
+        name: 'napster',
+        path: 'napster-new.svg'
+    },
+    {
+        name: 'anghami',
+        path: 'anghami-new.svg'
+    },
+    {
+        name: 'deezer',
+        path: 'deezer-new.svg'
+    },
+    {
+        name: 'tik-tok',
+        path: 'tiktok-new.svg'
+    },
+    {
+        name: 'instagram',
+        path: 'Download.jpeg'
+    }
+];
+
   /****** Only for demo) **********/
   public versions: any[] = [
     {
@@ -145,7 +197,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     private loader: AppLoaderService,
     public layout: LayoutService,
     private navService: NavigationService,
-    private oauthService: OAuthService
+    private oauthService: OAuthService,
+    private renderer: Renderer2
     // public themeService: ThemeService,
   ) { }
 
@@ -173,22 +226,98 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     // });
     var app = document.getElementById('title');
 
+    console.log(this.soundbars);
+    this.soundbars.toArray().forEach((soundbar => {
+      this.renderer.setStyle(soundbar.nativeElement, 'height', Math.random() * 50 + 'px');
+    }));
+
     var typewriter = new Typewriter(app, {
       loop: true,
       delay: 75,
-      autoStart: true
+      autoStart: true,
+      cursorClassName: 'cursor'
     });
-    // (app as HTMLElement).innerHTML = 'Enter the void';
+    // (app as HTMLElement).innerHTML = 'YOUR MUSIC CAN CREATE';
     typewriter
     // .deleteChars(24)
-    .pauseFor(1000)
-    // .pasteString('BeatBlender Producer')
+    // .pauseFor(1000)
+    // .pasteString('Value')
     // .typeString('<span style="color: var(--body-color)">BeatBlender Producer </span>')
     // .pauseFor(300)
-    .typeString('<span style="color: var(--body-color)">help each other.</span>')
+    .typeString('<span style="color: var(--primary-color); font-size: 36px;">Mix </span>')
+    .typeString('<span style="color: var(--accent-color); font-size: 36px;">Art</span>')
+    .pauseFor(1300)
+    
+    .deleteChars(15)
+    .pauseFor(1300)
+    .typeString('<span style="color: var(--body-color); font-size: 36px;"></span>')
+    .typeString('<span style="color: var(--primary-color); font-size: 36px;">Raise </span>')
+    .typeString('<span style="color: var(--accent-color); font-size: 36px;">Donations</span>')
+    .pauseFor(1300)
+    
+    .deleteChars(18)
+
+    .deleteChars(15)
+    .pauseFor(1300)
+    .typeString('<span style="color: var(--body-color); font-size: 36px;"></span>')
+    .typeString('<span style="color: var(--primary-color); font-size: 36px;">Simplify </span>')
+    .typeString('<span style="color: var(--accent-color); font-size: 36px;">Licensing</span>')
+    .pauseFor(1300)
+    
+    .deleteChars(18)
+
+    .deleteChars(15)
+    .pauseFor(1300)
+    .typeString('<span style="color: var(--body-color); font-size: 36px;"></span>')
+    .typeString('<span style="color: var(--primary-color); font-size: 36px;">Plant </span>')
+    .typeString('<span style="color: var(--accent-color); font-size: 36px;">Trees</span>')
+    .pauseFor(1300)
+    
+    .deleteChars(11)
+
+    // .pauseFor(1400)
+    // .typeString('<span style="color: var(--primary-color); font-size: 36px;">Create </span>')
+    // .typeString('<span style="color: var(--accent-color); font-size: 36px;">Culture</span>')
+    // .deleteChars(14)
+    .pauseFor(1400)
+    .typeString('<span style="color: var(--primary-color); font-size: 36px;">Trace </span>')
+    .typeString('<span style="color: var(--accent-color); font-size: 36px;">Copyrights</span>')
+    .pauseFor(1300)
+    
     .deleteChars(16)
-    .pauseFor(300)
-    .typeString('<strong style="color: var(--body-color)">create music together.')
+
+
+    .pauseFor(1400)
+    .typeString('<span style="color: var(--primary-color); font-size: 36px;">Share </span>')
+    .typeString('<span style="color: var(--accent-color); font-size: 36px;">Culture</span>')
+    .pauseFor(3000)
+    
+    .deleteChars(16)
+
+    .pauseFor(1400)
+    .typeString('<span style="color: var(--primary-color); font-size: 36px;">Grow </span>')
+    .typeString('<span style="color: var(--accent-color); font-size: 36px;">Together</span>')
+    .pauseFor(1300)
+    
+    .deleteChars(16)
+
+
+    .deleteChars(15)
+    .pauseFor(1300)
+    .typeString('<span style="color: var(--primary-color); font-size: 36px;">Make </span>')
+    .typeString('<span style="color: var(--body-color); font-size: 36px;">A </span>')
+    .typeString('<span style="color: var(--accent-color); font-size: 36px;">Change</span>')
+    .pauseFor(1300)
+    
+    .deleteChars(11)
+    
+    // .pauseFor(1400)
+    // .typeString('<span style="color: var(--primary-color); font-size: 42px;">To </span>')
+    // .typeString('<span style="color: var(--accent-color); font-size: 42px;">Inspire</span>')
+    // .deleteChars(14)
+    
+
+    // .typeString('<strong style="color: var(--light-theme); font-size: 42px;">Value</strong>')
     // .deleteChars(48)
     //   .pauseFor(1000)
     //   .deleteChars(28)
@@ -215,6 +344,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   login(): void {
     this.oauthService.initLoginFlow();
   }
+
+  
 
 
 }

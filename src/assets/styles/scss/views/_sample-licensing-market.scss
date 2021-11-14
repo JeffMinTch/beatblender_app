@@ -213,7 +213,7 @@ filter: drop-shadow(16px 0px 0 #fe2d52);
 
   .product-wrap {
     // width: 100%;
-    width: 33.33%;
+    // width: 100%;
     float: left;
     height: fit-content;
     .download-button {
@@ -253,9 +253,9 @@ filter: drop-shadow(16px 0px 0 #fe2d52);
       //       background: map-get($default-accent-palette, main) !important;
       //   }
       // }
-      &:hover {
-        background: var(--light-theme-accent);
-      }
+      // &:hover {
+      //   background: var(--light-theme-accent);
+      // }
       
       .product-badge {
         color: #fff;
@@ -527,4 +527,17 @@ filter: drop-shadow(16px 0px 0 #fe2d52);
   &:active {
     outline: none;
   }
+}
+
+
+.audio-panel-width1 {
+  width: 33.33%;
+}
+
+.audio-panel-width2 {
+  width: 50%;
+}
+
+.audio-panel-width3 {
+  width: 100%;
 }

@@ -1,5 +1,6 @@
 import { SidenavComponent } from './sidenav.component';
 import { Routes } from '@angular/router';
+import { AuthGuard } from 'app/shared/guards/auth.guard';
 
 
 export const SidenavRoutes: Routes = [
@@ -25,7 +26,9 @@ export const SidenavRoutes: Routes = [
       {
         path: 'profile',
         loadChildren: () => import('../../views/profile/profile.module').then(m => m.ProfileModule),
-        data: { title: 'Profile', breadcrumb: 'Profile' }
+        data: { title: 'Profile', breadcrumb: 'Profile' },
+        canActivate: [AuthGuard],
+
       },
       {
         path: 'dashboard',

@@ -20,7 +20,7 @@
       <div class="nav-item-sep px-8" *ngIf="item.type === 'separator'">
         <!-- <mat-divider></mat-divider> -->
         <!-- class="text-muted" -->
-        <span class="text-muted" [ngStyle]="setTitleColor()" style="font-size: 32px; font-family: 'Lazer84';">{{item.name | translate}}</span>
+        <span class="text-muted" [ngStyle]="setTitleColor()" style="font-size: 32px;">{{item.name | translate}}</span>
       </div>
       <div *ngIf="!item.disabled && item.type !== 'separator' && item.type !== 'icon'" class="lvl1">
         <a routerLink="/{{item.state}}" appDropdownToggle matRipple *ngIf="item.type === 'link'">

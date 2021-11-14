@@ -98,8 +98,9 @@ $accent-color: map-get($default-accent-palette, main);
 }
 
 body {
-  // font-family: 'Poppins' !important;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+  font-family: 'Poppins' !important;
+  // font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+  // font-family: ;
 }
 
 // @font-face {
@@ -133,7 +134,7 @@ body {
 
   @font-face {
     font-family: "Poppins";
-    src: url("./scss/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+    src: url("./scss/fonts/Montserrat/Montserrat-Medium.ttf") format("truetype");
     font-display: block;
   }
 

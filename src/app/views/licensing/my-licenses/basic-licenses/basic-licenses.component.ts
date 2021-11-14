@@ -3,15 +3,12 @@ import { AudioService } from './../../../../shared/services/audio.service';
 import { MediaWebService } from './../../../../shared/services/web-services/media-web.service';
 import { LicenseWebService } from './../../../../shared/services/web-services/license-web.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { environment } from 'environments/environment';
 import {saveAs as importedSaveAs} from "file-saver";
 import { Subject } from 'rxjs';
 import { Sample } from 'app/shared/models/sample.model';
 import { BasicLicense } from 'app/shared/models/basic-license.model';
-import { sample } from 'rxjs/operators';
 import { Theme } from 'app/shared/enums/theme.enum';
 import { egretAnimations } from 'app/shared/animations/egret-animations';
 

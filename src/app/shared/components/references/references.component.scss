@@ -1,5 +1,5 @@
 .references {
-    height: 500px;
+    height: fit-content;
     background: transparent;
     width: 100%;
     .content {
@@ -40,7 +40,7 @@
 
     .bottom-row {
         width: fit-content;
-        margin-bottom: 120px;    
+        // margin-bottom: 120px;    
         .hypertext {
             font-size: 18px;
 

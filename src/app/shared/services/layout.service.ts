@@ -135,6 +135,9 @@ export class LayoutService {
           case '/profile/my-licenses/basic-licenses':
             this.layoutConf.footerFixed = true;
             break;
+            case '/dashboard/overview':
+              this.layoutConf.footerFixed = true;
+              break;
           // case '/profile/my-licenses/basic-licenses':
           //   this.layoutConf.footerFixed = true;
           //   break;

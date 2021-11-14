@@ -38,13 +38,13 @@ export class NavigationService implements OnInit {
       type: 'separator',
       name: 'My Account'
     },
-    {
-      name: 'Dashboard',
-      type: 'link',
-      tooltip: 'Dashboard',
-      icon: 'dashboard',
-      state: 'profile/overview'
-    },
+    // {
+    //   name: 'Dashboard',
+    //   type: 'link',
+    //   tooltip: 'Dashboard',
+    //   icon: 'dashboard',
+    //   state: 'profile/overview'
+    // },
 
     // {
     //   name: 'My Licenses',
@@ -399,10 +399,17 @@ export class NavigationService implements OnInit {
       state: 'about'
     },
     {
+      name: 'Dashboard',
+      type: 'icon',
+      tooltip: 'Dashboard',
+      icon: 'dashboard',
+      state: 'dashboard/overview'
+    },
+    {
       name: 'SAMPLE MARKET',
       type: 'icon',
-      tooltip: 'Sample Market',
-      icon: 'storefront',
+      tooltip: 'FREE MUSIC',
+      icon: 'music_note',
       state: 'sample-market'
     },
     {
@@ -419,6 +426,13 @@ export class NavigationService implements OnInit {
         tooltip: 'Licensing',
         icon: 'app_registration',
         state: 'licensing',
+      },
+      {
+        name: 'Our Label',
+        type: 'icon',
+        tooltip: 'Our Label',
+        icon: 'maps_home_work',
+        state: 'our-label',
       },
       //   name: 'Collaborate with others',
       {

@@ -1,3 +1,4 @@
+import { ProfileOverviewComponent } from './views/profile/profile-overview/profile-overview.component';
 import { ProfileModule } from './views/profile/profile.module';
 import { Routes } from '@angular/router';
 import { AdminLayoutComponent } from './shared/components/layouts/admin-layout/admin-layout.component';
@@ -66,6 +67,18 @@ export const rootRouterConfig: Routes = [
         path: 'sample-market',
         loadChildren: () => import('./views/sample-market/sample-market.module').then(m => m.SampleMarketModule),
         data: { title: 'Sample Market', breadcrumb: 'Sample Market'}
+      },
+      {
+        path: 'dashboard',
+        // component: ProfileOverviewComponent,
+        loadChildren: () => import('./views/profile/profile.module').then(m => m.ProfileModule),
+        data: { title: 'Sample Market', breadcrumb: 'Sample Market'}
+      },
+      {
+        path: 'our-label',
+        // component: ProfileOverviewComponent,
+        loadChildren: () => import('./views/label/label.module').then(m => m.LabelModule),
+        data: { title: 'Our Label', breadcrumb: 'Label'}
       },
       {
         path: 'download/:id',

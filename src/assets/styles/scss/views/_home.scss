@@ -20,11 +20,11 @@
 }
 
 .landing-card {
-  min-width: 400px;
+  min-width: 450px;
   max-width: 600px;
   margin: auto 40px 40px auto;
-  height: 250px;
-  width: 350px;
+  height: 200px;
+  width: 450px;
   flex-direction: column;
 }
 
@@ -37,7 +37,8 @@
     line-height: 50px;
     font-weight: 300;
     span {
-      font-family: Lazer84;
+      // font-family: Lazer84;
+      font-size: 28px;
     }
   }
   // height: 1;
@@ -53,11 +54,12 @@
   // background: var(--light-theme-accent);
   // background-blend-mode: lighten;
   background: #2b303b url(../../../images/backgrounds/window-studio.jpg) center center/cover no-repeat;
+  background-attachment: local;
   color: #ffffff;
   height: calc(100vh - 78px);
   max-height: 800px;
   width: 100%;
-  margin-bottom: 60px;
+  // margin-bottom: 60px;
 
   // filter: blur(2px);
   .egret {
@@ -300,7 +302,13 @@ video {
 }
 
 .round-artist-image {
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
+}
+
+
+.cursor {
+  font-size: 42px;
+  color: var(--body-color);
 }

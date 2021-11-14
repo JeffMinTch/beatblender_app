@@ -1,4 +1,3 @@
-import { DistributeModule } from './distribute/distribute.module';
 import { SharedModule } from 'app/shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -30,6 +29,14 @@ import { ProfileBlankComponent } from './profile-blank/profile-blank.component';
 import { ProfileRoutes } from "./profile.routing";
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MyReleasesComponent } from './my-releases/my-releases.component';
+import { NgxEchartsModule } from 'ngx-echarts';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import * as echarts from 'echarts';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTableModule } from '@angular/material/table';
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+
+
 
 @NgModule({
   imports: [
@@ -50,15 +57,25 @@ import { MyReleasesComponent } from './my-releases/my-releases.component';
     MatInputModule,
     MatProgressBarModule,
     FlexLayoutModule,
-    NgxDatatableModule,
-    ChartsModule,
+    // NgxDatatableModule,
+    // ChartsModule,
     FileUploadModule,
     // DistributeModule,
     SharedPipesModule,
     NgxPaginationModule,
     ReactiveFormsModule,
+    MatExpansionModule,
+    MatTableModule,
+    ChartsModule,
+    NgxEchartsModule.forRoot({
+      echarts
+    }),
+    NgApexchartsModule,
+    NgxDatatableModule,
+    SharedPipesModule,
+    RouterModule.forChild(ProfileRoutes),
+    Ng2GoogleChartsModule,
 
-    RouterModule.forChild(ProfileRoutes)
   ],
   declarations: [ProfileComponent, ProfileOverviewComponent, ProfileSettingsComponent, ProfileBlankComponent, MyReleasesComponent]
 })

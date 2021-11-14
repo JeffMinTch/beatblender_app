@@ -42,3 +42,18 @@ h2 {
         font-weight: 500 !important;
     }
 }
+
+.mat-cell {
+    height: fit-content;
+    padding: 8px 0;
+}
+
+.mat-header-cell {
+    font-size: 18px;
+    // font-weight: bold;
+}
+
+.flag-icon {
+    width: 60px !important;
+    height: 30px !important;
+}

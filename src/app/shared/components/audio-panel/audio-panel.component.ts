@@ -67,6 +67,8 @@ export class AudioPanelComponent implements OnInit, AfterViewInit {
       // }, 5000);
       // console.log(this.sample);
 
+
+
     }
 
   ngOnInit(): void {

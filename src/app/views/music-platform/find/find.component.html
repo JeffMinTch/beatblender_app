@@ -61,7 +61,7 @@
                     <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
                           <span>{{product?.badge?.text}}</span>
                         </div> -->
-                    <app-audio-panel [audioUnit]="track.audioUnit" type="primary"></app-audio-panel>
+                    <app-audio-panel [track]="track" type="primary"></app-audio-panel>
 
                     <!-- Visible when viewMode === list-view -->
                     <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">

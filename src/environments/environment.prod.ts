@@ -24,7 +24,7 @@ export const environment = {
     // THIS SHOULD NOT BE USED IN PRODUCTION
     // USE A CERTIFICATE FOR YOUR IDP
     // IN PRODUCTION
-    requireHttps: false,
+    requireHttps: true,
     // at_hash is not present in JWT token
     showDebugInformation: true,
     disableAtHashCheck: true

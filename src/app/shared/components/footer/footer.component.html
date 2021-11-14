@@ -55,7 +55,7 @@
     </div> -->
     <!-- <div> -->
       <ng-container  *ngFor="let audioUnit of audioUnits">
-        <div   fxShow [fxHide.gt-md]="true" *ngIf="audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async)" class="current-audio-container">
+        <div   fxShow [fxHide.gt-sm]="true" *ngIf="audioUnit?.audioUnitID === (playStateControlService.currentSampleID$ | async)" class="current-audio-container">
           <div fxLayoutAlign="center center">
             <img style="width: 64px; height: 64px;" class="" src="{{'http://localhost:9090/api/web/public/media/image/' + audioUnit?.audioUnitID}}" alt="">
           </div>  
@@ -66,7 +66,7 @@
           </div>
         </ng-container>
 
-        <div fxShow [fxHide.gt-md]="true" fxFlex class="player" fxLayout="row nowrap">
+        <div fxShow [fxHide.gt-sm]="true" fxFlex class="player" fxLayout="row nowrap">
           <button 
           
           class="player-button" 

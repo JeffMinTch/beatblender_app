@@ -49,7 +49,7 @@
       </ng-container>
       <ng-container #product>
         <!-- | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count } -->
-        <div fxLayout="row" class="product-wrap"
+        <div fxLayout="row" class="product-wrap" [ngStyle.gt-sm]=" {'width': '33.33%'}"
           *ngFor="let sample of samples; let i = index;"
           [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}"
           >

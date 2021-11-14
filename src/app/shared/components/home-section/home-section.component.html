@@ -3,17 +3,14 @@
     <!-- <mat-card style="border: 3px solid;">
       </mat-card> -->
     <div [fxLayout]="align === 'left' ? 'row' : 'row-reverse'" fxLayoutAlign="center center">
-      <div fxFlex="30" fxLayout>
-        <!-- <div style="width: 250px; height: 250px;" fxLayout> -->
+      <!-- <div fxFlex="30" fxLayout>
 
         <ng-content select="[image]"></ng-content>
-        <!-- </div> -->
 
-        <!-- <img class="left-image" src="../../../../assets/images/backgrounds/featuresSounds-artists_2x.png" alt=""> -->
-      </div>
-      <div fxFlex="70" fxLayout="column" style="padding: 0 100px;">
+      </div> -->
+      <div fxFlex="100" fxLayout="column" style="padding: 0 100px;">
         <h4 *ngIf="firstTitle" class="text-center first-title" style="width: fit-content; margin-left: auto;">
-          {{firstTitle}}
+          {{firstTitle | uppercase}}
 
         </h4>
         <!-- <h2 *ngIf="secondTitle" class="text-center second-title"> -->
@@ -43,8 +40,8 @@
   </div>
   <div style="position: absolute; bottom: 0px; right: -100px; border-radius: 50%; background: var(--primary-color); width: 150px; height: 150px; z-index: 1; transform: translateY(0)">
   </div> -->
-  <div style="position: absolute; bottom: 0px; right: -100px; border-radius: 50%; background: var(--accent-color); width: 150px; height: 150px; z-index: 0; transform: translateY(120px);">
-  </div>
+  <!-- <div style="position: absolute; bottom: 0px; right: -100px; border-radius: 50%; background: var(--accent-color); width: 150px; height: 150px; z-index: 0; transform: translateY(120px);">
+  </div> -->
     <!-- <> -->
   <!-- <div class="pl-16"> -->
   <!-- </div> -->

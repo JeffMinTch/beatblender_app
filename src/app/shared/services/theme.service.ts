@@ -16,7 +16,7 @@ export class ThemeService {
   {
     'name': 'egret-navy',
     'baseColor': '#10174c',
-    'isActive': false
+    'isActive': true
   },
   {
     'name': 'egret-navy-dark',
@@ -25,7 +25,7 @@ export class ThemeService {
   }, {
     'name': 'egret-light-purple',
     'baseColor': 'teal',
-    'isActive': true
+    'isActive': false
   }
 ];
 
@@ -50,6 +50,8 @@ export class ThemeService {
 
     // this.changeTheme(themeName);
     this.renderer.addClass(this.document.body, themeName);
+    this.onThemeChange.emit(this.activatedTheme);
+
 
   }
 

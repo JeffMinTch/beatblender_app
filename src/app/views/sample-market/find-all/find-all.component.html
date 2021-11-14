@@ -2,7 +2,7 @@
   <!-- <div style="position: absolute; top: -50px; right: -50px; border-radius: 50%; background: var(--accent-color); width: 100px; height: 100px; z-index: -1; transform: translateY(0);">
 
   </div> -->
-  <div class="pt-8 full-width" [fxLayout.lt-lg]="'column'" [fxLayout.gt-md]="'row'" fxLayoutGap="">
+  <div class="pt-8 full-width" [fxLayout.lt-md]="'column'" [fxLayout.gt-sm]="'row'" fxLayoutGap="">
       <div class="mr-16" [fxLayout.xs]="'column'" [fxLayout.gt-xs]="'row'"
           [fxLayoutAlign.gt-xs]="'space-between center'" [fxLayoutAlign.xs]="'center start'" fxLayoutGap="10px">
           
@@ -52,7 +52,7 @@
           </div>
       </ng-container>
       <ng-container #product>
-          <div fxLayout="row" class="product-wrap"
+          <div fxLayout="row" [ngStyle.gt-sm]=" {'width': '33.33%'}" class="product-wrap"
               *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count }; let i = index;"
               [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}">
               <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
