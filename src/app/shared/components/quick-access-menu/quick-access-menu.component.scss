@@ -11,7 +11,7 @@
         
 
         .quick-access-button:not(.active) {
-            width: 90px;
+            // width: 180px;
             // background: #658566;
             // color: var(--light-theme);
             background: var(--light-theme-accent);
@@ -31,7 +31,7 @@
 }
 
 .quick-access-button {
-    width: 90px;
+    width: 110px;
     background: var(--light-theme);
     color: #6a6c74;
     border: 2px solid rgba(106,106,106,0.02);

@@ -69,6 +69,11 @@ export const rootRouterConfig: Routes = [
         data: { title: 'Sample Market', breadcrumb: 'Sample Market'}
       },
       {
+        path: 'licensing',
+        loadChildren: () => import('./views/licensing/licensing.module').then(m => m.LicensingModule),
+        data: { title: 'Licensing' }
+      },
+      {
         path: 'dashboard',
         // component: ProfileOverviewComponent,
         loadChildren: () => import('./views/profile/profile.module').then(m => m.ProfileModule),
@@ -79,6 +84,12 @@ export const rootRouterConfig: Routes = [
         // component: ProfileOverviewComponent,
         loadChildren: () => import('./views/label/label.module').then(m => m.LabelModule),
         data: { title: 'Our Label', breadcrumb: 'Label'}
+      },
+      {
+        path: 'charity',
+        // component: ProfileOverviewComponent,
+        loadChildren: () => import('./views/charity/charity.module').then(m => m.CharityModule),
+        data: { title: 'Charity', breadcrumb: 'Charity'}
       },
       {
         path: 'download/:id',

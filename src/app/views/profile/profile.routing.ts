@@ -75,7 +75,7 @@ export const ProfileRoutes: Routes = [
 
       {
         path: '',
-        redirectTo: 'my-releases'
+        redirectTo: 'upload-audio'
       }
     ]
   }

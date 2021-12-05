@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { MyLicensesComponent } from './my-licenses.component';
 import { MyLicensesRoutes } from './my-licenses.routing';
 import { NgModule } from '@angular/core';

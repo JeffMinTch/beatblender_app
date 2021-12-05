@@ -10,7 +10,7 @@ import { Sample } from 'app/shared/models/sample.model';
 import { Track } from 'app/shared/models/track.model';
 import { environment } from 'environments/environment';
 
-export type AudioPanelType = 'primary' | 'sample' | 'playlist' | 'iconButton';
+export type AudioPanelType = 'primary' | 'sample' | 'playlist' | 'iconButton' | 'release';
 
 @Component({
   selector: 'app-audio-panel',

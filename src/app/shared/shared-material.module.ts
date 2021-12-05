@@ -39,7 +39,7 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 @NgModule({
   imports: [
-    MatIconModule
+    MatIconModule,
   ],
   exports: [
     MatCheckboxModule,

@@ -86,6 +86,8 @@ export class BasicLicensesComponent implements OnInit {
       this.audioService.initAudioPlayer(this.samples.map(sample => sample.audioUnit), Theme.BODY);
       this.basicLicenseSubject$.next(data);
       this.dataSource = new MatTableDataSource<BasicLicense>(data);
+    }, (error) => {
+      this.samples = [];
     });
     console.log("User Info");
     console.log(this.jwt.getUserInfo());

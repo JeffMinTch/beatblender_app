@@ -244,59 +244,59 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     // .pasteString('Value')
     // .typeString('<span style="color: var(--body-color)">BeatBlender Producer </span>')
     // .pauseFor(300)
-    .typeString('<span style="color: var(--primary-color); font-size: 36px;">Mix </span>')
-    .typeString('<span style="color: var(--accent-color); font-size: 36px;">Art</span>')
+    .typeString('<span style="color: var(--primary-color);">Mix </span>')
+    .typeString('<span style="color: var(--accent-color);">Art</span>')
     .pauseFor(1300)
     
     .deleteChars(15)
     .pauseFor(1300)
-    .typeString('<span style="color: var(--body-color); font-size: 36px;"></span>')
-    .typeString('<span style="color: var(--primary-color); font-size: 36px;">Raise </span>')
-    .typeString('<span style="color: var(--accent-color); font-size: 36px;">Donations</span>')
-    .pauseFor(1300)
-    
-    .deleteChars(18)
-
-    .deleteChars(15)
-    .pauseFor(1300)
-    .typeString('<span style="color: var(--body-color); font-size: 36px;"></span>')
-    .typeString('<span style="color: var(--primary-color); font-size: 36px;">Simplify </span>')
-    .typeString('<span style="color: var(--accent-color); font-size: 36px;">Licensing</span>')
+    .typeString('<span style="color: var(--body-color);"></span>')
+    .typeString('<span style="color: var(--primary-color);">Raise </span>')
+    .typeString('<span style="color: var(--accent-color);">Donations</span>')
     .pauseFor(1300)
     
     .deleteChars(18)
 
     .deleteChars(15)
     .pauseFor(1300)
-    .typeString('<span style="color: var(--body-color); font-size: 36px;"></span>')
-    .typeString('<span style="color: var(--primary-color); font-size: 36px;">Plant </span>')
-    .typeString('<span style="color: var(--accent-color); font-size: 36px;">Trees</span>')
+    .typeString('<span style="color: var(--body-color);"></span>')
+    .typeString('<span style="color: var(--primary-color);">Simplify </span>')
+    .typeString('<span style="color: var(--accent-color);">Licensing</span>')
+    .pauseFor(1300)
+    
+    .deleteChars(18)
+
+    .deleteChars(15)
+    .pauseFor(1300)
+    .typeString('<span style="color: var(--body-color);"></span>')
+    .typeString('<span style="color: var(--primary-color);">Plant </span>')
+    .typeString('<span style="color: var(--accent-color);">Trees</span>')
     .pauseFor(1300)
     
     .deleteChars(11)
 
     // .pauseFor(1400)
-    // .typeString('<span style="color: var(--primary-color); font-size: 36px;">Create </span>')
-    // .typeString('<span style="color: var(--accent-color); font-size: 36px;">Culture</span>')
+    // .typeString('<span style="color: var(--primary-color);">Create </span>')
+    // .typeString('<span style="color: var(--accent-color);">Culture</span>')
     // .deleteChars(14)
     .pauseFor(1400)
-    .typeString('<span style="color: var(--primary-color); font-size: 36px;">Trace </span>')
-    .typeString('<span style="color: var(--accent-color); font-size: 36px;">Copyrights</span>')
+    .typeString('<span style="color: var(--primary-color);">Trace </span>')
+    .typeString('<span style="color: var(--accent-color);">Copyrights</span>')
     .pauseFor(1300)
     
     .deleteChars(16)
 
 
     .pauseFor(1400)
-    .typeString('<span style="color: var(--primary-color); font-size: 36px;">Share </span>')
-    .typeString('<span style="color: var(--accent-color); font-size: 36px;">Culture</span>')
+    .typeString('<span style="color: var(--primary-color);">Share </span>')
+    .typeString('<span style="color: var(--accent-color);">Culture</span>')
     .pauseFor(3000)
     
     .deleteChars(16)
 
     .pauseFor(1400)
-    .typeString('<span style="color: var(--primary-color); font-size: 36px;">Grow </span>')
-    .typeString('<span style="color: var(--accent-color); font-size: 36px;">Together</span>')
+    .typeString('<span style="color: var(--primary-color);">Grow </span>')
+    .typeString('<span style="color: var(--accent-color);">Together</span>')
     .pauseFor(1300)
     
     .deleteChars(16)
@@ -304,9 +304,9 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
     .deleteChars(15)
     .pauseFor(1300)
-    .typeString('<span style="color: var(--primary-color); font-size: 36px;">Make </span>')
-    .typeString('<span style="color: var(--body-color); font-size: 36px;">A </span>')
-    .typeString('<span style="color: var(--accent-color); font-size: 36px;">Change</span>')
+    .typeString('<span style="color: var(--primary-color);">Make </span>')
+    .typeString('<span style="color: var(--body-color);">A </span>')
+    .typeString('<span style="color: var(--accent-color);">Change</span>')
     .pauseFor(1300)
     
     .deleteChars(11)

@@ -20,16 +20,16 @@
           </span>
         </div> -->
 
-        <mat-card class="landing-card" fxLayout="column">
+        <mat-card [ngClass.xs]="'landing-card-xs'" class="landing-card" fxLayout="column">
           <mat-card-content fxFlex fxLayout="column">
-            <section>
-              <h2 class="m-8"> <span style="color: var(--body-color); font-size: 16px; font-weight: 300;">WE SHARE MUSIC
-                  TO</span> <br> <span style="color: var(--accent-color);" id="title">
+            <!-- <section> -->
+              <span class="m-8"> <span [ngStyle.xs]="{'font-size': '10px'}" [ngStyle.gt-xs]="{'font-size': '14px'}" style="color: var(--body-color); font-size: 16px; font-weight: 300;">WE SHARE MUSIC
+                  TO</span> <br> <span [ngStyle.xs]="{'font-size': '18px', 'line-height': '24px'}" [ngStyle.gt-xs]="{'font-size': '36px'}" style="color: var(--accent-color);" id="title">
                 </span>
-              </h2>
+              </span>
 
-              <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center" class="mb-48">
-                <button color="primary" fxFlex fxLayoutAlign="center center" mat-raised-button mat-lg-button
+              <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center" class="">
+                <button color="primary" fxFlex fxLayoutAlign="center center" mat-raised-button
                   style="font-weight: 700; font-size: 16px;" (click)="login()">
                   <mat-icon class="mr-8">login</mat-icon>
                   Join The Movement
@@ -42,7 +42,7 @@
                   Login
                 </button> -->
               </div>
-            </section>
+            <!-- </section> -->
 
 
 
@@ -51,33 +51,59 @@
         </mat-card>
       </div>
 
+
+
     </section>
-    <div fxLayout="column" fxLayoutAlign="center center" class="">
-      <div class="full-width" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
-        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
-        <h1 class="text-center" style="font-weight: 300;">A SOCIAL <strong>FREE MUSIC</strong> MOVEMENT</h1>
 
-        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+    <div fxLayout fxLayoutAlign="center center" fxLayoutGap="20px" class="mt-16">
+      <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
 
-      </div>
-      <p class="text-center py-16 px-64">
-        I've created this site to Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere amet possimus magni
-        omnis quos sunt voluptate aut veniam reprehenderit a velit unde saepe fugit optio cum earum veritatis autem,
-        iusto nostrum! Animi voluptate aspernatur debitis non eveniet voluptatem corrupti unde.
+      <h1 class="text-center" [ngStyle.xs]="{'font-size' : '22px'}" style="font-weight: 300; color: var(--body-color); font-weight: 700;">A Social Free Music Movement</h1>
+      <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+    </div>
+    <div fxLayout="column"  fxLayoutAlign="center center" class="">
+      <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="font-size: 18px;">
+        BeatBlender is a social & free music community. Artists raise donations by allowing other artists to be creative
+        with their work.
       </p>
+      <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="font-size: 18px;">We hope you become part of our community and whatever you are working on
+        ends up being great...</p>
+
+      <!-- <p class="text-center py-16 px-64" style="font-size: 18px;">
+        Hi, I'm Max. The Founder of this project.
+        I'm happy to introduce you into a <br>
+        <strong style="line-height: 80px; font-size: 22px; color: var(--primary-color);">
+          Social & Free Music Community</strong> <br>
+        We <strong>Raise Donations</strong> by allowing artists to <strong>Be Creative</strong>
+      </p>
+      <p class="text-center py-16 px-64" style="font-size: 18px; color: var(--accent-color);">
+        <strong> We share music for good </strong>
+      </p> -->
+
 
 
 
     </div>
+    <!-- <div fxLayoutAlign="start start"
+      style="width: 100%; height: 400px; background-image: url(../../../assets/images/backgrounds/window-studio4.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+      
+    </div> -->
 
     <div fxLayout="column">
 
 
       <!-- <h1 class="text-center m-0 p-32" style="color: var(--accent-color);">A Social Free Music Movement</h1> -->
+      <div fxLayout fxLayoutAlign="center center" fxLayoutGap="20px" class="mt-16">
+        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
 
-      <div fxLayout style="">
-        <div fxFlex="50" style="">
-          <mat-card style="min-height: 400px;">
+        <h3 [ngStyle.xs]="{'font-size' : '20px'}" class="text-center" style="font-weight: 300;">HOW IT WORKS</h3>
+        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+      </div>
+      <div fxLayout [fxLayout.lt-md]="'column'" fxLayoutAlign="center center">
+        <div fxFlex="50" class="m-16 mr-8">
+          <mat-card style="min-height: 400px;" [ngClass.xs]="'m-0'">
             <mat-card-content style="font-size: 20px; line-height: 50px;">
               <div fxLayout="column" fxLayoutGap="50px" fxLayoutAlign="center center">
                 <!-- <img style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;"
@@ -96,14 +122,14 @@
                 </div>
                 <div fxLayout="column">
 
-                  <mat-card-title class="text-center"> <span style="font-weight: 300;">Artists Share</span><br>
-                    <span style="font-weight: 700; font-size: 36px; color: var(--primary-color);">Free <span
-                        style="color: var(--accent-color);">Music</span></span>
+                  <mat-card-title class="text-center"> <span style="font-weight: 300;">Copyright Owners</span><br>
+                    <span [ngStyle.xs]="{'font-size' : '30px'}" style="font-weight: 700; font-size: 36px; color: var(--primary-color);">Donate Free Music<span
+                        style="color: var(--accent-color);"></span></span>
                   </mat-card-title>
                   <p fxFlex class="text-center">
 
-                    This site is a resource for independent and non-profit filmmakers, film students, and anyone in need
-                    of free music for their independent, non-profit film, video, or short.
+                    Artist that upload music to us allow other artists to use the material in a modified way for new
+                    artwork. Similiar to Creative Commons Licenses.
                   </p>
                 </div>
               </div>
@@ -129,21 +155,21 @@
             </mat-card-content>
           </mat-card>
         </div> -->
-        <div fxFlex="50">
-          <mat-card style="min-height: 400px;">
+        <div fxFlex="50" class="m-16 ml-8">
+          <mat-card style="min-height: 400px;" [ngClass.xs]="'m-0'">
             <mat-card-content style="font-size: 20px; line-height: 50px;">
               <div fxLayout="column" fxLayoutGap="50px" fxLayoutAlign="center center">
                 <img style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;"
                   src="../../../assets/images/svg-icons/solidarity.png" alt="">
                 <div fxLayout="column">
 
-                  <mat-card-title class="text-center"> <span style="font-weight: 300;">Everybody</span><br> <span
-                      style="font-weight: 700; font-size: 36px; color: var(--primary-color);">Shares <span
-                        style="color: var(--accent-color);">Value</span></span></mat-card-title>
+                  <mat-card-title class="text-center"> <span style="font-weight: 300;">Music Users (Remixer)</span><br>
+                    <span [ngStyle.xs]="{'font-size' : '30px'}" style="font-weight: 700; font-size: 36px; color: var(--primary-color);"> <span
+                        style="color: var(--accent-color);">Donate Streaming Money</span></span>
+                  </mat-card-title>
                   <p fxFlex class="text-center">
-                    BeatBlender combines Free Music Production with Social Commitment Incentives. In return for the free
-                    music creation BeatBlender collects the streaming income and donates it to carefully selected
-                    charity projects.
+                    Artist that create the new artwork instead agree that the incoming streaming money will be donated
+                    to selected charity projects via the BeatBlender Company.
                     <!-- By Using BeatBlender artists do not only contribute to a free music movement they also contribute to social projects. -->
                   </p>
                 </div>
@@ -153,6 +179,35 @@
         </div>
 
       </div>
+      <div fxLayout fxLayoutAlign="center center" fxLayoutGap="20px" class="mt-16">
+        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+        <h3 class="text-center" style="font-weight: 300;">Donate Music</h3>
+        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+      </div>
+      <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">
+        With us you don't donate money. You
+        <a routerLink="/profile/upload-audio" class="hypertext">
+          <strong>donate music</strong>.
+        </a>
+
+      </p>
+      <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">
+        BeatBlender collects the streaming money of the songs being created from music that our community uploads and
+        directs it to
+        <a href="#" class="hypertext">
+          <strong>
+            careful selected charity projects
+          </strong>
+        </a>.
+
+
+
+      </p>
+      <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">
+        No monthly payments required to be part of our community. Its all about free music culture.
+      </p>
     </div>
     <!-- <section fxLayout fxLayoutAlign="space-around center">
       <mat-card class="opportunity-card" fxLayoutAlign="center center">
@@ -186,11 +241,23 @@
     <section fxFlex fxLayout="row wrap">
       <div fxLayout="column" fxFlex="100">
 
+        <!-- <div fxLayout fxLayoutAlign="center center" fxLayoutGap="20px" class="mt-16">
+          <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+          <h1 class="text-center" style="font-weight: 300;">Do we want money from you?</h1>
+          <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+        </div> -->
+
+
+
+
+
 
         <div fxLayout fxLayoutAlign="center center" fxLayoutGap="20px" class="mt-16">
           <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
 
-          <h1 class="text-center" style="font-weight: 300;">JOIN FOR GOOD REASONS</h1>
+          <h3 class="text-center" style="font-weight: 300;">CONTRIBUTE FOR GOOD REASONS</h3>
           <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
 
         </div>
@@ -216,34 +283,57 @@
 
 
       </div>
-      <div fxFlex="33" style="">
-        <mat-card>
-          <mat-card-content style="font-size: 20px; line-height: 50px;">
-            <div fxLayout="column" fxLayoutGap="50px" fxLayoutAlign="center center">
-              <!-- <img style="width: 500px; height: 200px; object-fit: cover; border-radius: 8px;"
-                src="../../../assets/images/backgrounds/happy-listening.jpg" alt=""> -->
-              <div fxLayout="column">
-
-                <mat-card-title class="text-center"> <span style="font-weight: 300;">Creating New Music With</span><br>
-                  <span style="font-weight: 700; font-size: 36px; color: var(--primary-color);">Social <span
-                      style="color: var(--accent-color);">Engagement</span></span>
-                </mat-card-title>
-                <p fxFlex class="text-center">
-                  Our Community is sharing music for good and inspiration. After you created a new track that contains
-                  samples from BeatBlender you can release it to all major streaming services . BeatBlender collects the
-                  streaming revenues and forwards them to charity.
-                </p>
+      <div fxLayout [fxLayout.lt-md]="'column'">
+        <div fxFlex="50" style="">
+          <mat-card>
+            <mat-card-content style="font-size: 20px; line-height: 50px;">
+              <div fxLayout="column" fxLayoutGap="50px" fxLayoutAlign="center center">
+                <!-- <img style="width: 500px; height: 200px; object-fit: cover; border-radius: 8px;"
+                  src="../../../assets/images/backgrounds/happy-listening.jpg" alt=""> -->
+                <div fxLayout="column">
+  
+                  <mat-card-title class="text-center"> <span style="font-weight: 300;">Your Music can</span><br>
+                    <span [ngStyle.xs]="{'font-size' : '30px'}" style="font-weight: 700; font-size: 36px; color: var(--primary-color);">Create Substantial Value<span
+                        style="color: var(--accent-color);"></span></span>
+                  </mat-card-title>
+                  <p fxFlex class="text-center">
+                    Our Community is sharing music for good and inspiration. After you created a new track that contains
+                    samples from BeatBlender you can release it to all major streaming services . BeatBlender collects the
+                    streaming revenues and forwards them to charity.
+                  </p>
+                </div>
               </div>
-            </div>
-          </mat-card-content>
-        </mat-card>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div fxFlex="50" style="">
+          <mat-card>
+            <mat-card-content style="font-size: 20px; line-height: 50px;">
+              <div fxLayout="column" fxLayoutGap="50px" fxLayoutAlign="center center">
+                <!-- <img style="width: 500px; height: 200px; object-fit: cover; border-radius: 8px;"
+                  src="../../../assets/images/backgrounds/window-studio.jpg" alt=""> -->
+                <div fxLayout="column">
+  
+                  <mat-card-title class="text-center"> <span style="font-weight: 300;">Be able to</span><br> <span
+                    [ngStyle.xs]="{'font-size' : '30px'}"   style="font-weight: 700; font-size: 36px; color: var(--primary-color);"><span
+                        style="color: var(--accent-color);">Trace Your Influence</span></span></mat-card-title>
+                  <p fxFlex class="text-center">
+                    Stay in Control of your Copyrights. Whenever new artwork is released containing your sound it must be
+                    registered with BeatBlender. This means that copyright owners can see the resulting artwork that your
+                    sound has inspired.
+                  </p>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
       </div>
-      <div fxFlex="33" style="">
+      <!-- <div fxFlex="33" style="">
         <mat-card>
           <mat-card-content style="font-size: 20px; line-height: 50px;">
             <div fxLayout="column" fxLayoutGap="50px" fxLayoutAlign="center center">
-              <!-- <img style="width: 500px; height: 200px; object-fit: cover; border-radius: 8px;"
-                src="../../../assets/images/backgrounds/sample-market.png" alt=""> -->
+              
               <div fxLayout="column">
 
                 <mat-card-title class="text-center"> <span style="font-weight: 300;">Create From</span><br> <span
@@ -256,27 +346,8 @@
             </div>
           </mat-card-content>
         </mat-card>
-      </div>
-      <div fxFlex="33" style="">
-        <mat-card>
-          <mat-card-content style="font-size: 20px; line-height: 50px;">
-            <div fxLayout="column" fxLayoutGap="50px" fxLayoutAlign="center center">
-              <!-- <img style="width: 500px; height: 200px; object-fit: cover; border-radius: 8px;"
-                src="../../../assets/images/backgrounds/window-studio.jpg" alt=""> -->
-              <div fxLayout="column">
-
-                <mat-card-title class="text-center"> <span style="font-weight: 300;">Best Place To</span><br> <span
-                    style="font-weight: 700; font-size: 36px; color: var(--primary-color);">Develop <span
-                      style="color: var(--accent-color);">Skills</span></span></mat-card-title>
-                <p fxFlex class="text-center">
-                  You want to further improve your skills? Then BeatBlender is the best place to do so. Get inspired of
-                  what the community creates from your own music or create new music by using samples from our market.
-                </p>
-              </div>
-            </div>
-          </mat-card-content>
-        </mat-card>
-      </div>
+      </div> -->
+      
       <!-- <div fxFlex="33">
         <mat-card >
           <mat-card-title>Free To Use</mat-card-title>
@@ -303,34 +374,18 @@
       <mat-card-title class="text-center"> <span style="font-weight: 300;">All Samples Are For</span> <br> <span style="font-weight: 700; font-size: 36px; color: var(--primary-color);">Free <span style="color: var(--accent-color);">Use</span></span></mat-card-title>
       </mat-card> -->
     </div>
+
     <div fxLayout fxLayoutAlign="center center" fxLayoutGap="20px" class="mt-16">
       <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
 
-      <h1 class="text-center" style="font-weight: 300;">HOW IT WORKS</h1>
+      <h3 class="text-center" style="font-weight: 300;">DISTRIBUTE</h3>
       <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
 
     </div>
-    <p class="text-center px-64 py-16">
-      To begin just browse the <a class="hypertext" routerLink="/sample-market">catalog</a>. Once you have found the
-      right piece just click the download icon and fill in a simple application telling us a bit about yourself and the
-      way you are using the music. You will receive a high quality AIFF download via email instantly to use in your
-      edit, along with a copy of the mobygratis Non Commercial Licence Agreement.
+
+    <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">
+      Our community strives for an easy and uncompicated licensing process. After you <a [routerLink]="['/licensing/register-track']" class="hypertext">registerd your track</a> at BeatBlender you can start distributing your sound on all available streaming services 
     </p>
-    <div fxLayoutAlign="start start"
-      style="width: 100%; height: 400px; background-image: url(../../../assets/images/backgrounds/window-studio2.jpg); background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;">
-      <!-- <mat-card style="opacity: 1; padding: 20px 80px;" class="">
-    <mat-card-title class="text-center"> <span style="font-weight: 300;">All Samples Are For</span> <br> <span style="font-weight: 700; font-size: 36px; color: var(--primary-color);">Free <span style="color: var(--accent-color);">Use</span></span></mat-card-title>
-    </mat-card> -->
-    </div>
-
-    <div fxLayout fxLayoutAlign="center center" fxLayoutGap="20px" class="mt-16">
-      <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
-
-      <h1 class="text-center" style="font-weight: 300;">DISTRIBUTE</h1>
-      <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
-
-    </div>
-
     <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px" class="py-8">
       <mat-card style="width: 80px; height: 80px; object-fit: cover;" class="streaming-service-card mb-8 br-8"
         *ngFor="let streamingService of streamingServiceList">
@@ -339,12 +394,35 @@
       <br>
       <span>+165 Stores</span>
     </div>
-    <p class="text-center px-64 py-16">
+    <!-- <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">
+      Dont forget that your license will only be active if you <a href="/licensing/register-track"
+        class="hypertext">register your track via BeatBlender</a> before distributing.
+    </p>
+ -->
+
+    <div fxLayoutAlign="start start"
+      style="width: 100%; height: 400px; background-image: url(../../../assets/images/backgrounds/window-studio2.jpg); background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;">
+      <!-- <mat-card style="opacity: 1; padding: 20px 80px;" class="">
+    <mat-card-title class="text-center"> <span style="font-weight: 300;">All Samples Are For</span> <br> <span style="font-weight: 700; font-size: 36px; color: var(--primary-color);">Free <span style="color: var(--accent-color);">Use</span></span></mat-card-title>
+    </mat-card> -->
+    </div>
+
+
+    <div fxLayout fxLayoutAlign="center center" fxLayoutGap="20px" class="mt-16">
+      <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+      <h3 class="text-center" style="font-weight: 300;">BEGIN TO CREATE</h3>
+      <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+    </div>
+    <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">
       To begin just browse the <a class="hypertext" routerLink="/sample-market">catalog</a>. Once you have found the
       right piece just click the download icon and fill in a simple application telling us a bit about yourself and the
-      way you are using the music. You will receive a high quality AIFF download via email instantly to use in your
-      edit, along with a copy of the mobygratis Non Commercial Licence Agreement.
+      way you are using the music. You will be directed to your personal download area to start creating new work from
+      it.
     </p>
+
+   
     <div fxLayoutAlign="start start"
       style="width: 100%; height: 400px; background-image: url(../../../assets/images/backgrounds/window-studio6.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
       <!-- <mat-card style="opacity: 1; padding: 20px 80px;" class="">
@@ -352,7 +430,7 @@
     </mat-card> -->
     </div>
 
-    <app-home-section class="my-32" align="left" firstTitle="Maximilian Mintchev - Founder Of BeatBlender">
+    <app-home-section class="my-32" align="left" firstTitle="">
       <div fxFlex fxLayout fxLayoutAlign="center center" image class="pl-32">
         <div fxLayout fxLayoutAlign="center center" style="width: 100%; height: 350px; overflow: hidden;">
           <!-- <img class="round-artist-image mat-elevation-z1"
@@ -361,23 +439,21 @@
         </div>
 
       </div>
-      <div secondtitle fxLayout fxLayoutAlign="center center">
+      <div secondtitle fxLayout="column" fxLayoutAlign="center center">
         <!-- <q style="font-size: 36px; text-align: center;">
           <span class="text-center second-title" style="font-weight: 300;">
             Producing <span style="font-weight: 900; color: var(--accent-color);">Free Remixes</span> Now Creates A
             <span style="color: var(--primary-color); font-weight: 900;">Social Impact</span>
           </span>
         </q> -->
-        <q style="font-size: 32px; text-align: center;">
-          <span class="text-center second-title" style="font-weight: 300;">
-            Sharing Music <span style="font-weight: 900; color: var(--accent-color);"> </span>Has Never Created<br>
-            <span style="color: var(--primary-color); font-weight: 900;"> More Value </span>
-          </span>
-        </q>
+        <q class="text-center second-title py-32" style="font-weight: 300; font-size: 22px;">
+          If there is something to be changed in this world, then it can only happen through music.
+        </q> <br>
+        <figcaption>-JIMI HENDRIX</figcaption>
       </div>
 
     </app-home-section>
-    <p class="text-center px-64 py-16">I hope you find the music you are looking for and whatever you are working on ends up being great...</p>
+
     <div fxLayout fxLayoutAlign="center center" class="p-32">
       <button color="primary" fxLayoutAlign="center center" mat-raised-button mat-lg-button
         style="font-weight: 700; font-size: 16px; width: 300px;" (click)="login()">

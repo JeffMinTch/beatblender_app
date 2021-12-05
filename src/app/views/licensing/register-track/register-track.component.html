@@ -1,24 +1,107 @@
-<div fxLayout="column" class="pl-16 pb-32" style="position: relative;">
+<div fxLayout="column" class="pb-32"
+    style="position: relative; background: var(--light-theme); border-top-left-radius: 8px; border-top-right-radius: 8px;">
     <!-- <div style="position: absolute; top: -100px; right: -100px; border-radius: 50%; background: var(--primary-color); width: 150px; height: 150px; z-index: 10000; transform: translateY(0);">
 
     </div> -->
-    <h1 [ngStyle.lt-lg]="{'text-align': 'center'}" class="">
-        <!-- <div style="width: 64px; height: 64px;" class="mr-16">
-              <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
-            </div> -->
-        <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
-        <span style="color: var(--primary-color);">R</span>
-        <span style="">egister</span>
-        <span style="color: var(--accent-color); font-weight: 600;"> T</span>
-        <span style="font-weight: 600; color: var(--base-accent-color);">racks</span>
-    </h1>
-    <p [ngStyle.lt-lg]="{'text-align': 'center'}" style="font-size: 22px; color: var(--base-accent-color);">Create,
+    <div class="full-width pr-16 my-32" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+        <h1 class="text-center" [ngStyle.xs]="{'font-size' : '22px'}" style="font-weight: 300; color: var(--body-color);">Register Track</h1>
+        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+    </div>
+    <p [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="font-size: 18px; color: var(--body-color);"
+        class="py-16 text-center">Create,
         register and license your songs created with samples via BeatBlender all in one place.
     </p>
-    <form [formGroup]="(formsSubject | async)" fxLayout="column">
+    <div fxLayout [fxLayout.lt-md]="'column'" fxLayoutAlign="center center">
+        <div fxFlex="50" class="">
+            <mat-card style="min-height: 0px;" [ngClass.xs]="'m-8'">
+                <mat-card-content style="font-size: 20px;">
+                    <div fxLayout="column" fxLayoutAlign="center center">
+                        <!-- <img style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;"
+                src="../../../assets/images/svg-icons/solidarity.png" alt=""> -->
+                        <div style="width: 60px; height: 60px; font-size: 50px;">
+                            <mat-icon inline="true" class="material-icons-outlined">mode_edit_outline</mat-icon>
+
+                        </div>
+                        <div fxLayout="column" fxLayoutAlign="center center">
+
+                            <span class="text-center"> <span style="font-weight: 300; font-size: 18px;">Fill Out</span>
+                            </span>
+                            <span style="font-weight: 700; font-size: 22px; color: var(--primary-color);">Track
+                                Information<span style="color: var(--accent-color);"></span></span>
+                            <p fxFlex class="text-center">
+
+                                Artist that upload music to us allow other artists to use the material in a modified way
+                                for new
+                                artwork. Similiar to Creative Commons Licenses.
+                            </p>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <!-- <div fxFlex="33">
+          <mat-card class="p-0">
+            <mat-card-content style="font-size: 20px; line-height: 50px;">
+              <div fxLayout="column" fxLayoutGap="50px" fxLayoutAlign="center center">
+                <img style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;"
+                  src="../../../assets/images/svg-icons/wav.png" alt="">
+                <div fxLayout="column">
+
+                  <mat-card-title class="text-center"> <span style="font-weight: 300;">Creators Create</span><br> <span
+                      style="font-weight: 700; font-size: 36px; color: var(--primary-color);">New <span
+                        style="color: var(--accent-color);">Sounds</span></span></mat-card-title>
+                  <p fxFlex class="text-center">
+                    I've made a selection of over 200 tracks, some unreleased, some from my back catalogue and new
+                    releases, available to licence for free via a simple online application system. </p>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div> -->
+        <div fxFlex="50" class="">
+            <mat-card style="min-height: 0px;" [ngClass.xs]="'m-8'">
+                <mat-card-content style="font-size: 20px;">
+                    <div fxLayout="column" fxLayoutAlign="center center">
+                        <div style="width: 60px; height: 60px; font-size: 50px;">
+                            <mat-icon inline="true">call_split</mat-icon>
+                        </div>
+                        <!-- <img style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;"
+                  src="../../../assets/images/svg-icons/solidarity.png" alt=""> -->
+                        <div fxLayout="column" fxLayoutAlign="center center">
+
+                            <mat-card-title class="text-center"> <span style="font-weight: 300; font-size: 18px;">When
+                                    Distributing</span>
+                            </mat-card-title>
+                            <span style="font-weight: 700; font-size: 22px; color: var(--primary-color);"> <span
+                                    style="color: var(--accent-color);">Split Streaming Money</span></span>
+                            <p fxFlex class="text-center">
+                                Artist that create the new artwork instead agree that the incoming streaming money will
+                                be donated
+                                to selected charity projects via the BeatBlender Company.
+                                <!-- By Using BeatBlender artists do not only contribute to a free music movement they also contribute to social projects. -->
+                            </p>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+    </div>
+    <form [formGroup]="(formsSubject | async)" fxLayout="column" class="mt-16">
         <ng-container *ngIf="userData">
-            <h3>Audio File</h3>
-            <div class="mb-16 mt-16">
+            <div class="full-width pr-8" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+                <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">Enter Audio File</h3>
+
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+            </div>
+            <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">Please upload the track file for which you want to obtain the license to distribute on streaming services.</p>
+
+            
+            <div class="mb-16 mt-16" fxLayoutAlign="center center" fxLayout>
                 <!-- <h3 style="color: var(--base-accent-color);">Select one or multiple Samples you want to upload</h3> -->
                 <input type="file" (onFileSelected)="onFileSelected($event)" ng2FileSelect [uploader]="uploader"
                     multiple /><br />
@@ -77,63 +160,92 @@
 
         </ng-container>
         <div style="position: relative;">
-            <h3>Your Release Artist Name</h3>
-            <div fxLayout fxLayoutAlign="start center">
-                <mat-form-field appearance="outline" style="width: 300px;">
+            <div class="full-width pr-8 my-16" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+                <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">Artist Name
+                </h3>
+
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+            </div>
+            <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">Choose your artist name under which you want to release your track</p>
+
+            <div fxLayout fxLayoutAlign="center center">
+                <mat-form-field appearance="outline" [ngStyle.xs]="{'width': '300px'}" style="width: 500px;">
                     <mat-label>Enter Artist Name</mat-label>
                     <input formControlName="releaseArtistName" matInput>
                 </mat-form-field>
             </div>
 
-            <h3>Your New Song</h3>
-            <div fxLayout fxLayoutAlign="start center">
-                <mat-form-field appearance="outline" style="width: 300px;">
+            <div class="full-width pr-8 py-32" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+                <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">Song Title</h3>
+
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+            </div>
+            <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">Select the release title of your song which will represent your track on streaming services.</p>
+
+            <div fxLayout fxLayoutAlign="center center">
+                <mat-form-field appearance="outline" [ngStyle.xs]="{'width': '300px'}" style="width: 500px;">
                     <mat-label>Enter Song Title</mat-label>
                     <input formControlName="releaseTitle" matInput>
                 </mat-form-field>
             </div>
-            <div
-                style="position: absolute; bottom: 0px; right: -100px; border-radius: 50%; background: var(--accent-color); width: 150px; height: 150px; z-index: 0; transform: translateY(120px);">
-
-            </div>
+           
 
 
         </div>
         <!-- <ng-template matStepLabel>Choose Sample Image</ng-template> -->
 
-          <form [formGroup]="(formsSubject | async)?.controls['image']">
+        <form [formGroup]="(formsSubject | async)?.controls['image']">
 
-          </form>
+        </form>
 
-          <div class="mb-16 mt-16">
+        <div class="mb-16 mt-16">
             <!-- <p>Multiple</p> -->
-            <mat-label>Upload Release Image</mat-label><br /><br />
-            <input type="file" accept="image/*" (onFileSelected)="onFileSelected($event)" ng2FileSelect
-              [uploader]="imageUploader" /><br />
+            <div class="full-width pr-8" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+                <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">Enter Track Image</h3>
+    
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+    
+            </div>
+            <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">Select the image with which will represent your track on streaming services.</p>
+            <div fxLayout fxLayoutAlign="center center">
+
+                <input type="file" accept="image/*" (onFileSelected)="onFileSelected($event)" ng2FileSelect
+                    [uploader]="imageUploader" /><br />
+            </div>
             <!-- <input type="file" (onFileSelected)="onFileSelected($event)" ng2FileSelect [uploader]="imageUploader" multiple/><br /> -->
 
             <!-- <p>Single</p>
                   <input type="file" ng2FileSelect [uploader]="uploader" /> -->
-          </div>
-          <div class="mb-16">
+        </div>
+        <div class="mb-16">
             <div ng2FileDrop [ngClass]="{'dz-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)"
-              [uploader]="imageUploader" class="fileupload-drop-zone mb-24">
-              Drop file here
+                [uploader]="imageUploader" class="fileupload-drop-zone mb-24">
+                Drop file here
             </div>
-          </div>
-          <!-- <p>Please declare which samples you have mixed inside this sample.</p> -->
-          <div>
+        </div>
+        <!-- <p>Please declare which samples you have mixed inside this sample.</p> -->
+        <div>
 
             <!-- <button [disabled]="!(formsSubject | async)?.controls['image'].valid" mat-raised-button
               matStepperNext>Next</button> -->
             <!-- <button mat-button matStepperPrevious>Back</button> -->
             <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
-          </div>
-        <h3>Original Song</h3>
+        </div>
+        <div class="full-width pr-8" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+            <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+            <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">Choose Sampled Music</h3>
+
+            <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+        </div>
         <div fxFlex fxLayout="column">
-            <mat-label class="mb-16">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ea veritatis
-                non quasi ut iste perspiciatis asperiores itaque iure odio.</mat-label>
-            <div fxLayout fxLayoutAlign="start center" class="mb-32">
+            <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">Please select all samples that you included into your new track.</p>
+            <div fxLayout fxLayoutAlign="center center" class="mb-32">
                 <button (click)="openMixedInsDialog()" mat-raised-button color="primary" style="max-width: 30%;"
                     class="mr-8">Choose MixedIn Samples</button>
                 <mat-hint
@@ -158,21 +270,35 @@
 
         </div>
         <section fxLayout="column" class="py-16">
-            <h1>About the BeatBlender License</h1>
-            Here is a summary of some of the key things you can, cannot and must do with your new song once it’s
-            licensed
-            but please read the whole license carefully (see link below) as it contains important additional
-            information.
+            <div class="full-width pr-8 py-32" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+                <h1 class="text-center" style="font-weight: 300; color: var(--body-color);">About The License</h1>
+
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+            </div>
+            <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">Here is a summary of some of the key things you can, cannot and must do with your new song once it’s
+                licensed
+                but please read the whole license carefully (see link below) as it contains important additional
+                information.</p>
+
+            
             <!-- <mat-card style="background: var(--accent-color);"> -->
-            <p style="color: var(--accent-color); font-weight: 700;">
+            <p  class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="color: var(--accent-color); font-weight: 700;">
                 Please note that after you’ve obtained your license there are a number of important steps you need to
                 take
                 to activate your license!
             </p>
-            <h3>What you can do</h3>
+            <div class="full-width pr-8 py-32" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+                <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">What You Can Do</h3>
+
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+            </div>
             <div fxLayout="column">
                 <div style="width: 100%;">
-                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="10px"
+                    <mat-card fxLayout fxLayoutAlign="center center" fxLayoutGap="10px"
                         style="background: var(--light-theme);">
                         <div fxLayoutAlign="center center"
                             style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--primary-color);">
@@ -187,7 +313,7 @@
                     </mat-card>
                 </div>
                 <div style="width: 100%;">
-                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="10px"
+                    <mat-card fxLayout fxLayoutAlign="center center" fxLayoutGap="10px"
                         style="background: var(--light-theme);">
                         <div fxLayoutAlign="center center"
                             style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--primary-color);">
@@ -202,10 +328,16 @@
 
             </div>
 
-            <h3>What you cannot do</h3>
+            <div class="full-width pr-8 py-32" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+                <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">What You Cannot Do</h3>
+
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+            </div>
             <div fxLayout="column">
                 <div style="width: 100%;">
-                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="10px"
+                    <mat-card fxLayout fxLayoutAlign="center center" fxLayoutGap="10px"
                         style="background: var(--light-theme);">
                         <div fxLayoutAlign="center center"
                             style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--accent-color);">
@@ -219,7 +351,7 @@
                     </mat-card>
                 </div>
                 <div style="width: 100%;">
-                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="10px"
+                    <mat-card fxLayout fxLayoutAlign="center center" fxLayoutGap="10px"
                         style="background: var(--light-theme);">
                         <div fxLayoutAlign="center center"
                             style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--accent-color);">
@@ -234,10 +366,16 @@
 
 
             </div>
-            <h3>What you must do</h3>
+            <div class="full-width pr-8 py-32" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+                <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">What You Must Do</h3>
+
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+            </div>
             <div fxLayout="column">
                 <div style="width: 100%;">
-                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="10px"
+                    <mat-card fxLayout fxLayoutAlign="center center" fxLayoutGap="10px"
                         style="background: var(--light-theme);">
                         <div fxLayoutAlign="center center"
                             style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--primary-color);">
@@ -250,7 +388,7 @@
                     </mat-card>
                 </div>
                 <div style="width: 100%;">
-                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="10px"
+                    <mat-card fxLayout fxLayoutAlign="center center" fxLayoutGap="10px"
                         style="background: var(--light-theme);">
                         <div fxLayoutAlign="center center"
                             style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--primary-color);">
@@ -266,19 +404,25 @@
 
 
             </div>
-            <h1>Complete The Agreement</h1>
-            <div fxLayout fxLayoutAlign="start center">
-                <mat-form-field appearance="outline" style="width: 300px;">
+            <div class="full-width pr-8 py-32" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+                <h1 class="text-center" style="font-weight: 300; color: var(--body-color);">Complete The Agreement</h1>
+
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+            </div>
+            <div fxLayout fxLayoutAlign="center center">
+                <mat-form-field appearance="outline" style="width: 500px;">
                     <mat-label>Name of the Licensee</mat-label>
                     <input formControlName="licenseeName" matInput>
                 </mat-form-field>
             </div>
             <mat-checkbox #checkbox class="mb-16 checkbox">
-                I confirm that I am about to enter into the Tracklib sample license either on my own behalf or on behalf
+                I confirm that I am about to enter into the BeatBlender sample license either on my own behalf or on behalf
                 of
             </mat-checkbox>
             <mat-checkbox #checkbox class="mb-16 checkbox">
-                I also understand and agree that by making payment of the license fee I am entering into a binding legal
+                I also understand and agree that by completing the registration of the track I am entering into a binding legal
                 agreement and agreeing to its terms and conditions. </mat-checkbox>
             <!-- <button type="submit" style="width: 200px;" color="primary" mat-raised-button>
                 I Agree
@@ -289,19 +433,20 @@
         <div *ngIf="uploader.queue.length">
             <p>Queue progress:</p>
             <div class="progress mb-16">
-              <mat-progress-bar class="" color="primary" mode="determinate" [value]="uploader.progress">
-              </mat-progress-bar>
+                <mat-progress-bar class="" color="primary" mode="determinate" [value]="uploader.progress">
+                </mat-progress-bar>
             </div>
             <!-- [disabled]="!uploader.getNotUploadedItems().length" -->
-            <button mat-raised-button color="primary" class="mx-4" (click)="uploader.uploadAll()">Register Track</button>
-        
+            <button mat-raised-button color="primary" class="mx-4" (click)="uploader.uploadAll()">Register
+                Track</button>
+
             <button mat-raised-button color="accent" class="mx-4" (click)="uploader.cancelAll()"
-              [disabled]="!uploader.isUploading">Cancel all</button>
-        
+                [disabled]="!uploader.isUploading">Cancel all</button>
+
             <button mat-raised-button color="warn" class="mx-4" (click)="uploader.clearQueue()"
-              [disabled]="!uploader.queue.length">Remove all</button>
-          </div>
-        
+                [disabled]="!uploader.queue.length">Remove all</button>
+        </div>
+
     </form>
 
 

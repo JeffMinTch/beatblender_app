@@ -13,6 +13,7 @@ import { LicensingComponent } from './licensing/licensing.component';
 import { RegisterTrackComponent } from './register-track/register-track.component';
 import { HowToDistributeComponent } from './how-to-distribute/how-to-distribute.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { DistributeComponent } from './distribute/distribute.component';
 
 
 
@@ -33,7 +34,7 @@ import { FileUploadModule } from 'ng2-file-upload';
   // exports: [
   //   NgxPaginationModule
   // ],
-  declarations: [LicensingComponent, HowItWorksComponent, FullLicensesComponent, RegisterTrackComponent, HowToDistributeComponent],
+  declarations: [LicensingComponent, HowItWorksComponent, FullLicensesComponent, RegisterTrackComponent, HowToDistributeComponent, DistributeComponent],
   providers: [
   ]
 })

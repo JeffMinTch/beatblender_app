@@ -1,0 +1,68 @@
+<section fxLayout="column" class="p-16" style="background: var(--light-theme); border-radius: 8px;">
+    <div class="full-width pr-16 my-8" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+        <h1 class="text-center" [ngStyle.xs]="{'font-size' : '22px'}"
+            style="font-weight: 300; color: var(--body-color);">Start Distributing</h1>
+        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+    </div>
+    <p [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="font-size: 18px; color: var(--body-color);"
+        class="py-16 text-center">
+        Congratualtions! You successfully registered your new track. The copyright owner of the included samples can now
+        see what you created and get inspired. Great!
+    </p>
+    <p [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="font-size: 18px; color: var(--body-color);"
+        class="py-16 text-center">
+        You can now start to distribute your track to streaming services.
+    </p>
+    <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px" class="py-8">
+        <mat-card style="width: 80px; height: 80px; object-fit: cover;" class="streaming-service-card mb-8 br-8"
+            *ngFor="let streamingService of streamingServiceList">
+            <img [src]="'../../../assets/images/brand-logos/' + streamingService.path" alt="">
+        </mat-card>
+        <br>
+        <span>+165 Stores</span>
+    </div>
+    <!-- <p [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="font-size: 18px; color: var(--body-color);"
+        class="py-16 text-center">
+        You can now start to distribute your track to streaming services.   
+    </p> -->
+    <div class="full-width pr-16 my-8" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+        <h3 class="text-center" [ngStyle.xs]="{'font-size' : '22px'}"
+            style="font-weight: 300; color: var(--body-color);">Split Streaming Income</h3>
+        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+    </div>
+    <p [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="font-size: 18px; color: var(--body-color);"
+        class="py-16 text-center">
+        BeatBlender's mission is to create a free-to-use music market by donating the streaming money from remixes that use music from our platform to non-profit projects that make a positive contribution to our society.    
+        Activate your license by for legal distribution by redirecting your streaming income to us.
+        Therefore you must add BeatBlender as Collaborator and assign 100% to it. 
+        To distribute your music, we currently recommend you to use DistroKid, as this distributor offers automatic income splitting.
+    </p>
+    <p [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="font-size: 18px; color: var(--body-color);"
+        class="py-16 text-center">
+        When we get notified by DistroKid that you added our distrokid email address as collaborator and assign 100% to it the license for your song becomes active.
+    </p>
+    <span style="font-weight: 700; font-size: 28px;" class="text-center">donation@beatblender.com</span>
+    <!-- <p [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="font-size: 18px; color: var(--body-color);"
+        class="py-16 text-center">
+    </p>
+
+    <p [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="font-size: 18px; color: var(--body-color);"
+        class="py-16 text-center">
+    </p> -->
+    <!-- <div fxLayout fxLayoutAlign="center center">
+        <img src="../../../../assets/images/brand-logos/distrokid.png" alt="">
+    </div> -->
+
+    <!-- <p [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="font-size: 18px; color: var(--body-color);"
+        class="py-16 text-center">
+    </p> -->
+    <p [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="font-size: 18px; color: var(--body-color);"
+        class="py-16 text-center">
+        If you don't know how income splitting with BeatBlender works you can get more information <a class="hypertext" href="">here</a>. 
+    </p>
+    
+</section>

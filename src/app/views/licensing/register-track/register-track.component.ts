@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -50,6 +51,7 @@ export class RegisterTrackComponent implements OnInit {
     private oauthService: OAuthService,
     private changeDetectorRef: ChangeDetectorRef,
     private jwt: JwtAuthService,
+    private router: Router
 
 
 
@@ -201,6 +203,12 @@ export class RegisterTrackComponent implements OnInit {
       console.log(item);
       console.log(filter);
     };
+
+    this.uploader.onSuccessItem = (item, response, status, headers) => {
+      let data = JSON.parse(response); //success server response
+      alert(response);
+      this.router.navigate(['licensing', 'start-distributing']);
+    }
 
     this.uploader.onErrorItem = (item, res, status, headers) => {
       console.log('onErrorItem');

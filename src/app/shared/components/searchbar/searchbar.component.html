@@ -1,5 +1,5 @@
 <section fxLayout="row" fxLayout.lt-sm="column" class="shop-top-toolbar">
-    <div class="wrap" fxFlex fxLayoutAlign="center center">
+    <div class="wrap" fxFlex fxLayoutAlign="center center" class="px-8">
       <!-- <button mat-stroked-button  color="primary" class="mr-16 br-8 full-height" style="background: var(--light-theme);" (click)="toggleSidenav()">
         <mat-icon>short_text</mat-icon>
       </button> -->
@@ -39,10 +39,18 @@
           </mat-autocomplete>
         </form>
       </div>
-      <button [ngStyle]="{'background': isFilterOpen ? 'var(--light-theme-accent)' : 'var(--light-theme)'}" class="mx-16" mat-raised-button (click)="toggleFilter()">
+      <button [ngStyle]="{'background': isFilterOpen ? 'var(--light-theme-accent)' : 'var(--light-theme)'}" class="" mat-raised-button (click)="toggleFilter()">
         
         <mat-icon >filter_alt</mat-icon> 
       </button>
+      <a fxShow [fxHide.lt-md]="true" href="/profile/upload-audio">
+        <button fxLayout fxLayoutAlign="center center" fxLayoutGap="10px" class="mx-16" color="primary" mat-raised-button>
+          <span class="px-8">
+            I Want To Donate Music Too
+          </span>
+          <mat-icon >volunteer_activism</mat-icon> 
+        </button>
+      </a>
       <!-- {{isFilterOpen ? 'Close' : 'Open'}} Filter -->
       <!-- <button *ngIf="extraButton === true" mat-stroked-button color="primary" style="height: 95%; background: var(--light-theme);" (click)="toggleFilter()">
         <mat-icon>filter_list</mat-icon> {{isFilterOpen ? 'Close' : 'Open'}} Filter
