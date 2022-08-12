@@ -1,0 +1,134 @@
+.my-licenses-container {
+  // margin: 1rem 0.33rem 0.33rem;
+  overflow: hidden;
+  min-height: 1200px;
+  position: relative;
+  padding: 0 16px;
+}
+
+
+.mat-card.table-wrapper {
+  margin: 0;
+  box-shadow: none !important;
+  border: 1px solid var(--body-color);
+}
+
+
+.table-wrapper  {
+// border: 1px solid var(--base-primary-color);
+// border-radius: 8px;
+
+}
+.table-container {
+// min-height: 300px;
+// max-height: 300px;
+// overflow: auto;
+}
+
+table {
+  // padding: 16px;
+  width: 100%;
+}
+
+tr {
+  td {
+    // background: var(--primary-light-color);
+    // border-left: 0.5px solid var(--base-focused-color); 
+    // border-right: 0.5px solid var(--base-focused-color); 
+    
+  }
+}
+
+tr:hover {
+  background: var(--base-focused-color);
+  // font-weight: 900;
+  th {
+    background: var(--light-theme); 
+   }
+  
+}
+
+tr:active {
+  // background: var(--base-accent-color);
+  // color: #fafafa !important;
+  
+}
+
+td {
+  // min-height: 100px;
+  height: 80px;
+  cursor: pointer;
+}
+
+// .full-license-table
+
+th {
+  color: var(--body-color);
+  font-weight: 600;
+}
+
+td, th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+tr:hover {
+  button:not(.header-button) {
+    background: var(--light-theme);
+    border: 1px solid;
+  }
+}
+
+.full-license-table {
+  td {
+    // background: var(--base-accent-color);
+    // color: var(--light-theme);
+    font-weight: 600;
+    height: 120px;
+  }
+  
+}
+
+::ng-deep .mat-sort-header-container {
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+mat-header-cell, mat-cell {
+  // justify-content: center !important;
+  text-align: center !important;
+  // padding-left: 4px;
+  // padding-right: 4px;
+}
+
+::ng-deep mat-header-cell:first-of-type, 
+::ng-deep .mat-cell:first-of-type, 
+::ng-deep .mat-footer-cell:first-of-type {
+  padding-left: 0 !important;
+}
+
+button {
+  width: 95%;
+  font-weight: 600;
+  padding-top: 2px;
+  // padding: 4px 0;
+  span {
+    line-height: 18px;
+  }
+}
+
+::ng-deep .mat-tab-label .mat-tab-label-content {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+mat-card.not-found-card {
+  box-shadow: none !important;
+  border: 1px solid var(--light-theme-accent);
+  margin-top: 16px;
+}
+
+.mat-box-shadow {
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14) !important;
+}

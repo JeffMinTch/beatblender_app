@@ -1,0 +1,66 @@
+<!-- <h1 [ngStyle.lt-lg]="{'text-align': 'center'}" class="">
+    <span style="color: var(--primary-color);">D</span>
+    <span style="">istribute</span>
+    <span style="color: var(--accent-color); font-weight: 600;"> T</span>
+    <span style="font-weight: 600; color: var(--base-accent-color);">rack</span>
+  </h1>
+  <p [ngStyle.lt-lg]="{'text-align': 'center'}" style="font-size: 22px; color: var(--base-accent-color);">Upload your sampled Track to all Major Streaming Services</p>
+  <mat-divider></mat-divider>
+
+  <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px" class="py-8">
+    <mat-card class="streaming-service-card mb-8" *ngFor="let streamingService of streamingServiceList">
+      <img [src]="'../../../../assets/images/brand-logos/' + streamingService.path" alt="">
+    </mat-card>
+    <span>+165 Stores</span>
+  </div>
+  <div class="mb-16 mt-16">
+    <input type="file" (onFileSelected)="onFileSelected($event)" ng2FileSelect [uploader]="uploader" multiple /><br />
+  </div>
+  <div class="mb-16">
+    <div ng2FileDrop [ngClass]="{'dz-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)"
+      [uploader]="uploader" class="fileupload-drop-zone mb-24">
+      Drop file here
+    </div>
+  </div>
+  <table *ngIf="uploader.queue.length" class="default-table mb-24" style="width: 100%">
+    <thead>
+      <tr>
+        <th width="30%">Name</th>
+        <th>Size</th>
+        <th>Progress</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="uploader.queue.length; else tableNoData">
+      <tr *ngFor="let item of uploader.queue">
+        <td><span fxLayout="row">
+            <mat-icon class="mr-8" inline="true">insert_drive_file</mat-icon>{{ item?.file?.name }}
+          </span></td>
+        <td>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+        <td>
+          <div class="progress" style="margin-bottom: 0;">
+            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+            <mat-progress-bar class="" color="primary" mode="determinate" [value]="item.progress">
+            </mat-progress-bar>
+          </div>
+        </td>
+        <td class="">
+          <mat-icon *ngIf="item.isSuccess" color="primary">check</mat-icon>
+          <mat-icon *ngIf="item.isCancel" color="accent">cancel</mat-icon>
+          <mat-icon *ngIf="item.isError" color="warn">error</mat-icon>
+        </td>
+        <td nowrap>
+          <button mat-raised-button color="primary" class="mx-4" (click)="item.upload()"
+            [disabled]="item.isReady || item.isUploading || item.isSuccess">Upload</button>
+          <button mat-raised-button color="accent" class="mx-4" (click)="item.cancel()"
+            [disabled]="!item.isUploading">Cancel</button>
+
+          <button mat-raised-button color="warn" class="mx-4" (click)="item.remove()">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+    <ng-template #tableNoData>
+      <p [ngStyle]="{padding: '0 1.2rem'}">No samples added yet.</p>
+    </ng-template>
+  </table> -->

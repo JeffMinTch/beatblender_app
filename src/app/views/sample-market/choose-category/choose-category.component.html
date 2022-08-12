@@ -1,0 +1,26 @@
+<h1 [ngStyle.lt-md]="{'text-align' : 'center'}" class="pl-8" style="color: var(--body-color);"><span style="color: var(--primary-color);">C</span>hosse License Type</h1>
+<h4 class="pl-8 mt-4" style="font-size: 20px; font-weight: 300;">No matter what license you use, no Sample requires a pre-investment and can be used on all Streaming Services.</h4>
+
+
+
+<section class="genres-container pt-16 pl-8" fxLayout="row wrap" fxLayoutAlign="start start">
+    <section   *ngFor="let category of licenseCategoryList" fxLayout fxLayoutAlign="start center"
+        class="genres-wrapper">
+            <div class="full-width" fxLayout="column" fxLayoutGap="10px">
+                <div fxLayout fxLayoutAlign="center center" class="genres-item mat-elevation-z1" mat-ripple [routerLink]="'/sample-market/bb-license/artists/' + category.path">
+                    <h3 style="text-align: center; color: var(--base-accent-color);">{{category.name}}</h3>
+                </div>
+                <h4 style="font-size: 18px; text-align: center; font-weight: 300;">Creator gets <strong style="color: var(--primary-color); font-weight: 900; font-size: 22px;">{{category.percentage}}%</strong> of your Streaming Income.</h4>
+                <!-- <ul class="px-16">
+                    <li>
+                        <span>Use and distribute on over 165 Streaming Platform</span>
+                    </li>
+                    <li>
+                        <span>Originator gets 100% of your Streaming Income</span>
+                    </li>
+                </ul> -->
+
+        </div>
+    </section>
+
+</section>

@@ -1,0 +1,314 @@
+.home-section {
+  // padding: 80px 0;
+}
+
+.home-sidenav .mat-sidenav-content {
+  overflow: hidden !important;
+  width: 100% !important;
+}
+
+.landing-container {
+  width: 100%;
+  height: 100%;
+  // filter: blur(10px);
+  // background: rgba(202,202,202,0.9);
+  // margin: auto;
+  // width: 60%;
+  // height: 80%;
+  // backdrop-filter: blur(10px);
+  // webkit-backdrop-filter: blur(10px);
+}
+
+.landing-card {
+  min-width: 450px;
+  max-width: 600px;
+  margin: auto 40px 40px auto;
+  height: 200px;
+  width: 450px;
+  flex-direction: column;
+}
+
+.opportunity-card {
+  width: 400px;
+  height: 180px;
+  p {
+    text-align: center;
+    font-size: 28px;
+    line-height: 50px;
+    font-weight: 300;
+    span {
+      // font-family: Lazer84;
+      font-size: 28px;
+    }
+  }
+  // height: 1;
+}
+
+.scrollable {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.section-intro {
+  // padding: 100px 0 30px;
+  // background: var(--light-theme-accent);
+  // background-blend-mode: lighten;
+  background: #2b303b url(../../../images/backgrounds/window-studio.jpg) center center/cover no-repeat;
+  background-attachment: local;
+  color: #ffffff;
+  height: calc(100vh - 78px);
+  max-height: 800px;
+  width: 100%;
+  // margin-bottom: 60px;
+
+  // filter: blur(2px);
+  .egret {
+    font-size: 36px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.48);
+  }
+  h1 {
+    font-size: 32px;
+    margin: 2rem 0 1rem;
+    font-weight: 500;
+  }
+  p {
+    font-size: 16px;
+    max-width: 450px;
+    margin: 0 auto 1.4rem;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+.section-demos {
+  position: relative;
+  background: #ffffff;
+  .demo-box-wrap {
+    padding: 2rem;
+  }
+  .demo-box {
+    position: relative;
+    border-radius: 8px;
+    transition: 0.2s all ease-in-out;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    &:hover {
+      box-shadow: 0 10px 16px rgba(0, 0, 0, 0.2);
+      .caption {
+        opacity: 1;
+        transform: translateY(-10px);
+      }
+    }
+    .caption {
+      opacity: 0;
+      background: #ffffff;
+      padding: 1rem;
+      position: absolute;
+      z-index: 99;
+      top: -20px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      border-radius: 8px;
+      width: 220px;
+      transition: 0.2s all ease-in-out;
+      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    }
+    h3 {
+      margin: 0 0 1rem;
+      font-size: 22px;
+      font-weight: 300;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      float: left;
+    }
+    .screenshot {
+      overflow: hidden;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      // min-height: 180px;
+      cursor: pointer;
+    }
+  }
+}
+
+.home-section-title {
+  // text-align: center;
+  text-align: center;
+  max-width: 90%;
+  font-size: 18px;
+  line-height: 50px;
+  span {
+    font-weight: 700;
+    color: var(--primary-color);
+    // font-family: 'Lazer84';
+  }
+  .home-section {
+  }
+
+  .highlight {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: "Lazer84";
+    padding: 0 8px;
+  }
+}
+
+.second-container {
+  width: 100%;
+  height: fit-content;
+  // background: var(--light-theme-accent);
+}
+
+.vision-card {
+  width: 33.33%;
+  p {
+    font-size: 20px;
+  }
+}
+
+.question-cards {
+  // background: url(../../../images/backgrounds/window-studio.jpg);
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position: center;
+}
+
+.question-card-container {
+  width: 50%;
+
+  mat-card {
+    box-shadow: none !important;
+    min-height: 300px;
+    background: var(--light-theme) !important;
+    // h3 {
+    //   color: var(--primary-color);
+    // }
+  }
+}
+
+app-benefit-card {
+  width: 33.33%;
+}
+
+.rounded-enum {
+  border: 2px solid var(--body-color);
+  border-radius: 50%;
+  padding: 8px;
+  font-weight: 900;
+  width: 40px;
+  height: 40px;
+  color: var(--body-color);
+  // background: var(--primary-light-color);
+}
+
+.step-card-title {
+  font-size: 22px;
+  color: var(--body-color);
+  font-weight: 700;
+}
+
+.license-card {
+  width: 220px;
+  height: 350px;
+  border-radius: 8px;
+  border: 2px solid;
+  background: white;
+}
+
+.licensing-process-container {
+  // background: var(--light-theme-accent);
+  padding: 32px;
+}
+
+// .benefits-container {
+.left-container {
+  background-image: url(../../../images/backgrounds/soundgirl.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+// }
+
+.process-illustration {
+  // background-image: url(../../../images/backgrounds/lp-test.gif);
+  // background-size: cover;
+  // background-repeat: none;
+  // background-position: center;
+  // border: 2px solid;
+  img {
+    width: 100%;
+    max-width: 900px;
+    height: 400px;
+  }
+}
+
+footer {
+  height: 300px;
+  width: 100%;
+  background: var(--primary-light-color);
+}
+
+video {
+  // width: 70%;
+  // max-width: 800px;
+  // height: 400px;
+}
+
+.pie-diagramm {
+  // background-image: url(../../../../assets/images/backgrounds/lp-4.svg);
+  // background-repeat: no-repeat;
+  // // background-size: contain;
+  // background-position: center;
+  // height: 900px;
+}
+
+.license-process-image {
+  background-image: url(../../../../assets/images/backgrounds/lp-3.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 100%;
+  height: 600px;
+}
+
+.simple-card {
+  .simple-card-icon-container {
+    width: 170px;
+    height: auto;
+  }
+}
+
+.artist-image {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.banner {
+  img {
+  }
+}
+
+.artist-name {
+  color: var(--base-disabled-color);
+  text-align: left;
+}
+
+.round-artist-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+
+.cursor {
+  font-size: 42px;
+  color: var(--body-color);
+}

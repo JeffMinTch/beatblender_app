@@ -1,0 +1,31 @@
+ // Footer background
+//  .footer-#{''+$colorName+''} {
+//     .main-footer {
+//       background: $body-color !important;
+//       color: $foreground500 !important;
+//       .player-icon {
+//         background: $color500;
+//         color: $foreground500;
+//       }
+//     }
+//   }
+.player-top {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--light-theme-accent);
+    width: 650px;
+    height: 50px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    // border-top: 3px solid var(--primary-color);
+    // border-left: 2px solid var(--primary-light-color);
+
+    // border-right: 2px solid var(--primary-light-color);
+
+
+}
+
+
+ 

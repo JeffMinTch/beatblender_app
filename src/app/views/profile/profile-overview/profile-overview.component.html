@@ -1,0 +1,1431 @@
+<!-- <div fxLayoutAlign="center center"
+  style="height: 200px; background: var; background-image: url(../../../../assets/images/backgrounds/window-studio.jpg); background-repeat: none; background-size: cover; background-position: center;">
+  <div class="m-16">
+    <img src="../../../assets/images/typ.jpg" alt="" class="artist-image mat-elevation-z1">
+  </div>
+</div>
+<div fxLayout="column" fxlayoutGap="10px" fxLayoutAlign="start center" style="background: var(--primary-color);" class="pt-8">
+  <h1 class="m-0" style="color: var(--light-theme);">
+   Dashboard
+  </h1>
+  <p class="" style="font-size: 18px; color: var(--light-theme);">Build Your Legacy With BeatBlender</p>
+
+</div> -->
+<!-- <div style="">
+  <div fxLayout="row wrap" fxLayoutAlign="start center" class="" fxLayoutGap="10px">
+    <mat-card fxLayoutAlign="center center" fxLayout="column" [ngStyle.xs]="{'width' : '100%'}"
+      [ngStyle.sm]="{'width' : '30%'}" [ngStyle.md]="{'width' : '30%'}" [ngStyle.lg]="{'width' : '30%'}"
+      [ngStyle.xl]="{'width' : '30%'}" class="dashboard-card">
+      <h4 fxLayoutAlign="start center" class="my-16 text-muted" style="">
+        <small class="text-muted">Sampled</small>
+  
+        <span fxFlex></span>
+  
+      </h4>
+      <div>
+        <h3 class="m-0 font-normal balance-text">128 Times</h3>
+        <small class="text-muted">by our Community</small>
+      </div>
+    </mat-card>
+    <mat-card fxLayoutAlign="center center" fxLayout="column"
+      style="border-left: 2px solid var(--light-theme-accent); border-right: 2px solid var(--light-theme-accent);"
+      [ngStyle.xs]="{'width' : '30%'}" [ngStyle.sm]="{'width' : '30%'}" [ngStyle.md]="{'width' : '30%'}"
+      [ngStyle.lg]="{'width' : '30%'}" [ngStyle.xl]="{'width' : '30%'}" class="dashboard-card">
+      <h4 fxLayoutAlign="start center" class="my-16">
+        <small class="text-muted" >Donation Funds</small>
+        <span fxFlex></span>
+      </h4>
+      <div>
+        <h3 class="m-0 font-normal balance-text">22,450$</h3>
+        <small class="text-muted">by remixing your Samples</small>
+      </div>
+    </mat-card>
+    <mat-card fxLayoutAlign="center center" fxLayout="column" [ngStyle.xs]="{'width' : '100%'}"
+      [ngStyle.sm]="{'width' : '50%'}" [ngStyle.md]="{'width' : '30%'}" [ngStyle.lg]="{'width' : '30%'}"
+      [ngStyle.xl]="{'width' : '30%'}" class="dashboard-card">
+      <h4 fxLayoutAlign="start center" class="my-16">
+        <small class="text-muted" >Total Streams</small>
+        <span fxFlex></span>
+  
+      </h4>
+      <div>
+        <h3 class="m-0 font-normal balance-text">1097</h3>
+        <small class="text-muted">on Streaming Platforms</small>
+      </div>
+    </mat-card>
+  
+  </div>
+</div> -->
+
+<div fxLayout="column" fxLayoutAlign="space-between" class="pb-16" style="background: var(--light-theme);">
+  
+  <!-- <div fxLayout="column">
+    <h1 style="margin: auto 0 0 8px;"> My <span style="color: var(--primary-color);">D</span>ash<span
+        style="color: var(--accent-color);">b</span>oard</h1>
+    <h4 style="margin: 0 0 auto 8px;">Overview your Financials.</h4>
+  </div> -->
+  <mat-card class="p-0 mx-0 mt-0" [@animate]="{ value: '*', params: { scale: '.9', delay: '200ms' } }">
+    <div fxLayout="row wrap">
+      <div fxFlex="100" fxFlex.gt-sm="20" fxFlex.sm="50">
+        <div class="text-center pt-16 pb-16 border-right-light">
+          <mat-icon style="color: var(--body-color); width: 60px; height: 60px; font-size: 50px;">account_balance_wallet
+          </mat-icon>
+          <h4 class="m-0">5040</h4>
+          <small class="m-0 text-muted">Your Balance</small>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-sm="20" fxFlex.sm="50">
+        <div class="text-center pt-16 pb-16 border-right-light">
+          <mat-icon style="color: var(--body-color);width: 60px; height: 60px; font-size: 50px;">festival</mat-icon>
+          <h4 class="m-0 ">1200</h4>
+          <small class="m-0 text-muted">Played At Public Events</small>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-sm="20" fxFlex.sm="50">
+        <div class="text-center pt-16 pb-16 border-right-light">
+          <mat-icon style="color: var(--body-color); width: 60px; height: 60px; font-size: 50px;">blender</mat-icon>
+          <h4 class="m-0 ">3</h4>
+          <small class="m-0 text-muted">Tracks Inlude Your Music</small>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-sm="20" fxFlex.sm="50">
+        <div class="text-center pt-16 pb-16 border-right-light">
+          <mat-icon style="color: var(--body-color); width: 60px; height: 60px; font-size: 50px;">album</mat-icon>
+          <h4 class="m-0 ">12</h4>
+          <small class="m-0 text-muted"> <strong>Tracks Created By You</strong></small>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-sm="20" fxFlex.sm="50">
+        <div class="text-center pt-16 pb-16">
+          <mat-icon style="color: var(--body-color); width: 60px; height: 60px; font-size: 50px;">compare_arrows
+          </mat-icon>
+          <h4 class="m-0 ">270K</h4>
+          <small class="m-0 text-muted">Streams</small>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+  <div fxLayout="column" fxLayoutGap="10px">
+    <div fxFlex fxLayout="column" class="mat-elevation-z1 p-16">
+      <h3 class="mx-0 mt-48 mb-32 text-center">
+        <!-- <div style="width: 64px; height: 64px;" class="mr-16">
+            <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
+          </div> -->
+        <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
+        <span style="color: var(--primary-color);">T</span>
+        <span style="">OP </span>
+        <span style="color: var(--accent-color); font-weight: 600;">BB</span>
+        <span style="font-weight: 600; color: var(--base-accent-color);">-RELEASES</span>
+        THIS WEEK
+      </h3>
+  
+      <!-- <div
+      style="background: var; background-image: url(../../../../assets/images/techno.jpg); background-repeat: none; background-size: cover;"
+      class="py-48"> -->
+  
+  
+      <!-- </div> -->
+      <div class="product-container" fxLayout="row wrap" fxLayoutAlign="start start">
+        <!-- Product Box -->
+        <ng-container
+          *ngIf="(sampleLicensingMarketService.samples$ | async)?.length <= 0 && (sampleLicensingMarketService.samples$ | async) != null"
+          ; else product>
+          <div fxFlex fxLayoutAlign="center">
+            <span class="fs-24">No samples match your request.</span>
+          </div>
+        </ng-container>
+        <ng-container #product>
+          <ng-container
+            *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count }; let i = index;">
+            <div *ngIf="i < 8" fxLayout="row" class="product-wrap full-width"
+              [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}">
+              <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
+              <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
+              <div fxLayout="column" class="product-inner default-bg mx-8 full-width">
+                <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
+                              <span>{{product?.badge?.text}}</span>
+                            </div> -->
+                <div fxLayout fxLayoutAlign="start center" fxLayoutGap="20px">
+                  <h1 style="width: 40px;" class="my-0">{{i + 1}}</h1>
+                  <app-audio-panel class="ml-auto" fxFlex [sample]="sample" light="true" [type]="viewMode === 'grid-view' ? 'sample' : 'primary'"
+                    (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
+  
+                </div>
+  
+                <!-- Visible when viewMode === list-view -->
+                <!-- <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
+                            <div class="more-info">
+                              <div class="more-actions mb-16">
+                                <div class="product-rating">
+                                  <star-rating [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'"
+                                    [rating]="4.63"></star-rating>
+                                  <small class="text-muted">(140)</small>
+                                </div>
+                                <span fxFlex></span>
+                                <button mat-icon-button>
+                                  <mat-icon>playlist_add</mat-icon>
+                                </button>
+                                <button mat-icon-button>
+                                  <mat-icon>favorite</mat-icon>
+                                </button>
+                              </div>
+              
+                              <div>
+                                <ul>
+                                  <li>
+                                    <mat-icon>check</mat-icon> Heavy duty
+                                  </li>
+                                  <li>
+                                    <mat-icon>check</mat-icon> Water resistance
+                                  </li>
+                                  <li>
+                                    <mat-icon>check</mat-icon> Clean design
+                                  </li>
+                                  <li>
+                                    <mat-icon>check</mat-icon> High quality raw materials
+                                  </li>
+                                </ul>
+                              </div>
+              
+                            </div>
+                          </div> -->
+  
+              </div>
+            </div>
+  
+          </ng-container>
+        </ng-container>
+  
+        <div class="products-pagination" *ngIf="count > pageSize">
+          <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
+          <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+        </div>
+      </div>
+    </div>
+    <div fxFlex fxLayout="column" class="mat-elevation-z1 p-16">
+      <h3 class="mx-0 mt-48 mb-32 text-center">
+        <!-- <div style="width: 64px; height: 64px;" class="mr-16">
+            <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
+          </div> -->
+        <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
+        <span style="color: var(--primary-color);">T</span>
+        <span style="">OP </span>
+        <span style="color: var(--accent-color); font-weight: 600;">R</span>
+        <span style="font-weight: 600; color: var(--base-accent-color);">ELEASES ALL TIME</span>
+        
+      </h3>
+  
+      <!-- <div
+      style="background: var; background-image: url(../../../../assets/images/techno.jpg); background-repeat: none; background-size: cover;"
+      class="py-48"> -->
+  
+  
+      <!-- </div> -->
+      <div class="product-container" fxLayout="row wrap" fxLayoutAlign="start start">
+        <!-- Product Box -->
+        <ng-container
+          *ngIf="(sampleLicensingMarketService.samples$ | async)?.length <= 0 && (sampleLicensingMarketService.samples$ | async) != null"
+          ; else product>
+          <div fxFlex fxLayoutAlign="center">
+            <span class="fs-24">No samples match your request.</span>
+          </div>
+        </ng-container>
+        <ng-container #product>
+          <ng-container
+            *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count }; let i = index;">
+            <div *ngIf="i < 8" fxLayout="row" class="product-wrap full-width"
+              [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}">
+              <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
+              <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
+              <div fxLayout="column" class="product-inner default-bg mx-8 full-width">
+                <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
+                              <span>{{product?.badge?.text}}</span>
+                            </div> -->
+                <div fxLayout fxLayoutAlign="start center" fxLayoutGap="20px">
+                  <h1 class="my-0" style="width: 40px;">{{i + 1}}</h1>
+                  <app-audio-panel fxFlex [sample]="sample" light="true" [type]="viewMode === 'grid-view' ? 'sample' : 'primary'"
+                    (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
+  
+                </div>
+  
+                <!-- Visible when viewMode === list-view -->
+                <!-- <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
+                            <div class="more-info">
+                              <div class="more-actions mb-16">
+                                <div class="product-rating">
+                                  <star-rating [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'"
+                                    [rating]="4.63"></star-rating>
+                                  <small class="text-muted">(140)</small>
+                                </div>
+                                <span fxFlex></span>
+                                <button mat-icon-button>
+                                  <mat-icon>playlist_add</mat-icon>
+                                </button>
+                                <button mat-icon-button>
+                                  <mat-icon>favorite</mat-icon>
+                                </button>
+                              </div>
+              
+                              <div>
+                                <ul>
+                                  <li>
+                                    <mat-icon>check</mat-icon> Heavy duty
+                                  </li>
+                                  <li>
+                                    <mat-icon>check</mat-icon> Water resistance
+                                  </li>
+                                  <li>
+                                    <mat-icon>check</mat-icon> Clean design
+                                  </li>
+                                  <li>
+                                    <mat-icon>check</mat-icon> High quality raw materials
+                                  </li>
+                                </ul>
+                              </div>
+              
+                            </div>
+                          </div> -->
+  
+              </div>
+            </div>
+  
+          </ng-container>
+        </ng-container>
+  
+        <div class="products-pagination" *ngIf="count > pageSize">
+          <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
+          <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="column" class="mat-elevation-z1 my-16">
+    <h3 class="text-center">SAMPLE DOWNLOADS</h3>
+    <mat-card fxFlex="50" class="p-0">
+      <div fxLayout="row wrap">
+        <div fxFlex="40" class="p-16">
+          <!-- <p class="">Sample Downloads</p> -->
+          <p class="text-24 text-green font-weight-bold mb-0">
+            27% <span class="material-icons">arrow_drop_up</span>
+          </p>
+          <p class="text-muted m-0">This Week</p>
+        </div>
+        <!-- <div fxFlex="60">
+          <div echarts [options]="trafficGrowthChart" [autoResize]="true" style="height: 150px; right: -1px"></div>
+        </div> -->
+      </div>
+    </mat-card>
+
+  </div>
+  <div fxLayout="column" class="mat-elevation-z1">
+    <h3 class="mx-0 mb-16 p-8 text-center">
+      <!-- <div style="width: 64px; height: 64px;" class="mr-16">
+            <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
+          </div> -->
+      <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
+      SONGS THAT
+  
+      <span style="color: var(--primary-color); font-weight: 600;">GOT </span><span
+        style="color: var(--accent-color); font-weight: 600;">INSPIRED</span>
+      <span style="font-weight: 600; color: var(--base-accent-color);"> BY YOUR MUSIC</span>
+    </h3>
+    <!-- <mat-card style="box-shadow: none;"> -->
+  
+    <div class="product-container p-8" fxLayout="row wrap" fxLayoutAlign="start start">
+      <!-- Product Box -->
+      <ng-container
+        *ngIf="(sampleLicensingMarketService.samples$ | async)?.length <= 0 && (sampleLicensingMarketService.samples$ | async) != null"
+        ; else product>
+        <div fxFlex fxLayoutAlign="center">
+          <span class="fs-24">No samples match your request.</span>
+        </div>
+      </ng-container>
+      <ng-container #product>
+        <ng-container
+          *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count }; let i = index;">
+          <div *ngIf="i < 2" fxLayout="row" class="product-wrap"
+            [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}">
+            <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
+            <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
+            <div fxLayout="column" class="product-inner default-bg mx-8 my-16 full-width">
+              <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
+                                <span>{{product?.badge?.text}}</span>
+                              </div> -->
+              <app-audio-panel [sample]="sample" light="true" [type]="viewMode === 'grid-view' ? 'sample' : 'primary'"
+                (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
+  
+              <!-- Visible when viewMode === list-view -->
+              <!-- <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
+                              <div class="more-info">
+                                <div class="more-actions mb-16">
+                                  <div class="product-rating">
+                                    <star-rating [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'"
+                                      [rating]="4.63"></star-rating>
+                                    <small class="text-muted">(140)</small>
+                                  </div>
+                                  <span fxFlex></span>
+                                  <button mat-icon-button>
+                                    <mat-icon>playlist_add</mat-icon>
+                                  </button>
+                                  <button mat-icon-button>
+                                    <mat-icon>favorite</mat-icon>
+                                  </button>
+                                </div>
+                
+                                <div>
+                                  <ul>
+                                    <li>
+                                      <mat-icon>check</mat-icon> Heavy duty
+                                    </li>
+                                    <li>
+                                      <mat-icon>check</mat-icon> Water resistance
+                                    </li>
+                                    <li>
+                                      <mat-icon>check</mat-icon> Clean design
+                                    </li>
+                                    <li>
+                                      <mat-icon>check</mat-icon> High quality raw materials
+                                    </li>
+                                  </ul>
+                                </div>
+                
+                              </div>
+                            </div> -->
+  
+            </div>
+          </div>
+  
+        </ng-container>
+      </ng-container>
+  
+      <div class="products-pagination" *ngIf="count > pageSize">
+        <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
+        <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- </mat-card> -->
+  <div fxLayout>
+    <div fxFlex fxLayout="column" class="mat-elevation-z1 my-16">
+      <h3 class="mb-16 text-center">SAMPLING BY GENRES</h3>
+      <mat-card fxLayout fxLayoutAlign="space-between">
+        <!-- <div fxFlex>
+          <div echarts [options]="customPieOptions" style="height: 400px"></div>
+
+        </div> -->
+        <div fxLayout="column" fxFlex="40" class="mt-auto mb-0">
+          <!-- <h3 class="pl-16 text-center">GENRES THAT USE YOUR MUSIC</h3> -->
+          <mat-card class="p-0 mt-0" style="box-shadow: none !important;">
+            <mat-card-title class="mb-16">
+              <div class="card-title-text">
+
+                <span fxFlex></span>
+                <button class="card-control" mat-icon-button [matMenuTriggerFor]="menu2">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu2="matMenu">
+                  <button mat-menu-item>
+                    <mat-icon>settings</mat-icon>
+                    <span>Campaign Settings</span>
+                  </button>
+                  <button mat-menu-item>
+                    <mat-icon>do_not_disturb</mat-icon>
+                    <span>Disable All Campaigns</span>
+                  </button>
+                  <button mat-menu-item>
+                    <mat-icon>close</mat-icon>
+                    <span>Remove panel</span>
+                  </button>
+                </mat-menu>
+              </div>
+              <mat-divider></mat-divider>
+            </mat-card-title>
+            <mat-card-content>
+              <div class="mb-16">
+                <p class="m-0">
+                  Space Disco <span class="text-muted">| 9.8 | 90%</span>
+                </p>
+                <mat-progress-bar color="warn" mode="determinate" [value]="90" class="rounded" style="height: 6px">
+                </mat-progress-bar>
+              </div>
+              <div class="mb-16">
+                <p class="m-0 text-13">
+                  Dark Disco <span class="text-muted">| 8.3 | 80%</span>
+                </p>
+                <mat-progress-bar class="" color="primary" mode="determinate" [value]="80" class="rounded"
+                  style="height: 6px">
+                </mat-progress-bar>
+              </div>
+              <div class="mb-16">
+                <p class="m-0 text-13">
+                  HipHop <span class="text-muted">| 5.8 | 60%</span>
+                </p>
+                <mat-progress-bar class="" color="accent" mode="determinate" [value]="60" class="rounded"
+                  style="height: 6px">
+                </mat-progress-bar>
+              </div>
+              <div class="">
+                <p class="m-0 text-13">
+                  Psytrance <span class="text-muted">| 4.8 | 40%</span>
+                </p>
+                <mat-progress-bar class="" color="warn" mode="determinate" [value]="40" class="rounded"
+                  style="height: 6px">
+                </mat-progress-bar>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+        </div>
+      </mat-card>
+      <!-- <div class="m-24">
+        <mat-divider></mat-divider>
+      </div> -->
+
+    </div>
+    <!-- <div fxLayout="column" fxFlex="40" class="mt-auto mb-0">
+      <h3 class="pl-16 text-center">GENRES THAT USE YOUR MUSIC</h3>
+      <mat-card class="p-0 mt-0">
+        <mat-card-title class="mb-16">
+          <div class="card-title-text">
+
+            <span fxFlex></span>
+            <button class="card-control" mat-icon-button [matMenuTriggerFor]="menu2">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu2="matMenu">
+              <button mat-menu-item>
+                <mat-icon>settings</mat-icon>
+                <span>Campaign Settings</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>do_not_disturb</mat-icon>
+                <span>Disable All Campaigns</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>close</mat-icon>
+                <span>Remove panel</span>
+              </button>
+            </mat-menu>
+          </div>
+          <mat-divider></mat-divider>
+        </mat-card-title>
+        <mat-card-content>
+          <div class="mb-16">
+            <p class="m-0">
+              Space Disco <span class="text-muted">| 9.8 | 90%</span>
+            </p>
+            <mat-progress-bar color="warn" mode="determinate" [value]="90" class="rounded" style="height: 6px">
+            </mat-progress-bar>
+          </div>
+          <div class="mb-16">
+            <p class="m-0 text-13">
+              Dark Disco <span class="text-muted">| 8.3 | 80%</span>
+            </p>
+            <mat-progress-bar class="" color="primary" mode="determinate" [value]="80" class="rounded"
+              style="height: 6px">
+            </mat-progress-bar>
+          </div>
+          <div class="mb-16">
+            <p class="m-0 text-13">
+              HipHop <span class="text-muted">| 5.8 | 60%</span>
+            </p>
+            <mat-progress-bar class="" color="accent" mode="determinate" [value]="60" class="rounded"
+              style="height: 6px">
+            </mat-progress-bar>
+          </div>
+          <div class="">
+            <p class="m-0 text-13">
+              Psytrance <span class="text-muted">| 4.8 | 40%</span>
+            </p>
+            <mat-progress-bar class="" color="warn" mode="determinate" [value]="40" class="rounded" style="height: 6px">
+            </mat-progress-bar>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+    </div> -->
+
+  </div>
+  <div fxLayout fxLayoutGap="10px">
+    <div fxFlex fxLayout="column" class="p-16 mat-elevation-z1">
+      <!-- <mat-card> -->
+      <h3 class="mx-0 mb-16 text-center">
+        <!-- <div style="width: 64px; height: 64px;" class="mr-16">
+              <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
+            </div> -->
+        <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
+        <span style="color: var(--primary-color);">Y</span>
+        <span style="">our </span>
+        <span style="color: var(--accent-color); font-weight: 600;">S</span>
+        <span style="font-weight: 600; color: var(--base-accent-color);">amples</span>
+      </h3>
+  
+      <!-- <div
+        style="background: var; background-image: url(../../../../assets/images/techno.jpg); background-repeat: none; background-size: cover;"
+        class="py-48"> -->
+  
+  
+      <!-- </div> -->
+      <div class="product-container" fxLayout="row wrap" fxLayoutAlign="start start">
+        <!-- Product Box -->
+        <ng-container
+          *ngIf="(sampleLicensingMarketService.samples$ | async)?.length <= 0 && (sampleLicensingMarketService.samples$ | async) != null"
+          ; else product>
+          <div fxFlex fxLayoutAlign="center">
+            <span class="fs-24">No samples match your request.</span>
+          </div>
+        </ng-container>
+        <ng-container #product>
+          <ng-container
+            *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count }; let i = index;">
+            <div *ngIf="i < 4" fxLayout="row" class="product-wrap"
+              [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}">
+              <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
+              <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
+              <div fxLayout="column" class="product-inner default-bg mx-8 my-16 full-width">
+                <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
+                                <span>{{product?.badge?.text}}</span>
+                              </div> -->
+                <app-audio-panel [sample]="sample" light="true" [type]="viewMode === 'grid-view' ? 'sample' : 'primary'"
+                  (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
+  
+                <!-- Visible when viewMode === list-view -->
+                <!-- <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
+                              <div class="more-info">
+                                <div class="more-actions mb-16">
+                                  <div class="product-rating">
+                                    <star-rating [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'"
+                                      [rating]="4.63"></star-rating>
+                                    <small class="text-muted">(140)</small>
+                                  </div>
+                                  <span fxFlex></span>
+                                  <button mat-icon-button>
+                                    <mat-icon>playlist_add</mat-icon>
+                                  </button>
+                                  <button mat-icon-button>
+                                    <mat-icon>favorite</mat-icon>
+                                  </button>
+                                </div>
+                
+                                <div>
+                                  <ul>
+                                    <li>
+                                      <mat-icon>check</mat-icon> Heavy duty
+                                    </li>
+                                    <li>
+                                      <mat-icon>check</mat-icon> Water resistance
+                                    </li>
+                                    <li>
+                                      <mat-icon>check</mat-icon> Clean design
+                                    </li>
+                                    <li>
+                                      <mat-icon>check</mat-icon> High quality raw materials
+                                    </li>
+                                  </ul>
+                                </div>
+                
+                              </div>
+                            </div> -->
+  
+              </div>
+            </div>
+  
+          </ng-container>
+        </ng-container>
+  
+        <div class="products-pagination" *ngIf="count > pageSize">
+          <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
+          <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+        </div>
+      </div>
+  
+      <!-- </mat-card> -->
+  
+      <!-- <mat-divider></mat-divider> -->
+      <!-- <mat-card> -->
+     
+  
+      <!-- </mat-card> -->
+    </div>
+    <div fxFlex fxLayout="column" class="p-16 mat-elevation-z1">
+      <h3 class="mx-0 mb-16 text-center">
+        <!-- <div style="width: 64px; height: 64px;" class="mr-16">
+              <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
+            </div> -->
+        <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
+        Your
+  
+        <span style="color: var(--primary-color); font-weight: 600;">B</span><span
+          style="color: var(--accent-color); font-weight: 600;">B</span>
+        <span style="font-weight: 600; color: var(--base-accent-color);">-Remixes</span>
+      </h3>
+  
+  
+      <div class="product-container" fxLayout="row wrap" fxLayoutAlign="start start">
+        <!-- Product Box -->
+        <ng-container
+          *ngIf="(sampleLicensingMarketService.samples$ | async)?.length <= 0 && (sampleLicensingMarketService.samples$ | async) != null"
+          ; else product>
+          <div fxFlex fxLayoutAlign="center">
+            <span class="fs-24">No samples match your request.</span>
+          </div>
+        </ng-container>
+        <ng-container #product>
+          <ng-container
+            *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count }; let i = index;">
+            <div *ngIf="i < 2" fxLayout="row" class="product-wrap"
+              [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}">
+              <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
+              <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
+              <div fxLayout="column" class="product-inner default-bg mx-8 my-16 full-width">
+                <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
+                                <span>{{product?.badge?.text}}</span>
+                              </div> -->
+                <app-audio-panel [sample]="sample" light="true" [type]="viewMode === 'grid-view' ? 'sample' : 'primary'"
+                  (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
+  
+                <!-- Visible when viewMode === list-view -->
+                <!-- <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
+                              <div class="more-info">
+                                <div class="more-actions mb-16">
+                                  <div class="product-rating">
+                                    <star-rating [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'"
+                                      [rating]="4.63"></star-rating>
+                                    <small class="text-muted">(140)</small>
+                                  </div>
+                                  <span fxFlex></span>
+                                  <button mat-icon-button>
+                                    <mat-icon>playlist_add</mat-icon>
+                                  </button>
+                                  <button mat-icon-button>
+                                    <mat-icon>favorite</mat-icon>
+                                  </button>
+                                </div>
+                
+                                <div>
+                                  <ul>
+                                    <li>
+                                      <mat-icon>check</mat-icon> Heavy duty
+                                    </li>
+                                    <li>
+                                      <mat-icon>check</mat-icon> Water resistance
+                                    </li>
+                                    <li>
+                                      <mat-icon>check</mat-icon> Clean design
+                                    </li>
+                                    <li>
+                                      <mat-icon>check</mat-icon> High quality raw materials
+                                    </li>
+                                  </ul>
+                                </div>
+                
+                              </div>
+                            </div> -->
+  
+              </div>
+            </div>
+  
+          </ng-container>
+        </ng-container>
+  
+        <div class="products-pagination" *ngIf="count > pageSize">
+          <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
+          <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div fxLayout="row wrap" class="mat-elevation-z1">
+    <div fxFlex="100">
+     
+      <!-- Donut chart -->
+      <div fxLayout fxLayoutGap="10px" class="my-16">
+        <div fxFlex="60" fxLayout="column" class="mat-elevation-z1">
+          <h3 class=" ml-16 mt-16 text-center">Streaming Platforms</h3>
+          <div fxFlex="50" fxFlex.gt-sm="50" fxFlex.sm="50"
+            [@animate]="{ value: '*', params: { y: '50px', delay: '400ms' } }">
+            <!-- <mat-card class="p-0 ">
+              <div echarts [options]="trafficSourcesChart" [autoResize]="true" style="height: 250px;"></div>
+            </mat-card> -->
+          </div>
+        </div>
+
+        <div fxFlex="40" fxLayout="column" class="mat-elevation-z1">
+          <h3 class="text-center mt-16">7 MONTH PERFORMANCE</h3>
+          <div [@animate]="{ value: '*', params: { y: '50px', delay: '800ms' } }">
+            <!-- <mat-card class="">
+              <div echarts [options]="dailyTrafficChartBar" [autoResize]="true" style="height: 250px;"></div>
+            </mat-card> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="column" fxFlex="100" class="my-16">
+      <h3 class="text-center">AVERAGE DARK DISCO STREAMS VS "YOUR TRACK"</h3>
+      <div [@animate]="{value:'*',params:{delay:'400ms',scale:'.9'}}">
+        <mat-card fxFlex>
+          <div fxLayout="row wrap" fxLayoutAlign="start center">
+            <span fxFlex></span>
+            <button mat-icon-button [matMenuTriggerFor]="chartMenu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #chartMenu="matMenu">
+              <button mat-menu-item>
+                <span>Last 7 days</span>
+              </button>
+              <button mat-menu-item>
+                <span>Last 30 days</span>
+              </button>
+            </mat-menu>
+          </div>
+
+          <!-- <div echarts [options]="cryptoChart" [autoResize]="true" style="height: 340px;"></div> -->
+        </mat-card>
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+  <div fxFlex fxLayout="column" class="mat-elevation-z1">
+    <h3 class="text-center">TOP ARTISTS USING YOUR MUSIC</h3>
+    <mat-card fxFlex="100" class="p-0 " [@animate]="{ value: '*', params: { scale: '.9', delay: '300ms' } }">
+      <mat-table [dataSource]="countryTrafficStats" matSort>
+        <ng-container matColumnDef="artist">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            User
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" data-label="artist">
+            <div fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="8px" class="ml-8">
+              <img class="mat-elevation-z1" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;"
+                [src]="row.artist.image" alt="">
+              <h6 class="m-0 p-0" style="font-weight: 500;">{{ row.artist.artistName }}</h6>
+            </div>
+
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="country">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Country
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" data-label="id">
+            <div class="mr-auto my-auto" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+              <span class="flag-icon {{ row.flag }}"></span>
+              <h6 class="m-0 p-0" style="font-weight: 500;">{{ row.country }}</h6>
+
+            </div>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="visitor">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Visitor
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" data-label="progress">
+            {{ row.visitor }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="pageView">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Sample Downloads
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" data-label="name">
+            {{ row.pageView }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="download">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Remix Streams
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" data-label="color">
+            {{ row.download }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="bounceRate">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            BeatBlender Rank
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" data-label="color">
+            {{ row.bounceRate }}
+          </mat-cell>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+            <mat-cell *matCellDef="let row"> 
+              <button mat-button><mat-icon>keyboard_arrow_right</mat-icon></button>
+            </mat-cell>
+          </ng-container> -->
+
+        <mat-header-row *matHeaderRowDef="[
+            'artist',
+            'country',
+            'visitor',
+            'pageView',
+            'download',
+            'bounceRate'
+          ]"></mat-header-row>
+        <mat-row *matRowDef="
+            let row;
+            columns: [
+              'artist',
+              'country',
+              'visitor',
+              'pageView',
+              'download',
+              'bounceRate'
+            ]
+          ">
+        </mat-row>
+      </mat-table>
+    </mat-card>
+
+  </div>
+  <div fxLayout fxLayoutGap="10px" class="my-16">
+    <div fxFlex fxLayout="column" class="mat-elevation-z1">
+      <h3 class="text-center">TOP SAMPLING COUNTRIES</h3>
+
+      <!-- <div echarts [options]="samplingCountriesPieOptions" style="height: 400px"></div> -->
+
+    </div>
+    <div fxFlex fxLayout="column" fxLayoutAlign="start center" class="mat-elevation-z1">
+      <h3 class="text-center">Where YOUR MUSIC WAS USED</h3>
+      <mat-card style="width: 700px;">
+        <!-- <div style="width: 100%; height: 600px;"> -->
+          <google-chart  [data]="geoChartData"></google-chart>
+        <!-- </div> -->
+      </mat-card>
+    </div>
+
+  </div>
+
+  <div fxLayout fxLayoutGap="10px">
+    <div fxFlex fxLayout="column" class="p-16 mat-elevation-z1">
+      <!-- <mat-card> -->
+      <h3 class="mx-0 mb-16 text-center">
+        <!-- <div style="width: 64px; height: 64px;" class="mr-16">
+              <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
+            </div> -->
+        <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
+        <span style="color: var(--primary-color);">T</span>
+        <span style="">OP </span>
+        <span style="color: var(--accent-color); font-weight: 600;">R</span>
+        <span style="font-weight: 600; color: var(--base-accent-color);">ELEASES EUROPE</span>
+      </h3>
+  
+      <!-- <div
+        style="background: var; background-image: url(../../../../assets/images/techno.jpg); background-repeat: none; background-size: cover;"
+        class="py-48"> -->
+  
+  
+      <!-- </div> -->
+      <div class="product-container" fxLayout="row wrap" fxLayoutAlign="start start">
+        <!-- Product Box -->
+        <ng-container
+          *ngIf="(sampleLicensingMarketService.samples$ | async)?.length <= 0 && (sampleLicensingMarketService.samples$ | async) != null"
+          ; else product>
+          <div fxFlex fxLayoutAlign="center">
+            <span class="fs-24">No samples match your request.</span>
+          </div>
+        </ng-container>
+        <ng-container #product>
+          <ng-container
+            *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count }; let i = index;">
+            <div *ngIf="i < 4" fxLayout="row" class="product-wrap"
+              [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}">
+              <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
+              <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
+              <div fxLayout="column" class="product-inner default-bg mx-8 my-16 full-width">
+                <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
+                                <span>{{product?.badge?.text}}</span>
+                              </div> -->
+                <app-audio-panel [sample]="sample" light="true" [type]="viewMode === 'grid-view' ? 'sample' : 'primary'"
+                  (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
+  
+                <!-- Visible when viewMode === list-view -->
+                <!-- <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
+                              <div class="more-info">
+                                <div class="more-actions mb-16">
+                                  <div class="product-rating">
+                                    <star-rating [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'"
+                                      [rating]="4.63"></star-rating>
+                                    <small class="text-muted">(140)</small>
+                                  </div>
+                                  <span fxFlex></span>
+                                  <button mat-icon-button>
+                                    <mat-icon>playlist_add</mat-icon>
+                                  </button>
+                                  <button mat-icon-button>
+                                    <mat-icon>favorite</mat-icon>
+                                  </button>
+                                </div>
+                
+                                <div>
+                                  <ul>
+                                    <li>
+                                      <mat-icon>check</mat-icon> Heavy duty
+                                    </li>
+                                    <li>
+                                      <mat-icon>check</mat-icon> Water resistance
+                                    </li>
+                                    <li>
+                                      <mat-icon>check</mat-icon> Clean design
+                                    </li>
+                                    <li>
+                                      <mat-icon>check</mat-icon> High quality raw materials
+                                    </li>
+                                  </ul>
+                                </div>
+                
+                              </div>
+                            </div> -->
+  
+              </div>
+            </div>
+  
+          </ng-container>
+        </ng-container>
+  
+        <div class="products-pagination" *ngIf="count > pageSize">
+          <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
+          <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+        </div>
+      </div>
+  
+      <!-- </mat-card> -->
+  
+      <!-- <mat-divider></mat-divider> -->
+      <!-- <mat-card> -->
+     
+  
+      <!-- </mat-card> -->
+    </div>
+    <div fxFlex fxLayout="column" class="p-16 mat-elevation-z1">
+      <h3 class="mx-0 mb-16 text-center">
+        <!-- <div style="width: 64px; height: 64px;" class="mr-16">
+              <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
+            </div> -->
+        <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
+        Top 
+  
+        <span style="color: var(--primary-color); font-weight: 600;">R</span>eleases<span
+          style="color: var(--accent-color); font-weight: 600;">A</span>
+        <span style="font-weight: 600; color: var(--base-accent-color);">merica</span>
+      </h3>
+  
+  
+      <div class="product-container" fxLayout="row wrap" fxLayoutAlign="start start">
+        <!-- Product Box -->
+        <ng-container
+          *ngIf="(sampleLicensingMarketService.samples$ | async)?.length <= 0 && (sampleLicensingMarketService.samples$ | async) != null"
+          ; else product>
+          <div fxFlex fxLayoutAlign="center">
+            <span class="fs-24">No samples match your request.</span>
+          </div>
+        </ng-container>
+        <ng-container #product>
+          <ng-container
+            *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count }; let i = index;">
+            <div *ngIf="i < 2" fxLayout="row" class="product-wrap"
+              [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}">
+              <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
+              <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
+              <div fxLayout="column" class="product-inner default-bg mx-8 my-16 full-width">
+                <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
+                                <span>{{product?.badge?.text}}</span>
+                              </div> -->
+                <app-audio-panel [sample]="sample" light="true" [type]="viewMode === 'grid-view' ? 'sample' : 'primary'"
+                  (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
+  
+                <!-- Visible when viewMode === list-view -->
+                <!-- <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
+                              <div class="more-info">
+                                <div class="more-actions mb-16">
+                                  <div class="product-rating">
+                                    <star-rating [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'"
+                                      [rating]="4.63"></star-rating>
+                                    <small class="text-muted">(140)</small>
+                                  </div>
+                                  <span fxFlex></span>
+                                  <button mat-icon-button>
+                                    <mat-icon>playlist_add</mat-icon>
+                                  </button>
+                                  <button mat-icon-button>
+                                    <mat-icon>favorite</mat-icon>
+                                  </button>
+                                </div>
+                
+                                <div>
+                                  <ul>
+                                    <li>
+                                      <mat-icon>check</mat-icon> Heavy duty
+                                    </li>
+                                    <li>
+                                      <mat-icon>check</mat-icon> Water resistance
+                                    </li>
+                                    <li>
+                                      <mat-icon>check</mat-icon> Clean design
+                                    </li>
+                                    <li>
+                                      <mat-icon>check</mat-icon> High quality raw materials
+                                    </li>
+                                  </ul>
+                                </div>
+                
+                              </div>
+                            </div> -->
+  
+              </div>
+            </div>
+  
+          </ng-container>
+        </ng-container>
+  
+        <div class="products-pagination" *ngIf="count > pageSize">
+          <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
+          <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+  
+
+  <!-- <mat-divider class="mb-16"></mat-divider> -->
+
+
+  <!-- 
+      
+  <h2 class="ml-16" style="color: var(--base-accent-color);"><span
+      style="color: var(--primary-color);">R</span>oyalities
+    from My Releases</h2>
+  <div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-sm="50" fxFlex.sm="50" [@animate]="{value:'*',params:{scale:'.9',delay:'300ms'}}">
+      <mat-card class="dashboard-card">
+        <mat-card-title fxLayoutAlign="start center">
+          <small class="text-muted">Total Streaming Income</small>
+          <span fxFlex></span>
+
+        </mat-card-title>
+        <mat-card-content>
+          <h3 class="m-0 font-normal">22,450</h3>
+          <small class="text-muted">Your Current Balance</small>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div fxFlex="100" fxFlex.gt-sm="50" fxFlex.sm="50" [@animate]="{value:'*',params:{delay:'300ms',scale:'.9'}}">
+      <mat-card class="dashboard-card">
+        <mat-card-title>
+          <small class="text-muted">Total Streams</small>
+          <span fxFlex></span>
+          <mat-chip class="icon-chip" color="accent" selected="true">
+            <mat-icon>trending_up</mat-icon>10%
+          </mat-chip>
+        </mat-card-title>
+        <mat-card-content>
+          <h3 class="m-0 font-normal">11,567</h3>
+          <small class="text-muted">Times Played</small>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div fxFlex="100" fxFlex.gt-sm="50" fxFlex.sm="50" [@animate]="{value:'*',params:{delay:'300ms',scale:'.9'}}">
+      <mat-card class="dashboard-card">
+        <mat-card-title>
+          <small class="text-muted">My Tracks</small>
+          <span fxFlex></span>
+          <mat-chip class="icon-chip" color="accent" selected="true">
+            <mat-icon>trending_up</mat-icon>9%
+          </mat-chip>
+        </mat-card-title>
+        <mat-card-content>
+          <h3 class="m-0 font-normal">2,300$</h3>
+          <small class="text-muted">Dollar</small>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="50" fxFlex.sm="50" [@animate]="{value:'*',params:{delay:'300ms',scale:'.9'}}">
+      <mat-card class="dashboard-card">
+        <mat-card-title>
+          <small class="text-muted">Songs that sampled my songs</small>
+          <span fxFlex></span>
+          <mat-chip class="icon-chip" color="warn" selected="true">
+            <mat-icon>trending_down</mat-icon>2%
+          </mat-chip>
+        </mat-card-title>
+        <mat-card-content>
+          <h3 class="m-0 font-normal">5</h3>
+          <small class="text-muted">Songs Uploaded</small>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+
+</div>
+<div class="p-8" style="">
+  <h2 class="ml-8" style="color: var(--base-accent-color);"> <span
+      style="color: var(--primary-color);">R</span>oyalities from other Releases</h2>
+
+  <div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-sm="50" fxFlex.sm="50" [@animate]="{value:'*',params:{scale:'.9',delay:'300ms'}}">
+      <mat-card class="dashboard-card">
+        <mat-card-title fxLayoutAlign="start center">
+          <small class="text-muted">Total Streaming Income</small>
+          <span fxFlex></span>
+
+        </mat-card-title>
+        <mat-card-content>
+          <h3 class="m-0 font-normal">22,450</h3>
+          <small class="text-muted">Your Current Balance</small>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div fxFlex="100" fxFlex.gt-sm="50" fxFlex.sm="50" [@animate]="{value:'*',params:{delay:'300ms',scale:'.9'}}">
+      <mat-card class="dashboard-card">
+        <mat-card-title>
+          <small class="text-muted">Total Streams</small>
+          <span fxFlex></span>
+          <mat-chip class="icon-chip" color="accent" selected="true">
+            <mat-icon>trending_up</mat-icon>10%
+          </mat-chip>
+        </mat-card-title>
+        <mat-card-content>
+          <h3 class="m-0 font-normal">11,567</h3>
+          <small class="text-muted">Times Played</small>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div fxFlex="100" fxFlex.gt-sm="50" fxFlex.sm="50" [@animate]="{value:'*',params:{delay:'300ms',scale:'.9'}}">
+      <mat-card class="dashboard-card">
+        <mat-card-title>
+          <small class="text-muted">My Tracks</small>
+          <span fxFlex></span>
+          <mat-chip class="icon-chip" color="accent" selected="true">
+            <mat-icon>trending_up</mat-icon>9%
+          </mat-chip>
+        </mat-card-title>
+        <mat-card-content>
+          <h3 class="m-0 font-normal">2,300$</h3>
+          <small class="text-muted">Dollar</small>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="50" fxFlex.sm="50" [@animate]="{value:'*',params:{delay:'300ms',scale:'.9'}}">
+      <mat-card class="dashboard-card">
+        <mat-card-title>
+          <small class="text-muted">Songs that sampled my songs</small>
+          <span fxFlex></span>
+          <mat-chip class="icon-chip" color="warn" selected="true">
+            <mat-icon>trending_down</mat-icon>2%
+          </mat-chip>
+        </mat-card-title>
+        <mat-card-content>
+          <h3 class="m-0 font-normal">5</h3>
+          <small class="text-muted">Songs Uploaded</small>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+</div>
+<mat-card class="default">
+  <mat-card-title>My Billings</mat-card-title>
+  <mat-card-content class="p-0" fxLayout="column">
+    <div class="activity-data">
+      <ngx-datatable class="material bg-white" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+        [rowHeight]="50" [limit]="4" [rows]="activityData">
+        <ngx-datatable-column name="Month" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.month }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Total" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.spent }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="My Songs" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.opened }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Collaboration Tree" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.closed }}
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </div>
+  </mat-card-content>
+</mat-card>
+<div fxLayout="row wrap">
+  <div fxLayout="column" fxFlex="100" fxFlex.gt-md="50">
+    <mat-card class="default">
+      <mat-card-title>Timeline</mat-card-title>
+      <mat-card-content>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-badge">
+              <img src="assets/images/face-6.jpg" alt="">
+            </div>
+            <div class="timeline-body">
+              <div class="timeline-body-top" fxLayout="row">
+                <a href="#" class="timeline-body-title mr-16"><b>Jhone Doe</b> updated his status</a>
+                <span class="text-muted">1 hour ago</span>
+                <span fxFlex></span>
+              </div>
+              <div class="timeline-body-content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem necessitatibus natus fugit porro at
+                  sunt mollitia repellendus deserunt, libero similique.</p>
+              </div>
+              <div class="timeline-body-actions">
+                <a href="#" class="mr-16 text-muted">Like</a>
+                <a href="#" class="text-muted">Comment</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-badge">
+              <img src="assets/images/face-2.jpg" alt="">
+            </div>
+            <div class="timeline-body">
+              <div class="timeline-body-top" fxLayout="row">
+                <a href="#" class="timeline-body-title mr-16"><b>Henry krick</b> added a new photo</a>
+                <span class="text-muted">15 hours ago</span>
+                <span fxFlex></span>
+              </div>
+              <div class="timeline-body-content">
+                <img src="assets/images/photo-600_220.jpg" alt="">
+              </div>
+              <div class="timeline-body-actions">
+                <a href="#" class="mr-16 text-muted">Like</a>
+                <a href="#" class="text-muted">Comment</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-badge">
+              <mat-icon class="icon-badge mat-bg-primary">settings</mat-icon>
+            </div>
+            <div class="timeline-body">
+              <div class="timeline-body-top" fxLayout="row">
+                <a href="#" class="timeline-body-title mr-16"><b>New follower</b></a>
+                <span class="text-muted">2 days ago</span>
+                <span fxFlex></span>
+              </div>
+              <div class="timeline-body-content">
+                <p><a class="mat-color-primary" href="">Kevin Huyn</a> and 34 others followed you.</p>
+              </div>
+              <div class="timeline-body-actions">
+                <a href="#" class="mr-16 text-muted">Like</a>
+                <a href="#" class="text-muted">Comment</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-badge">
+              <mat-icon class="icon-badge mat-bg-warn">settings</mat-icon>
+            </div>
+            <div class="timeline-body">
+              <div class="timeline-body-top" fxLayout="row">
+                <a href="#" class="timeline-body-title mr-16"><b>Membership upgraded</b></a>
+                <span class="text-muted">5 days ago</span>
+                <span fxFlex></span>
+              </div>
+              <div class="timeline-body-content">
+                <p>Membership has been upgraded to pro</p>
+              </div>
+              <div class="timeline-body-actions">
+                <a href="#" class="mr-16 text-muted">Like</a>
+                <a href="#" class="text-muted">Comment</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+
+  </div>
+
+  <div fxLayout="column" fxFlex="100" fxFlex.gt-md="50">
+    <mat-card class="default">
+      <mat-card-title>Support Tickets</mat-card-title>
+      <mat-card-content class="p-0">
+        <mat-list class="compact-list mb-16">
+          <mat-list-item class="" *ngFor="let t of tickets">
+            <img mat-list-avatar class="mr-16" [src]="t.img" alt="">
+            <div fxLayout="row" fxFlex="100">
+              <h6 class="m-0 mr-16">{{t.name}}</h6>
+              <span fxFlex></span>
+              <div fxFlex="40">{{t.text | excerpt:20 }}</div>
+              <span fxFlex></span>
+              <small class="text-muted mr-16 ml-16">{{ t.date | relativeTime}}</small>
+            </div>
+            <mat-chip mat-sm-chip [color]="'warn'" [selected]="t.isOpen">{{t.isOpen ? 'active' : 'closed'}}</mat-chip>
+          </mat-list-item>
+        </mat-list>
+        <div class="text-center">
+          <button mat-button class="full-width">View all</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="default">
+      <mat-card-title>Sample Collection</mat-card-title>
+      <mat-card-content class="p-0">
+        <div class="list-tasktype">
+          <div class="tasktype-item" *ngFor="let t of tasks">
+            <mat-checkbox class="mr-16"></mat-checkbox>
+            <span>{{t.text}}</span>
+            <span fxFlex></span>
+            <mat-chip mat-sm-chip color="primary" [selected]="t.status ? true : false">{{t.status ? 'Full License' :
+              'Basic License'}}</mat-chip>
+            <button mat-icon-button mat-sm-button [matMenuTriggerFor]="taskMenu" class="tasktype-action ml-16">
+              <mat-icon class="text-muted">more_vert</mat-icon>
+            </button>
+            <mat-menu #taskMenu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>done</mat-icon>
+                <span>Completed</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+        <div class="text-center">
+          <button mat-button class="full-width">View all</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+
+
+  </div>
+</div> -->

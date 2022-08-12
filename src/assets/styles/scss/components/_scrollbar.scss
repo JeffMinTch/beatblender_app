@@ -1,0 +1,31 @@
+// @import '../themes/init';
+
+::-webkit-scrollbar {
+    width: 10px;
+    // border-radius: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: map-get($default-primary-palette, lighter);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: map-get($default-primary-palette, main);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: map-get($default-primary-palette, main);
+}
+
+::selection {
+    background: map-get($default-accent-palette, main); /* WebKit/Blink Browsers */
+    color: #fafafa;
+  }
+  ::-moz-selection {
+    background: map-get($default-accent-palette, main); /* Gecko Browsers */
+    color: #fafafa;
+    
+}

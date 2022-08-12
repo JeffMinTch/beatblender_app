@@ -1,0 +1,309 @@
+<div fxLayout="column" class="pl-16 pb-32" style="position: relative;">
+    <!-- <div style="position: absolute; top: -100px; right: -100px; border-radius: 50%; background: var(--primary-color); width: 150px; height: 150px; z-index: 10000; transform: translateY(0);">
+
+    </div> -->
+    <h1 [ngStyle.lt-lg]="{'text-align': 'center'}" class="">
+        <!-- <div style="width: 64px; height: 64px;" class="mr-16">
+              <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
+            </div> -->
+        <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
+        <span style="color: var(--primary-color);">R</span>
+        <span style="">egister</span>
+        <span style="color: var(--accent-color); font-weight: 600;"> T</span>
+        <span style="font-weight: 600; color: var(--base-accent-color);">racks</span>
+    </h1>
+    <p [ngStyle.lt-lg]="{'text-align': 'center'}" style="font-size: 22px; color: var(--base-accent-color);">Create,
+        register and license your songs created with samples via BeatBlender all in one place.
+    </p>
+    <form [formGroup]="(formsSubject | async)" fxLayout="column">
+        <ng-container *ngIf="userData">
+            <h3>Audio File</h3>
+            <div class="mb-16 mt-16">
+                <!-- <h3 style="color: var(--base-accent-color);">Select one or multiple Samples you want to upload</h3> -->
+                <input type="file" (onFileSelected)="onFileSelected($event)" ng2FileSelect [uploader]="uploader"
+                    multiple /><br />
+                <!-- <p>Single</p>
+                  <input type="file" ng2FileSelect [uploader]="uploader" /> -->
+            </div>
+            <div class="mb-16">
+                <div ng2FileDrop [ngClass]="{'dz-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)"
+                    [uploader]="uploader" class="fileupload-drop-zone mb-24">
+                    Drop file here
+                </div>
+            </div>
+            <table *ngIf="uploader.queue.length" class="default-table mb-24" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th width="30%">Name</th>
+                        <th>Size</th>
+                        <th>Progress</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="uploader.queue.length; else tableNoData">
+                    <tr *ngFor="let item of uploader.queue">
+                        <td><span fxLayout="row">
+                                <mat-icon class="mr-8" inline="true">insert_drive_file</mat-icon>{{ item?.file?.name }}
+                            </span></td>
+                        <td>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                        <td>
+                            <div class="progress" style="margin-bottom: 0;">
+                                <div class="progress-bar" role="progressbar"
+                                    [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                                <mat-progress-bar class="" color="primary" mode="determinate" [value]="item.progress">
+                                </mat-progress-bar>
+                            </div>
+                        </td>
+                        <td class="">
+                            <mat-icon *ngIf="item.isSuccess" color="primary">check</mat-icon>
+                            <mat-icon *ngIf="item.isCancel" color="accent">cancel</mat-icon>
+                            <mat-icon *ngIf="item.isError" color="warn">error</mat-icon>
+                        </td>
+                        <td nowrap>
+                            <button mat-raised-button color="primary" class="mx-4" (click)="item.upload()"
+                                [disabled]="item.isReady || item.isUploading || item.isSuccess">Upload</button>
+                            <button mat-raised-button color="accent" class="mx-4" (click)="item.cancel()"
+                                [disabled]="!item.isUploading">Cancel</button>
+
+                            <button mat-raised-button color="warn" class="mx-4" (click)="item.remove()">Remove</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <ng-template #tableNoData>
+                    <p [ngStyle]="{padding: '0 1.2rem'}">No samples added yet.</p>
+                </ng-template>
+            </table>
+
+        </ng-container>
+        <div style="position: relative;">
+            <h3>Your Release Artist Name</h3>
+            <div fxLayout fxLayoutAlign="start center">
+                <mat-form-field appearance="outline" style="width: 300px;">
+                    <mat-label>Enter Artist Name</mat-label>
+                    <input formControlName="releaseArtistName" matInput>
+                </mat-form-field>
+            </div>
+
+            <h3>Your New Song</h3>
+            <div fxLayout fxLayoutAlign="start center">
+                <mat-form-field appearance="outline" style="width: 300px;">
+                    <mat-label>Enter Song Title</mat-label>
+                    <input formControlName="releaseTitle" matInput>
+                </mat-form-field>
+            </div>
+            <div
+                style="position: absolute; bottom: 0px; right: -100px; border-radius: 50%; background: var(--accent-color); width: 150px; height: 150px; z-index: 0; transform: translateY(120px);">
+
+            </div>
+
+
+        </div>
+        <!-- <ng-template matStepLabel>Choose Sample Image</ng-template> -->
+
+          <form [formGroup]="(formsSubject | async)?.controls['image']">
+
+          </form>
+
+          <div class="mb-16 mt-16">
+            <!-- <p>Multiple</p> -->
+            <mat-label>Upload Release Image</mat-label><br /><br />
+            <input type="file" accept="image/*" (onFileSelected)="onFileSelected($event)" ng2FileSelect
+              [uploader]="imageUploader" /><br />
+            <!-- <input type="file" (onFileSelected)="onFileSelected($event)" ng2FileSelect [uploader]="imageUploader" multiple/><br /> -->
+
+            <!-- <p>Single</p>
+                  <input type="file" ng2FileSelect [uploader]="uploader" /> -->
+          </div>
+          <div class="mb-16">
+            <div ng2FileDrop [ngClass]="{'dz-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)"
+              [uploader]="imageUploader" class="fileupload-drop-zone mb-24">
+              Drop file here
+            </div>
+          </div>
+          <!-- <p>Please declare which samples you have mixed inside this sample.</p> -->
+          <div>
+
+            <!-- <button [disabled]="!(formsSubject | async)?.controls['image'].valid" mat-raised-button
+              matStepperNext>Next</button> -->
+            <!-- <button mat-button matStepperPrevious>Back</button> -->
+            <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
+          </div>
+        <h3>Original Song</h3>
+        <div fxFlex fxLayout="column">
+            <mat-label class="mb-16">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ea veritatis
+                non quasi ut iste perspiciatis asperiores itaque iure odio.</mat-label>
+            <div fxLayout fxLayoutAlign="start center" class="mb-32">
+                <button (click)="openMixedInsDialog()" mat-raised-button color="primary" style="max-width: 30%;"
+                    class="mr-8">Choose MixedIn Samples</button>
+                <mat-hint
+                    *ngIf="(formsSubject | async)?.controls['mixedIns'].value.length === 0; else samplesSelectedHint">
+                    No MixedIn seleceted.</mat-hint>
+                <ng-template #samplesSelectedHint>
+                    <mat-hint>{{(formsSubject | async)?.controls['mixedIns'].value.length}} Sample<span
+                            *ngIf="(formsSubject | async)?.controls['mixedIns'].value.length > 1">s</span> selected.
+                    </mat-hint>
+                </ng-template>
+            </div>
+            <div fxLayout="column" *ngIf="(formsSubject | async)?.controls['mixedIns'].value.length > 0">
+                <h3 class="mb-32">Your MixedIn Samples</h3>
+                <div fxFlex fxLayout="column"
+                    *ngFor="let sample of (formsSubject | async)?.controls['mixedIns'].value; let i = index;">
+                    <!-- <span>{{i}}</span> -->
+                    <div fxFlex>
+                        <app-audio-panel [sample]="sample" type="primary"></app-audio-panel>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <section fxLayout="column" class="py-16">
+            <h1>About the BeatBlender License</h1>
+            Here is a summary of some of the key things you can, cannot and must do with your new song once it’s
+            licensed
+            but please read the whole license carefully (see link below) as it contains important additional
+            information.
+            <!-- <mat-card style="background: var(--accent-color);"> -->
+            <p style="color: var(--accent-color); font-weight: 700;">
+                Please note that after you’ve obtained your license there are a number of important steps you need to
+                take
+                to activate your license!
+            </p>
+            <h3>What you can do</h3>
+            <div fxLayout="column">
+                <div style="width: 100%;">
+                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="10px"
+                        style="background: var(--light-theme);">
+                        <div fxLayoutAlign="center center"
+                            style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--primary-color);">
+                            <mat-icon color="primary">check</mat-icon>
+                        </div>
+                        <p style="color: var(--body-color);">
+                            Sample up to 15 seconds from the original song and use it however you want in your new song
+                            (but
+                            not separate from the new song).
+
+                        </p>
+                    </mat-card>
+                </div>
+                <div style="width: 100%;">
+                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="10px"
+                        style="background: var(--light-theme);">
+                        <div fxLayoutAlign="center center"
+                            style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--primary-color);">
+                            <mat-icon color="primary">check</mat-icon>
+                        </div>
+                        <p style="color: var(--body-color);">
+                            Exploit your new song worldwide, without limit in time and via all media
+                        </p>
+                    </mat-card>
+                </div>
+
+
+            </div>
+
+            <h3>What you cannot do</h3>
+            <div fxLayout="column">
+                <div style="width: 100%;">
+                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="10px"
+                        style="background: var(--light-theme);">
+                        <div fxLayoutAlign="center center"
+                            style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--accent-color);">
+                            <mat-icon color="accent">close</mat-icon>
+                        </div>
+                        <p style="color: var(--body-color);">
+                            Simply create a remix of the original song – your new song must be substantially different
+                            from
+                            the original.
+                        </p>
+                    </mat-card>
+                </div>
+                <div style="width: 100%;">
+                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="10px"
+                        style="background: var(--light-theme);">
+                        <div fxLayoutAlign="center center"
+                            style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--accent-color);">
+                            <mat-icon color="accent">close</mat-icon>
+                        </div>
+                        <p style="color: var(--body-color);">
+                            Further sample the original song into any other song than the one specified here.
+
+                        </p>
+                    </mat-card>
+                </div>
+
+
+            </div>
+            <h3>What you must do</h3>
+            <div fxLayout="column">
+                <div style="width: 100%;">
+                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="10px"
+                        style="background: var(--light-theme);">
+                        <div fxLayoutAlign="center center"
+                            style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--primary-color);">
+                            <mat-icon color="primary">check</mat-icon>
+                        </div>
+                        <p style="color: var(--body-color);">
+                            Comply with all the provisions of the sample license so please read it carefully.
+
+                        </p>
+                    </mat-card>
+                </div>
+                <div style="width: 100%;">
+                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="10px"
+                        style="background: var(--light-theme);">
+                        <div fxLayoutAlign="center center"
+                            style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--primary-color);">
+                            <mat-icon color="primary">check</mat-icon>
+                        </div>
+                        <p style="color: var(--body-color);">
+                            Account for and pay a 10% royalty on all income.
+
+
+                        </p>
+                    </mat-card>
+                </div>
+
+
+            </div>
+            <h1>Complete The Agreement</h1>
+            <div fxLayout fxLayoutAlign="start center">
+                <mat-form-field appearance="outline" style="width: 300px;">
+                    <mat-label>Name of the Licensee</mat-label>
+                    <input formControlName="licenseeName" matInput>
+                </mat-form-field>
+            </div>
+            <mat-checkbox #checkbox class="mb-16 checkbox">
+                I confirm that I am about to enter into the Tracklib sample license either on my own behalf or on behalf
+                of
+            </mat-checkbox>
+            <mat-checkbox #checkbox class="mb-16 checkbox">
+                I also understand and agree that by making payment of the license fee I am entering into a binding legal
+                agreement and agreeing to its terms and conditions. </mat-checkbox>
+            <!-- <button type="submit" style="width: 200px;" color="primary" mat-raised-button>
+                I Agree
+            </button> -->
+
+            <!-- </mat-card> -->
+        </section>
+        <div *ngIf="uploader.queue.length">
+            <p>Queue progress:</p>
+            <div class="progress mb-16">
+              <mat-progress-bar class="" color="primary" mode="determinate" [value]="uploader.progress">
+              </mat-progress-bar>
+            </div>
+            <!-- [disabled]="!uploader.getNotUploadedItems().length" -->
+            <button mat-raised-button color="primary" class="mx-4" (click)="uploader.uploadAll()">Register Track</button>
+        
+            <button mat-raised-button color="accent" class="mx-4" (click)="uploader.cancelAll()"
+              [disabled]="!uploader.isUploading">Cancel all</button>
+        
+            <button mat-raised-button color="warn" class="mx-4" (click)="uploader.clearQueue()"
+              [disabled]="!uploader.queue.length">Remove all</button>
+          </div>
+        
+    </form>
+
+
+
+</div>

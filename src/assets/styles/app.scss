@@ -1,0 +1,169 @@
+/*
+ *
+ *   EGRET - Angular Material Design Admin Template
+ *
+ *
+*/
+
+// @font-face {
+//   font-family: "Material Icons";
+//   font-display: block;
+
+//   src: local("Material Icons"), local("MaterialIcons-Regular"),
+//     url(https://fonts.gstatic.com/s/materialicons/v21/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2) format("woff2");
+// }
+@import url("https://fonts.googleapis.com/css2?family=Archivo&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Material+Icons");
+// // Third pirty style files
+// // Sidebar Scroll
+@import "~perfect-scrollbar/css/perfect-scrollbar.css";
+// // Flag icon
+@import "~flag-icon-css/css/flag-icon.min.css";
+
+// //  star-rating styles (Used in Shop app)
+// @import "~css-star-rating/dist/css/star-rating.min.css";
+// // Data Table
+// @import "~@swimlane/ngx-datatable/index.css";
+// @import "~@swimlane/ngx-datatable/themes/material.css";
+// @import "~@swimlane/ngx-datatable/assets/icons.css";
+// // Rich Text Editor
+// @import "~quill/dist/quill.core.css";
+// @import "~quill/dist/quill.snow.css";
+// // Drag and Drop
+// @import "~dragula/dist/dragula.css";
+// // Calendar
+// @import "~angular-calendar/css/angular-calendar.css";
+
+// // User tour
+// @import "~hopscotch/dist/css/hopscotch.min.css";
+// // Page loader Topbar
+// @import "../../vendor/pace/pace-theme-min.css";
+
+// @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+// // Highlightjs theme
+// // @import '~highlight.js/styles/darcula.css';
+// // @import '~highlight.js/styles/github.css';
+// @import "~highlight.js/styles/github-gist.css";
+
+// Main Variables File
+@import "scss/variables";
+
+@import "scss/mixins/mixins";
+@import "scss/colors";
+
+@import "scss/animations";
+
+// Open _main.scss and keep files which are required for your current layout.
+@import "scss/main/main";
+
+// Angular material theme files
+@import "scss/themes/init";
+@import "../styles/scss/components/scrollbar";
+
+@import "scss/utilities/utilities";
+@import "scss/components/components";
+@import "scss/palette";
+
+@import "scss/page-layouts";
+
+// Open _views.scss and remove unnecessary view related files
+@import "scss/views/views";
+
+$primary-color: map-get($default-primary-palette, main);
+$primary-light-color: map-get($default-primary-palette, lighter);
+$accent-color: map-get($default-accent-palette, main);
+
+:root {
+    --primary-color: #{$primary-color}; // or any global you wish to share with components
+    --primary-light-color: #{$primary-light-color};
+    --accent-color: #{$accent-color};
+    --body-color: #{$body-color};
+    --light-theme: #{$light-background};
+    --light-theme-accent: #{$light-background-accent};
+    --transition-duration: #{$transitionDuration};
+    --transition-timing: #{$transitionTiming};
+    --sidebar-width: #{$sidebar-width};
+    --soundcloud: #{$soundcloud};
+    --spotify: #{$spotify};
+    --youtube: #{$youtube};
+    --iTunes: #{$iTunes};
+    --amazonMusic: #{$amazonMusic};
+
+    --base-primary-color: #{$dark-primary-text};
+    --base-accent-color: #{$dark-accent-text};
+    --base-disabled-color: #{$dark-disabled-text};
+    --base-focused-color: #{$dark-focused};
+    --font-size-base: #{$font-size-base};
+    // --primary-light: #dce6dd;
+}
+
+body {
+  font-family: 'Poppins' !important;
+  // font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+  // font-family: ;
+}
+
+// @font-face {
+//   font-family: "Archivo";
+//   font-display: block;
+//   src: local("Archivo"),
+//   url(https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap) format('truetype');
+//   // src: local("Material Icons"), local("MaterialIcons-Regular"),
+// }
+
+// @font-face {
+//   font-family: 'Material Icons';
+//   font-style: normal;
+//   font-weight: 400;
+//   src: local('Material Icons'),
+//        local('MaterialIcons-Regular'),
+//        url(https://fonts.gstatic.com/s/materialicons/v21/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2) format('woff2');
+// }
+
+// .material-icons {
+//   font-family: 'Material Icons';
+
+// }
+
+  @font-face {
+    font-family: "Lazer84";
+    src: url("./scss/fonts/lazer84/Lazer84.ttf") format("truetype");
+    font-display: block;
+  }
+
+
+  @font-face {
+    font-family: "Poppins";
+    src: url("./scss/fonts/Montserrat/Montserrat-Medium.ttf") format("truetype");
+    font-display: block;
+  }
+
+  .profile-sidenav-container .mat-drawer-content {
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .tooltip-primary {
+    background-color: var(--primary-color) !important;
+    color: var(--light-theme) !important;
+    // font-size: 16px;
+  }
+
+  .tooltip-accent {
+    background-color: var(--primary-light-color) !important;
+    color: var(--body-color) !important;
+    // font-size: 16px;
+  }
+
+  .disabled-color {
+    color: var(--base-disabled-color) !important;
+    pointer-events: none;
+  }
+
+  .open-nav-link {
+    background: var(--primary-color) !important;
+    color: var(--light-theme) !important;
+    mat-icon {
+      color: white !important;
+    }
+  }

@@ -1,0 +1,132 @@
+<div fxFlex fxLayout="column" class="my-licenses-container">
+  <!-- <h1>My Basic Licenses</h1> -->
+  <!-- <h1 class="mb-16">My <span style="color: var(--primary-color);">S</span>ample <span
+      style="color: var(--accent-color);">C</span>ollection</h1> -->
+    <!-- <app-heading class="" title="Sample Download Area" subTitle="Your personal download area." [breadcrumbs]=""></app-heading> -->
+    <h1 class="">
+      <!-- <div style="width: 64px; height: 64px;" class="mr-16">
+            <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
+          </div> -->
+      <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
+      <span style="color: var(--primary-color);">D</span>
+      <span style="">ownload </span>
+      <span style="color: var(--accent-color); font-weight: 600;"> A</span>
+      <span style="font-weight: 600; color: var(--base-accent-color);">rea</span>
+    </h1>
+    <h4 class="pl-8 mt-4" style="font-size: 20px; font-weight: 300;">No matter what license you use, no Sample requires
+      a pre-investment and can be used on all Streaming Services.</h4>
+      
+      <div class="pt-8 full-width" fxLayout fxLayoutAlign="space-between center">
+        
+        <div fxLayout fxLayoutGap="10px" class="ml-auto">
+          <button mat-raised-button (click)="changeViewMode('grid-view')" [color]="viewMode === 'grid-view' ? 'primary' : ''">
+            <mat-icon>
+              <span class="material-icons-outlined">
+                apps
+                </span>
+            </mat-icon>
+          </button>
+          <button class="mr-8" mat-raised-button (click)="changeViewMode('list-view')" [color]="viewMode === 'list-view' ? 'primary' : ''">
+            <mat-icon>list</mat-icon>
+          </button>
+        </div>
+       
+      </div>
+      <!-- <p class="pl-16">Overview and manage all your Basic Licenses. Basic Licenses enbale you
+    without having payed anything yet to use the sample commercially in your own produtions.
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas quidem placeat unde ut rem vitae error
+    temporibus, ad exercitationem accusantium!
+  </p> -->
+  <!-- <app-divider></app-divider> -->
+  <!-- [ngClass]="{'list-view': viewMode === 'list-view'}" -->
+  <div class="product-container" fxLayout="row wrap" fxLayoutAlign="start start"
+      >
+      <!-- Product Box -->
+      <ng-container *ngIf="samples?.length <= 0 && samples != null"; else product>
+        <div fxFlex fxLayoutAlign="center">
+          <span class="fs-24">No samples match your request.</span>
+        </div>
+      </ng-container>
+      <ng-container #product>
+        <!-- | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count } -->
+        <div fxLayout="row" class="product-wrap" [ngStyle.gt-sm]=" {'width': '33.33%'}"
+          *ngFor="let sample of samples; let i = index;"
+          [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}"
+          >
+          <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
+          <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
+          <div fxLayout="column" class="product-inner default-bg mx-8 my-16 full-width">
+            <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
+                <span>{{product?.badge?.text}}</span>
+              </div> -->
+            <app-audio-panel [sample]="sample" [type]="viewMode === 'grid-view' ? 'sample' : 'primary'" light="true" buttonText="Download" (clickEvent)="downloadAudioFile(sample)"></app-audio-panel>
+            
+            <!-- Visible when viewMode === list-view -->
+            <!-- <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
+              <div class="more-info">
+                <div class="more-actions mb-16">
+                  <div class="product-rating">
+                    <star-rating [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'"
+                      [rating]="4.63"></star-rating>
+                    <small class="text-muted">(140)</small>
+                  </div>
+                  <span fxFlex></span>
+                  <button mat-icon-button>
+                    <mat-icon>playlist_add</mat-icon>
+                  </button>
+                  <button mat-icon-button>
+                    <mat-icon>favorite</mat-icon>
+                  </button>
+                </div>
+
+                <div>
+                  <ul>
+                    <li>
+                      <mat-icon>check</mat-icon> Heavy duty
+                    </li>
+                    <li>
+                      <mat-icon>check</mat-icon> Water resistance
+                    </li>
+                    <li>
+                      <mat-icon>check</mat-icon> Clean design
+                    </li>
+                    <li>
+                      <mat-icon>check</mat-icon> High quality raw materials
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div> -->
+
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
+      <!-- <div class="products-pagination" *ngIf="count > pageSize">
+        <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+      </div> -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

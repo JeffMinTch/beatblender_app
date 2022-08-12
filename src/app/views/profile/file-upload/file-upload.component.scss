@@ -1,0 +1,188 @@
+// @import '../../../../assets/styles/scss/variables';
+@import '../../../../assets/styles/scss/variables';
+// .dz-file-over {
+//     border: dotted 3px rgb(12, 12, 90);
+// }
+
+.streaming-service-card {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    margin: 0;
+}
+
+.header {
+    font-weight: 300;
+    font-weight: 900;
+    // color: #FFFFFF;
+    // background: #FFFFFF;
+    // text-shadow: 2px 2px 0 $body-color, 2px -2px 0 $body-color, -2px 2px 0 $body-color, -2px -2px 0 $body-color, 2px 0px 0 $body-color, 0px 2px 0 $body-color, -2px 0px 0 $body-color, 0px -2px 0 $body-color;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    margin: 16px 0;
+    color: #6a6c74;
+}
+h1 {
+    font-size: 2.5rem;
+}
+h2 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.5rem;
+}
+
+.sample-info {
+    border-radius: 8px;
+    border: 1px solid var(--light-theme-accent);
+    > mat-card-title {
+        font-size: 1.2rem;
+        .file-type {
+            // background: white;
+            // border-radius: 4px;
+            // margin-left: auto;
+            // padding: 2px 8px;
+        }
+    }
+}
+
+.samples-form {
+    width: 100%;
+    img {
+        border-radius: 50%;
+        height: 100%;
+        width: auto;
+    }
+}
+
+.create-pseudonym-button {
+    background: var(--primary-light-color);
+    color: var(--body-color);
+    border-radius: 32px;
+    margin-right: 10px;
+}
+
+.artist-pseudonym-row {
+    
+}
+
+::ng-deep .artist-pseudonym-row .mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+}
+
+#soundcloudCheckbox {
+    ::ng-deep .mat-checkbox-checked.mat-accent {
+        .mat-checkbox-ripple .mat-ripple-element {
+            background-color: var(--soundcloud) !important;
+        }
+    
+        .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+            background-color: var(--soundcloud) !important;
+         }
+    }
+    
+     ::ng-deep .mat-checkbox.mat-accent {
+        .mat-checkbox-ripple .mat-ripple-element {
+            background-color: var(--soundcloud) !important;
+        }
+    }
+
+}
+
+#spotifyCheckbox {
+    ::ng-deep .mat-checkbox-checked.mat-accent {
+        .mat-checkbox-ripple .mat-ripple-element {
+            background-color: var(--spotify) !important;
+        }
+    
+        .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+            background-color: var(--spotify) !important;
+         }
+    }
+    
+     ::ng-deep .mat-checkbox.mat-accent {
+        .mat-checkbox-ripple .mat-ripple-element {
+            background-color: var(--spotify) !important;
+        }
+    }
+
+}
+
+#youtubeCheckbox {
+    ::ng-deep .mat-checkbox-checked.mat-accent {
+        .mat-checkbox-ripple .mat-ripple-element {
+            background-color: var(--youtube) !important;
+        }
+    
+        .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+            background-color: var(--youtube) !important;
+         }
+    }
+    
+     ::ng-deep .mat-checkbox.mat-accent {
+        .mat-checkbox-ripple .mat-ripple-element {
+            background-color: var(--youtube) !important;
+        }
+    }
+
+}
+
+#iTunesCheckbox {
+    ::ng-deep .mat-checkbox-checked.mat-accent {
+        .mat-checkbox-ripple .mat-ripple-element {
+            background-color: var(--iTunes) !important;
+        }
+    
+        .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+            background-color: var(--iTunes) !important;
+         }
+    }
+    
+     ::ng-deep .mat-checkbox.mat-accent {
+        .mat-checkbox-ripple .mat-ripple-element {
+            background-color: var(--iTunes) !important;
+        }
+    }
+}
+
+#amazonMusicCheckbox {
+    ::ng-deep .mat-checkbox-checked.mat-accent {
+        .mat-checkbox-ripple .mat-ripple-element {
+            background-color: var(--amazonMusic) !important;
+        }
+    
+        .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+            background-color: var(--amazonMusic) !important;
+         }
+    }
+    
+     ::ng-deep .mat-checkbox.mat-accent {
+        .mat-checkbox-ripple .mat-ripple-element {
+            background-color: var(--amazonMusic) !important;
+        }
+    }
+}
+
+.quick-access-button-text {
+    font-size: 12px;
+    font-weight: 500;
+    color: #6a6c74;
+  }
+  
+  .quick-access-button {
+    width: 90px !important;
+    background: rgba(106,106,106, 0.02) !important;
+    color: #6a6c74 !important;
+    border: 2px solid var(--body-color) !important;
+  }
+  
+  .active {
+    background: var(--accent-color) !important;
+    color: var(--light-theme) !important;
+    border: 2px solid var(--accent-color) !important;
+    // box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+
+

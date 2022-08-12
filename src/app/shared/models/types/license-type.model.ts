@@ -1,0 +1,1 @@
+export type LicenseType = 'BB100' | 'BB70' | 'BB30';

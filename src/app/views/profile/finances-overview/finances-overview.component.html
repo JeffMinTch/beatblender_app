@@ -1,0 +1,170 @@
+<!-- <div class="finances-overview m-8">
+    <table class="finances-table cart-table" 
+    [@animate]="{value:'*',params:{delay: '100ms', x:'-50px'}}">
+      <thead>
+        <tr>
+          <th class=""></th>
+          <th class=""></th>
+          <th class="">Track Title</th>
+          <th class="">Withdrawable Income</th>
+          <th class="">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems: count }; let i = index;">
+          <td><button mat-icon-button color="" class="play-button" (click)="removeProduct()"><mat-icon>play_arrow</mat-icon></button> </td>
+          <td><img class="sample-image mat-elevation-z1" src="{{'http://localhost:9090/api/web/public/media/image/' + sample?.sampleID}}" style="cursor: pointer"></td>
+          <td><span style="cursor: pointer" >{{sample?.title}}</span></td>
+          <td>{{sample?.lep | currency}}</td>
+          <td>{{sample?.lep * 0 | currency}}</td>
+
+        </tr>
+      </tbody>
+    </table>
+    
+    <div fxLayout="row" fxLayout.lt-md="column" [@animate]="{value:'*',params:{delay: '100ms', x:'50px'}}">
+      <div fxFlex></div>
+      <div fxFlex="50" class="mr-16 mb-16">
+        <mat-card class="m-0 cash-out-card">
+          <div class="line mb-16">
+            <span class="fw-500">Subtotal:</span>
+            <span fxFlex></span>
+            <span class="text-muted">${{subTotal}}</span>
+          </div>
+          <div class="line mb-16">
+            <span class="fw-500">VAT:</span>
+            <span fxFlex></span>
+            <span class="text-muted">{{vat}}%</span>
+          </div>
+          <mat-divider class=""></mat-divider>
+          <div class="line mb-16 pt-16">
+            <span class="fw-500">Total:</span>
+            <span fxFlex></span>
+            <span class="text-muted">${{total}}</span>
+          </div>
+          <mat-card-actions>
+            <span fxFlex></span>
+            <button mat-raised-button color="warn" routerLink="/profile/checkout">Cash Out</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+    <div *ngIf="!(sampleLicensingMarketService.samples$ | async)?.length" [@animate]="{value:'*',params:{delay: '100ms', y:'-50px'}}">
+      <mat-card class="text-center">
+        <p>Your cart is empty</p>
+        <button mat-raised-button color="accent">Go Back To Shop</button>
+      </mat-card>
+    </div>
+</div> -->
+
+<section fxLayout="column">
+
+  <app-heading title="Royalities" subTitle="Overview your Financials" [breadcrumbs]="breadcrumbs"></app-heading>
+  <app-sub-heading title="Total Royalities"></app-sub-heading>
+ 
+  <div fxFlex fxLayout fxLayoutAlign="center center" style="background: var(--light-theme);">
+    <mat-card fxFlex fxLayout class="total-card" fxLayoutAlign="space-between">
+      <div fxLayout="column" >
+        <mat-card-title fxLayoutAlign="start center">
+          <small class="">Total Wallet Balance</small>
+          <span fxFlex></span>
+        
+          </mat-card-title>
+          <mat-card-content>
+            <h3 class="m-0 font-normal balance-text">22,450$</h3>
+            <small class="">Your Current Balance</small>
+          </mat-card-content>
+  
+      </div>
+      <div fxLayoutAlign="end end">
+        <mat-card-actions>
+          <span fxFlex></span>
+          <button mat-raised-button mat-lg-button color="warn" routerLink="/profile/checkout">Check Out</button>
+        </mat-card-actions>
+  
+      </div>
+      </mat-card>
+
+  </div>
+  <div class="p-8">
+    
+      
+      <p class="pl-16">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit illum repudiandae molestias debitis magnam ducimus aliquam voluptate? Ut nulla labore, dolorem eius nemo aliquid sapiente ducimus corporis vitae illo officia sit consectetur reiciendis ea ipsa, porro ullam! Libero, magni cumque.</p>
+      <div fxLayout="row wrap" class="mb-16" fxLayoutGap="50px">
+      
+      <mat-card fxFlex class="dashboard-card left-card">
+        <mat-card-title fxLayoutAlign="start center">
+          <small class="text-muted">My Songs</small>
+          <span fxFlex></span>
+       
+        </mat-card-title>
+        <mat-card-content>
+          <h3 class="m-0 font-normal balance-text">22,450$</h3>
+          <small class="">Your Current Balance</small>
+        </mat-card-content>
+      </mat-card>
+  <mat-divider [vertical]="true" class="" style="background: rgba(3, 2, 2, 0.02); border: 2px solid rgba(3, 2, 2, 0.02);"></mat-divider>
+
+      <mat-card fxFlex class="dashboard-card right-card">
+        <mat-card-title fxLayoutAlign="start center">
+          <small class="">Sampling Participation</small>
+          <span fxFlex></span>
+         
+        </mat-card-title>
+        <mat-card-content>
+          <h3 class="m-0 font-normal balance-text">22,450$</h3>
+          <small class="">Your Current Balance</small>
+        </mat-card-content>
+      </mat-card>
+  
+    </div>
+  
+    
+    
+  
+  
+  </div>
+
+</section>
+
+<app-sub-heading title="Sales"></app-sub-heading>
+
+
+<!-- <div class="pl-16">
+  <mat-tab-group mat-align-tabs="start">
+    <mat-tab label="My Songs" class="primary-tab">
+      <mat-card class="default">
+        <mat-card-title>My Billings</mat-card-title>
+        <mat-card-content class="p-0" fxLayout="column">
+          <div class="activity-data">
+            <ngx-datatable class="material bg-white" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+              [rowHeight]="50" [limit]="4" [rows]="activityData">
+              <ngx-datatable-column name="Month" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row?.month }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Total" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row?.spent }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="My Songs" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row?.opened }}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Collaboration Tree" [flexGrow]="1">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  {{ row?.closed }}
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+    <mat-tab label="Sampling Participations" class="secondary-tab">Content 2</mat-tab>
+  </mat-tab-group>
+
+</div> -->

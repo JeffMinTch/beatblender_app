@@ -1,0 +1,14 @@
+<div fxLayout fxLayoutAlign="space-between" class="py-32">
+    <div fxFlex fxLayout="column">
+        <h5 class="breadcrumbs"> 
+            <!-- <app-breadcrumb></app-breadcrumb> -->
+            <span *ngFor="let breadcrumb of breadcrumbs; let i = index">
+                <a  class="hypertext"
+                    [routerLink]="breadcrumb.route">{{breadcrumb.title}}</a> 
+                    <span *ngIf="i !== breadcrumbs.length - 1"> > </span> 
+            </span>
+                 </h5>
+        <h1 class="title">{{title}}</h1>
+        <h4 class="sub-title">{{subTitle}}</h4>
+    </div>
+</div>

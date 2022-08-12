@@ -1,0 +1,77 @@
+.download-sample-page {
+    padding: 8px 16px;
+    // background: var(--light-theme-accent);
+    min-height: 1200px;
+    background: var(--light-theme);
+    border-radius: 8px;
+}
+
+.license {
+    
+    // margin: 16px 130px;
+    padding: 16px 16px;
+    // margin-top: 64px;
+    // border: 2px solid var(--body-color);
+    background: var(--light-theme-accent);
+    // border-radius: 16px;
+    width: auto;
+    .license-header {
+        // background: var(--light-theme-accent);
+        // min-height: 200px;
+        .headline {
+            text-align: center;
+        }
+    }
+
+    .license-body {
+        .section-content {
+            margin: 0;
+            background: var(--light-theme);
+            padding: 16px 8px;
+            border-radius: 8px;
+        }
+        h3 {
+            text-align: center;
+            // margin: 0;
+            // background: var(--light-theme);
+            // padding: 16px 8px;
+            // border-radius: 16px;
+        }
+    }
+
+    .license-footer {
+        .checkbox {
+            background: var(--light-theme-accent);
+            margin: 0;
+            padding: 8px 4px;
+        }
+        .action-row {
+            background: var(--light-theme-accent);
+            button {
+                width: 100%;
+            }
+        }
+    }
+
+    .divider {
+        border: 5px solid var(--light-theme);
+    }
+}
+
+.product {
+    // min-width: 400px;
+    position: relative;
+    height: 100px;
+    .audio-panel {
+        
+        position: sticky;
+        top: 0;
+        right: 0;
+    }
+    
+}
+
+::ng-deep .mat-checkbox-label {
+    white-space: normal;
+}
+

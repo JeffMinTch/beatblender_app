@@ -1,0 +1,117 @@
+<div fxFlex style="position: relative; background: var(--light-theme); border-radius: 8px;">
+  <!-- <div style="position: absolute; top: -50px; right: -50px; border-radius: 50%; background: var(--accent-color); width: 100px; height: 100px; z-index: -1; transform: translateY(0);">
+
+  </div> -->
+  <div class="pt-8 full-width" [fxLayout.lt-md]="'column'" [fxLayout.gt-sm]="'row'" fxLayoutGap="">
+      <div class="mr-16" [fxLayout.xs]="'column'" [fxLayout.gt-xs]="'row'"
+          [fxLayoutAlign.gt-xs]="'space-between center'" [fxLayoutAlign.xs]="'center start'" fxLayoutGap="10px">
+          
+          <div [ngClass.xs]="'ml-auto'" fxLayout fxLayoutGap="10px" class="mx-8">
+              <button mat-raised-button (click)="changeViewMode('grid-view')"
+                  [color]="viewMode === 'grid-view' ? 'accent' : ''">
+                  <mat-icon>
+                      <span class="material-icons-outlined" [ngStyle]="{ 'color': viewMode === 'grid-view' ? 'var(--light-theme)' : 'var(--body-color)'}">
+                          apps
+                      </span>
+                  </mat-icon>
+              </button>
+              <button mat-raised-button (click)="changeViewMode('list-view')"
+                  [color]="viewMode === 'list-view' ? 'accent' : ''">
+                  <mat-icon [ngStyle]="{ 'color': viewMode === 'grid-view' ? 'var(--body-color)' : 'var(--light-theme)'}">list</mat-icon>
+              </button>
+          </div>
+      </div>
+      
+      <!-- <button mat-button (click)="toggleFilter()">Filter</button> -->
+      <!-- [fxFlex.gt-md]="'350px'" -->
+      <div fxFlex>
+          <app-searchbar style="" type="sample" [searchForm]="searchForm" (searchRequest)="applyFilter(0)"
+              (searchStringChange)="changeSearchString($event)" (pageChange)="changePage($event)"
+              (countChange)="changeCount($event)" (expandFilter)="toggleFilter($event)" (sidenavChange)="toggleSidenav()"
+              [sortBy]="sortBy" [page]="pageNo" [pageSize]="pageSize"></app-searchbar>
+  
+      </div>
+      
+  </div>
+  <app-search-filter [searchFilterFormMap]="searchFilterFormMap" (filterFormChange)="applyFilter(0, $event)"
+      [isFilterOpen]="isFilterOpen"></app-search-filter>
+  <!-- <app-search-filter></app-search-filter> -->
+  <!-- Products container -->
+  <!-- <h2 style="color: var(--primary-color);">Sample Market</h2> -->
+  <!-- <h2><span style="color: var(--primary-color);">S</span>ample <span style="color: var(--accent-color);">M</span>arket </h2> -->
+  <!-- [ngClass]="{'list-view': viewMode === 'list-view'}" -->
+  
+  
+  <div class="product-container" fxLayout="row wrap" fxLayoutAlign="start start">
+      <!-- Product Box -->
+      <ng-container
+          *ngIf="(sampleLicensingMarketService.samples$ | async)?.length <= 0 && (sampleLicensingMarketService.samples$ | async) != null"
+          ; else product>
+          <div fxFlex fxLayoutAlign="center">
+              <span class="fs-24">No samples match your request.</span>
+          </div>
+      </ng-container>
+      <ng-container #product>
+          <div fxLayout="row" [ngStyle.gt-sm]=" {'width': '33.33%'}" class="product-wrap"
+              *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count }; let i = index;"
+              [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}">
+              <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
+              <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
+              <div fxLayout="column" class="product-inner default-bg mx-8 my-16 full-width">
+                  <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
+                          <span>{{product?.badge?.text}}</span>
+                        </div> -->
+                  <app-audio-panel [sample]="sample" light="true"
+                      [type]="viewMode === 'grid-view' ? 'sample' : 'primary'"
+                      (clickEvent)="redirectToTermsAndConditions(sample)"></app-audio-panel>
+                  
+  
+                  <!-- Visible when viewMode === list-view -->
+                  <!-- <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
+                        <div class="more-info">
+                          <div class="more-actions mb-16">
+                            <div class="product-rating">
+                              <star-rating [starType]="'svg'" [readOnly]="true" [size]="'medium'" [staticColor]="'ok'"
+                                [rating]="4.63"></star-rating>
+                              <small class="text-muted">(140)</small>
+                            </div>
+                            <span fxFlex></span>
+                            <button mat-icon-button>
+                              <mat-icon>playlist_add</mat-icon>
+                            </button>
+                            <button mat-icon-button>
+                              <mat-icon>favorite</mat-icon>
+                            </button>
+                          </div>
+          
+                          <div>
+                            <ul>
+                              <li>
+                                <mat-icon>check</mat-icon> Heavy duty
+                              </li>
+                              <li>
+                                <mat-icon>check</mat-icon> Water resistance
+                              </li>
+                              <li>
+                                <mat-icon>check</mat-icon> Clean design
+                              </li>
+                              <li>
+                                <mat-icon>check</mat-icon> High quality raw materials
+                              </li>
+                            </ul>
+                          </div>
+          
+                        </div>
+                      </div> -->
+  
+              </div>
+          </div>
+      </ng-container>
+  
+      <div class="products-pagination" *ngIf="count > pageSize">
+          <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
+          <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+      </div>
+  </div>
+
+</div>
