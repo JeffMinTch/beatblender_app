@@ -4,7 +4,6 @@ import { Routes } from '@angular/router';
 import { SampleMarketComponent } from './sample-market.component';
 import { ChooseArtistComponent } from './choose-artist/choose-artist.component';
 import { FindAllComponent } from './find-all/find-all.component';
-import { FullLicense } from 'src/app/shared/models/full-license.model';
 export const SampleMarketRoutes: Routes = [{
   path: '',
   // component: SampleMarketComponent,
@@ -13,7 +12,6 @@ export const SampleMarketRoutes: Routes = [{
     {
       path: 'find-all',
       component: FindAllComponent,
-
       // redirectTo: 'bb-a1',
       // component: SampleMarketComponent,
 

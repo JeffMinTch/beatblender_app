@@ -8,11 +8,11 @@ export const SidenavRoutes: Routes = [
     path: '',
     component: SidenavComponent,
     children: [
-      {
-        path: 'licensing',
-        loadChildren: () => import('../../views/licensing/licensing.module').then(m => m.LicensingModule),
-        data: { title: 'Licensing' }
-      },
+      // {
+      //   path: 'licensing',
+      //   loadChildren: () => import('../../views/licensing/licensing.module').then(m => m.LicensingModule),
+      //   data: { title: 'Licensing' }
+      // },
       // {
       //   path: 'sample-market',
       //   loadChildren: () => import('../../views/sample-market/sample-market.module').then(m => m.SampleMarketModule),
@@ -30,11 +30,11 @@ export const SidenavRoutes: Routes = [
         canActivate: [AuthGuard],
 
       },
-      // {
-      //   path: 'dashboard',
-      //   loadChildren: () => import('../../views/dashboard/dashboard.module').then(m => m.DashboardModule),
-      //   data: { title: 'Dashboard', breadcrumb: 'Dashboard' }
-      // },
+      {
+        path: 'dashboard',
+        loadChildren: () => import('../../views/dashboard/dashboard.module').then(m => m.DashboardModule),
+        data: { title: 'Dashboard', breadcrumb: 'Dashboard' }
+      },
       {
         path: 'audio',
         loadChildren: () => import('../../views/audio/audio.module').then(m => m.AudioModule),

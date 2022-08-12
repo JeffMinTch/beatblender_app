@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { UnderConstructionComponent } from '../../shared/components/under-construction/under-construction.component';
+import { DistributeComponent } from './distribute/distribute.component';
 import { FullLicensesComponent } from './full-licenses/full-licenses.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { HowToDistributeComponent } from './how-to-distribute/how-to-distribute.component';
@@ -33,6 +34,10 @@ export const LicensingRoutes: Routes = [
           path: 'register-track',
           component: RegisterTrackComponent
       },
+      {
+        path: 'start-distributing',
+        component: DistributeComponent
+    },
       
       // {
       //   path: '',
@@ -79,7 +84,7 @@ export const LicensingRoutes: Routes = [
       // },
       {
         path: '',
-        redirectTo: 'how-to-distribute',
+        redirectTo: 'register-track',
         pathMatch: 'full'
       }
       // {

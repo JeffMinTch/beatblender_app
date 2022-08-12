@@ -310,9 +310,9 @@
           </p>
           <p class="text-muted m-0">This Week</p>
         </div>
-        <!-- <div fxFlex="60">
+        <div fxFlex="60">
           <div echarts [options]="trafficGrowthChart" [autoResize]="true" style="height: 150px; right: -1px"></div>
-        </div> -->
+        </div>
       </div>
     </mat-card>
 
@@ -411,10 +411,10 @@
     <div fxFlex fxLayout="column" class="mat-elevation-z1 my-16">
       <h3 class="mb-16 text-center">SAMPLING BY GENRES</h3>
       <mat-card fxLayout fxLayoutAlign="space-between">
-        <!-- <div fxFlex>
+        <div fxFlex>
           <div echarts [options]="customPieOptions" style="height: 400px"></div>
 
-        </div> -->
+        </div>
         <div fxLayout="column" fxFlex="40" class="mt-auto mb-0">
           <!-- <h3 class="pl-16 text-center">GENRES THAT USE YOUR MUSIC</h3> -->
           <mat-card class="p-0 mt-0" style="box-shadow: none !important;">
@@ -748,18 +748,20 @@
           <h3 class=" ml-16 mt-16 text-center">Streaming Platforms</h3>
           <div fxFlex="50" fxFlex.gt-sm="50" fxFlex.sm="50"
             [@animate]="{ value: '*', params: { y: '50px', delay: '400ms' } }">
-            <!-- <mat-card class="p-0 ">
+            <mat-card class="p-0 ">
+              <!-- <p class=" ml-16 mt-16">Streaming Platforms</p> -->
               <div echarts [options]="trafficSourcesChart" [autoResize]="true" style="height: 250px;"></div>
-            </mat-card> -->
+            </mat-card>
           </div>
         </div>
 
         <div fxFlex="40" fxLayout="column" class="mat-elevation-z1">
           <h3 class="text-center mt-16">7 MONTH PERFORMANCE</h3>
           <div [@animate]="{ value: '*', params: { y: '50px', delay: '800ms' } }">
-            <!-- <mat-card class="">
+            <mat-card class="">
+              <!-- <p class="">7 DAY TRAFFIC</p> -->
               <div echarts [options]="dailyTrafficChartBar" [autoResize]="true" style="height: 250px;"></div>
-            </mat-card> -->
+            </mat-card>
 
           </div>
         </div>
@@ -784,7 +786,7 @@
             </mat-menu>
           </div>
 
-          <!-- <div echarts [options]="cryptoChart" [autoResize]="true" style="height: 340px;"></div> -->
+          <div echarts [options]="cryptoChart" [autoResize]="true" style="height: 340px;"></div>
         </mat-card>
 
       </div>
@@ -896,7 +898,7 @@
     <div fxFlex fxLayout="column" class="mat-elevation-z1">
       <h3 class="text-center">TOP SAMPLING COUNTRIES</h3>
 
-      <!-- <div echarts [options]="samplingCountriesPieOptions" style="height: 400px"></div> -->
+      <div echarts [options]="samplingCountriesPieOptions" style="height: 400px"></div>
 
     </div>
     <div fxFlex fxLayout="column" fxLayoutAlign="start center" class="mat-elevation-z1">

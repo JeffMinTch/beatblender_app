@@ -1,19 +1,17 @@
 <section fxLayout="column" class="pb-32 px-8">
 
-    <h1 [ngStyle.lt-lg]="{'text-align': 'center'}" class="">
-        <!-- <div style="width: 64px; height: 64px;" class="mr-16">
-            <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
-        </div> -->
-        <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
-        <span style="color: var(--primary-color);">Y</span>
-        <span style="">our</span>
-        <span style="color: var(--accent-color); font-weight: 600;"> R</span>
-        <span style="font-weight: 600; color: var(--base-accent-color);">eleases</span>
-    </h1>
-    <p [ngStyle.lt-lg]="{'text-align': 'center'}" style="font-size: 22px; color: var(--base-accent-color);">Create,
-        register and license your songs created with samples via BeatBlender all in one place.
-    </p>
-    <div class="pt-8 full-width" fxLayout fxLayoutAlign="space-between center">
+  <div class="full-width" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+    <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+    <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">MY RELEASES & LICENSES</h3>
+
+    <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+  </div>
+    <!-- <p class="p-16" [ngStyle.lt-lg]="{'text-align': 'center'}" style="font-size: 22px; font-weight: 300;">
+      The Music you created using Samples form BeatBlender
+    </p> -->
+    <p class="text-center px-64" style="font-size: 20px; font-weight: 300;">Tracks You Created Using Music From BeatBlender.</p>
+    <div class="pt-8 full-width" fxLayout fxLayoutAlign="end center">
 
         <div fxLayout fxLayoutGap="10px">
             <button mat-raised-button (click)="changeViewMode('grid-view')"
@@ -35,13 +33,14 @@
       >
       <!-- Product Box -->
       <ng-container *ngIf="releases?.length <= 0 && releases != null"; else product>
-        <div fxFlex fxLayoutAlign="center">
-          <span class="fs-24">No samples match your request.</span>
+        <div fxLayout fxLayoutAlign="center">
+          <!-- <p class=""></p> -->
+          <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="font-size: 18px;">You have not registered a track yet. When you created a track using samples from BeatBlender it must be <a class="hypertext" routerLink="/licensing/register-track">registered here</a>.</p>
         </div>
       </ng-container>
       <ng-container #product>
         <!-- | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count } -->
-        <div fxLayout="row" class="product-wrap" [ngStyle.gt-sm]=" {'width': '33.33%'}"
+        <div fxLayout="row" class="product-wrap" [ngStyle.gt-sm]=" {'width': '50%'}" [ngStyle.gt-md]=" {'width': '33%'}"
           *ngFor="let release of releases; let i = index;"
           [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}"
           >
