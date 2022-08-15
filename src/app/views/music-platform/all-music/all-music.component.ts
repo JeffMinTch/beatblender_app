@@ -38,6 +38,14 @@ export class AllMusicComponent implements OnInit {
     name: 'Photo 3',
     url: 'assets/images/welcome.jpg'
   }, 
+  {
+    name: 'Photo 3',
+    url: 'assets/images/frau.jpg'
+  }, 
+  {
+    name: 'Photo 3',
+    url: 'assets/images/typ1.jpg'
+  }, 
   // {
   //   name: 'Photo 4',
   //   url: 'assets/images/retro.png'

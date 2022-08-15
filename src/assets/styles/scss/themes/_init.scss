@@ -146,13 +146,10 @@ $config: mat-typography-config();
 
 // Theme Config
 $default-primary-palette: (
-  // #0081ff  
-main: #658566,
-// main: #d900ff,
 
-// main: #658566,
+  main: #658566  ,
+  // main: #658566,
 
-  // main: #4ca54c9a,
   lighter: #dce6dd,
   darker: #0064ff,
   200: #0081ff,
@@ -167,11 +164,10 @@ main: #658566,
 $default-theme-primary: mat-palette($default-primary-palette, main, lighter, darker);
 
 $default-accent-palette: (
-  // #ffb7b7
-  // #ff8a48
-  // #d69090
-main: #d69090,
-// #ffdcc8
+
+  main: #748565 ,   
+  // main: #d69090,
+
 
   lighter: #ffb9c6,
   darker: #ff6d30,

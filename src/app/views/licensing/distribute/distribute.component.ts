@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StreamingService } from 'app/views/profile/distribute/distribute.component';
+import { StreamingService } from '../../../views/profile/distribute/distribute.component';
 
 @Component({
   selector: 'app-distribute',

@@ -1,5 +1,5 @@
 import { OnInit } from '@angular/core';
-import { LayoutService } from 'app/shared/services/layout.service';
+import { LayoutService } from '../../shared/services/layout.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
 

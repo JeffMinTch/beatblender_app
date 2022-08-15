@@ -1,6 +1,13 @@
 
 @import '../../../../assets/styles/scss/variables';
 
+.mat-chip {
+  // border-radius: 0 !important;
+  // background: var(--white-color) !important;
+  // border: 2px solid var(--light-theme-accent);
+  font-size: 10px !important;
+}
+
 .player-widget {
   transition: background $transitionDuration $transitionTiming;
     // background: rgb(251, 251, 251);

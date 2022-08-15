@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ILayoutConf, LayoutService } from 'app/shared/services/layout.service';
-import { NavigationService } from 'app/shared/services/navigation.service';
+import { ILayoutConf, LayoutService } from '../../shared/services/layout.service';
+import { NavigationService } from '../../shared/services/navigation.service';
 import { Subscription } from 'rxjs';
 import {share } from 'rxjs/operators';
 

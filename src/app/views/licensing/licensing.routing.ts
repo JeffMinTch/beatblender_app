@@ -14,6 +14,7 @@ export const LicensingRoutes: Routes = [
   {
     path: '',
     component: LicensingComponent,
+    
     children: [
       // {
       //   path: 'license-register',

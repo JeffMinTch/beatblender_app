@@ -61,12 +61,13 @@
           </div>
       </ng-container>
       <ng-container #product>
-          <div fxLayout="row" [ngStyle.gt-sm]=" {'width': '33.33%'}" class="product-wrap"
+          <div fxLayout="row" [ngStyle.gt-sm]=" {'width': '100%'}" class="product-wrap"
               *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count }; let i = index;"
               [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}">
               <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
               <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
-              <div fxLayout="column" class="product-inner default-bg mx-8 my-16 full-width">
+              <!-- mx-8 my-16 -->
+              <div fxLayout="column" class="product-inner default-bg  full-width" style="">
                   <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
                           <span>{{product?.badge?.text}}</span>
                         </div> -->

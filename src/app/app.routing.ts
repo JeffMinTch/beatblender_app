@@ -90,6 +90,11 @@ export const rootRouterConfig: Routes = [
         loadChildren: () => import('./views/audio/details/details.module').then(m => m.DetailsModule),
         data: { title: 'Sample Details', breadcrumb: 'Sample Details'}
       },
+      {
+        path: 'charity',
+        loadChildren: () => import('./views/charity/charity.module').then(m => m.CharityModule),
+        data: { title: 'Sample Market', breadcrumb: 'Sample Market'}
+      },
       // {
       //   path: 'audio',
       //   loadChildren: () => import('./views/audio/audio.module').then(m => m.AudioModule),

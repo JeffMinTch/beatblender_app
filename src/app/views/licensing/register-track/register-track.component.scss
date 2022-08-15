@@ -34,6 +34,10 @@ h3 {
     font-size: 1.5rem;
 }
 
+.mat-card {
+    box-shadow: none !important;
+}
+
 .sample-info {
     border-radius: 8px;
     border: 1px solid var(--light-theme-accent);

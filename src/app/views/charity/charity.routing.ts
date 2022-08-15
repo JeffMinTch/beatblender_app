@@ -11,7 +11,8 @@ export const CharityRoutes: Routes = [
     },
     {
     path: '',
-    redirectTo: 'projects'
+    redirectTo: 'projects',
+    pathMatch: 'full'
   }
   
   ]

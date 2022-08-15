@@ -13,7 +13,8 @@ import { MusicPlatformRoutes } from './music-platform.routing';
     CommonModule,
     RouterModule.forChild(MusicPlatformRoutes),
     SharedModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    
   ],
 })
 export class MusicPlatformModule { }

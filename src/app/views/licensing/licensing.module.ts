@@ -13,6 +13,8 @@ import { LicensingComponent } from './licensing/licensing.component';
 import { RegisterTrackComponent } from './register-track/register-track.component';
 import { HowToDistributeComponent } from './how-to-distribute/how-to-distribute.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { DistributeComponent } from '../licensing/distribute/distribute.component';
+import { SharedComponentsModule } from 'src/app/shared/components/shared-components.module';
 
 
 
@@ -20,6 +22,7 @@ import { FileUploadModule } from 'ng2-file-upload';
   imports: [
     CommonModule,
     // BrowserAnimationsModule,
+    SharedModule,
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
@@ -27,13 +30,13 @@ import { FileUploadModule } from 'ng2-file-upload';
     // NgxDatatableModule,
     RouterModule.forChild(LicensingRoutes),
     FileUploadModule,
-    SharedModule,
+    SharedComponentsModule
     
   ],
   // exports: [
   //   NgxPaginationModule
   // ],
-  declarations: [LicensingComponent, HowItWorksComponent, FullLicensesComponent, RegisterTrackComponent, HowToDistributeComponent],
+  declarations: [LicensingComponent, HowItWorksComponent, FullLicensesComponent, RegisterTrackComponent, HowToDistributeComponent, DistributeComponent],
   providers: [
   ]
 })

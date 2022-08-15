@@ -7,6 +7,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AllMusicComponent } from './all-music.component';
 import { RouterModule } from '@angular/router';
+import { GenresModule } from '../genres/genres.module';
+import { GenresComponent } from '../genres/genres.component';
 
 
 
@@ -17,7 +19,7 @@ import { RouterModule } from '@angular/router';
     FlexLayoutModule,
     RouterModule.forChild(AllMusicRoutes),
     SharedModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ]
 })
 export class AllMusicModule { }

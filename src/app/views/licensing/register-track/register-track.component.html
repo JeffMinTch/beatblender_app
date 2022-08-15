@@ -5,23 +5,57 @@
     </div> -->
     <div class="full-width pr-16 my-32" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
         <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
-        <h1 class="text-center" [ngStyle.xs]="{'font-size' : '22px'}" style="font-weight: 300; color: var(--body-color);">Register Track</h1>
+        <h1 class="text-center" [ngStyle.xs]="{'font-size' : '22px'}"
+            style="font-weight: 300; color: var(--body-color);">Register Track</h1>
         <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
 
     </div>
     <p [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="font-size: 18px; color: var(--body-color);"
-        class="py-16 text-center">Create,
+        class="py-16">Create,
         register and license your songs created with samples via BeatBlender all in one place.
     </p>
-    <div fxLayout [fxLayout.lt-md]="'column'" fxLayoutAlign="center center">
-        <div fxFlex="50" class="">
+    
+    <div fxLayout [fxLayout.lt-xl]="'column'" fxLayoutAlign="center center">
+        <div fxFlex="33" class="">
             <mat-card style="min-height: 0px;" [ngClass.xs]="'m-8'">
                 <mat-card-content style="font-size: 20px;">
                     <div fxLayout="column" fxLayoutAlign="center center">
                         <!-- <img style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;"
                 src="../../../assets/images/svg-icons/solidarity.png" alt=""> -->
+                        <span style="font-size: 26px; font-weight: bold; color: #856665;">1</span>
                         <div style="width: 60px; height: 60px; font-size: 50px;">
-                            <mat-icon inline="true" class="material-icons-outlined">mode_edit_outline</mat-icon>
+                            <mat-icon inline="true" class="material-icons-outlined" style="color: #856665;">
+                                file_download</mat-icon>
+
+                        </div>
+                        <div fxLayout="column" fxLayoutAlign="center center">
+
+                            <span class="text-center"> <span style="font-weight: 300; font-size: 18px;"></span>
+                            </span>
+                            <span style="font-weight: 700; font-size: 22px; color: #856665">Download and create<span
+                                    style="color: var(--accent-color);"></span></span>
+                            <p fxFlex class="text-center">
+
+                                Artist that upload music to us allow other artists to use the material in a modified way
+                                for new
+                                artwork. Similiar to Creative Commons Licenses.
+                            </p>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div fxFlex="33" class="">
+            <mat-card style="min-height: 0px;" [ngClass.xs]="'m-8'">
+                <mat-card-content style="font-size: 20px;">
+                    <div fxLayout="column" fxLayoutAlign="center center">
+                        <!-- <img style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;"
+                src="../../../assets/images/svg-icons/solidarity.png" alt=""> -->
+                        <span style="font-size: 26px; font-weight: bold; color: #658566;">2</span>
+
+                        <div style="width: 60px; height: 60px; font-size: 50px;">
+                            <mat-icon inline="true" class="material-icons-outlined" style="color: #658566;">
+                                mode_edit_outline</mat-icon>
 
                         </div>
                         <div fxLayout="column" fxLayoutAlign="center center">
@@ -60,12 +94,14 @@
             </mat-card-content>
           </mat-card>
         </div> -->
-        <div fxFlex="50" class="">
+        <div fxFlex="33" class="">
             <mat-card style="min-height: 0px;" [ngClass.xs]="'m-8'">
                 <mat-card-content style="font-size: 20px;">
                     <div fxLayout="column" fxLayoutAlign="center center">
+                        <span style="font-size: 26px; font-weight: bold; color: #666585;">3</span>
+
                         <div style="width: 60px; height: 60px; font-size: 50px;">
-                            <mat-icon inline="true">call_split</mat-icon>
+                            <mat-icon inline="true" style="color: #666585;">call_split</mat-icon>
                         </div>
                         <!-- <img style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;"
                   src="../../../assets/images/svg-icons/solidarity.png" alt=""> -->
@@ -74,8 +110,8 @@
                             <mat-card-title class="text-center"> <span style="font-weight: 300; font-size: 18px;">When
                                     Distributing</span>
                             </mat-card-title>
-                            <span style="font-weight: 700; font-size: 22px; color: var(--primary-color);"> <span
-                                    style="color: var(--accent-color);">Split Streaming Money</span></span>
+                            <span style="font-weight: 700; font-size: 22px; color: #666585;"> <span>Split Streaming
+                                    Money</span></span>
                             <p fxFlex class="text-center">
                                 Artist that create the new artwork instead agree that the incoming streaming money will
                                 be donated
@@ -89,6 +125,184 @@
         </div>
 
     </div>
+    <div fxLayout="row">
+        <div fxFlex fxLayout="column">
+            <div class="full-width pr-8 py-32" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+                <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">What You Can Do</h3>
+
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+            </div>
+            <div fxLayout="column">
+                <div style="width: 100%;">
+                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="30px"
+                        style="background: var(--light-theme);">
+                        <div fxLayoutAlign="center center"
+                            style="border-radius: 50%; font-size: 30px; border: 2px solid var(--primary-color);">
+                            <mat-icon color="primary">check</mat-icon>
+                        </div>
+                        <p style="color: var(--body-color);">
+                            Sample up to 15 seconds from the original song and use it however you want in your
+                            new song
+                            (but
+                            not separate from the new song).
+
+                        </p>
+                    </mat-card>
+                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="30px"
+                        style="background: var(--light-theme);">
+                        <div fxLayoutAlign="center center"
+                            style="border-radius: 50%; font-size: 30px; border: 2px solid var(--primary-color);">
+                            <mat-icon color="primary">check</mat-icon>
+                        </div>
+                        <p style="color: var(--body-color);">
+                            Sample up to 15 seconds from the original song and use it however you want in your
+                            new song
+                            (but
+                            not separate from the new song).
+
+                        </p>
+                    </mat-card>
+                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="30px"
+                        style="background: var(--light-theme);">
+                        <div fxLayoutAlign="center center"
+                            style="border-radius: 50%; font-size: 30px; border: 2px solid var(--primary-color);">
+                            <mat-icon color="primary">check</mat-icon>
+                        </div>
+                        <p style="color: var(--body-color);">
+                            Sample up to 15 seconds from the original song and use it however you want in your
+                            new song
+                            (but
+                            not separate from the new song).
+
+                        </p>
+                    </mat-card>
+                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="30px"
+                        style="background: var(--light-theme);">
+                        <div fxLayoutAlign="center center"
+                            style="border-radius: 50%; font-size: 30px; border: 2px solid var(--primary-color);">
+                            <mat-icon color="primary">check</mat-icon>
+                        </div>
+                        <p style="color: var(--body-color);">
+                            Sample up to 15 seconds from the original song and use it however you want in your
+                            new song
+                            (but
+                            not separate from the new song).
+
+                        </p>
+                    </mat-card>
+                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="30px"
+                    style="background: var(--light-theme);">
+                    <div fxLayoutAlign="center center"
+                        style="border-radius: 50%; font-size: 30px; border: 2px solid var(--primary-color);">
+                        <mat-icon color="primary">check</mat-icon>
+                    </div>
+                    <p style="color: var(--body-color);">
+                        Sample up to 15 seconds from the original song and use it however you want in your
+                        new song
+                        (but
+                        not separate from the new song).
+
+                    </p>
+                </mat-card>
+                <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="30px"
+                style="background: var(--light-theme);">
+                <div fxLayoutAlign="center center"
+                    style="border-radius: 50%; font-size: 30px; border: 2px solid var(--primary-color);">
+                    <mat-icon color="primary">check</mat-icon>
+                </div>
+                <p style="color: var(--body-color);">
+                    Sample up to 15 seconds from the original song and use it however you want in your
+                    new song
+                    (but
+                    not separate from the new song).
+
+                </p>
+            </mat-card>
+                </div>
+
+
+
+            </div>
+        </div>
+        <div fxFlex fxLayout="column">
+            <div class="full-width pr-8 py-32" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+                <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">What You Cannot Do
+                </h3>
+
+                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+            </div>
+            <div fxLayout="column">
+                <div style="width: 100%;">
+
+                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="30px"
+                        style="background: var(--light-theme);">
+                        <div fxLayoutAlign="center center"
+                            style="border-radius: 50%; font-size: 30px; border: 2px solid var(--accent-color);">
+                            <mat-icon color="accent">close</mat-icon>
+                        </div>
+                        <p style="color: var(--body-color);">
+                            Sample up to 15 seconds from the original song and use it however you want in your
+                            new song
+                            (but
+                            not separate from the new song).
+
+                        </p>
+                    </mat-card>
+                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="30px"
+                        style="background: var(--light-theme);">
+                        <div fxLayoutAlign="center center"
+                            style="border-radius: 50%; font-size: 30px; border: 2px solid var(--accent-color);">
+                            <mat-icon color="accent">close</mat-icon>
+                        </div>
+                        <p style="color: var(--body-color);">
+                            Sample up to 15 seconds from the original song and use it however you want in your
+                            new song
+                            (but
+                            not separate from the new song).
+
+                        </p>
+                    </mat-card>
+                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="30px"
+                        style="background: var(--light-theme);">
+                        <div fxLayoutAlign="center center"
+                            style="border-radius: 50%; font-size: 30px; border: 2px solid var(--accent-color);">
+                            <mat-icon color="accent">close</mat-icon>
+                        </div>
+                        <p style="color: var(--body-color);">
+                            Sample up to 15 seconds from the original song and use it however you want in your
+                            new song
+                            (but
+                            not separate from the new song).
+
+                        </p>
+                    </mat-card>
+                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="30px"
+                        style="background: var(--light-theme);">
+                        <div fxLayoutAlign="center center"
+                            style="border-radius: 50%; font-size: 30px; border: 2px solid var(--accent-color);">
+                            <mat-icon color="accent">close</mat-icon>
+                        </div>
+                        <p style="color: var(--body-color);">
+                            Sample up to 15 seconds from the original song and use it however you want in your
+                            new song
+                            (but
+                            not separate from the new song).
+
+                        </p>
+                    </mat-card>
+                
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
     <form [formGroup]="(formsSubject | async)" fxLayout="column" class="mt-16">
         <ng-container *ngIf="userData">
             <div class="full-width pr-8" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
@@ -98,9 +312,10 @@
                 <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
 
             </div>
-            <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">Please upload the track file for which you want to obtain the license to distribute on streaming services.</p>
+            <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">Please upload the track
+                file for which you want to obtain the license to distribute on streaming services.</p>
 
-            
+
             <div class="mb-16 mt-16" fxLayoutAlign="center center" fxLayout>
                 <!-- <h3 style="color: var(--base-accent-color);">Select one or multiple Samples you want to upload</h3> -->
                 <input type="file" (onFileSelected)="onFileSelected($event)" ng2FileSelect [uploader]="uploader"
@@ -160,212 +375,159 @@
 
         </ng-container>
         <div style="position: relative;">
-            <div class="full-width pr-8 my-16" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
-                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
-                <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">Artist Name
-                </h3>
 
-                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+            <div fxLayout="row nowrap">
+                <div fxLayout="column" fxFlex="50">
+                    <div class="full-width pr-8 my-16" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+                        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+                        <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">1. Step: Artist Name
+                        </h3>
+
+                        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+                    </div>
+                    <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">Choose your artist
+                        name under which you want to release your track</p>
+
+                    <div fxLayout fxLayoutAlign="center center">
+                        <mat-form-field appearance="outline" [ngStyle.xs]="{'width': '300px'}" style="width: 500px;">
+                            <mat-label>Enter Artist Name</mat-label>
+                            <input formControlName="releaseArtistName" matInput>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout="column">
+                    <div class="full-width pr-8 py-16" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+                        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+                        <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">2. Step: Song Title
+                        </h3>
+
+                        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+                    </div>
+                    <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">Select the release
+                        title of your song which will represent your track on streaming services.</p>
+
+                    <div fxLayout fxLayoutAlign="center center">
+                        <mat-form-field appearance="outline" [ngStyle.xs]="{'width': '300px'}" style="width: 500px;">
+                            <mat-label>Enter Song Title</mat-label>
+                            <input formControlName="releaseTitle" matInput>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div fxLayout="row nowrap">
+                <div fxLayout="column" fxFlex="50">
+                    <form [formGroup]="(formsSubject | async)?.controls['image']">
+
+                    </form>
+
+                    <div class="mb-16 mt-16">
+                        <!-- <p>Multiple</p> -->
+                        <div class="full-width pr-8" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+                            <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+                            <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">3. Step: Enter Track
+                                Image</h3>
+
+                            <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+                        </div>
+                        <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">Select the
+                            image with which
+                            will represent your track on streaming services.</p>
+                        <div fxLayout fxLayoutAlign="center center">
+
+                            <input type="file" accept="image/*" (onFileSelected)="onFileSelected($event)" ng2FileSelect
+                                [uploader]="imageUploader" /><br />
+                        </div>
+                        <!-- <input type="file" (onFileSelected)="onFileSelected($event)" ng2FileSelect [uploader]="imageUploader" multiple/><br /> -->
+
+                        <!-- <p>Single</p>
+                              <input type="file" ng2FileSelect [uploader]="uploader" /> -->
+                    </div>
+                    <div class="mb-16">
+                        <div ng2FileDrop [ngClass]="{'dz-file-over': hasBaseDropZoneOver}"
+                            (fileOver)="fileOverBase($event)" [uploader]="imageUploader"
+                            class="fileupload-drop-zone mb-24">
+                            Drop file here
+                        </div>
+                    </div>
+                    <!-- <p>Please declare which samples you have mixed inside this sample.</p> -->
+                    <div>
+
+                        <!-- <button [disabled]="!(formsSubject | async)?.controls['image'].valid" mat-raised-button
+                          matStepperNext>Next</button> -->
+                        <!-- <button mat-button matStepperPrevious>Back</button> -->
+                        <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
+                    </div>
+                </div>
+                <div fxLayout="column" fxFlex="50">
+                    <div class="full-width pr-8 mt-16" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+                        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+                        <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">4. Step: Choose Sampled Music
+                        </h3>
+
+                        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+                    </div>
+                    <div fxFlex fxLayout="column">
+                        <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">Please select
+                            all samples
+                            that you included into your new track.</p>
+                        <div fxLayout fxLayoutAlign="center center" class="mb-32">
+                            <button (click)="openMixedInsDialog()" mat-raised-button color="primary"
+                                style="max-width: 30%;" class="mr-8">Choose MixedIn Samples</button>
+                            <mat-hint
+                                *ngIf="(formsSubject | async)?.controls['mixedIns'].value.length === 0; else samplesSelectedHint">
+                                No MixedIn seleceted.</mat-hint>
+                            <ng-template #samplesSelectedHint>
+                                <mat-hint>{{(formsSubject | async)?.controls['mixedIns'].value.length}} Sample<span
+                                        *ngIf="(formsSubject | async)?.controls['mixedIns'].value.length > 1">s</span>
+                                    selected.
+                                </mat-hint>
+                            </ng-template>
+                        </div>
+                        <div fxLayout="column" *ngIf="(formsSubject | async)?.controls['mixedIns'].value.length > 0">
+                            <h3 class="mb-32">Your MixedIn Samples</h3>
+                            <div fxFlex fxLayout="column"
+                                *ngFor="let sample of (formsSubject | async)?.controls['mixedIns'].value; let i = index;">
+                                <!-- <span>{{i}}</span> -->
+                                <div fxFlex>
+                                    <app-audio-panel [sample]="sample" type="primary"></app-audio-panel>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
 
             </div>
-            <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">Choose your artist name under which you want to release your track</p>
 
-            <div fxLayout fxLayoutAlign="center center">
-                <mat-form-field appearance="outline" [ngStyle.xs]="{'width': '300px'}" style="width: 500px;">
-                    <mat-label>Enter Artist Name</mat-label>
-                    <input formControlName="releaseArtistName" matInput>
-                </mat-form-field>
-            </div>
 
-            <div class="full-width pr-8 py-32" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
-                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
-                <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">Song Title</h3>
 
-                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
 
-            </div>
-            <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">Select the release title of your song which will represent your track on streaming services.</p>
 
-            <div fxLayout fxLayoutAlign="center center">
-                <mat-form-field appearance="outline" [ngStyle.xs]="{'width': '300px'}" style="width: 500px;">
-                    <mat-label>Enter Song Title</mat-label>
-                    <input formControlName="releaseTitle" matInput>
-                </mat-form-field>
-            </div>
-           
+
+
 
 
         </div>
         <!-- <ng-template matStepLabel>Choose Sample Image</ng-template> -->
 
-        <form [formGroup]="(formsSubject | async)?.controls['image']">
 
-        </form>
 
-        <div class="mb-16 mt-16">
-            <!-- <p>Multiple</p> -->
-            <div class="full-width pr-8" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
-                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
-                <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">Enter Track Image</h3>
-    
-                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
-    
-            </div>
-            <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">Select the image with which will represent your track on streaming services.</p>
-            <div fxLayout fxLayoutAlign="center center">
-
-                <input type="file" accept="image/*" (onFileSelected)="onFileSelected($event)" ng2FileSelect
-                    [uploader]="imageUploader" /><br />
-            </div>
-            <!-- <input type="file" (onFileSelected)="onFileSelected($event)" ng2FileSelect [uploader]="imageUploader" multiple/><br /> -->
-
-            <!-- <p>Single</p>
-                  <input type="file" ng2FileSelect [uploader]="uploader" /> -->
-        </div>
-        <div class="mb-16">
-            <div ng2FileDrop [ngClass]="{'dz-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)"
-                [uploader]="imageUploader" class="fileupload-drop-zone mb-24">
-                Drop file here
-            </div>
-        </div>
-        <!-- <p>Please declare which samples you have mixed inside this sample.</p> -->
-        <div>
-
-            <!-- <button [disabled]="!(formsSubject | async)?.controls['image'].valid" mat-raised-button
-              matStepperNext>Next</button> -->
-            <!-- <button mat-button matStepperPrevious>Back</button> -->
-            <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
-        </div>
-        <div class="full-width pr-8" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
-            <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
-            <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">Choose Sampled Music</h3>
-
-            <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
-
-        </div>
-        <div fxFlex fxLayout="column">
-            <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">Please select all samples that you included into your new track.</p>
-            <div fxLayout fxLayoutAlign="center center" class="mb-32">
-                <button (click)="openMixedInsDialog()" mat-raised-button color="primary" style="max-width: 30%;"
-                    class="mr-8">Choose MixedIn Samples</button>
-                <mat-hint
-                    *ngIf="(formsSubject | async)?.controls['mixedIns'].value.length === 0; else samplesSelectedHint">
-                    No MixedIn seleceted.</mat-hint>
-                <ng-template #samplesSelectedHint>
-                    <mat-hint>{{(formsSubject | async)?.controls['mixedIns'].value.length}} Sample<span
-                            *ngIf="(formsSubject | async)?.controls['mixedIns'].value.length > 1">s</span> selected.
-                    </mat-hint>
-                </ng-template>
-            </div>
-            <div fxLayout="column" *ngIf="(formsSubject | async)?.controls['mixedIns'].value.length > 0">
-                <h3 class="mb-32">Your MixedIn Samples</h3>
-                <div fxFlex fxLayout="column"
-                    *ngFor="let sample of (formsSubject | async)?.controls['mixedIns'].value; let i = index;">
-                    <!-- <span>{{i}}</span> -->
-                    <div fxFlex>
-                        <app-audio-panel [sample]="sample" type="primary"></app-audio-panel>
-                    </div>
-                </div>
-            </div>
-
-        </div>
         <section fxLayout="column" class="py-16">
-            <div class="full-width pr-8 py-32" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
-                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
-                <h1 class="text-center" style="font-weight: 300; color: var(--body-color);">About The License</h1>
-
-                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
-
-            </div>
-            <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'">Here is a summary of some of the key things you can, cannot and must do with your new song once it’s
-                licensed
-                but please read the whole license carefully (see link below) as it contains important additional
-                information.</p>
-
-            
-            <!-- <mat-card style="background: var(--accent-color);"> -->
-            <p  class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="color: var(--accent-color); font-weight: 700;">
-                Please note that after you’ve obtained your license there are a number of important steps you need to
-                take
-                to activate your license!
-            </p>
-            <div class="full-width pr-8 py-32" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
-                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
-                <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">What You Can Do</h3>
-
-                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
-
-            </div>
-            <div fxLayout="column">
-                <div style="width: 100%;">
-                    <mat-card fxLayout fxLayoutAlign="center center" fxLayoutGap="10px"
-                        style="background: var(--light-theme);">
-                        <div fxLayoutAlign="center center"
-                            style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--primary-color);">
-                            <mat-icon color="primary">check</mat-icon>
-                        </div>
-                        <p style="color: var(--body-color);">
-                            Sample up to 15 seconds from the original song and use it however you want in your new song
-                            (but
-                            not separate from the new song).
-
-                        </p>
-                    </mat-card>
-                </div>
-                <div style="width: 100%;">
-                    <mat-card fxLayout fxLayoutAlign="center center" fxLayoutGap="10px"
-                        style="background: var(--light-theme);">
-                        <div fxLayoutAlign="center center"
-                            style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--primary-color);">
-                            <mat-icon color="primary">check</mat-icon>
-                        </div>
-                        <p style="color: var(--body-color);">
-                            Exploit your new song worldwide, without limit in time and via all media
-                        </p>
-                    </mat-card>
-                </div>
+           
 
 
-            </div>
-
-            <div class="full-width pr-8 py-32" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
-                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
-                <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">What You Cannot Do</h3>
-
-                <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
-
-            </div>
-            <div fxLayout="column">
-                <div style="width: 100%;">
-                    <mat-card fxLayout fxLayoutAlign="center center" fxLayoutGap="10px"
-                        style="background: var(--light-theme);">
-                        <div fxLayoutAlign="center center"
-                            style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--accent-color);">
-                            <mat-icon color="accent">close</mat-icon>
-                        </div>
-                        <p style="color: var(--body-color);">
-                            Simply create a remix of the original song – your new song must be substantially different
-                            from
-                            the original.
-                        </p>
-                    </mat-card>
-                </div>
-                <div style="width: 100%;">
-                    <mat-card fxLayout fxLayoutAlign="center center" fxLayoutGap="10px"
-                        style="background: var(--light-theme);">
-                        <div fxLayoutAlign="center center"
-                            style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--accent-color);">
-                            <mat-icon color="accent">close</mat-icon>
-                        </div>
-                        <p style="color: var(--body-color);">
-                            Further sample the original song into any other song than the one specified here.
-
-                        </p>
-                    </mat-card>
-                </div>
 
 
-            </div>
+
+
+
+
             <div class="full-width pr-8 py-32" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
                 <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
                 <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">What You Must Do</h3>
@@ -375,28 +537,31 @@
             </div>
             <div fxLayout="column">
                 <div style="width: 100%;">
-                    <mat-card fxLayout fxLayoutAlign="center center" fxLayoutGap="10px"
+                    <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="30px"
+                    style="background: var(--light-theme);">
+                    <div fxLayoutAlign="center center"
+                        style="border-radius: 50%; font-size: 30px; border: 2px solid var(--accent-color);">
+                        <mat-icon>priority_high</mat-icon>
+                    </div>
+                    <p style="color: var(--body-color);">
+                        Sample up to 15 seconds from the original song and use it however you want in your
+                        new song
+                        (but
+                        not separate from the new song).
+
+                    </p>
+                </mat-card>
+                <mat-card fxLayout fxLayoutAlign="start center" fxLayoutGap="30px"
                         style="background: var(--light-theme);">
                         <div fxLayoutAlign="center center"
-                            style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--primary-color);">
-                            <mat-icon color="primary">check</mat-icon>
+                            style="border-radius: 50%; font-size: 30px; border: 2px solid var(--accent-color);">
+                            <mat-icon color="accent">priority_high</mat-icon>
                         </div>
                         <p style="color: var(--body-color);">
-                            Comply with all the provisions of the sample license so please read it carefully.
-
-                        </p>
-                    </mat-card>
-                </div>
-                <div style="width: 100%;">
-                    <mat-card fxLayout fxLayoutAlign="center center" fxLayoutGap="10px"
-                        style="background: var(--light-theme);">
-                        <div fxLayoutAlign="center center"
-                            style="border-radius: 50%; width: 40px; height: 40px; border: 2px solid var(--primary-color);">
-                            <mat-icon color="primary">check</mat-icon>
-                        </div>
-                        <p style="color: var(--body-color);">
-                            Account for and pay a 10% royalty on all income.
-
+                            Sample up to 15 seconds from the original song and use it however you want in your
+                            new song
+                            (but
+                            not separate from the new song).
 
                         </p>
                     </mat-card>
@@ -406,7 +571,7 @@
             </div>
             <div class="full-width pr-8 py-32" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
                 <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
-                <h1 class="text-center" style="font-weight: 300; color: var(--body-color);">Complete The Agreement</h1>
+                <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">Enter Licensee Name</h3>
 
                 <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
 
@@ -418,11 +583,13 @@
                 </mat-form-field>
             </div>
             <mat-checkbox #checkbox class="mb-16 checkbox">
-                I confirm that I am about to enter into the BeatBlender sample license either on my own behalf or on behalf
+                I confirm that I am about to enter into the BeatBlender sample license either on my own behalf or on
+                behalf
                 of
             </mat-checkbox>
             <mat-checkbox #checkbox class="mb-16 checkbox">
-                I also understand and agree that by completing the registration of the track I am entering into a binding legal
+                I also understand and agree that by completing the registration of the track I am entering into a
+                binding legal
                 agreement and agreeing to its terms and conditions. </mat-checkbox>
             <!-- <button type="submit" style="width: 200px;" color="primary" mat-raised-button>
                 I Agree
