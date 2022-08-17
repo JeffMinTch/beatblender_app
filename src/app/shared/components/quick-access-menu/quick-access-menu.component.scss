@@ -41,9 +41,9 @@
 }
 
 .active {
-    background: var(--primary-color);
-    color: var(--light-theme);
-    border: 2px solid var(--primary-color);
+    background: var(--primary-light-color);
+    color: var(--body-color);
+    border: 2px solid var(--light-theme);
 }
 
 .active + .quick-access-button-text {
