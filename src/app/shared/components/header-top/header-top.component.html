@@ -92,6 +92,7 @@
           <span class="" style="font-size: 12px;">Sign In</span> 
 
         </div>
+        <app-login-button *ngIf="(auth.isAuthenticated$ | async) === false"></app-login-button>
         <a *ngIf="isAuth()" fxLayout="row" class="profile-menu-trigger full-height px-16" [matMenuTriggerFor]="accountMenu"
         style="position: relative; width: 100px; height: 78px;"
         >
