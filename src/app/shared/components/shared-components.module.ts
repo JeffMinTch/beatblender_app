@@ -76,6 +76,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { LoginButtonComponent } from './login-button/login-button.component';
+import { LogoutButtonComponent } from './logout-button/logout-button.component';
 
 
 const components = [
@@ -122,7 +124,9 @@ const components = [
   ReferencesComponent,
   AudioTilesComponent,
   SampleInfoComponent,
-  TrackInfoComponent
+  TrackInfoComponent,
+  LoginButtonComponent,
+  LogoutButtonComponent
 ]
 
 @NgModule({

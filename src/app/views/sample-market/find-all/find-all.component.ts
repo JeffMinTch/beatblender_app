@@ -167,7 +167,7 @@ export class FindAllComponent implements OnInit {
       if (error instanceof HttpErrorResponse) {
         if (error.status === 401) {
           this.ls.clear();
-          this.jwt.signin();
+          //this.jwt.signin();
         }
       }
       console.log(error);
@@ -275,7 +275,7 @@ export class FindAllComponent implements OnInit {
 
 
   ngAfterViewInit(): void {
-    this.loader.open();
+    // this.loader.open();
   }
 
   initSearchFilterFormMap(selectionList: Array<Selection>, minMaxSliderList: Array<MinMaxSlider>) {

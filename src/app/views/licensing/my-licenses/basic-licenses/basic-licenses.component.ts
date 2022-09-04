@@ -90,7 +90,7 @@ export class BasicLicensesComponent implements OnInit {
       this.samples = [];
     });
     console.log("User Info");
-    console.log(this.jwt.getUserInfo());
+    // console.log(this.jwt.getUserInfo());
     // this.displayedColumns = ['position', 'name', 'weight', 'symbol', 'c'];
   }
   

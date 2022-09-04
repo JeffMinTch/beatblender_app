@@ -76,24 +76,28 @@
         
         
         <section fxLayout="row" fxLayoutAlign="center center" style="background: var(--light-theme-accent); border-radius: 4px; height: 50%;">
-        <!-- <button *ngIf="isAuth()" 
-        mat-icon-button
-        matTooltip="Notifications" 
-        (click)="toggleNotific()"
-        [style.overflow]="'visible'" 
-        class="topbar-button-right">
-          <mat-icon>notifications</mat-icon>
-          <span class="notification-number mat-bg-warn">3</span>
-        </button> -->
-        <div fxLayout="column" *ngIf="!isAuth()" fxLayoutAlign="center center" class="mr-16 mt-16">
-          <button class="" fxFlex  color="accent" mat-raised-button (click)="login()" style="width: 90px;">
+        
+
+
+        <!-- <div fxLayout="column" fxLayoutAlign="center center" class="mr-16 mt-16">
+          <button class="" fxFlex  color="accent" mat-raised-button style="width: 90px;">
             <mat-icon style="color: var(--light-theme);">login</mat-icon>
           </button>
           <span class="" style="font-size: 12px;">Sign In</span> 
+        </div> -->
+
+
+        <app-login-button *ngIf="(auth.isAuthenticated$ | async) === false"></app-login-button>
+        <app-logout-button *ngIf="(auth.isAuthenticated$ | async)"></app-logout-button>
+        <!-- <div fxLayout="column" fxLayoutAlign="center center" class="mr-16 mt-16">
+          <button class="" fxFlex  color="" mat-raised-button (click)="login()" style="width: 90px;">
+            <mat-icon style="color: var(--light-theme);">login</mat-icon>
+          </button>
+          <span class="" style="font-size: 12px;">Login Auth0</span> 
 
         </div>
-        <app-login-button *ngIf="(auth.isAuthenticated$ | async) === false"></app-login-button>
-        <a *ngIf="isAuth()" fxLayout="row" class="profile-menu-trigger full-height px-16" [matMenuTriggerFor]="accountMenu"
+         -->
+        <a *ngIf="auth.user$ | async as user" fxLayout="row" class="profile-menu-trigger full-height px-16" [matMenuTriggerFor]="accountMenu"
         style="position: relative; width: 100px; height: 78px;"
         >
       
@@ -103,7 +107,9 @@
           </div> -->
           <div fxLayout="column" fxFlex="48px" fxLayoutAlign="center center" style="position: absolute; top: 5px; left: 0;">
             <img #artistImage class="mat-elevation-z1" alt="" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--light-theme-accent);"> 
-            <span style="font-weight: 300; font-size: 12px; line-height: 15px;">{{userData?.artistAlias?.artistName}}</span>
+            <!-- <span style="font-weight: 300; font-size: 12px; line-height: 15px;">{{userData?.artistAlias?.artistName}}</span> -->
+            <span style="font-weight: 300; font-size: 12px; line-height: 15px;">{{user.email}}</span>
+
           </div>
         </a>
         <mat-menu #accountMenu="matMenu">
@@ -112,10 +118,10 @@
             <span>Account</span>
           </button>
          
-          <button mat-menu-item (click)="logoff()">
+          <!-- <button mat-menu-item (click)="logoff()">
             <mat-icon>exit_to_app</mat-icon>
             <span>Sign out</span>
-          </button>
+          </button> -->
         </mat-menu>
         <!-- <button 
         mat-icon-button 

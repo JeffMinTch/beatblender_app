@@ -48,7 +48,7 @@ export class RegisterTrackComponent implements OnInit {
     private fb: FormBuilder,
     private playStateControlService: PlayStateControlService,
     private audioService: AudioService,
-    private oauthService: OAuthService,
+    // private oauthService: OAuthService,
     private changeDetectorRef: ChangeDetectorRef,
     private jwt: JwtAuthService,
     private router: Router
@@ -108,20 +108,20 @@ export class RegisterTrackComponent implements OnInit {
       }
     });
 
-    this.oauthService.events
-      .pipe(filter((e: any) => {
-        console.log(e);
+    // this.oauthService.events
+    //   .pipe(filter((e: any) => {
+    //     console.log(e);
 
-        return e.type === 'token_refreshed';
-      }))
-      .subscribe(() => {
-        console.log('Acces Token changed in FileUploadOptions');
-        // setTimeout(() => {
-        this.uploadOptions.authToken = 'Bearer ' + this.jwt.getJwtToken();
-        this.uploader.setOptions(this.uploadOptions);
-        // this.uploadOptions.headers = [{ name: 'x-ms-blob-type', value : 'BlockBlob' }];
-        // },1000);
-      });
+    //     return e.type === 'token_refreshed';
+    //   }))
+    //   .subscribe(() => {
+    //     console.log('Acces Token changed in FileUploadOptions');
+    //     // setTimeout(() => {
+    //     this.uploadOptions.authToken = 'Bearer ' + this.jwt.getJwtToken();
+    //     this.uploader.setOptions(this.uploadOptions);
+    //     // this.uploadOptions.headers = [{ name: 'x-ms-blob-type', value : 'BlockBlob' }];
+    //     // },1000);
+    //   });
   }
 
   ngOnInit(): void {

@@ -4,6 +4,10 @@
 // The list of which env maps to which file can be found in `angular.json`.
 
 import { config } from '../config';
+import { authConfig } from '../config/auth.config'
+
+
+
 
 export const environment = {
   production: false,
@@ -32,5 +36,13 @@ export const environment = {
     // at_hash is not present in JWT token
     showDebugInformation: true,
     disableAtHashCheck: true
-  }
+  },
+  auth: {
+    domain: config.auth.domain,
+    clientId: config.auth.clientId,
+    redirectUri: window.location.origin,
+    audience: config.auth.audience
+  },
+
+
 };
