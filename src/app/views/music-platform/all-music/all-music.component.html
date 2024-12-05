@@ -2,30 +2,42 @@
 <div fxLayout="column" fxLayoutGap="">
   <!-- <h1 style="font-family: 'Lazer84';">Discover All Music</h1> -->
     <mat-card class="default">
-        <h1 style="padding: 15px 0 0 15px;">BeatBlender Charts</h1>
+      <div class="full-width" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+        <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">BeatBlender Charts</h3>
+    
+        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+    
+      </div>
         <!-- <mat-card-title>Uploaded Photos</mat-card-title> -->
-        <mat-card-content class="p-0">
-          <div *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems: count }; let i = index;"
+        <mat-card-content class="p-8" fxLayout="column" fxLayoutGap="5px">
+          <div class="" *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems: count }; let i = index;"
           [@animate]="{value:'*',params:{delay:'300ms',scale:'.9'}}"
           >
             <app-audio-panel *ngIf="i <= 4" [sample]="sample" type="primary"></app-audio-panel>
 
         </div>
-          <div class="text-center">
-            <button mat-button class="full-width">View all</button>
+          <div class="">
+            <button mat-flat-button color="primary" class="">Explore More</button>
           </div>
         </mat-card-content>
       </mat-card>
       <mat-card class="default">
-        <h1 style="padding: 15px 0 0 15px;">Discover Incredible Artists</h1>
+        <div class="full-width" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+          <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+          <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">Find Top Sampler</h3>
+      
+          <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+      
+        </div>
         <!-- <mat-card-title>Uploaded Photos</mat-card-title> -->
-        <mat-card-content class="p-0">
-            <mat-grid-list cols="3" rowHeight="1:1" class="app-gallery">
+        <mat-card-content class="py-0 py-32" style="max-height: 200px; min-height: 200px;">
+            <mat-grid-list cols="5" rowHeight="1:1" class="app-gallery">
                 <!-- Gallery item -->
                 <mat-grid-tile *ngFor="let photo of photos">
                   <img [src]="photo.url" alt="">
                   <!-- item detail, show on hover -->
-                  <div class="gallery-control-wrap">
+                  <!-- <div class="gallery-control-wrap">
                     <div class="gallery-control">
                       <h4 class="photo-detail fz-1" [fxHide.lt-sm]="true">{{photo.name}}</h4>
                       <span fxFlex></span>
@@ -38,7 +50,7 @@
                         <button mat-menu-item><mat-icon>delete</mat-icon>Delete</button>
                       </mat-menu>
                     </div>
-                  </div>
+                  </div> -->
                 </mat-grid-tile>
               </mat-grid-list>
         </mat-card-content>

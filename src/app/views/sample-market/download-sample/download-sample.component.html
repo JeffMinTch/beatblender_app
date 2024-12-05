@@ -6,7 +6,14 @@
     <p class="">You do not have to comply with the license for elements of the material in the public domain or where
         your use is permitted by an applicable exception or limitation.</p>
     <!-- <mat-divider class="my-16"></mat-divider> -->
-    <div [fxLayout.lt-lg]="'column'" [fxLayout.gt-md]="'row'" fxLayoutGap="10px">
+    
+    <div [fxLayout.lt-lg]="'column'" [fxLayout.gt-md]="'column'" fxLayoutGap="10px">
+        <div class="product" style="position: sticky; top: 0">
+            <ng-container *ngIf="sample">
+                <app-audio-panel class="audio-panel" [sample]="sample" type="sample" button="false" style="background: var(--light-theme-accent);"></app-audio-panel>
+            </ng-container>
+    
+        </div>  
         <div fxFlex fxLayout="column" fxLayoutGap="10px">
             <div class="license">
                 <section class="license-header" fxLayout="column">
@@ -62,13 +69,9 @@
             </section>
 
         </div>
-        <div fxFlex="300px" class="product">
-            <ng-container *ngIf="sample">
-                <app-audio-panel class="audio-panel" [sample]="sample" type="sample" [button]="false" style="background: var(--light-theme-accent);"></app-audio-panel>
-            </ng-container>
-
-        </div>
+          
     </div>
+    
     <!-- <mat-divider class="my-16"></mat-divider> -->
 
 

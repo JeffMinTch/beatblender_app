@@ -13,7 +13,7 @@ export const config = {
         filterTracks: '/filter-tracks',
         getSample: '/get-sample',
         artistHome: '/artists-home'
-         
+
       },
       protected: {
         root: '/protected/audio',
@@ -74,8 +74,25 @@ export const config = {
         getFullLicenseFile: '/get-full-license-file'
       }
     }
+
+  },
+  auth: {
+    clientId: 'tynk4TSRQwaXWMi8u8TfOzFRY6eJRSHd',
+    domain: 'dev-zf2bf0ly.eu.auth0.com',
+    audience: 'https://beatblender.com',
+    
+  },
+  // auth0: {
+  //   domain: '${process.env['AUTH0_DOMAIN']}',
+  //   clientId: '${process.env['AUTH0_CLIENT_ID']}',
+  //   redirectUri: '${process.env['AUTH0_CALLBACK_URL']}',
+  //   audience: '${process.env['AUTH0_AUDIENCE']}',
+  //   errorPath: '/callback',
+  // },
+  // api: {
+  //   serverUrl: '${process.env['API_SERVER_URL']}',
+  // },
   
-},
   authRoles: {
     // sa: ['SA'], // Only Super Admin has access
     // admin: ['SA', 'Admin'], // Only SA & Admin has access

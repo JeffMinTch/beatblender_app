@@ -46,17 +46,14 @@
         <div class="card-title-text">Upload Audio</div>
         <mat-divider></mat-divider>
       </mat-card-title> -->
-  <h1 class="">
-    <!-- <div style="width: 64px; height: 64px;" class="mr-16">
-          <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
-        </div> -->
-    <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
-    <span style="color: var(--primary-color);">U</span>
-    <span style="">pload </span>
-    <span style="color: var(--accent-color); font-weight: 600;"> S</span>
-    <span style="font-weight: 600; color: var(--base-accent-color);">ample</span>
-  </h1>
-  <p style="font-size: 22px; color: var(--base-accent-color);">Upload your Samples To BeatBlenders Sample Market.</p>
+      <div class="full-width" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+        <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">DONATE MUSIC</h3>
+    
+        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+    
+      </div>
+  <p style="font-size: 22px; font-weight: 300; text-align: center;">Upload Your Music To BeatBlenders Music Market.</p>
   <mat-divider></mat-divider>
   <mat-card *ngIf="!userData" fxLayout="column" style="border: 1px solid var(--light-theme-accent); border-radius: 4px;">
     <p style="font-weight: 300;">Please finish your Artist Account Settings to put your Sample upon one of our Sample
@@ -80,7 +77,7 @@
         Drop file here
       </div>
     </div>
-    <table *ngIf="uploader.queue.length" class="default-table mb-24" style="width: 100%">
+    <table *ngIf="uploader.queue.length" fxShow [fxHide.lt-md]="true" class="default-table mb-24" style="width: 100%">
       <thead>
         <tr>
           <th width="30%">Name</th>
@@ -103,11 +100,11 @@
               </mat-progress-bar>
             </div>
           </td>
-          <td class="">
+          <!-- <td class="">
             <mat-icon *ngIf="item.isSuccess" color="primary">check</mat-icon>
             <mat-icon *ngIf="item.isCancel" color="accent">cancel</mat-icon>
             <mat-icon *ngIf="item.isError" color="warn">error</mat-icon>
-          </td>
+          </td> -->
           <td nowrap>
             <button mat-raised-button color="primary" class="mx-4" (click)="item.upload()"
               [disabled]="item.isReady || item.isUploading || item.isSuccess">Upload</button>
@@ -134,27 +131,29 @@
     2. Step: Add Audio Information</p> -->
 
   <section *ngFor="let item of uploader.queue; let i = index" class="sample-info my-16 mx-0 p-0">
-    <mat-card-title fxLayout="row" class="py-8 text-white mb-0">
+    <mat-card-title fxLayout="row" [fxLayout.xs]="'column'" class="py-8 text-white mb-0">
       <!-- 2.{{i + 1}} Add Sample Information for  -->
       <span fxLayout="row" class="bg-white text-primary py-2 px-16 br-4 lh-36">
         <mat-icon inline="true">audiotrack</mat-icon>
         <span class="ml-8">{{item?.file?.name}}</span>
       </span>
-      <button mat-stroked-button class="ml-16"
-        (click)="playState ? pauseFileItem(currentSampleIndex === i, i, item) : playFileItem(currentSampleIndex === i, i, item)">
-        <mat-icon color="primary">
-          {{i === (currentSampleSubject$ | async) && (playStateControlService.playState$ | async) ? 'pause' :
-          'play_arrow'}}
-        </mat-icon>
-      </button>
-      <button mat-stroked-button class="ml-16" (click)="item.remove()">
-        <mat-icon color="warn">close</mat-icon>
-      </button>
-      <span class="bg-white text-accent py-2 px-16 br-4 ml-auto lh-36">mp3</span>
+      <div fxLayout>
+        <button mat-stroked-button class="ml-16"
+          (click)="playState ? pauseFileItem(currentSampleIndex === i, i, item) : playFileItem(currentSampleIndex === i, i, item)">
+          <mat-icon color="primary">
+            {{i === (currentSampleSubject$ | async) && (playStateControlService.playState$ | async) ? 'pause' :
+            'play_arrow'}}
+          </mat-icon>
+        </button>
+        <button mat-stroked-button class="ml-16" (click)="item.remove()">
+          <mat-icon color="warn">close</mat-icon>
+        </button>
+      </div>
+      <!-- <span class="bg-white text-accent py-2 px-16 br-4 ml-auto lh-36">mp3</span> -->
 
     </mat-card-title>
     <!-- <mat-divider></mat-divider> -->
-    <mat-card class="mx-0 mt-4" style="box-shadow: none !important;">
+    <mat-card class="mx-0 mt-4 p-0" style="box-shadow: none !important;">
       <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
             {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
           </button> -->
@@ -162,15 +161,12 @@
 
 
       <mat-vertical-stepper linear="false" #stepper>
-        <mat-step [stepControl]="(formsSubject | async)?.get(item).controls['licenseTypeGroup']">
+        <!-- <mat-step [stepControl]="(formsSubject | async)?.get(item).controls['licenseTypeGroup']">
           <form fxLayout="column" [formGroup]="(formsSubject | async)?.get(item).controls['licenseTypeGroup']">
 
 
             <ng-template matStepLabel>Choose License Type</ng-template>
-            <!-- <mat-label class="" style="font-size: 20px; font-weight: 300;">Choose the Samples you've included in your
-              Track. Before you can include a sample in
-              your
-              track you need to download a Basic License in your Track. Select at least one.</mat-label> -->
+           
             <section class="mt-32" fxLayout="column" fxLayoutGap="40px">
               <h4 class="pl-8 py-8 mt-4 text-center" style="line-height: 40px; font-size: 20px; font-weight: 300;">
                 <strong>Selected Option: </strong>You Receive <strong
@@ -179,8 +175,7 @@
                   async)?.get(item).controls['licenseTypeGroup'].controls['licenseType'].value.percentage}}%</strong> Of
                 The Remixer's Streaming Income.</h4>
               <div fxLayout fxLayoutGap="10px" fxLayoutAlign="center center" class="pl-8 mb-16">
-                <!-- <button [routerLink]="'/sample-market/bb-license/' + artistName + '/all'" routerLinkActive="active" class="quick-access-button"
-                      mat-raised-button>All</button> -->
+               
                 <button (click)="selectLicenseTypeOption(item, licenseType)" *ngFor="let licenseType of licenseTypes"
                   [ngClass]="licenseType === (formsSubject | async)?.get(item).controls['licenseTypeGroup'].controls['licenseType'].value ? 'active' : ''"
                   class="quick-access-button" mat-raised-button>{{licenseType.abbreviation}}</button>
@@ -192,66 +187,7 @@
                   matStepperNext>Next</button>
               </div>
             </section>
-            <!-- <section class="mt-32" fxLayout="column">
-              <mat-checkbox #beatblenderMusicCheckbox class="mb-8" color="primary" checked="true"
-                (change)="uploadAsTrack(item, $event)"> <span
-                  style="color: var(--primary-color); font-weight: 700;">BeatBlender Music</span></mat-checkbox>
-              <mat-label class="pl-16 mb-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
-                dolorem
-                corrupti sapiente molestias ducimus incidunt assumenda cupiditate dolor eaque suscipit aspernatur
-                nostrum
-                voluptas nihil delectus sequi! Esse, earum.</mat-label>
-              <div id="soundcloudCheckbox" fxLayout="column" fxLayoutGap="10px" class="mb-16">
-                <mat-checkbox #soundCloudCheckbox class="mb-8" checked="true" (change)="uploadAsTrack(item, $event)">
-                  <span style="color: var(--soundcloud); font-weight: 700;">Soundcloud</span>
-                </mat-checkbox>
-                <mat-label class="pl-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
-                  dolorem
-                  corrupti sapiente molestias ducimus incidunt assumenda cupiditate dolor eaque suscipit aspernatur
-                  nostrum
-                  voluptas nihil delectus sequi! Esse, earum.</mat-label>
-              </div>
-              <div id="spotifyCheckbox" fxLayout="column" fxLayoutGap="10px" class="mb-16">
-                <mat-checkbox #soundCloudCheckbox class="mb-8" checked="true" (change)="uploadAsTrack(item, $event)">
-                  <span style="color: var(--spotify); font-weight: 700;">Spotify</span>
-                </mat-checkbox>
-                <mat-label class="pl-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
-                  dolorem
-                  corrupti sapiente molestias ducimus incidunt assumenda cupiditate dolor eaque suscipit aspernatur
-                  nostrum
-                  voluptas nihil delectus sequi! Esse, earum.</mat-label>
-              </div>
-              <div id="youtubeCheckbox" fxLayout="column" fxLayoutGap="10px" class="mb-16">
-                <mat-checkbox #soundCloudCheckbox class="mb-8" checked="true" (change)="uploadAsTrack(item, $event)">
-                  <span style="color: var(--youtube); font-weight: 700;">Youtube</span>
-                </mat-checkbox>
-                <mat-label class="pl-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
-                  dolorem
-                  corrupti sapiente molestias ducimus incidunt assumenda cupiditate dolor eaque suscipit aspernatur
-                  nostrum
-                  voluptas nihil delectus sequi! Esse, earum.</mat-label>
-              </div>
-              <div id="iTunesCheckbox" fxLayout="column" fxLayoutGap="10px" class="mb-16">
-                <mat-checkbox #soundCloudCheckbox class="mb-8" checked="true" (change)="uploadAsTrack(item, $event)">
-                  <span style="color: var(--iTunes); font-weight: 700;">iTunes</span>
-                </mat-checkbox>
-                <mat-label class="pl-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
-                  dolorem
-                  corrupti sapiente molestias ducimus incidunt assumenda cupiditate dolor eaque suscipit aspernatur
-                  nostrum
-                  voluptas nihil delectus sequi! Esse, earum.</mat-label>
-              </div>
-              <div id="amazonMusicCheckbox" fxLayout="column" fxLayoutGap="10px" class="mb-16">
-                <mat-checkbox #soundCloudCheckbox class="mb-8" checked="true" (change)="uploadAsTrack(item, $event)">
-                  <span style="color: var(--amazonMusic); font-weight: 700;">Amazon Music</span>
-                </mat-checkbox>
-                <mat-label class="pl-16">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde, fugit
-                  dolorem
-                  corrupti sapiente molestias ducimus incidunt assumenda cupiditate dolor eaque suscipit aspernatur
-                  nostrum
-                  voluptas nihil delectus sequi! Esse, earum.</mat-label>
-              </div>
-            </section> -->
+            
           </form>
 
 
@@ -281,7 +217,7 @@
 
           </form>
 
-        </mat-step>
+        </mat-step> -->
 
         <mat-step [stepControl]="(formsSubject | async)?.get(item).controls['descriptionForm']">
           <form [formGroup]="(formsSubject | async)?.get(item).controls['descriptionForm']">
@@ -289,7 +225,7 @@
             <div fxLayout="column wrap">
 
 
-              <div fxLayout="row wrap" class="pr-16 py-8">
+              <div fxLayout="row wrap" class="full-width py-8">
 
                 <div fxFlex="100" fxFlex.gt-xs="70" class="px-8">
                   <mat-form-field appearance="outline" class="full-width" (keyup.enter)="$event.preventDefault()">
@@ -341,7 +277,7 @@
                 </div>
               </div>
 
-              <div fxLayout="row wrap" class="full-width pr-16 py-8">
+              <div fxLayout="row wrap" class="full-width py-8">
                 <div fxFlex="100" fxFlex.gt-xs="50" class="px-8">
                   <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Select a genre.</mat-label>
@@ -682,12 +618,12 @@
       </mat-progress-bar>
     </div>
     <!-- [disabled]="!uploader.getNotUploadedItems().length" -->
-    <button mat-raised-button color="primary" class="mx-4" (click)="uploader.uploadAll()">Upload all</button>
+    <button mat-raised-button color="primary" class="mx-4 my-8" (click)="uploader.uploadAll()">Upload all</button>
+<!-- 
+    <button mat-raised-button color="accent" class="mx-4 my-8" (click)="uploader.cancelAll()"
+      [disabled]="!uploader.isUploading">Cancel all</button> -->
 
-    <button mat-raised-button color="accent" class="mx-4" (click)="uploader.cancelAll()"
-      [disabled]="!uploader.isUploading">Cancel all</button>
-
-    <button mat-raised-button color="warn" class="mx-4" (click)="uploader.clearQueue()"
+    <button mat-raised-button color="warn" class="mx-4 my-8" (click)="uploader.clearQueue()"
       [disabled]="!uploader.queue.length">Remove all</button>
   </div>
   <!-- </mat-card-content> -->

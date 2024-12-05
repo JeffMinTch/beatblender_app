@@ -17,7 +17,7 @@
             <div fxLayout="row wrap" fxLayout.lt-sm="column">
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <mat-select placeholder="Country" [formControl]="$any(checkoutForm.controls['country'])">
+                  <mat-select placeholder="Country" [formControl]="checkoutForm.controls['country']">
                     <mat-option *ngFor="let c of countries" [value]="c.code">
                       {{ c.name }}
                     </mat-option>
@@ -27,55 +27,55 @@
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="First name" value="" [formControl]="$any(checkoutForm.controls['firstName'])">
+                  <input matInput placeholder="First name" value="" [formControl]="checkoutForm.controls['firstName']">
                 </mat-form-field>
               </div>
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="Last name" value="" [formControl]="$any(checkoutForm.controls['lastName'])">
+                  <input matInput placeholder="Last name" value="" [formControl]="checkoutForm.controls['lastName']">
                 </mat-form-field>
               </div>
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="Company" value="" [formControl]="$any(checkoutForm.controls['company'])">
+                  <input matInput placeholder="Company" value="" [formControl]="checkoutForm.controls['company']">
                 </mat-form-field>
               </div>
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="Address line 1" value="" [formControl]="$any(checkoutForm.controls['address1'])">
+                  <input matInput placeholder="Address line 1" value="" [formControl]="checkoutForm.controls['address1']">
                 </mat-form-field>
               </div>
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="Address line 2" value="" [formControl]="$any(checkoutForm.controls['address2'])">
+                  <input matInput placeholder="Address line 2" value="" [formControl]="checkoutForm.controls['address2']">
                 </mat-form-field>
               </div>
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="City" [formControl]="$any(checkoutForm.controls['city'])">
+                  <input matInput placeholder="City" [formControl]="checkoutForm.controls['city']">
                 </mat-form-field>
               </div>
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput type="number" placeholder="Zip" [formControl]="$any(checkoutForm.controls['zip'])">
+                  <input matInput type="number" placeholder="Zip" [formControl]="checkoutForm.controls['zip']">
                 </mat-form-field>
               </div>
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="Phone" [formControl]="$any(checkoutForm.controls['phone'])">
+                  <input matInput placeholder="Phone" [formControl]="checkoutForm.controls['phone']">
                 </mat-form-field>
               </div>
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="Email" [formControl]="$any(checkoutForm.controls['email'])">
+                  <input matInput placeholder="Email" [formControl]="checkoutForm.controls['email']">
                 </mat-form-field>
               </div>
   
@@ -95,7 +95,7 @@
             <div fxLayout="row wrap" fxLayout.lt-sm="column">
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <mat-select placeholder="Country" [formControl]="$any(checkoutFormAlt.controls['country'])">
+                  <mat-select placeholder="Country" [formControl]="checkoutFormAlt.controls['country']">
                     <mat-option *ngFor="let c of countries" [value]="c.code">
                       {{ c.name }}
                     </mat-option>
@@ -105,55 +105,55 @@
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="First name" value="" [formControl]="$any(checkoutFormAlt.controls['firstName'])">
+                  <input matInput placeholder="First name" value="" [formControl]="checkoutFormAlt.controls['firstName']">
                 </mat-form-field>
               </div>
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="Last name" value="" [formControl]="$any(checkoutFormAlt.controls['lastName'])">
+                  <input matInput placeholder="Last name" value="" [formControl]="checkoutFormAlt.controls['lastName']">
                 </mat-form-field>
               </div>
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="Company" value="" [formControl]="$any(checkoutFormAlt.controls['company'])">
+                  <input matInput placeholder="Company" value="" [formControl]="checkoutFormAlt.controls['company']">
                 </mat-form-field>
               </div>
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="Address line 1" value="" [formControl]="$any(checkoutFormAlt.controls['address1'])">
+                  <input matInput placeholder="Address line 1" value="" [formControl]="checkoutFormAlt.controls['address1']">
                 </mat-form-field>
               </div>
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="Address line 2" value="" [formControl]="$any(checkoutFormAlt.controls['address2'])">
+                  <input matInput placeholder="Address line 2" value="" [formControl]="checkoutFormAlt.controls['address2']">
                 </mat-form-field>
               </div>
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="City" [formControl]="$any(checkoutFormAlt.controls['city'])">
+                  <input matInput placeholder="City" [formControl]="checkoutFormAlt.controls['city']">
                 </mat-form-field>
               </div>
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput type="number" placeholder="Zip" [formControl]="$any(checkoutFormAlt.controls['zip'])">
+                  <input matInput type="number" placeholder="Zip" [formControl]="checkoutFormAlt.controls['zip']">
                 </mat-form-field>
               </div>
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="Phone" [formControl]="$any(checkoutFormAlt.controls['phone'])">
+                  <input matInput placeholder="Phone" [formControl]="checkoutFormAlt.controls['phone']">
                 </mat-form-field>
               </div>
   
               <div fxFlex="50" class="pr-16">
                 <mat-form-field class="full-width">
-                  <input matInput placeholder="Email" [formControl]="$any(checkoutFormAlt.controls['email'])">
+                  <input matInput placeholder="Email" [formControl]="checkoutFormAlt.controls['email']">
                 </mat-form-field>
               </div>
   

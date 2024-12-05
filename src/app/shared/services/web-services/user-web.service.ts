@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { Observable } from 'rxjs/internal/Observable';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class UserWebService {
 
   
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    public authService: AuthService
   ) { }
 
   getUserData(): Observable<any> {
@@ -29,11 +31,18 @@ export class UserWebService {
     return this.httpClient.post(this.CHANGE_ARTIST_NAME, formData);
   }
 
-  tryCreateUser() {
+  tryCreateUser(accessToken) {
     const formData: FormData = new FormData();
-    return this.httpClient.post(this.TRY_CREATE_USER, formData);
+    
+    return this.httpClient.post(this.TRY_CREATE_USER, formData)
+    
+    
+    
+    
 
   }
+
+  
 
   
 

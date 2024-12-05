@@ -175,7 +175,7 @@ export class AudioPanelComponent implements OnInit, AfterViewInit {
   stopPropagation(event: Event) {
     event.stopPropagation();
     if(this.router.url.startsWith('/sample-market')) {
-      this.router.navigate(['download', this.currentSampleID]);
+      this.router.navigate(['download', this.sample.audioUnit.audioUnitID]);
     } else {
       this.throwClickEvent();
     }
@@ -202,4 +202,10 @@ export class AudioPanelComponent implements OnInit, AfterViewInit {
     return `${this.IMAGE}/${this.audioUnit.audioUnitID}`;
   }
 
+  
+  
+
+ 
+
 }
+

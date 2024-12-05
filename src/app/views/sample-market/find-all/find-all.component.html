@@ -1,12 +1,12 @@
-<div fxFlex style="position: relative; background: var(--light-theme); border-radius: 8px;">
+<div [ngStyle.xs]="{'width': '90vw'}" fxFlex style="position: relative; background: var(--light-theme); border-radius: 8px;">
   <!-- <div style="position: absolute; top: -50px; right: -50px; border-radius: 50%; background: var(--accent-color); width: 100px; height: 100px; z-index: -1; transform: translateY(0);">
 
   </div> -->
   <div class="pt-8 full-width" [fxLayout.lt-md]="'column'" [fxLayout.gt-sm]="'row'" fxLayoutGap="">
-      <div class="mr-16" [fxLayout.xs]="'column'" [fxLayout.gt-xs]="'row'"
-          [fxLayoutAlign.gt-xs]="'space-between center'" [fxLayoutAlign.xs]="'center start'" fxLayoutGap="10px">
+      <div class="" fxLayout 
+          fxLayoutAlign="space-between center" fxLayoutGap="10px">
           
-          <div [ngClass.xs]="'ml-auto'" fxLayout fxLayoutGap="10px" class="mx-8">
+          <div fxLayout fxLayoutGap="10px" class="mx-8">
               <button mat-raised-button (click)="changeViewMode('grid-view')"
                   [color]="viewMode === 'grid-view' ? 'accent' : ''">
                   <mat-icon>
@@ -20,6 +20,14 @@
                   <mat-icon [ngStyle]="{ 'color': viewMode === 'grid-view' ? 'var(--body-color)' : 'var(--light-theme)'}">list</mat-icon>
               </button>
           </div>
+          <a fxShow [fxHide.gt-sm]="true" href="/profile/upload-audio">
+            <button fxLayout fxLayoutAlign="center center" fxLayoutGap="10px" class="mx-16" color="primary" mat-raised-button>
+              <span class="px-8" fxShow [fxHide.xs]="true">
+                I Want To Donate Music Too
+              </span>
+              <mat-icon >volunteer_activism</mat-icon> 
+            </button>
+          </a>
       </div>
       
       <!-- <button mat-button (click)="toggleFilter()">Filter</button> -->
@@ -29,6 +37,7 @@
               (searchStringChange)="changeSearchString($event)" (pageChange)="changePage($event)"
               (countChange)="changeCount($event)" (expandFilter)="toggleFilter($event)" (sidenavChange)="toggleSidenav()"
               [sortBy]="sortBy" [page]="pageNo" [pageSize]="pageSize"></app-searchbar>
+          
   
       </div>
       
@@ -42,7 +51,7 @@
   <!-- [ngClass]="{'list-view': viewMode === 'list-view'}" -->
   
   
-  <div class="product-container" fxLayout="row wrap" fxLayoutAlign="start start">
+  <div class="product-container" [ngClass.xs]="''" fxLayout="row wrap" fxLayoutAlign="start start">
       <!-- Product Box -->
       <ng-container
           *ngIf="(sampleLicensingMarketService.samples$ | async)?.length <= 0 && (sampleLicensingMarketService.samples$ | async) != null"
@@ -52,12 +61,13 @@
           </div>
       </ng-container>
       <ng-container #product>
-          <div fxLayout="row" [ngStyle.gt-sm]=" {'width': '33.33%'}" class="product-wrap"
+          <div fxLayout="row" [ngStyle.gt-sm]=" {'width': '100%'}" class="product-wrap"
               *ngFor="let sample of (sampleLicensingMarketService.samples$ | async) | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count }; let i = index;"
               [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}">
               <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
               <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
-              <div fxLayout="column" class="product-inner default-bg mx-8 my-16 full-width">
+              <!-- mx-8 my-16 -->
+              <div fxLayout="column" class="product-inner default-bg  full-width" style="">
                   <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
                           <span>{{product?.badge?.text}}</span>
                         </div> -->

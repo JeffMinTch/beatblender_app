@@ -1,0 +1,72 @@
+<section fxLayout="column" class="p-16"
+    style="background: var(--light-theme); border-top-left-radius: 8px; border-top-right-radius: 8px;">
+    <div fxLayout fxLayoutAlign="center center" fxLayoutGap="20px" class="mt-16">
+        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+        <h1 class="text-center" style="font-weight: 300; color: var(--body-color);">Our Charity Projects</h1>
+        <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+    </div>
+    <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="font-size: 18px;">
+        BeatBlender is a social & free music community. Artists raise donations by allowing other
+        artists to
+        be creative
+        with their work.
+    </p>
+    <mat-radio-group [(ngModel)]="labelPosition">
+        <div fxLayout="row wrap">
+            <div [fxFlex.xs]="100" fxFlex="33" class="mb-16">
+
+                <mat-card class="p-0" [ngClass.xs]="'m-0'">
+                    <img src="../../../assets/images/backgrounds/charity.jpg" alt=""
+                        style="width: 100%; height: 200px; object-fit: cover;">
+                    <div class="p-16" fxLayout="column" fxLayoutAlign="center center">
+                        <p class="text-center py-16 " style="font-size: 18px;">
+                            BeatBlender is a social & free music community. Artists raise donations by allowing other
+                            artists to
+                            be creative
+                            with their intellectual property. <a href="#" class="hypertext">Read More</a>
+                        </p>
+                        <mat-radio-button checked="true" class="example-margin" value="one">Choose This Charity Project
+                        </mat-radio-button>
+                    </div>
+                </mat-card>
+            </div>
+            <div [fxFlex.xs]="100" fxFlex="33" class="mb-16">
+
+                <mat-card class="p-0" [ngClass.xs]="'m-0'">
+                    <img src="../../../assets/images/backgrounds/charity2.jpg" alt=""
+                        style="width: 100%; height: 200px; object-fit: cover;">
+                    <div class="p-16" fxLayout="column" fxLayoutAlign="center center">
+                        <p class="text-center py-16 " style="font-size: 18px;">
+                            BeatBlender is a social & free music community. Artists raise donations by allowing other
+                            artists to
+                            be creative
+                            with their work. <a href="#" class="hypertext">Read More</a>
+                        </p>
+                        <mat-radio-button class="example-margin" value="two">Choose This Charity Project
+                        </mat-radio-button>
+                    </div>
+                </mat-card>
+            </div>
+            <div [fxFlex.xs]="100" fxFlex="33" class="mb-16">
+
+                <mat-card class="p-0" [ngClass.xs]="'m-0'">
+                    <img src="../../../assets/images/backgrounds/charity3.jpg" alt=""
+                        style="width: 100%; height: 200px; object-fit: cover;">
+                    <div class="p-16" fxLayout="column" fxLayoutAlign="center center">
+                        <p class="text-center py-16 " style="font-size: 18px;">
+                            BeatBlender is a social & free music community. Artists raise donations by allowing other
+                            artists to
+                            be creative
+                            with their work. <a href="#" class="hypertext">Read More</a>
+                        </p>
+                        <mat-radio-button class="example-margin" value="three">Choose This Charity Project
+                        </mat-radio-button>
+                    </div>
+                </mat-card>
+            </div>
+            <!-- <mat-radio-button class="example-margin" value="before">Before</mat-radio-button> -->
+        </div>
+    </mat-radio-group>
+</section>

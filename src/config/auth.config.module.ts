@@ -4,7 +4,6 @@ import { OAuthModule, AuthConfig } from 'angular-oauth2-oidc';
 
 import { AuthConfigService } from './auth-config.service';
 // import { authConfig, OAuthModuleConfig } from './auth.config';
-import { init_app } from '../app.init';
 import { authConfig, oauthModuleConfig, OAuthModuleConfig } from './auth.config';
 
 
@@ -20,12 +19,12 @@ import { authConfig, oauthModuleConfig, OAuthModuleConfig } from './auth.config'
     AuthConfigService,
     { provide: AuthConfig, useValue: authConfig },
     OAuthModuleConfig,
-    { 
-      provide: APP_INITIALIZER, 
-      useFactory: init_app, 
-      deps: [ AuthConfigService ], 
-      multi: true
-    }
+    // { 
+    //   provide: APP_INITIALIZER, 
+    //   useFactory: init_app, 
+    //   deps: [ AuthConfigService ], 
+    //   multi: true
+    // }
   ]
 })
 export class AuthConfigModule { 

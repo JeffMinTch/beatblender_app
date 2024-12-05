@@ -97,7 +97,7 @@ export class FindComponent implements OnInit {
     private httpService: HttpService,
     public playStateControlService: PlayStateControlService,
     private audioService: AudioService,
-    private loader: AppLoaderService,
+    // private loader: AppLoaderService,
     private jwt: JwtAuthService,
     private ls: LocalStoreService,
     private fbs: FormBuilderService,
@@ -165,7 +165,7 @@ export class FindComponent implements OnInit {
   public retrieveTracks(): void {
     this.audioService.emitAudioUnitsLoading(true);
     const params = this.httpService.getRequestParams(this.sortBy, this.page, this.pageSize);
-    this.loader.open();
+    // this.loader.open();
     this.audioWebService.getTracksHome(params).subscribe((trackPage: TrackPage) => {
       const totalItems  = trackPage.totalItems;
       this.tracks = trackPage.tracks;
@@ -175,7 +175,7 @@ export class FindComponent implements OnInit {
       // this.audioService.emitAudioUnits(this.tracks);
       // this.audioService.emitAudioUnitsLoading(false);
       // this.dataSource = new MatTableDataSource(tracks);
-      this.loader.close();
+      // this.loader.close();
     }, (error) => {
       if (error instanceof HttpErrorResponse) {
         if (error.status === 401) {
@@ -283,7 +283,7 @@ export class FindComponent implements OnInit {
 
 
   public filterTracks() {
-    this.loader.open();
+    // this.loader.open();
     this.audioService.emitAudioUnitsLoading(true);
     this.audioWebService.filterTracks(
       // this.searchString,
@@ -301,7 +301,7 @@ export class FindComponent implements OnInit {
       // this.audioService.emitAudioUnits(this.tracks);
       // this.audioService.emitAudioUnitsLoading(false);
       // this.dataSource = new MatTableDataSource(tracks);
-      this.loader.close();
+      // this.loader.close();
     }, (error) => {
       if (error instanceof HttpErrorResponse) {
         if (error.status === 401) {

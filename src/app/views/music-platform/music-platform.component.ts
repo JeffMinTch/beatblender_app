@@ -1,4 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ILayoutConf, LayoutService } from '../../shared/services/layout.service';
+import { NavigationService } from '../../shared/services/navigation.service';
+import { Subscription } from 'rxjs';
+import {share } from 'rxjs/operators';
 
 @Component({
   selector: 'app-music-platform',

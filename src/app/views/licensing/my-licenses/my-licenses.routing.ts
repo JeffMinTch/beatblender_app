@@ -25,7 +25,8 @@ export const MyLicensesRoutes: Routes = [{
             },
             {
               path: '',
-              redirectTo: 'bb-100'
+              redirectTo: 'bb-100',
+              pathMatch: 'full'
             }
 
       ]

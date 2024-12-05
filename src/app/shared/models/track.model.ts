@@ -8,17 +8,20 @@ export class Track {
     private _audioFileName: string;
     private _imageFileName: string;
     private _licenseeName: string;
+    private _status: string;
 
 
-	constructor(trackID: string, audioUnit: AudioUnit, releaseArtistName: string, audioFileName: string, imageFileName: string, licenseeName: string) {
+
+	constructor(trackID: string, audioUnit: AudioUnit, releaseArtistName: string, audioFileName: string, imageFileName: string, licenseeName: string, status: string) {
 		this._trackID = trackID;
 		this._audioUnit = audioUnit;
 		this._releaseArtistName = releaseArtistName;
 		this._audioFileName = audioFileName;
 		this._imageFileName = imageFileName;
 		this._licenseeName = licenseeName;
+		this._status = status;
 	}
-
+	
 
 
     /**
@@ -70,6 +73,14 @@ export class Track {
 	}
 
     /**
+     * Getter status
+     * @return {string}
+     */
+	public get status(): string {
+		return this._status;
+	}
+
+    /**
      * Setter trackID
      * @param {string} value
      */
@@ -117,7 +128,13 @@ export class Track {
 		this._licenseeName = value;
 	}
 
-  
+    /**
+     * Setter status
+     * @param {string} value
+     */
+	public set status(value: string) {
+		this._status = value;
+	}
 
 
 }

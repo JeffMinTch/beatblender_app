@@ -2,67 +2,68 @@
   <!-- <h1>My Basic Licenses</h1> -->
   <!-- <h1 class="mb-16">My <span style="color: var(--primary-color);">S</span>ample <span
       style="color: var(--accent-color);">C</span>ollection</h1> -->
-    <!-- <app-heading class="" title="Sample Download Area" subTitle="Your personal download area." [breadcrumbs]=""></app-heading> -->
-    <h1 class="">
-      <!-- <div style="width: 64px; height: 64px;" class="mr-16">
-            <mat-icon style="font-size: 12px;" inline="true" svgIcon="undraw-upload"></mat-icon>
-          </div> -->
-      <!-- <mat-icon style="font-size: 30px;" inline="true">upgrade</mat-icon> -->
-      <span style="color: var(--primary-color);">D</span>
-      <span style="">ownload </span>
-      <span style="color: var(--accent-color); font-weight: 600;"> A</span>
-      <span style="font-weight: 600; color: var(--base-accent-color);">rea</span>
-    </h1>
-    <h4 class="pl-8 mt-4" style="font-size: 20px; font-weight: 300;">No matter what license you use, no Sample requires
-      a pre-investment and can be used on all Streaming Services.</h4>
-      
-      <div class="pt-8 full-width" fxLayout fxLayoutAlign="space-between center">
-        
-        <div fxLayout fxLayoutGap="10px" class="ml-auto">
-          <button mat-raised-button (click)="changeViewMode('grid-view')" [color]="viewMode === 'grid-view' ? 'primary' : ''">
-            <mat-icon>
-              <span class="material-icons-outlined">
-                apps
-                </span>
-            </mat-icon>
-          </button>
-          <button class="mr-8" mat-raised-button (click)="changeViewMode('list-view')" [color]="viewMode === 'list-view' ? 'primary' : ''">
-            <mat-icon>list</mat-icon>
-          </button>
-        </div>
-       
-      </div>
-      <!-- <p class="pl-16">Overview and manage all your Basic Licenses. Basic Licenses enbale you
+  <!-- <app-heading class="" title="Sample Download Area" subTitle="Your personal download area." [breadcrumbs]=""></app-heading> -->
+  <div class="full-width" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+    <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+    <h3 class="text-center" style="font-weight: 300; color: var(--body-color);">DOWNLOAD MUSIC</h3>
+
+    <app-divider fxFlex size="sm" color="var(--light-theme-accent)"></app-divider>
+
+  </div>
+  <p class="text-center" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="font-size: 20px; font-weight: 300;">Your are allowed to download this
+    music and create new art out of it.</p>
+    <mat-card style="color: #ff3d57; border: 2px solid var(--accent-color); box-shadow: none !important;" fxLayout fxLayoutAlign="center center" fxLayoutGap="20px">
+      <mat-icon class="mr-16" color="primary" style="font-size: 30px;">priority_high</mat-icon>
+      <p class="" style="font-weight: 300; font-size: 18px;">Dont forget. Before distributing your final artwork to streaming services like Spotify etc. you must register the finsished artwork and split your streaming income <a class="hypertext" routerLink="/licensing/register-track">via BeatBlender</a>.</p>
+
+    </mat-card>
+  <div class="pt-8 full-width" fxLayout fxLayoutAlign="space-between center">
+
+    <div fxLayout fxLayoutGap="10px" class="ml-auto">
+      <button mat-raised-button (click)="changeViewMode('grid-view')"
+        [color]="viewMode === 'grid-view' ? 'primary' : ''">
+        <mat-icon>
+          <span class="material-icons-outlined">
+            apps
+          </span>
+        </mat-icon>
+      </button>
+      <button class="mr-8" mat-raised-button (click)="changeViewMode('list-view')"
+        [color]="viewMode === 'list-view' ? 'primary' : ''">
+        <mat-icon>list</mat-icon>
+      </button>
+    </div>
+
+  </div>
+  <!-- <p class="pl-16">Overview and manage all your Basic Licenses. Basic Licenses enbale you
     without having payed anything yet to use the sample commercially in your own produtions.
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas quidem placeat unde ut rem vitae error
     temporibus, ad exercitationem accusantium!
   </p> -->
   <!-- <app-divider></app-divider> -->
   <!-- [ngClass]="{'list-view': viewMode === 'list-view'}" -->
-  <div class="product-container" fxLayout="row wrap" fxLayoutAlign="start start"
-      >
-      <!-- Product Box -->
-      <ng-container *ngIf="samples?.length <= 0 && samples != null"; else product>
-        <div fxFlex fxLayoutAlign="center">
-          <span class="fs-24">No samples match your request.</span>
-        </div>
-      </ng-container>
-      <ng-container #product>
-        <!-- | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count } -->
-        <div fxLayout="row" class="product-wrap" [ngStyle.gt-sm]=" {'width': '33.33%'}"
-          *ngFor="let sample of samples; let i = index;"
-          [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}"
-          >
-          <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
-          <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
-          <div fxLayout="column" class="product-inner default-bg mx-8 my-16 full-width">
-            <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
+  <div class="product-container" fxLayout="row wrap" fxLayoutAlign="start start">
+    <!-- Product Box -->
+    <ng-container *ngIf="samples?.length <= 0 && samples != null" ; else product>
+      <div fxFlex fxLayoutAlign="center">
+        <p class="text-center py-16" [ngClass.lt-md]="'px-16'" [ngClass.gt-sm]="'px-64'" style="font-size: 18px;">You have not downloaded a sample yet. You find samples <a class="hypertext" routerLink="/sample-market/find-all">here</a>.</p>
+      </div>
+    </ng-container>
+    <ng-container #product>
+      <!-- | paginate: { itemsPerPage: pageSize, currentPage: pageNo, totalItems: count } -->
+      <div fxLayout="row" class="product-wrap" [ngStyle.gt-sm]=" {'width': '50%'}" [ngStyle.gt-md]=" {'width': '33%'}"
+        *ngFor="let sample of samples; let i = index;" [@animate]="{value:'*',params:{delay: (i*300)+'ms', y:'300px'}}">
+        <!-- [@animate]="{value:'*',params:{delay: (i*50)+'ms', y:'50px'}}" -->
+        <!-- [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'100px'}}" -->
+        <div fxLayout="column" class="product-inner default-bg mx-8 my-16 full-width">
+          <!-- <div *ngIf="product?.badge?.text" class="product-badge mat-elevation-z7" [ngStyle]="{background: product?.badge?.color || '#f44336'}">
                 <span>{{product?.badge?.text}}</span>
               </div> -->
-            <app-audio-panel [sample]="sample" [type]="viewMode === 'grid-view' ? 'sample' : 'primary'" light="true" buttonText="Download" (clickEvent)="downloadAudioFile(sample)"></app-audio-panel>
-            
-            <!-- Visible when viewMode === list-view -->
-            <!-- <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
+          <app-audio-panel [sample]="sample" [type]="viewMode === 'grid-view' ? 'sample' : 'primary'" light="true"
+            buttonText="Download" (clickEvent)="downloadAudioFile(sample)"></app-audio-panel>
+
+          <!-- Visible when viewMode === list-view -->
+          <!-- <div class="more-info-wrap p-16" *ngIf="viewMode === 'list-view'">
               <div class="more-info">
                 <div class="more-actions mb-16">
                   <div class="product-rating">
@@ -99,15 +100,15 @@
               </div>
             </div> -->
 
-          </div>
         </div>
-      </ng-container>
+      </div>
+    </ng-container>
 
-      <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
-      <!-- <div class="products-pagination" *ngIf="count > pageSize">
+    <!-- <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> -->
+    <!-- <div class="products-pagination" *ngIf="count > pageSize">
         <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
       </div> -->
-    </div>
+  </div>
 
 
 

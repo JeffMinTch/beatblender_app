@@ -58,7 +58,18 @@ export class NavigationService implements OnInit {
     //   ]
     // },
     {
-      name: 'Sample Download Area',
+      name: 'Donate Music',
+      type: 'link',
+      tooltip: 'Upload Sample',
+      icon: 'upload',
+      state: 'profile/upload-audio',
+      // sub: [
+      //   { name: 'Upload Sample', state: 'upload-audio', type: 'link' },
+      //   { name: 'My Uploads', state: 'manage-audio', type: 'link' },
+      // ]
+    },
+    {
+      name: 'Download Music',
       type: 'link',
       tooltip: 'My Licenses',
       icon: 'library_books',
@@ -69,9 +80,9 @@ export class NavigationService implements OnInit {
       // ]
     },
     {
-      name: 'My Releases',
+      name: 'My Releases & Licenses',
       type: 'link',
-      tooltip: 'My Releases',
+      tooltip: 'My Releases & Licenses',
       icon: 'album',
       state: 'profile/my-releases'
       // sub: [
@@ -90,17 +101,7 @@ export class NavigationService implements OnInit {
     //     { name: 'My Uploads', state: 'manage-audio', type: 'link' },
     //   ]
     // },
-    {
-      name: 'Upload Sample to Markets',
-      type: 'link',
-      tooltip: 'Upload Sample',
-      icon: 'upload',
-      state: 'profile/upload-audio',
-      // sub: [
-      //   { name: 'Upload Sample', state: 'upload-audio', type: 'link' },
-      //   { name: 'My Uploads', state: 'manage-audio', type: 'link' },
-      // ]
-    },
+    
     // {
     //   name: 'Manage your Uploads',
     //   type: 'link',
@@ -391,56 +392,63 @@ export class NavigationService implements OnInit {
   // },
 
   iconMenu: IMenuItem[] = [
-    {
-      name: 'About',
-      type: 'icon',
-      tooltip: 'About',
-      icon: 'info',
-      state: 'about'
-    },
-    {
-      name: 'Dashboard',
-      type: 'icon',
-      tooltip: 'Dashboard',
-      icon: 'dashboard',
-      state: 'dashboard/overview'
-    },
+    // {
+    //   name: 'About',
+    //   type: 'icon',
+    //   tooltip: 'About',
+    //   icon: 'info',
+    //   state: 'about'
+    // },
+    // {
+    //   name: 'Dashboard',
+    //   type: 'icon',
+    //   tooltip: 'Dashboard',
+    //   icon: 'dashboard',
+    //   state: 'dashboard/overview'
+    // },
     {
       name: 'SAMPLE MARKET',
       type: 'icon',
-      tooltip: 'FREE MUSIC',
+      tooltip: 'FREE SAMPLES',
       icon: 'music_note',
       state: 'sample-market'
     },
-    {
-      name: 'MUSIC',
-      type: 'icon',
-      tooltip: 'Listen Music',
-      icon: 'headset',
-      state: 'listen'
-    },
+    // {
+    //   name: 'MUSIC',
+    //   type: 'icon',
+    //   tooltip: 'Listen Music',
+    //   icon: 'headset',
+    //   state: 'listen'
+    // },
     // {
       {
-        name: 'Licensing',
+        name: 'Register',
         type: 'icon',
-        tooltip: 'Licensing',
+        tooltip: 'REGISTER TRACK',
         icon: 'app_registration',
         state: 'licensing',
       },
-      {
-        name: 'Our Label',
-        type: 'icon',
-        tooltip: 'Our Label',
-        icon: 'maps_home_work',
-        state: 'our-label',
-      },
+      // {
+      //   name: 'Our Label',
+      //   type: 'icon',
+      //   tooltip: 'Our Label',
+      //   icon: 'maps_home_work',
+      //   state: 'our-label',
+      // },
       //   name: 'Collaborate with others',
       {
         name: 'HOME',
         type: 'icon',
-        tooltip: 'Account',
+        tooltip: 'DASHBOARD',
         icon: 'person',
         state: 'profile'
+      },
+      {
+        name: 'CHARITY',
+        type: 'icon',
+        tooltip: 'CHARITY',
+        icon: 'volunteer_activism',
+        state: 'charity',
       },
     //   type: 'icon',
     //   tooltip: 'Collaborate others',
@@ -462,112 +470,112 @@ export class NavigationService implements OnInit {
       type: 'separator',
       name: 'Navigate'
     },
-    {
-      name: 'About',
-      type: 'dropDown',
-      tooltip: 'About',
-      icon: 'info',
-      state: 'about',
-      sub: [
-        { name: 'Introduction', state: 'introduction', type: 'link', icon: 'info' },
-    { name: 'How To Get A License', state: 'how-to-get-a-license', type: 'link', icon: 'info' },
-    { name: 'Sampling Rules', state: 'sampling-rules', type: 'link', icon: 'info' },
-    { name: 'Video Tutorials', state: 'video-tutorials', type: 'link', icon: 'info' },
-    { name: 'FAQ', state: 'faq' , type: 'link', icon: 'info'},
-    { name: 'Our Partners', state: 'partners', type: 'link', icon: 'help' },
-      ]
-    },
+    // {
+    //   name: 'About',
+    //   type: 'dropDown',
+    //   tooltip: 'About',
+    //   icon: 'info',
+    //   state: 'about',
+    //   sub: [
+    //     { name: 'Introduction', state: 'introduction', type: 'link', icon: 'info' },
+    // { name: 'How To Get A License', state: 'how-to-get-a-license', type: 'link', icon: 'info' },
+    // { name: 'Sampling Rules', state: 'sampling-rules', type: 'link', icon: 'info' },
+    // { name: 'Video Tutorials', state: 'video-tutorials', type: 'link', icon: 'info' },
+    // { name: 'FAQ', state: 'faq' , type: 'link', icon: 'info'},
+    // { name: 'Our Partners', state: 'partners', type: 'link', icon: 'help' },
+    //   ]
+    // },
     {
       name: 'Sample Market',
-      type: 'dropDown',
+      type: 'link',
       tooltip: 'Sample Market',
       icon: 'storefront',
       state: 'sample-market',
-      sub: [
-        {
-          name: 'BB License',
-          type: 'link',
-          icon: 'storefront',
-          state: 'bb-license'
-        }
-      ]
-    },
-    {
-      name: 'Listen Music',
-      type: 'dropDown',
-      tooltip: 'Listen Music',
-      icon: 'headset',
-      state: 'listen',
-      sub: [
-        {
-          name: 'All Music',
-          type: 'link',
-          // tooltip: 'All Music',
-          icon: 'headphones',
-          state: 'all-music'
-        },
-        {
-          name: 'Find',
-          type: 'link',
-          // tooltip: 'Find',
-          icon: 'search',
-          state: 'find'
-        },
-        {
-          name: 'Genres',
-          type: 'link',
-          // tooltip: 'Documentation',
-          icon: 'library_books',
-          state: 'genres'
-        },
-        {
-          name: 'Playlists',
-          type: 'link',
-          // tooltip: 'Playlists',
-          icon: 'queue_music',
-          state: 'playlists'
-        },
-      ]
+      // sub: [
+      //   {
+      //     name: 'BB License',
+      //     type: 'link',
+      //     icon: 'storefront',
+      //     state: 'bb-license'
+      //   }
+      // ]
     },
     // {
+    //   name: 'Listen Music',
+    //   type: 'dropDown',
+    //   tooltip: 'Listen Music',
+    //   icon: 'headset',
+    //   state: 'listen',
+    //   sub: [
+    //     {
+    //       name: 'All Music',
+    //       type: 'link',
+    //       // tooltip: 'All Music',
+    //       icon: 'headphones',
+    //       state: 'all-music'
+    //     },
+    //     {
+    //       name: 'Find',
+    //       type: 'link',
+    //       // tooltip: 'Find',
+    //       icon: 'search',
+    //       state: 'find'
+    //     },
+    //     {
+    //       name: 'Genres',
+    //       type: 'link',
+    //       // tooltip: 'Documentation',
+    //       icon: 'library_books',
+    //       state: 'genres'
+    //     },
+    //     {
+    //       name: 'Playlists',
+    //       type: 'link',
+    //       // tooltip: 'Playlists',
+    //       icon: 'queue_music',
+    //       state: 'playlists'
+    //     },
+    //   ]
+    // },
+    // {
       {
-        name: 'Licensing',
-        type: 'dropDown',
-        tooltip: 'Licensing',
+        name: 'Register Track',
+        type: 'link',
+        tooltip: 'Register Track',
         icon: 'app_registration',
-        state: '',
-        sub: [
-          {
-            name: 'License Register',
-            type: 'link',
-            // tooltip: 'License Register',
-            icon: 'app_registration',
-            state: 'licensing/how-to-distribute'
-          },
-          {
-            name: 'Licenses',
-            type: 'link',
-            // tooltip: 'Our Licenses',
-            icon: 'app_registration',
-            state: 'licensing/register-track',
+        state: 'licensing/register-track',
+        // sub: [
+        //   {
+        //     name: 'License Register',
+        //     type: 'link',
+        //     // tooltip: 'License Register',
+        //     icon: 'app_registration',
+        //     state: 'licensing/how-to-distribute'
+        //   },
+        //   {
+        //     name: 'Licenses',
+        //     type: 'link',
+        //     // tooltip: 'Our Licenses',
+        //     icon: 'app_registration',
+        //     state: 'licensing/register-track',
       
-          },
-        ]
+        //   },
+        // ]
       },
       //   name: 'Collaborate with others',
       {
-        name: 'Account',
+        name: 'Dashboard',
         type: 'dropDown',
-        tooltip: 'Account',
+        tooltip: 'Dashboard',
         icon: 'person',
         state: 'profile',
         sub: [
           {
-            name: 'Dashboard',
+            name: 'Donate Music',
             type: 'link',
             // tooltip: 'Dashboard',
-            icon: 'dashboard',
-            state: 'overview'
+            icon: 'upload',
+            state: 'upload-audio'
           },
       
           // {
@@ -582,7 +590,7 @@ export class NavigationService implements OnInit {
           //   ]
           // },
           {
-            name: 'Sample Download Area',
+            name: 'Download Music',
             type: 'link',
             // tooltip: 'My Licenses',
             icon: 'library_books',
@@ -604,11 +612,11 @@ export class NavigationService implements OnInit {
           //   ]
           // },
           {
-            name: 'Upload Sample to Markets',
+            name: 'My Releases & Licenses',
             type: 'link',
             // tooltip: 'Upload Sample',
-            icon: 'upload',
-            state: 'upload-audio',
+            icon: 'album',
+            state: 'my-releases',
             // sub: [
             //   { name: 'Upload Sample', state: 'upload-audio', type: 'link' },
             //   { name: 'My Uploads', state: 'manage-audio', type: 'link' },
@@ -658,6 +666,30 @@ export class NavigationService implements OnInit {
             state: 'settings'
           },
         ]
+      },
+      {
+        name: 'Charity Projects',
+        type: 'link',
+        tooltip: 'Charity Projects',
+        icon: 'volunteer_activism',
+        state: 'charity/projects',
+        // sub: [
+        //   {
+        //     name: 'License Register',
+        //     type: 'link',
+        //     // tooltip: 'License Register',
+        //     icon: 'app_registration',
+        //     state: 'licensing/how-to-distribute'
+        //   },
+        //   {
+        //     name: 'Licenses',
+        //     type: 'link',
+        //     // tooltip: 'Our Licenses',
+        //     icon: 'app_registration',
+        //     state: 'licensing/register-track',
+      
+        //   },
+        // ]
       },
     // {
     //   name: 'All Music',

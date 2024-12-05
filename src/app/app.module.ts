@@ -18,11 +18,15 @@ import { InMemoryDataService } from './shared/inmemory-db/inmemory-db.service';
 import { rootRouterConfig } from './app.routing';
 import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
+import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
+import { environment as env } from '../environments/environment';
 
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 // import { TranslateHttpLoader } from '@ngx-translate/loader';
 import { load_font } from '../app.init';
+import { config } from 'rxjs';
+import { E } from '@angular/cdk/keycodes';
 
 // AoT requires an exported function for factories
 // export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -43,7 +47,7 @@ import { load_font } from '../app.init';
 
 @NgModule({
   imports: [
-    AuthConfigModule,
+    // AuthConfigModule,
     BrowserModule,  
     BrowserAnimationsModule,
     SharedModule,
@@ -56,6 +60,63 @@ import { load_font } from '../app.init';
     //     deps: [HttpClient]
     //   }
     // }),
+    AuthModule.forRoot({
+      ... env.auth,
+      httpInterceptor: {
+        allowedList: [
+          // Attach access tokens to any calls to '/api' (exact match)
+          // '/api',
+    
+          // Attach access tokens to any calls that start with '/api/'
+          // '/api/web/*',
+          {
+            // Match any request that starts 'https://YOUR_DOMAIN/api/v2/' (note the asterisk)
+            uri: '/api/web/*',
+            tokenOptions: {
+              // The attached token should target this audience
+              audience: env.auth.audience,
+    
+              // The attached token should have these scopes
+              // scope: 'read:current_user'
+            }
+          }
+          // Match anything starting with /api/products, but also allow for anonymous users.
+          // {
+          //   uri: '/api/products/*',
+          //   allowAnonymous: true,
+          // },
+    
+          // // Match anything starting with /api/accounts, but also specify the audience and scope the attached
+          // // access token must have
+          // {
+          //   uri: '/api/accounts/*',
+          //   tokenOptions: {
+          //     audience: 'http://my-api/',
+          //     scope: 'read:accounts',
+          //   },
+          // },
+    
+          // // Matching on HTTP method
+          // {
+          //   uri: '/api/orders',
+          //   httpMethod: HttpMethod.Post,
+          //   tokenOptions: {
+          //     audience: 'http://my-api/',
+          //     scope: 'write:orders',
+          //   },
+          // },
+    
+          // // Using an absolute URI
+          // {
+          //   uri: 'https://your-domain.auth0.com/api/v2/users',
+          //   tokenOptions: {
+          //     audience: 'https://your-domain.com/api/v2/',
+          //     scope: 'read:users',
+          //   },
+          // },
+        ],
+      },
+    }),
     InMemoryWebApiModule.forRoot(InMemoryDataService, { passThruUnknownUrl: true}),
     RouterModule.forRoot(rootRouterConfig, { useHash: false, scrollPositionRestoration: 'enabled' }),
   ],
@@ -69,6 +130,8 @@ import { load_font } from '../app.init';
       useFactory: load_font, 
       multi: true
     },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },
+    
     // { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG },
     // REQUIRED IF YOU USE JWT AUTHENTICATION
     // {

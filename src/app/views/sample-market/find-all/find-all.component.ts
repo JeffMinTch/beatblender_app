@@ -81,7 +81,7 @@ export class FindAllComponent implements OnInit {
   duration: number;
 
   pageNo: number = 0;
-  pageSize: number = 30;
+  pageSize: number = 12;
   sortBy: string = 'title';
   count: number = 0;
 
@@ -167,7 +167,7 @@ export class FindAllComponent implements OnInit {
       if (error instanceof HttpErrorResponse) {
         if (error.status === 401) {
           this.ls.clear();
-          this.jwt.signin();
+          //this.jwt.signin();
         }
       }
       console.log(error);
@@ -190,6 +190,7 @@ export class FindAllComponent implements OnInit {
       console.log('Apply')
       const { samples, totalItems } = response;
       this.count = totalItems;
+      console.log(samples);
       // this.audioService.emitAudioUnits(samples);
       // this.audioService.emitAudioUnitsLoading(false);
       this.sampleLicensingMarketService.samples$.next(samples);
@@ -274,7 +275,7 @@ export class FindAllComponent implements OnInit {
 
 
   ngAfterViewInit(): void {
-    this.loader.open();
+    // this.loader.open();
   }
 
   initSearchFilterFormMap(selectionList: Array<Selection>, minMaxSliderList: Array<MinMaxSlider>) {
@@ -594,7 +595,9 @@ export class FindAllComponent implements OnInit {
     });
   }
   redirectToTermsAndConditions(sample: Sample) {
-    this.router.navigate(['download', sample.audioUnit.audioUnitID]);
+    console.log("RedirectTerms and Consitions")
+    console.log(sample.audioUnit.audioUnitID);
+    // this.router.navigate(['download', sample.audioUnit.audioUnitID]);
     
   }
 

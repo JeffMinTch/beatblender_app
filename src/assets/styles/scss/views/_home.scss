@@ -20,12 +20,15 @@
 }
 
 .landing-card {
-  min-width: 450px;
-  max-width: 600px;
   margin: auto 40px 40px auto;
-  height: 200px;
+  // height: 200px;
   width: 450px;
   flex-direction: column;
+}
+
+.landing-card-xs {
+  width: 100% !important;
+  // height: 300px;
 }
 
 .opportunity-card {
@@ -312,3 +315,11 @@ video {
   font-size: 42px;
   color: var(--body-color);
 }
+
+@media only screen and (max-width: 600px) {
+  .cursor {
+    font-size: 22px;
+    color: var(--body-color);
+  }
+}
+
